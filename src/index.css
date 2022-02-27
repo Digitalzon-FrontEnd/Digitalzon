@@ -4,26 +4,31 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-ul,
-ol,
-dl {
+ul,ol,dl {
   list-style: none;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+
+h1,h2,h3,h4,h5,h6 {
   font-weight: normal;
   font-size: 100%;
 }
+
+button{
+  background-color: transparent;
+  text-decoration: none;
+  border: 1px solid #000;
+  box-shadow: none;
+}
+
 body {
+  width: 100%;
   line-height: 1;
 }
 .cf::after {
@@ -37,4 +42,57 @@ body {
 
 .blind {
   display: none;
+}
+
+.warn{
+  color: red;
+  font-size: 12px;
+  padding: 2px;
+}
+
+.trans{
+  color: transparent;
+}
+
+
+.inner{
+  width: 1200px;
+  margin: 0 auto;
+}
+
+h2{
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.page-title{
+  margin-top: 90px;
+  margin-bottom: 30px;
+}
+
+.btn-r{
+  border-radius: 50px;
+  padding: 5px 10px;
+  border: none;
+}
+
+.btn-s{
+  padding: 5px;
+  border: none;
+}
+
+.btn-o{
+  color: #fff;
+  background-color: #fba92f;
+}
+
+.btn-b{
+  color: #fff;
+  background-color: #353c44;
+}
+
+.btn-g{
+  color: #545147;
+  background-color: #ebebeb;
 }
