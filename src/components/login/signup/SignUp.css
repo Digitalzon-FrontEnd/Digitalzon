@@ -1,0 +1,32 @@
+.inner{
+    margin-left: 462px;
+    margin-right: 462px;
+}
+
+#termsTitle{
+    margin-top: 97px;
+    margin-bottom: 42px;
+    font-size: 35px;
+    color: #545147;
+    font-weight: 600;
+    text-align: center;
+}
+
+.step-box{
+    display: flex;
+    justify-content:space-between;
+    margin-bottom: 57px;
+}
+
+.step-box p{
+    padding: 20px 70px;
+    background-color: #ffffff;
+    border-radius: 50px;
+    color: #fba92f;
+    border: 2px solid #fba92f;
+}
+#signup-enter{
+    background-color: #fba92f;
+    color: #ffffff;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}

@@ -68,15 +68,12 @@ body {
   color: transparent;
 }
 
-h2 {
-  font-size: 25px;
-  font-weight: bold;
-  text-align: center;
-}
-
 .page-title {
   margin-top: 90px;
   margin-bottom: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .btn-r {
