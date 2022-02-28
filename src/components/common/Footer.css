@@ -1,0 +1,36 @@
+footer {
+  display: flex;
+  align-items: center;
+  height: 240px;
+  background-color: #c4c4c4;
+}
+
+footer .logo img {
+  width: 295px;
+}
+.logo {
+  margin: 30px;
+}
+.footer-box {
+  display: flex;
+  align-items: center;
+}
+
+.footer-info {
+  margin-right: 256px;
+}
+.footer-info > span {
+  width: 446px;
+  height: 56px;
+  font-family: Roboto;
+  font-size: 12px;
+  text-align: center;
+  color: #6c6363;
+  line-height: 1.3;
+}
+
+.privacy_policy > span {
+  cursor: pointer;
+  font-family: Roboto;
+  font-size: 20px;
+}
