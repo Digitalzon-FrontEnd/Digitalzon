@@ -8,6 +8,8 @@ import Guide from "./guide/Guide";
 import Login from "./login/Login";
 import Terms from "./login/signup/Terms";
 import Panel from "./login/panel/Panel";
+import FindId from "./login/find/FindId";
+import FindPw from "./login/find/FindPw";
 
 const Root = () => {
   const [user, SetUser] = useState(false);
@@ -20,8 +22,10 @@ const Root = () => {
       <Route path="/guide" render={() => <Guide user={user} />} />
       <Route path="/login" component={Login} />
       <Route path="/terms" component={Terms} />
-      <Route path="/panel" component={Panel} />
 
+      <Route path="/findId" component={FindId} />
+      <Route path="/findPw" component={FindPw} />
+      <Route path="/panel" component={Panel} />
       <Footer />
     </div>
   );
