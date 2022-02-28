@@ -4,6 +4,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 ul,
 ol,
@@ -25,6 +26,7 @@ h6 {
 }
 body {
   line-height: 1;
+  overflow-x: hidden;
 }
 .cf::after {
   content: "";
@@ -37,4 +39,11 @@ body {
 
 .blind {
   display: none;
+}
+
+.inner {
+  width: 1200px;
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }

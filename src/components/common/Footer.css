@@ -1,0 +1,40 @@
+footer {
+  display: flex;
+  align-items: center;
+  background-color: #c4c4c4;
+}
+.footer-box {
+  height: 140px;
+  overflow: hidden;
+}
+footer .logo img {
+  height: 140px;
+}
+.logo {
+  margin: 30px;
+}
+.footer-box {
+  display: flex;
+  align-items: center;
+}
+
+.footer-info {
+  margin-right: 136px;
+  width: 500px;
+}
+.footer-info > span {
+  height: 56px;
+
+  font-size: 12px;
+  text-align: center;
+  color: #6c6363;
+  line-height: 1.3;
+}
+.privacy_policy {
+  width: 260px;
+}
+.privacy_policy > span {
+  cursor: pointer;
+
+  font-size: 20px;
+}
