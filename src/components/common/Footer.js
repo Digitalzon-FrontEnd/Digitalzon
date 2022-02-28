@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
+
 const Footer = () => {
   const privacyModal = () => {
     alert("개인정보처리방침");

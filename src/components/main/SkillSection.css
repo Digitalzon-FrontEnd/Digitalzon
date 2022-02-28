@@ -4,8 +4,7 @@
   padding: 120px 0;
 }
 .skill-title {
-  font-family: Roboto;
-  font-size: 55px;
+  font-size: 48px;
   font-weight: 600;
   text-align: center;
   color: #fff;
@@ -18,35 +17,32 @@
 }
 
 .skill-content-des-box {
-  width: 548px;
-  height: 410px;
+  width: 520px;
+  height: 370px;
   background-color: #fff;
   border-radius: 20px;
-  margin: 20px;
+  margin: 10px;
   border-radius: 20px 50px;
-  padding-left: 83px;
+  padding-left: 50px;
   padding-top: 78px;
 }
 
 .skill-content-img {
-  margin-bottom: 44px;
+  margin-bottom: 35px;
 }
 
 .skill-content-title {
-  font-family: Roboto;
   font-size: 30px;
   font-weight: 600;
   text-align: left;
   color: #545147;
-  line-height: 1.3;
-  margin-bottom: 20px;
+  line-height: 1.5;
+  margin-bottom: 16px;
 }
 
 .skill-content-des {
-  font-family: Roboto;
-  font-size: 20px;
+  font-size: 18px;
   text-align: left;
-  font-weight: 700;
   color: #545147;
   line-height: 1.3;
 }

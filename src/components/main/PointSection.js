@@ -42,7 +42,8 @@ const PointSection = () => {
               </div>
               <div className="point-img-des-box">
                 <p className="point-img-des">
-                  필요한 포인트만큼 선 차감 됩니다.
+                  필요한 포인트만큼
+                  <br /> 선 차감 됩니다.
                 </p>
               </div>
             </div>
@@ -58,9 +59,10 @@ const PointSection = () => {
                 />
               </div>
               <div className="point-img-des-box">
-                <p className="point-img-des">
-                  설문 종료 후 받은 설문 응답 수만큼 실제 차감 포인트는 자동으로
-                  계산되어 추가 차감이나 복원이 됩니다.
+                <p className="point-img-des font-small">
+                  설문 종료 후 받은 설문응답 수 만큼 <br />
+                  차감 포인트는 자동으로 계산되어 <br />
+                  추가 차감이나 복원이 됩니다.
                 </p>
               </div>
             </div>

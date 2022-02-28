@@ -4,12 +4,12 @@ header {
   z-index: 1;
 }
 header + * {
-  padding-top: 140px;
+  padding-top: 80px;
 }
 .header-box {
   display: flex;
   justify-content: space-between;
-  height: 140px;
+  height: 80px;
   align-items: center;
   background-color: #fba92f;
   position: relative;
@@ -32,15 +32,15 @@ header + * {
 }
 
 .info-nav > ul .header-info {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 .info-nav > ul .login {
   display: block;
   width: 75px;
   height: 29px;
-  font-family: Roboto;
-  font-size: 25px;
+
+  font-size: 23px;
   font-weight: 600;
   text-align: center;
   color: #545147;
@@ -48,8 +48,8 @@ header + * {
 .info-nav > ul .faq {
   width: 46px;
   height: 29px;
-  font-family: Roboto;
-  font-size: 25px;
+
+  font-size: 23px;
   font-weight: 600;
   text-align: center;
   color: #545147;

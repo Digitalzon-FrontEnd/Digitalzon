@@ -3,7 +3,7 @@
   margin: auto;
 }
 .menu-nav > ul > li {
-  font-size: 23px;
+  font-size: 20px;
   font-weight: 600;
   color: #545147;
   cursor: pointer;
@@ -15,7 +15,7 @@
 }
 .menu-nav > ul > li {
   position: relative;
-  margin: 30px;
+  margin: 30px 25px;
 }
 .menu-nav > ul > li::after {
   position: absolute;
@@ -25,7 +25,7 @@
   height: 20px;
   background-color: #545147;
   top: 50%;
-  right: -30px;
+  right: -25px;
   transform: translate(-50%, -50%);
 }
 .menu-nav > ul > li:last-child::after {
