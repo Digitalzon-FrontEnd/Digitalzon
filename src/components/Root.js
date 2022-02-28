@@ -1,12 +1,27 @@
 import React from "react";
 import Header from "./common/Header";
 import Footer from "./common/Footer";
+import Terms from "./login/signup/Terms";
+import Complete from "./login/signup/Complete";
+import { Route, Switch } from 'react-router-dom';
+import InfoInput from "./login/signup/InfoInput";
+
 const Root = () => {
   return (
     <div>
       <Header />
       <div className="inner_box">
-        {/*  inner-box 에 있는 컴포넌트 추가하시면 됩니다.  */}
+        <Switch>
+          <Route exact path="/">
+            <Terms />
+          </Route>
+          <Route path="/infoinput">
+            <InfoInput />
+          </Route>
+          <Route path="/complete">
+            <Complete />
+          </Route>
+        </Switch>
       </div>
       <Footer />
     </div>
