@@ -8,6 +8,7 @@ import Guide from "./guide/Guide";
 import Login from "./login/Login";
 import Terms from "./login/signup/Terms";
 import Panel from "./login/panel/Panel";
+
 const Root = () => {
   const [user, SetUser] = useState(false);
 
@@ -20,6 +21,7 @@ const Root = () => {
       <Route path="/login" component={Login} />
       <Route path="/terms" component={Terms} />
       <Route path="/panel" component={Panel} />
+
       <Footer />
     </div>
   );
