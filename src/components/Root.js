@@ -14,22 +14,21 @@ import Complete from "./login/signup/Complete";
 import InfoInput from "./login/signup/InfoInput";
 
 const Root = () => {
-  const [user, SetUser] = useState(false);
+  const [user, setUser] = useState(false);
 
   return (
     <div>
-      <Header />
+      <Header user={user} />
       <Route exact path="/" component={Main} />
       <Route path="/faq" render={() => <Faq user={user} />} />
       <Route path="/guide" render={() => <Guide user={user} />} />
-      <Route path="/login" component={Login} />
+      <Route path="/login" render={() => <Login setUser={setUser} />} />
       <Route path="/terms" component={Terms} />
       <Route path="/findId" component={FindId} />
       <Route path="/findPw" component={FindPw} />
       <Route path="/panel" component={Panel} />
       <Route path="/infoinput" component={InfoInput} />
       <Route path="/complete" component={Complete} />
-
       <Footer />
     </div>
   );
