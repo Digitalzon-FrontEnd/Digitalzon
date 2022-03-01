@@ -8,7 +8,7 @@ const Footer = () => {
   };
   return (
     <footer>
-      <div className="inner">
+      <div className="footer-inner">
         <div className="footer-box">
           <Link to="/">
             <div className="logo">

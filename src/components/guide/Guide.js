@@ -1,9 +1,12 @@
 import React from "react";
+import Gnb from "../common/Gnb";
 import "./Guide.css";
 
 const Guide = () => {
   return (
     <div className="inner">
+      <Gnb />
+
       <h3 className="guide-section-title">설문발송순서</h3>
       <ol className="guide-section-list">
         <li>신규설문을 등록해주세요.</li>

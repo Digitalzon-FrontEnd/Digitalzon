@@ -4,7 +4,7 @@ import "./SolutionSection.css";
 const SolutionSection = () => {
   return (
     <section className="solution-section">
-      <div className="inner">
+      <div className="main-inner">
         <h1 className="solution-title">
           <span>디지털존</span>의 설문조사 솔루션이 필요하십니까?
         </h1>

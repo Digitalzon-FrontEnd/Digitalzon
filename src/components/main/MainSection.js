@@ -5,7 +5,7 @@ import "./MainSection.css";
 const MainSection = () => {
   return (
     <section className="main-section">
-      <div className="inner">
+      <div className="main-inner">
         <h1 className="survey-title">설문 조사로 해결책을 얻으세요!</h1>
         <div className="main-contnet-box">
           <div className="main-contnet-box-left">

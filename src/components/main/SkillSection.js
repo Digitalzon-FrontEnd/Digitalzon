@@ -4,7 +4,7 @@ import "./SkillSection.css";
 const SkillSection = () => {
   return (
     <section className="skill-section">
-      <div className="inner">
+      <div className="main-inner">
         <h1 className="skill-title"> 주요 기능들</h1>
         <div className="skill-content-box">
           <div className="skill-content-des-box">

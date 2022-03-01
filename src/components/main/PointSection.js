@@ -3,7 +3,7 @@ import "./PointSection.css";
 const PointSection = () => {
   return (
     <section className="point-section">
-      <div className="inner">
+      <div className="main-inner">
         <h1 className="point-title">
           <span>디지털존</span>의 포인트 제도를 확인해보세요.
         </h1>

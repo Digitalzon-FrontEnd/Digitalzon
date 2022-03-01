@@ -27,7 +27,7 @@ const Login = () => {
           <Link to="/findPw">비밀번호 찾기</Link>
         </li>
         <li>
-          <Link to="/signUp">회원가입</Link>
+          <Link to="/terms">회원가입</Link>
         </li>
       </ul>
       <button className="login-btn-panel-register btn-r btn-b">

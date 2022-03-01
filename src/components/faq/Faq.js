@@ -1,4 +1,5 @@
 import React from "react";
+import Gnb from "../common/Gnb";
 import "./Faq.css";
 
 const Faq = () => {
@@ -29,6 +30,7 @@ const Faq = () => {
   return (
     <div className="faq">
       <div className="inner">
+        <Gnb />
         <div className="faq-btn-box">
           <button
             className="faq-btn-categoryAll btn-r btn-b"

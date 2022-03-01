@@ -4,7 +4,7 @@ import "./OrderSection.css";
 const OrderSection = () => {
   return (
     <section className="order-section">
-      <div className="inner">
+      <div className="main-inner">
         <h1 className="order-title">설문 발송 순서</h1>
         <img
           className="order-img"

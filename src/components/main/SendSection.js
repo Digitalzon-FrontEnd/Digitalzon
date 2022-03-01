@@ -4,7 +4,7 @@ import "./SendSection.css";
 const SendSection = () => {
   return (
     <section className="send-section">
-      <div className="inner">
+      <div className="main-inner">
         <div className="send-content-box">
           <div className="send-contnet-box-left">
             <img
