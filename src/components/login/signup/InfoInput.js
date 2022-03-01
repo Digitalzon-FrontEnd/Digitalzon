@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import './InfoInput.css';
 import Modal from "./Modal";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const InfoInput = () => {
@@ -44,10 +43,26 @@ const InfoInput = () => {
             return { type: "password" };
         })
     };
-
-    /*const handleSubmit = (e) => {
-        e.preventDefault(); }
-    */ //지금은 submit이랑 백엔드랑 할 수 없으니 일단은 action="/complete"로 하고 추후수정
+    const pwValue = useRef();
+    const pwCheckValue = useRef();
+    const emailCheck = useRef();
+    const handleSubmit = (e) => {
+        const inputValue = (i) => {
+            return i.current.value
+        }
+        if(inputValue(pwValue) !== inputValue(pwCheckValue)){
+            e.preventDefault();
+            alert("비밀번호가 일치하지 않습니다");
+            pwValue.current.focus();
+            pwValue.current.value = "";
+            pwCheckValue.current.value = "";
+        }else if(!switchOn){
+            e.preventDefault();
+            alert("이메일인증을 완료해주세요");
+            emailCheck.current.focus();
+        };
+    };
+    //지금은 submit이랑 백엔드랑 할 수 없으니 일단은 action="/complete"로 하고 추후수정
 
     return <div className="inner">
         <div className="termsInner">
@@ -60,7 +75,7 @@ const InfoInput = () => {
                 <p>Step3. 가입 완료</p>
                 </div>
             </div>
-            <form className="registerBox" action="/complete"  /*onSubmit={handleSubmit}*/>
+            <form className="registerBox" action="/complete" onSubmit={handleSubmit}>
                 <p id="registerTitle">기본정보 입력 <span className="essential">&#40;필수&#41;</span></p>
                 <div className="registerPer">
                     <div className="membership">
@@ -69,7 +84,7 @@ const InfoInput = () => {
                             <p id="transferGuideBtn">?</p>
                         </button>
                         </label>
-                        <input type="radio" name="memCheck"  onClick={onClicked}  required checked></input>
+                        <input type="radio" name="memCheck"  onClick={onClicked}  required defaultChecked></input>
                         <label>개인회원</label>
                         <input type="radio"  name="memCheck" onClick={onClick}></input>
                         <label>법인회원</label>
@@ -104,15 +119,14 @@ const InfoInput = () => {
                             required></input>
                         </div>
                         <div className="pwBox">
-                            <label>비밀번호 입력</label>
-                            <input type={passwordType.type} placeholder="영문 대소문자/숫자 혼합 10~15자리 내로 입력해주세요."   name="password"
+                            <label htmlFor="infoInputPw">비밀번호 입력</label>
+                            <input id="infoInputPw" type={passwordType.type} placeholder="영문 대소문자/숫자 혼합 10~15자리 내로 입력해주세요."   name="password" ref={pwValue}
                             required></input>
                             <button className="eyesIcon" type="button" name="password2" onClick={handlePasswordType}>비밀번호 문자 표시</button>
                         </div>
                         <div className="pwCheckBox">
-                            <label>비밀번호 확인</label>
-                            <input type={pwType.type} name="passwordCheck"
-                            required></input>
+                            <label htmlFor="infoInputPwCheck">비밀번호 확인</label>
+                            <input id="infoInputPwCheck" type={pwType.type} name="passwordCheck" ref={pwCheckValue} required></input>
                             <button className="eyesIcon" type="button" name="passwordCheck2" onClick={handlePwType}>비밀번호 문자 표시</button>
                         </div>
                         <div className="callBox">
@@ -131,7 +145,7 @@ const InfoInput = () => {
                             <label>이메일 입력</label>
                             <input type="email"  name="email"
                             required/>
-                            <button type="button" onClick={onClickEmail}>{switchOn ? <div>인증완료</div> : <div>인증</div>}</button>
+                            <button type="button" onClick={onClickEmail} ref={emailCheck}>{switchOn ? <div>인증완료</div> : <div>인증</div>}</button>
                         </div>
                     </div>
                 </div>
