@@ -39,6 +39,9 @@ body {
   line-height: 1;
   overflow-x: hidden;
 }
+
+/* 유틸 */
+
 .cf::after {
   content: "";
   width: 0;
@@ -68,6 +71,8 @@ body {
   color: transparent;
 }
 
+/* 공통클래스 */
+
 .page-title {
   margin-top: 90px;
   margin-bottom: 30px;
@@ -76,34 +81,41 @@ body {
   text-align: center;
 }
 
+/* 버튼 사용 예시 : 둥근모서리 주황색버튼을 만든다면 클래스명에 btn-r btn-o 추가  */
 .btn-r {
+  /* 둥근버튼 */
   border-radius: 50px;
   padding: 5px 10px;
 }
 
 .btn-s {
+  /* 네모버튼 */
   padding: 5px;
 }
 
 .btn-o {
+  /* 주황색버튼 */
   color: #fff;
   background-color: #fba92f;
   border: none;
 }
 
 .btn-b {
+  /* 검은색버튼 */
   color: #fff;
   background-color: #353c44;
   border: none;
 }
 
 .btn-g {
+  /* 회색버튼 */
   color: #545147;
   background-color: #ebebeb;
   border: none;
 }
 
 .btn-w {
+  /* 흰색버튼 */
   color: #7b848e;
   border: 1px solid #7b848e;
 }

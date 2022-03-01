@@ -1,36 +1,208 @@
 import React, { useState } from "react";
 import Header from "./common/Header";
 import Footer from "./common/Footer";
-import Main from "./main/Main";
-import { Route, Switch } from "react-router-dom";
-import Faq from "./faq/Faq";
-import Guide from "./guide/Guide";
-import Login from "./login/Login";
-import Panel from "./login/panel/Panel";
-import FindId from "./login/find/FindId";
-import FindPw from "./login/find/FindPw";
-import Terms from "./login/signup/Terms";
-import Complete from "./login/signup/Complete";
-import InfoInput from "./login/signup/InfoInput";
+import { Route } from "react-router-dom";
+
+import Survey from "./survey/Survey";
+import SurveyDetail from "./survey/SurveyDetail";
 
 const Root = () => {
+  const [posts, setPosts] = useState([
+    {
+      num: 1,
+      surveyName: "갤럭시S21 사용자 만족도 조사",
+      date: "2021.10.28 ~ 2021.11.28",
+      needSample: 500,
+      completeSample: 0,
+      state: "승인완료",
+      registrant: "홍길동",
+      affiliation: "개인",
+      activation: true,
+    },
+    {
+      num: 2,
+      surveyName: "갤럭시S21 사용자 만족도 조사2",
+      date: "2021.10.11 ~ 2021.11.22",
+      needSample: 5200,
+      completeSample: 20,
+      state: "승인실패",
+      registrant: "홍길동2",
+      affiliation: "개인2",
+      activation: false,
+    },
+    {
+      num: 3,
+      surveyName: "갤럭시S21 사용자 만족도 조사3",
+      date: "2021.10.11 ~ 2021.11.22",
+      needSample: 5200,
+      completeSample: 20,
+      state: "승인실패",
+      registrant: "홍길동3",
+      affiliation: "개인3",
+      activation: false,
+    },
+    {
+      num: 4,
+      surveyName: "갤럭시S21 사용자 만족도 조사3",
+      date: "2021.10.11 ~ 2021.11.22",
+      needSample: 5200,
+      completeSample: 20,
+      state: "승인실패",
+      registrant: "홍길동3",
+      affiliation: "개인3",
+      activation: false,
+    },
+    {
+      num: 5,
+      surveyName: "갤럭시S21 사용자 만족도 조사3",
+      date: "2021.10.11 ~ 2021.11.22",
+      needSample: 5200,
+      completeSample: 20,
+      state: "승인실패",
+      registrant: "홍길동3",
+      affiliation: "개인3",
+      activation: false,
+    },
+    {
+      num: 6,
+      surveyName: "갤럭시S21 사용자 만족도 조사3",
+      date: "2021.10.11 ~ 2021.11.22",
+      needSample: 5200,
+      completeSample: 20,
+      state: "승인실패",
+      registrant: "홍길동3",
+      affiliation: "개인3",
+      activation: false,
+    },
+    {
+      num: 7,
+      surveyName: "갤럭시S21 사용자 만족도 조사3",
+      date: "2021.10.11 ~ 2021.11.22",
+      needSample: 5200,
+      completeSample: 20,
+      state: "승인실패",
+      registrant: "홍길동3",
+      affiliation: "개인3",
+      activation: false,
+    },
+    {
+      num: 8,
+      surveyName: "갤럭시S21 사용자 만족도 조사3",
+      date: "2021.10.11 ~ 2021.11.22",
+      needSample: 5200,
+      completeSample: 20,
+      state: "승인실패",
+      registrant: "홍길동3",
+      affiliation: "개인3",
+      activation: false,
+    },
+    {
+      num: 9,
+      surveyName: "갤럭시S21 사용자 만족도 조사3",
+      date: "2021.10.11 ~ 2021.11.22",
+      needSample: 5200,
+      completeSample: 20,
+      state: "승인실패",
+      registrant: "홍길동3",
+      affiliation: "개인3",
+      activation: false,
+    },
+
+    {
+      num: 10,
+      surveyName: "갤럭시S21 사용자 만족도 조사3",
+      date: "2021.10.11 ~ 2021.11.22",
+      needSample: 5200,
+      completeSample: 20,
+      state: "승인실패",
+      registrant: "홍길동3",
+      affiliation: "개인3",
+      activation: false,
+    },
+    {
+      num: 11,
+      surveyName: "갤럭시S21 사용자 만족도 조사3",
+      date: "2021.10.11 ~ 2021.11.22",
+      needSample: 5200,
+      completeSample: 20,
+      state: "승인실패",
+      registrant: "홍길동3",
+      affiliation: "개인3",
+      activation: false,
+    },
+    {
+      num: 12,
+      surveyName: "갤럭시S21 사용자 만족도 조사3",
+      date: "2021.10.11 ~ 2021.11.22",
+      needSample: 5200,
+      completeSample: 20,
+      state: "승인실패",
+      registrant: "홍길동3",
+      affiliation: "개인3",
+      activation: false,
+    },
+    {
+      num: 13,
+      surveyName: "갤럭시S21 사용자 만족도 조사3",
+      date: "2021.10.11 ~ 2021.11.22",
+      needSample: 5200,
+      completeSample: 20,
+      state: "승인실패",
+      registrant: "홍길동3",
+      affiliation: "개인3",
+      activation: false,
+    },
+    {
+      num: 14,
+      surveyName: "갤럭시S21 사용자 만족도 조사3",
+      date: "2021.10.11 ~ 2021.11.22",
+      needSample: 5200,
+      completeSample: 20,
+      state: "승인실패",
+      registrant: "홍길동3",
+      affiliation: "개인3",
+      activation: false,
+    },
+    {
+      num: 15,
+      surveyName: "갤럭시S21 사용자 만족도 조사3",
+      date: "2021.10.11 ~ 2021.11.22",
+      needSample: 5200,
+      completeSample: 20,
+      state: "승인실패",
+      registrant: "홍길동3",
+      affiliation: "개인3",
+      activation: false,
+    },
+  ]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);
   const [user, SetUser] = useState(false);
 
+  const indexOfLast = currentPage * postsPerPage;
+  const indexOfFirst = indexOfLast - postsPerPage;
+
+  function currentPosts(tmp) {
+    let currentPosts = 0;
+    currentPosts = tmp.slice(indexOfFirst, indexOfLast);
+    return currentPosts;
+  }
   return (
     <div>
       <Header />
-      <Route exact path="/" component={Main} />
-      <Route path="/faq" render={() => <Faq user={user} />} />
-      <Route path="/guide" render={() => <Guide user={user} />} />
-      <Route path="/login" component={Login} />
-      <Route path="/terms" component={Terms} />
-
-      <Route path="/findId" component={FindId} />
-      <Route path="/findPw" component={FindPw} />
-      <Route path="/panel" component={Panel} />
-      <Route path="/infoinput" component={InfoInput} />
-      <Route path="/complete" component={Complete} />
-
+      <Route
+        exact={true}
+        path="/"
+        render={() => (
+          <Survey
+            posts={currentPosts(posts)}
+            postsPerPage={postsPerPage}
+            totalPosts={posts.length}
+            paginate={setCurrentPage}
+          />
+        )}
+      />
+      <Route path={`/survey/SurveyDetail/:num`} component={SurveyDetail} />
       <Footer />
     </div>
   );
