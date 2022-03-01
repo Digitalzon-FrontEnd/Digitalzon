@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "./common/Header";
 import Footer from "./common/Footer";
 import Main from "./main/Main";
-import { Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Faq from "./faq/Faq";
 import Guide from "./guide/Guide";
 import Login from "./login/Login";

@@ -1,10 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import './Terms.css';
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Terms = () => {
-  {/*const history = useHistory();*/}
+  /*const history = useHistory();*/
   const [checkedInputs, setCheckedInputs] = useState([]);
   const changeHandler = (checked,id) => {
     if (checked) {
