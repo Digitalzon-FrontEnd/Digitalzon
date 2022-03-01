@@ -24,7 +24,6 @@ const Root = () => {
       <Route path="/guide" render={() => <Guide user={user} />} />
       <Route path="/login" component={Login} />
       <Route path="/terms" component={Terms} />
-
       <Route path="/findId" component={FindId} />
       <Route path="/findPw" component={FindPw} />
       <Route path="/panel" component={Panel} />

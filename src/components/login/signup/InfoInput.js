@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const InfoInput = () => {
-    const [showCorp, setShowCorp] = React.useState(false);
+    const [showCorp, setShowCorp] = useState(false);
     const onClick = () => setShowCorp(true);
     const onClicked = () => setShowCorp(false);
     /*const isCheckBoxClicked = () => {
@@ -32,16 +32,16 @@ const InfoInput = () => {
     };
     
     const [pwType, setPwType] = useState({
-        type: 'password',
-        name: 'passwordCheck',
+        type: "password",
+        name: "passwordCheck",
         visible: false
     });
     const handlePwType = e => {
         setPwType(() => {
-            if (!pwType.visible) {
-                return { type: 'text', visible: true };
+            if (pwType.type !== "text") {
+                return { type: "text" };
             }
-            return { type: 'password', visible: false };
+            return { type: "password" };
         })
     };
 
@@ -69,7 +69,7 @@ const InfoInput = () => {
                             <p id="transferGuideBtn">?</p>
                         </button>
                         </label>
-                        <input type="radio" name="memCheck"  onClick={onClicked}  required></input>
+                        <input type="radio" name="memCheck"  onClick={onClicked}  required checked></input>
                         <label>개인회원</label>
                         <input type="radio"  name="memCheck" onClick={onClick}></input>
                         <label>법인회원</label>
@@ -85,7 +85,7 @@ const InfoInput = () => {
                             <div className="corNum">
                                 <label>사업자등록번호</label>
                                 <input  required></input>
-                                <button type="submit"><p>법인 조회</p></button>
+                                <button type="button"><p>법인 조회</p></button>
                             </div>
                         </div> 
                         : null }
@@ -96,7 +96,7 @@ const InfoInput = () => {
                             <label>아이디</label>
                             <input type="id" name="userId"
                             required></input>
-                            <button>중복확인</button>
+                            <button type="button">중복확인</button>
                         </div>
                         <div className="userNameBox">
                             <label>사용자 이름</label>
@@ -107,37 +107,37 @@ const InfoInput = () => {
                             <label>비밀번호 입력</label>
                             <input type={passwordType.type} placeholder="영문 대소문자/숫자 혼합 10~15자리 내로 입력해주세요."   name="password"
                             required></input>
-                            <button className="eyesIcon" name="password2" onClick={handlePasswordType}>비밀번호 문자 표시</button>
+                            <button className="eyesIcon" type="button" name="password2" onClick={handlePasswordType}>비밀번호 문자 표시</button>
                         </div>
                         <div className="pwCheckBox">
                             <label>비밀번호 확인</label>
                             <input type={pwType.type} name="passwordCheck"
                             required></input>
-                            <button className="eyesIcon" name="passwordCheck2" onClick={handlePwType}>비밀번호 문자 표시</button>
+                            <button className="eyesIcon" type="button" name="passwordCheck2" onClick={handlePwType}>비밀번호 문자 표시</button>
                         </div>
                         <div className="callBox">
                             <label>휴대폰 번호</label>
-                            <input type="tel" name="phoneNumber"
+                            <input type="number" name="phoneNumber" placeholder="'-'없이 숫자만 입력해주세요"
                             required></input>
-                            <button>인증번호 발송</button>
+                            <button type="button">인증번호 발송</button>
                         </div>
                         <div className="numInput">
                             <label>인증번호 입력</label>
                             <input type="text" name="certificationNumber"
                             required></input>
-                            <button>확인</button>
+                            <button type="button">확인</button>
                         </div>
                         <div className="emailBox">
                             <label>이메일 입력</label>
                             <input type="email"  name="email"
                             required/>
-                            <button onClick={onClickEmail}>{switchOn ? <div>인증완료</div> : <div>인증</div>}</button>
+                            <button type="button" onClick={onClickEmail}>{switchOn ? <div>인증완료</div> : <div>인증</div>}</button>
                         </div>
                     </div>
                 </div>
                 <div className="historyBtn">
                 <button>
-                    <Link to="/">
+                    <Link to="/terms">
                         <h2 id="backBtn">이전페이지</h2>
                     </Link>
                 </button>
