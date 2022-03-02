@@ -39,9 +39,9 @@ const FindId = () => {
       </ul>
       <div className="findId-btn-box">
         <button className="findId-btn-id-send btn-r btn-o">아이디 발송</button>
-        <button className="findId-btn-cancel btn-r btn-g">
-          <Link to="/login">취소</Link>
-        </button>
+        <Link to="/login">
+          <button className="findId-btn-cancel btn-r btn-g">취소</button>
+        </Link>
       </div>
     </div>
   );

@@ -30,9 +30,11 @@ const Login = () => {
           <Link to="/terms">회원가입</Link>
         </li>
       </ul>
-      <button className="login-btn-panel-register btn-r btn-b">
-        <Link to="/panel">패널인증시스템 신청하기</Link>
-      </button>
+      <Link to="/panel">
+        <button className="login-btn-panel-register btn-r btn-b">
+          패널인증시스템 신청하기
+        </button>
+      </Link>
     </div>
   );
 };

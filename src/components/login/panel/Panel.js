@@ -51,9 +51,11 @@ const Panel = () => {
       </ul>
       <div className="panel-btn-box">
         <button className="panel-btn-panel-req btn-r btn-o">문의신청</button>
-        <button className="panel-btn-cancel btn-r btn-g">
-          <Link to="/login">취소</Link>
-        </button>
+        <Link to="/login">
+          <button className="panel-btn-cancel btn-r btn-g">
+            취소
+          </button>
+        </Link>
       </div>
     </div>
   );

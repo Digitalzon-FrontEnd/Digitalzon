@@ -76,9 +76,11 @@ const FindPw = () => {
         <button className="findPw-btn-id-send btn-r btn-o">
           임시 비밀번호 발송
         </button>
-        <button className="findPw-btn-cancel btn-r btn-g">
-          <Link to="/login">취소</Link>
-        </button>
+        <Link to="/login">
+          <button className="findPw-btn-cancel btn-r btn-g">
+            취소
+          </button>
+        </Link>
       </div>
     </div>
   );
