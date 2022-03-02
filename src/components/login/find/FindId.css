@@ -18,6 +18,10 @@
     text-indent: 5px;
 }
 
+.findId-form-area button{
+    cursor: pointer;
+}
+
 .findId-btn-box{
     width: 280px;
     text-align: center;

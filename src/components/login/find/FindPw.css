@@ -18,6 +18,10 @@
     text-indent: 5px;
 }
 
+.findPw-form-area button{
+    cursor: pointer;
+}
+
 .findPw-cellNum-box{
     display: flex;
     position: relative;

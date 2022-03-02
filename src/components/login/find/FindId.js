@@ -17,33 +17,35 @@ const FindId = () => {
   return (
     <div className="inner">
       <h2 className="page-title">아이디 찾기</h2>
-      <ul className="findId-form-area">
-        <li>
-          <label htmlFor="findIdUserEmail">이메일</label>
-          <input
-            id="findIdUserEmail"
-            type="email"
-            onKeyUp={emailcheck}
-            autoFocus
-            required
-          />
-          <p className="warn">
-            <span id="findIdNoAt" className="trans">
-              잘못된 메일형식입니다.
-            </span>
-          </p>
-        </li>
-        <li>
-          <label htmlFor="findIdUserName">사용자명</label>
-          <input id="findIdUserName" type="text" required />
-        </li>
-      </ul>
-      <div className="findId-btn-box">
-        <button className="findId-btn-id-send btn-r btn-o">아이디 발송</button>
-        <Link to="/login">
-          <button className="findId-btn-cancel btn-r btn-g">취소</button>
-        </Link>
-      </div>
+      <form className="findId-form-area" action="/login">
+        <ul className="findId-form-list">
+          <li>
+            <label htmlFor="findIdUserEmail">이메일</label>
+            <input
+              id="findIdUserEmail"
+              type="email"
+              onKeyUp={emailcheck}
+              autoFocus
+              required
+            />
+            <p className="warn">
+              <span id="findIdNoAt" className="trans">
+                잘못된 메일형식입니다.
+              </span>
+            </p>
+          </li>
+          <li>
+            <label htmlFor="findIdUserName">사용자명</label>
+            <input id="findIdUserName" type="text" required />
+          </li>
+        </ul>
+        <div className="findId-btn-box">
+          <button className="findId-btn-id-send btn-r btn-o" type="submit">아이디 발송</button>
+          <Link to="/login">
+            <button className="findId-btn-cancel btn-r btn-g" type="button">취소</button>
+          </Link>
+        </div>
+      </form>
     </div>
   );
 };

@@ -25,6 +25,10 @@
     text-indent: 5px;
 }
 
+.panel-form-area button{
+    cursor: pointer;
+}
+
 .panel-form-area #panelReqContents{
     height: 100px;
     text-indent: 5px;
