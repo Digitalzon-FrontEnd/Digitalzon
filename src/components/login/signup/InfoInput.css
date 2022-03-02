@@ -178,6 +178,6 @@
   height: 28px;
   border: solid 1px #c4c4c4;
 }
-button {
+.termsInner button {
   cursor: pointer;
 }

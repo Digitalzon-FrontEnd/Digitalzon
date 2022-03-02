@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 const Complete = () => {
   return <div className="inner">
-    <div className="termsInner">
+    <div className="completeInner">
       <div className="signupBox">
-              <h4 id="termsTitle">회원가입</h4>
+              <h4 id="completeTitle">회원가입</h4>
               <div className="stepBox">
                   <p>Step1. 약관 동의</p>
                   <p>Step2. 정보 입력</p>
