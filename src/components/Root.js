@@ -12,13 +12,19 @@ import FindPw from "./login/find/FindPw";
 import Terms from "./login/signup/Terms";
 import Complete from "./login/signup/Complete";
 import InfoInput from "./login/signup/InfoInput";
+import AccountChange from "./account/AccountChange";
 
 const Root = () => {
   const [user, setUser] = useState(false);
 
   return (
     <div>
-      <Header user={user} />
+      <Header />
+
+      {/* 테스트 */}
+      <AccountChange />
+      {/* 테스트 */}
+
       <Route exact path="/" component={Main} />
       <Route path="/faq" render={() => <Faq user={user} />} />
       <Route path="/guide" render={() => <Guide user={user} />} />

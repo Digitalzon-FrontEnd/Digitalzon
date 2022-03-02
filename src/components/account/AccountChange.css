@@ -1,0 +1,24 @@
+.account-inner{
+    width: 690.3px;
+    margin: 0 auto;
+}
+.account-step-box{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 122.5px;
+}
+.account-step{
+    width: 230.1px;
+    height: 42.3px;
+    line-height: 42.3px;
+    border: solid 1px #c4c4c4;
+    font-size: 17px;
+    font-weight: 500;
+    color: #c4c4c4;
+    text-align: center;
+}
+#account-step-enter{
+    color: #545147;
+    background-color: #fba92f;
+
+}
