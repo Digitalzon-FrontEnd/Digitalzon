@@ -10,11 +10,11 @@ const Login = () => {
         <ul className="login-form-list">
           <li>
             <label htmlFor="loginUserId">아이디</label>
-            <input id="loginUserId" type="text" autoFocus />
+            <input id="loginUserId" type="text" autoFocus required />
           </li>
           <li>
             <label htmlFor="loginUserPw">비밀번호</label>
-            <input id="loginUserPw" type="password" />
+            <input id="loginUserPw" type="password" required />
           </li>
         </ul>
         <div className="login-btn-box">
