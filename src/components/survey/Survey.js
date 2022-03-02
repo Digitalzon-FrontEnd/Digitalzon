@@ -54,7 +54,6 @@ const Survey = ({ posts, postsPerPage, totalPosts, paginate }) => {
             })}
           </tbody>
         </table>
-
         <Pagination
           postsPerPage={postsPerPage}
           totalPosts={totalPosts}
