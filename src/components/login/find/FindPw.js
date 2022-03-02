@@ -29,9 +29,10 @@ const FindPw = () => {
           <label htmlFor="findPwUserEmail">이메일</label>
           <input
             id="findPwUserEmail"
-            type="text"
+            type="email"
             onKeyUp={emailcheck}
             autoFocus
+            required
           />
           <p className="warn">
             <span id="findPwNoAt" className="trans">
@@ -41,7 +42,7 @@ const FindPw = () => {
         </li>
         <li>
           <label htmlFor="findPwUserId">사용자명</label>
-          <input id="findPwUserId" type="text" />
+          <input id="findPwUserId" type="text" required />
         </li>
         <li>
           <label htmlFor="findPwCellNum1">휴대폰번호</label>
@@ -51,12 +52,14 @@ const FindPw = () => {
               type="text"
               maxLength="3"
               onKeyUp={lengthcheck}
+              required
             />
             <input
               id="findPwCellNum2"
               type="text"
               maxLength="4"
               onKeyUp={lengthcheck}
+              required
             />
             <input id="findPwCellNum3" type="text" maxLength="4" />
             <button className="findPw-btn-send-certifyNum btn-s btn-o">
@@ -67,7 +70,7 @@ const FindPw = () => {
         <li>
           <label htmlFor="findPwCertifyNum">인증번호</label>
           <div className="findPw-certify-box">
-            <input id="findPwCertifyNum" type="text" />
+            <input id="findPwCertifyNum" type="text" required />
             <button className="findPw-btn-confirm btn-s btn-o">확인</button>
           </div>
         </li>

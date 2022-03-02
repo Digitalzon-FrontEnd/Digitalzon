@@ -25,19 +25,19 @@ const Panel = () => {
       <ul className="panel-form-area">
         <li>
           <label htmlFor="panelUserCorpName">업체명</label>
-          <input id="panelUserCorpName" type="text" autoFocus />
+          <input id="panelUserCorpName" type="text" autoFocus required />
         </li>
         <li>
           <label htmlFor="panelUserName">담당자명</label>
-          <input id="panelUserName" type="text" />
+          <input id="panelUserName" type="text" required />
         </li>
         <li>
           <label htmlFor="panelUserCellNum">연락처</label>
-          <input id="panelUserCellNum" type="text" />
+          <input id="panelUserCellNum" type="number" required />
         </li>
         <li>
           <label htmlFor="panelUserEmail">이메일</label>
-          <input id="panelUserEmail" type="text" onKeyUp={emailcheck} />
+          <input id="panelUserEmail" type="email" onKeyUp={emailcheck} required />
           <p className="warn">
             <span id="panelNoAt" className="trans">
               잘못된 메일형식입니다.
@@ -46,7 +46,7 @@ const Panel = () => {
         </li>
         <li>
           <label htmlFor="panelReqContents">신청/문의내용</label>
-          <textarea id="panelReqContents" wrap="keep-all" />
+          <textarea id="panelReqContents" wrap="keep-all" required/>
         </li>
       </ul>
       <div className="panel-btn-box">

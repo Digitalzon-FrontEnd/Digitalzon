@@ -22,9 +22,10 @@ const FindId = () => {
           <label htmlFor="findIdUserEmail">이메일</label>
           <input
             id="findIdUserEmail"
-            type="text"
+            type="email"
             onKeyUp={emailcheck}
             autoFocus
+            required
           />
           <p className="warn">
             <span id="findIdNoAt" className="trans">
@@ -34,7 +35,7 @@ const FindId = () => {
         </li>
         <li>
           <label htmlFor="findIdUserName">사용자명</label>
-          <input id="findIdUserName" type="text" />
+          <input id="findIdUserName" type="text" required />
         </li>
       </ul>
       <div className="findId-btn-box">
