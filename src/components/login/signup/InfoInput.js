@@ -43,9 +43,21 @@ const InfoInput = () => {
             return { type: "password" };
         })
     };
+    const cellNum = useRef();
+    const hasValue = (element) => {
+        if(element.current.value !== undefined && element.current.value !== ""){
+          return true;
+        }else{
+          return false;
+        };
+      };
     const alertSendCertNum = () => {
-        alert("인증번호가 발송되었습니다.");
-    }
+        if(hasValue(cellNum)){
+            alert("인증번호가 발송되었습니다.");
+        }else{
+            alert("휴대폰 번호를 입력해 주세요!");
+        };
+    };
     const pwValue = useRef();
     const pwCheckValue = useRef();
     const emailCheck = useRef();
@@ -135,7 +147,7 @@ const InfoInput = () => {
                         <div className="callBox">
                             <label>휴대폰 번호</label>
                             <input type="number" name="phoneNumber" placeholder="'-'없이 숫자만 입력해주세요"
-                            required></input>
+                            required ref={cellNum}></input>
                             <button type="button" onClick={alertSendCertNum}>인증번호 발송</button>
                         </div>
                         <div className="numInput">

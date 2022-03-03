@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./FindPw.css";
 import { Link } from "react-router-dom";
 
@@ -21,9 +21,23 @@ const FindPw = () => {
       $(`#findPwCellNum${length - 1}`).focus();
     }
   };
+  const cellNum1 = useRef();
+  const cellNum2 = useRef();
+  const cellNum3 = useRef();
+  const hasValue = (element) => {
+    if(element.current.value !== undefined && element.current.value !== ""){
+      return true;
+    }else{
+      return false;
+    };
+  };
   const alertSendCertNum = () => {
-    alert("인증번호가 발송되었습니다.");
-  }
+    if(hasValue(cellNum1) && hasValue(cellNum2) && hasValue(cellNum3)){
+      alert("인증번호가 발송되었습니다.");
+    }else{
+      alert("휴대폰 번호를 입력해 주세요!");
+    };
+  };
   const alertSendPw = () => {
     alert("입력하신 이메일로 임시 비밀번호가 발송되었습니다.");
   }
@@ -59,6 +73,7 @@ const FindPw = () => {
                 type="number"
                 maxLength="3"
                 onKeyUp={lengthcheck}
+                ref={cellNum1}
                 required
               />
               <input
@@ -66,9 +81,10 @@ const FindPw = () => {
                 type="number"
                 maxLength="4"
                 onKeyUp={lengthcheck}
+                ref={cellNum2}
                 required
               />
-              <input id="findPwCellNum3" type="number" maxLength="4" />
+              <input id="findPwCellNum3" type="number" maxLength="4" ref={cellNum3} />
               <button className="findPw-btn-send-certifyNum btn-s btn-o" type="button" onClick={alertSendCertNum}>
                 인증번호 발송
               </button>
