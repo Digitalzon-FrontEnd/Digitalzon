@@ -1,27 +1,24 @@
 header {
   position: fixed;
   width: 100%;
+  background-color: #fba92f;
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.15);
   z-index: 1;
 }
 header + * {
   padding-top: 80px;
 }
-.header-box {
+.header-inner {
   display: flex;
   justify-content: space-between;
-  height: 80px;
   align-items: center;
-  background-color: #fba92f;
+  width: 1200px; height: 80px;
+  margin: 0 auto;
   position: relative;
-  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.15);
 }
 
 .header_logo {
   width: 250px;
-  margin-left: 174px;
-}
-.info-nav {
-  margin-right: 262px;
 }
 
 .info-nav > ul {
