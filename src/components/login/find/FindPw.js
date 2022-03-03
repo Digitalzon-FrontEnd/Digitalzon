@@ -21,10 +21,16 @@ const FindPw = () => {
       $(`#findPwCellNum${length - 1}`).focus();
     }
   };
+  const alertSendCertNum = () => {
+    alert("인증번호가 발송되었습니다.");
+  }
+  const alertSendPw = () => {
+    alert("입력하신 이메일로 임시 비밀번호가 발송되었습니다.");
+  }
   return (
     <div className="inner">
       <h2 className="page-title">비밀번호 찾기</h2>
-      <form className="findPw-form-area" action="/login">
+      <form className="findPw-form-area" action="/login" onSubmit={alertSendPw}>
         <ul className="findPw-form-list">
           <li>
             <label htmlFor="findPwUserEmail">이메일</label>
@@ -50,20 +56,20 @@ const FindPw = () => {
             <div className="findPw-cellNum-box">
               <input
                 id="findPwCellNum1"
-                type="text"
+                type="number"
                 maxLength="3"
                 onKeyUp={lengthcheck}
                 required
               />
               <input
                 id="findPwCellNum2"
-                type="text"
+                type="number"
                 maxLength="4"
                 onKeyUp={lengthcheck}
                 required
               />
-              <input id="findPwCellNum3" type="text" maxLength="4" />
-              <button className="findPw-btn-send-certifyNum btn-s btn-o" type="button">
+              <input id="findPwCellNum3" type="number" maxLength="4" />
+              <button className="findPw-btn-send-certifyNum btn-s btn-o" type="button" onClick={alertSendCertNum}>
                 인증번호 발송
               </button>
             </div>

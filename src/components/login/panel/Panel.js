@@ -14,6 +14,9 @@ const Panel = () => {
       $("#panelNoAt").classList.remove("trans");
     }
   };
+  const alertComplete = () => {
+    alert("패널인증시스템 신청이 완료되었습니다.");
+  }
   return (
     <div className="inner">
       <h2 className="page-title">패널인증시스템 신청</h2>
@@ -22,7 +25,7 @@ const Panel = () => {
         아래에 작성해주시면 최대한 빠른 시간 내<br />
         담당자가 연락 드리도록 하겠습니다.
       </p>
-      <form className="panel-form-area" action="/">
+      <form className="panel-form-area" action="/" onSubmit={alertComplete}>
         <ul className="panel-form-list">
           <li>
             <label htmlFor="panelUserCorpName">업체명</label>

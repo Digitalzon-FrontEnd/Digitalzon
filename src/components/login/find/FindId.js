@@ -14,10 +14,13 @@ const FindId = () => {
       $("#findIdNoAt").classList.remove("trans");
     }
   };
+  const alertSendID = () => {
+    alert("입력하신 이메일로 아이디가 발송되었습니다.");
+  }
   return (
     <div className="inner">
       <h2 className="page-title">아이디 찾기</h2>
-      <form className="findId-form-area" action="/login">
+      <form className="findId-form-area" action="/login" onSubmit={alertSendID}>
         <ul className="findId-form-list">
           <li>
             <label htmlFor="findIdUserEmail">이메일</label>

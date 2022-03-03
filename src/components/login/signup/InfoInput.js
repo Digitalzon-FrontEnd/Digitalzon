@@ -43,6 +43,9 @@ const InfoInput = () => {
             return { type: "password" };
         })
     };
+    const alertSendCertNum = () => {
+        alert("인증번호가 발송되었습니다.");
+    }
     const pwValue = useRef();
     const pwCheckValue = useRef();
     const emailCheck = useRef();
@@ -133,7 +136,7 @@ const InfoInput = () => {
                             <label>휴대폰 번호</label>
                             <input type="number" name="phoneNumber" placeholder="'-'없이 숫자만 입력해주세요"
                             required></input>
-                            <button type="button">인증번호 발송</button>
+                            <button type="button" onClick={alertSendCertNum}>인증번호 발송</button>
                         </div>
                         <div className="numInput">
                             <label>인증번호 입력</label>
