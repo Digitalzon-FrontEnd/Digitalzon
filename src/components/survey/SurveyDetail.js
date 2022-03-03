@@ -5,7 +5,6 @@ import "./SurveyDetail.css";
 
 const SurveyDetail = ({ location }) => {
   const params = location.state;
-  console.log(params);
   return (
     <div className="survey-detail-box">
       <div className="inner-800">
