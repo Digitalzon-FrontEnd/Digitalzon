@@ -12,6 +12,7 @@ import FindPw from "./login/find/FindPw";
 import Terms from "./login/signup/Terms";
 import Complete from "./login/signup/Complete";
 import InfoInput from "./login/signup/InfoInput";
+import Point from "./point/Point";
 
 const Root = () => {
   const [user, setUser] = useState(false);
@@ -29,6 +30,7 @@ const Root = () => {
       <Route path="/panel" component={Panel} />
       <Route path="/infoinput" component={InfoInput} />
       <Route path="/complete" component={Complete} />
+      <Route path="/point" component={Point} />
       <Footer />
     </div>
   );
