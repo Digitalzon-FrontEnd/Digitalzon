@@ -2,7 +2,7 @@ import React from "react";
 import "./Panel.css";
 import { Link } from "react-router-dom";
 
-const Panel = () => {
+const Panel = ({history}) => {
   const $ = (selector) => {
     return document.querySelector(selector);
   };
@@ -56,11 +56,9 @@ const Panel = () => {
           </ul>
           <div className="panel-btn-box">
             <button className="panel-btn-panel-req btn-r btn-o" type="submit">문의신청</button>
-            <Link to="/login">
-              <button className="panel-btn-cancel btn-r btn-g" type="button">
+              <button className="panel-btn-cancel btn-r btn-g" type="button" onClick={() => history.goBack()}>
                 취소
               </button>
-            </Link>
           </div>
         </form>
       </div>

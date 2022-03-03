@@ -5,7 +5,6 @@ import "./Gnb.css";
 const Gnb = ({ user }) => {
   const sampleLocation = useLocation();
   const url = sampleLocation.pathname;
-  console.log(url);
   return (
     <nav className="menu-nav ">
       {user ? (
@@ -21,7 +20,7 @@ const Gnb = ({ user }) => {
             <Link to="/faq">FAQ</Link>
           </li>
           <li>
-            <Link to="/">Q&A</Link>
+            <Link to="/">Q&amp;A</Link>
           </li>
           <li>
             <Link to="/">계정설정</Link>
