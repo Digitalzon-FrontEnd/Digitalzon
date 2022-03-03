@@ -1,6 +1,5 @@
 import React from "react";
 import "./Panel.css";
-import { Link } from "react-router-dom";
 
 const Panel = ({history}) => {
   const $ = (selector) => {
