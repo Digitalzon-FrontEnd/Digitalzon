@@ -20,9 +20,14 @@ function SurveyChart({ needSample, completeSample }) {
       },
     ],
   };
+
   const options = {
     series: {
       dataLabels: { visible: true },
+      radiusRange: {
+        inner: "40%",
+        outer: "100%",
+      },
     },
     legend: {
       showCheckbox: false,
@@ -36,20 +41,20 @@ function SurveyChart({ needSample, completeSample }) {
       visible: false,
     },
   };
+
   const containerStyle = {
     width: "340px",
     height: "340px",
   };
+
   const BarChart = toastui.PieChart;
   return (
     <div className="survey-chart-box">
       <BarChart data={data} options={options} style={containerStyle} />
       <div className="survey-chart-text-box">
-        <span className="survey-chart-text1">
-          {`${data.series[0].data}%`} 응답완료
-        </span>
+        <span className="survey-chart-text1">{`${perData}%`} 응답완료</span>
         <span className="survey-chart-text2">
-          {`${data.series[1].data}%`} 응답 미완료
+          {`${100 - perData}%`} 응답 미완료
         </span>
       </div>
     </div>

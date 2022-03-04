@@ -17,7 +17,7 @@ header + * {
 }
 
 .header_logo {
-  width: 250px;
+  height: 80px;
   margin-left: 174px;
 }
 .info-nav {

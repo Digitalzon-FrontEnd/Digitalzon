@@ -5,15 +5,15 @@ const Header = () => {
   return (
     <header>
       <div className="header-box">
-        <Link to="/">
-          <div className="logo">
+        <div className="logo">
+          <Link to="/">
             <img
               className="header_logo"
               src="img/CI-Digitalzone.png"
               alt="디지털존 로고"
             />
-          </div>
-        </Link>
+          </Link>
+        </div>
         <nav className="info-nav">
           <ul>
             <li>

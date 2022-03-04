@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Header from "./common/Header";
 import Footer from "./common/Footer";
 import { Route } from "react-router-dom";
 
@@ -54,7 +53,7 @@ const Root = () => {
       state: "승인실패",
       registrant: "홍길동3",
       affiliation: "개인3",
-      activation: false,
+      activation: true,
     },
     {
       num: 12,
@@ -86,7 +85,7 @@ const Root = () => {
       state: "승인실패",
       registrant: "홍길동3",
       affiliation: "개인3",
-      activation: false,
+      activation: true,
     },
     {
       num: 10,
@@ -231,7 +230,7 @@ const Root = () => {
       state: "승인실패",
       registrant: "홍길동3",
       affiliation: "개인3",
-      activation: false,
+      activation: true,
     },
     {
       num: 1,
@@ -247,13 +246,17 @@ const Root = () => {
       state: "승인실패",
       registrant: "홍길동3",
       affiliation: "개인3",
-      activation: false,
+      activation: true,
     },
   ]);
+  // 설문 테스트 데이터
 
   const [currentPage, setCurrentPage] = useState(1);
+  //현재 페이지 위치
   const [postsPerPage, setPostsPerPage] = useState(10);
+  // 한 화면에 볼 수 있는 설문 개수
   const [user, SetUser] = useState(false);
+  // 로그인 비로그인
 
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
@@ -263,14 +266,15 @@ const Root = () => {
     currentPosts = tmp.slice(indexOfFirst, indexOfLast);
     return currentPosts;
   }
+
   return (
     <div>
-      <Header />
       <Route
         exact={true}
         path="/"
         render={() => (
           <Survey
+            totalIndexPosts={posts}
             posts={currentPosts(posts)}
             postsPerPage={postsPerPage}
             totalPosts={posts.length}
