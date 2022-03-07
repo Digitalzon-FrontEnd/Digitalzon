@@ -16,7 +16,9 @@
 }
 .pagination-list-next {
   height: 20px;
+  cursor: pointer;
 }
 .pagination-list-previous {
   height: 20px;
+  cursor: pointer;
 }

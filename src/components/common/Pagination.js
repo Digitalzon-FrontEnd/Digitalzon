@@ -69,3 +69,12 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, setIndex }) => {
 };
 
 export default Pagination;
+
+/* 
+페이징 
+   root에서 내려줘야할 props 
+    - posts={currentPosts(posts)}  10개씩 자른 데이터 
+    - postsPerPage={postsPerPage}  한 화면에 볼 수 있는 설문 개수
+    - totalPosts={posts.length} 데이터 수 
+    - paginate={setCurrentPage} 현재 페이지 위치  
+*/

@@ -263,7 +263,7 @@ const Root = () => {
 
   function currentPosts(tmp) {
     let currentPosts = 0;
-    currentPosts = tmp.slice(indexOfFirst, indexOfLast);
+    currentPosts = tmp.slice(indexOfFirst, indexOfLast); // 0 ~ 10 |  10 ~ 20
     return currentPosts;
   }
 
@@ -274,11 +274,13 @@ const Root = () => {
         path="/"
         render={() => (
           <Survey
-            totalIndexPosts={posts}
-            posts={currentPosts(posts)}
-            postsPerPage={postsPerPage}
-            totalPosts={posts.length}
-            paginate={setCurrentPage}
+            totalIndexPosts={
+              posts
+            } /* 전체 데이터 (라디오 버튼에서 사용함으로 다른 컴포넌트에서 필요 X) */
+            posts={currentPosts(posts)} /* 10개씩 자른 데이터 */
+            postsPerPage={postsPerPage} /* 한 화면에 볼 수 있는 설문 개수 */
+            totalPosts={posts.length} /* 데이터 수 */
+            paginate={setCurrentPage} /* 현재 페이지 위치  */
           />
         )}
       />

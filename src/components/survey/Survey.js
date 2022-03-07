@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import Pagination from "./Pagination";
+// import Pagination from "./Pagination";
 import "./Survey.css";
 import SurveyRow from "./SurveyRow";
 import SurveySendModal from "./SurveySendModal";
-
+import Pagination from "../common/Pagination";
+import Modal from "../common/Modal";
 const Survey = ({
   totalIndexPosts,
   posts,
@@ -25,15 +26,15 @@ const Survey = ({
       return true;
     }
   };
-  console.log(postsPerPage);
 
   return (
     <div className="survey-box">
       <div className="inner-800">
         {surveyModalOpen && (
-          <SurveySendModal
+          <Modal
             modalClose={modalClose}
-            post={totalIndexPosts[totalIndexPosts.length - Number(index)]}
+            post={totalIndexPosts[totalIndexPosts.length - index]}
+            component="SurveySendModal"
           />
         )}
         <div className="survey-top-box">

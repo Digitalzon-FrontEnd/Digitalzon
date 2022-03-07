@@ -25,7 +25,8 @@ const SurveyRow = ({
               alert("승인이 완료된 설문만 발송 할 수 있습니다.");
               e.preventDefault();
             } else {
-              setIndex(Number(e.target.parentElement.nextSibling.innerText));
+              // setIndex(Number(e.target.parentElement.nextSibling.innerText));
+              setIndex(num);
             }
           }}
         />
