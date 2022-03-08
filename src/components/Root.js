@@ -56,9 +56,6 @@ const Root = () => {
       needSample: 5200,
       completeSample: 20,
       pointPerPerson: 1500,
-<<<<<<< HEAD
-      profile1: ["남성","20~39세"],
-=======
       profile1: ["남성", "20~39세"],
       profile2: ["SKT"],
       profile3: ["갤럭시S21"],
@@ -108,7 +105,6 @@ const Root = () => {
       completeSample: 290,
       pointPerPerson: 500,
       profile1: ["남성", "20~39세"],
->>>>>>> 7710ac486e1d18d9b7335d89298cf79e266b52b1
       profile2: ["SKT"],
       profile3: ["갤럭시S21"],
       state: "승인실패",
@@ -117,57 +113,6 @@ const Root = () => {
       activation: false,
     },
     {
-<<<<<<< HEAD
-      num: 12,
-      link: "http://www.survey15.com",
-      surveyName: "갤럭시S21 사용자 만족도 조사3",
-      date: "2021.10.11 ~ 2021.11.22",
-      needSample: 5200,
-      completeSample: 30,
-      pointPerPerson: 500,
-      profile1: ["남성","20~39세"],
-      profile2: ["SKT"],
-      profile3: ["갤럭시S21"],
-      state: "승인실패",
-      registrant: "홍길동3",
-      affiliation: "개인3",
-      activation: false,
-    },
-    {
-      num: 11,
-      link: "http://www.survey15.com",
-      surveyName: "갤럭시S21 사용자 만족도 조사3",
-      date: "2021.10.11 ~ 2021.11.22",
-      needSample: 5200,
-      completeSample: 240,
-      pointPerPerson: 500,
-      profile1: ["남성","20~39세"],
-      profile2: ["SKT"],
-      profile3: ["갤럭시S21"],
-      state: "승인실패",
-      registrant: "홍길동3",
-      affiliation: "개인3",
-      activation: false,
-    },
-    {
-      num: 10,
-      link: "http://www.survey15.com",
-      surveyName: "갤럭시S21 사용자 만족도 조사3",
-      date: "2021.10.11 ~ 2021.11.22",
-      needSample: 5200,
-      completeSample: 290,
-      pointPerPerson: 500,
-      profile1: ["남성","20~39세"],
-      profile2: ["SKT"],
-      profile3: ["갤럭시S21"],
-      state: "승인실패",
-      registrant: "홍길동3",
-      affiliation: "개인3",
-      activation: false,
-    },
-    {
-=======
->>>>>>> 7710ac486e1d18d9b7335d89298cf79e266b52b1
       num: 9,
       link: "http://www.survey15.com",
       surveyName: "갤럭시S21 사용자 만족도 조사3",
@@ -175,11 +120,7 @@ const Root = () => {
       needSample: 5200,
       completeSample: 920,
       pointPerPerson: 500,
-<<<<<<< HEAD
-      profile1: ["남성","20~39세"],
-=======
       profile1: ["남성", "20~39세"],
->>>>>>> 7710ac486e1d18d9b7335d89298cf79e266b52b1
       profile2: ["SKT"],
       profile3: ["갤럭시S21"],
       state: "승인실패",
@@ -195,11 +136,7 @@ const Root = () => {
       needSample: 5200,
       completeSample: 1020,
       pointPerPerson: 500,
-<<<<<<< HEAD
-      profile1: ["남성","20~39세"],
-=======
       profile1: ["남성", "20~39세"],
->>>>>>> 7710ac486e1d18d9b7335d89298cf79e266b52b1
       profile2: ["SKT"],
       profile3: ["갤럭시S21"],
       state: "승인실패",
@@ -215,11 +152,7 @@ const Root = () => {
       needSample: 5200,
       completeSample: 2320,
       pointPerPerson: 500,
-<<<<<<< HEAD
-      profile1: ["남성","20~39세"],
-=======
       profile1: ["남성", "20~39세"],
->>>>>>> 7710ac486e1d18d9b7335d89298cf79e266b52b1
       profile2: ["SKT"],
       profile3: ["갤럭시S21"],
       state: "승인실패",
@@ -236,11 +169,7 @@ const Root = () => {
       needSample: 5200,
       completeSample: 5200,
       pointPerPerson: 500,
-<<<<<<< HEAD
-      profile1: ["남성","20~39세"],
-=======
       profile1: ["남성", "20~39세"],
->>>>>>> 7710ac486e1d18d9b7335d89298cf79e266b52b1
       profile2: ["SKT"],
       profile3: ["갤럭시S21"],
       state: "승인실패",
@@ -256,11 +185,7 @@ const Root = () => {
       needSample: 5200,
       completeSample: 1220,
       pointPerPerson: 500,
-<<<<<<< HEAD
-      profile1: ["남성","20~39세"],
-=======
       profile1: ["남성", "20~39세"],
->>>>>>> 7710ac486e1d18d9b7335d89298cf79e266b52b1
       profile2: ["SKT"],
       profile3: ["갤럭시S21"],
       state: "승인실패",
@@ -276,11 +201,7 @@ const Root = () => {
       needSample: 5200,
       completeSample: 2320,
       pointPerPerson: 500,
-<<<<<<< HEAD
-      profile1: ["남성","20~39세"],
-=======
       profile1: ["남성", "20~39세"],
->>>>>>> 7710ac486e1d18d9b7335d89298cf79e266b52b1
       profile2: ["SKT"],
       profile3: ["갤럭시S21"],
       state: "승인실패",
@@ -296,11 +217,7 @@ const Root = () => {
       needSample: 5200,
       completeSample: 4120,
       pointPerPerson: 500,
-<<<<<<< HEAD
-      profile1: ["남성","20~39세"],
-=======
       profile1: ["남성", "20~39세"],
->>>>>>> 7710ac486e1d18d9b7335d89298cf79e266b52b1
       profile2: ["SKT"],
       profile3: ["갤럭시S21"],
       state: "승인실패",
@@ -316,11 +233,7 @@ const Root = () => {
       needSample: 5200,
       completeSample: 4420,
       pointPerPerson: 500,
-<<<<<<< HEAD
-      profile1: ["남성","20~39세"],
-=======
       profile1: ["남성", "20~39세"],
->>>>>>> 7710ac486e1d18d9b7335d89298cf79e266b52b1
       profile2: ["SKT"],
       profile3: ["갤럭시S21"],
       state: "승인실패",
@@ -336,11 +249,7 @@ const Root = () => {
       needSample: 5200,
       completeSample: 2011,
       pointPerPerson: 500,
-<<<<<<< HEAD
-      profile1: ["남성","20~39세"],
-=======
       profile1: ["남성", "20~39세"],
->>>>>>> 7710ac486e1d18d9b7335d89298cf79e266b52b1
       profile2: ["SKT"],
       profile3: ["갤럭시S21"],
       state: "승인실패",
