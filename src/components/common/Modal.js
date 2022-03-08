@@ -1,4 +1,5 @@
 import React from "react";
+import SurveyRegist from "../survey/SurveyRegist";
 import SurveySendModal from "../survey/SurveySendModal";
 import "./Modal.css";
 
@@ -15,7 +16,11 @@ const Modal = ({ modalClose, post, component }) => {
         {component === "SurveySendModal" ? (
           <SurveySendModal
             post={post}
-            onCloseModal={onCloseModal}
+            modalClose={modalClose}
+          />
+        ) : null}
+        {component === "SurveyRegist" ? (
+          <SurveyRegist
             modalClose={modalClose}
           />
         ) : null}

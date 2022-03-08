@@ -1,14 +1,6 @@
-<<<<<<< HEAD
-import React from "react";
-import { Link } from "react-router-dom";
-import Pagination from "./Pagination";
-=======
-import React, { useState } from "react";
-// import Pagination from "./Pagination";
->>>>>>> 7710ac486e1d18d9b7335d89298cf79e266b52b1
+import React, { useState }from "react";
 import "./Survey.css";
 import SurveyRow from "./SurveyRow";
-import SurveySendModal from "./SurveySendModal";
 import Pagination from "../common/Pagination";
 import Modal from "../common/Modal";
 const Survey = ({
@@ -18,10 +10,15 @@ const Survey = ({
   totalPosts,
   paginate,
 }) => {
+  const [surveyRegistModal, setSurveyRegistModal] = useState(false);
+  const surveyRegistModalClose = () => {
+    setSurveyRegistModal(!surveyRegistModal);
+  };
   const [surveyModalOpen, surveySetModalOpen] = useState(false);
   const modalClose = () => {
     surveySetModalOpen(!surveyModalOpen);
   };
+  
   const [index, setIndex] = useState(null);
 
   const checkIndexFnc = (index) => {
@@ -43,16 +40,19 @@ const Survey = ({
             component="SurveySendModal"
           />
         )}
+        {surveyRegistModal && (
+          <Modal
+            modalClose={surveyRegistModalClose}
+            component="SurveyRegist"
+          />
+        )}
         <div className="survey-top-box">
           <div className="survey-top-box-btnbox">
-            <Link to="/surveyregist">
-            <button className="survey-registration-btn  btn-o btn-r">
+            <button className="survey-registration-btn  btn-o btn-r"
+            onClick={surveyRegistModalClose}
+            >
               신규등록
             </button>
-<<<<<<< HEAD
-            </Link>
-            <button className="survey-send-btn  btn-o btn-r">발송</button>
-=======
             <button
               className="survey-send-btn  btn-o btn-r"
               onClick={(e) => {
@@ -63,7 +63,6 @@ const Survey = ({
             >
               발송
             </button>
->>>>>>> 7710ac486e1d18d9b7335d89298cf79e266b52b1
           </div>
           <div className="survey-input-box">
             <input type="text" className="survey-input" />

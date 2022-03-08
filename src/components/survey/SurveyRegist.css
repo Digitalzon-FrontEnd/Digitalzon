@@ -1,5 +1,5 @@
 .surveyRg{
-    width: 100%;
+    width: 700px;
     padding-bottom: 20px;
 }
 
@@ -95,4 +95,9 @@
 
 .svRg-options-depth1{
     margin-bottom: 5px;
+}
+
+#svRgSubmitBtnList{
+    flex-direction: column;
+    align-items: flex-end;
 }

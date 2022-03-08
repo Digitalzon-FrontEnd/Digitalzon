@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import "./SurveyRegist.css";
 
-function SurveyRegist () {
+function SurveyRegist ({ modalClose }) {
     const [checkSex,setCheckSex] = useState(false);
-    const test = (e) => {
+    const changeCheckSex = (e) => {
         setCheckSex(e.target.checked);
     }
     return(
         <div className="surveyRg">
             <div className="svRg-pageTitle-box">
                 <h3 className="svRg-pageTitle">신규설문 등록</h3>
-                <button className="svRg-btn-close">X</button>
+                <button className="svRg-btn-close" onClick={modalClose}>X</button>
             </div>
-            <form className="svRg-form-box" action="/survey">
+            <form className="svRg-form-box" action="/">
                 <ul className="svRg-form-lists">
                     <li className="svRg-form-list">
                         <label htmlFor="">조사명</label>
@@ -46,7 +46,7 @@ function SurveyRegist () {
                             <li className="svRg-profile-list">
                                 <h6 className="svRg-profile-steps">1단계</h6>
                                 <dl className="svRg-options-box">
-                                    <dt className="svRg-options-depth1"><input type="checkbox" name="sex" onChange={test}/>성별</dt>
+                                    <dt className="svRg-options-depth1"><input type="checkbox" name="sex" onChange={changeCheckSex}/>성별</dt>
                                     {checkSex ?
                                     <dd>
                                         <select>
@@ -90,7 +90,7 @@ function SurveyRegist () {
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li className="svRg-form-list" id="svRgSubmitBtnList">
                         <button className="svRg-btn-submit btn-s btn-o" type="submit">저장</button>
                     </li>
                 </ul>
