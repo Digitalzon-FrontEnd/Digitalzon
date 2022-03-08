@@ -13,6 +13,9 @@ import Terms from "./login/signup/Terms";
 import Complete from "./login/signup/Complete";
 import InfoInput from "./login/signup/InfoInput";
 import AccountChange from "./account/AccountChange";
+import AccountSetup from "./account/AccountSetup";
+import AccountManage from "./account/AccountManage";
+import MyPage from "./account/MyPage";
 
 const Root = () => {
   const [user, setUser] = useState(false);
@@ -20,11 +23,6 @@ const Root = () => {
   return (
     <div>
       <Header />
-
-      {/* 테스트 */}
-      <AccountChange />
-      {/* 테스트 */}
-
       <Route exact path="/" component={Main} />
       <Route path="/faq" render={() => <Faq user={user} />} />
       <Route path="/guide" render={() => <Guide user={user} />} />
@@ -35,6 +33,10 @@ const Root = () => {
       <Route path="/panel" component={Panel} />
       <Route path="/infoinput" component={InfoInput} />
       <Route path="/complete" component={Complete} />
+      <Route path="/accountchange" component={AccountChange} />
+      <Route path="/accountsetup" component={AccountSetup} />
+      <Route path="/accountmanage" component={AccountManage} />
+      <Route path="/mypage" component={MyPage} />
       <Footer />
     </div>
   );
