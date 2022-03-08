@@ -16,11 +16,7 @@ const Root = () => {
       needSample: 500,
       completeSample: 10,
       pointPerPerson: 500,
-<<<<<<< HEAD
-      profile1: ["남성","20~39세"],
-=======
       profile1: ["남성", "20~39세"],
->>>>>>> 7710ac486e1d18d9b7335d89298cf79e266b52b1
       profile2: ["SKT"],
       profile3: ["갤럭시S21"],
       state: "승인완료",
@@ -36,11 +32,7 @@ const Root = () => {
       needSample: 5200,
       completeSample: 20,
       pointPerPerson: 1000,
-<<<<<<< HEAD
-      profile1: ["남성","20~39세"],
-=======
       profile1: ["남성", "20~39세"],
->>>>>>> 7710ac486e1d18d9b7335d89298cf79e266b52b1
       profile2: ["SKT"],
       profile3: ["갤럭시S21"],
       state: "승인실패",
