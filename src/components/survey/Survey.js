@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Pagination from "./Pagination";
 import "./Survey.css";
 import SurveyRow from "./SurveyRow";
@@ -9,9 +10,11 @@ const Survey = ({ posts, postsPerPage, totalPosts, paginate }) => {
       <div className="inner-800">
         <div className="survey-top-box">
           <div className="survey-top-box-btnbox">
+            <Link to="/surveyregist">
             <button className="survey-registration-btn  btn-o btn-r">
               신규등록
             </button>
+            </Link>
             <button className="survey-send-btn  btn-o btn-r">발송</button>
           </div>
           <div className="survey-input-box">

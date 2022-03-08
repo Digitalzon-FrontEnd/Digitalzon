@@ -1,0 +1,98 @@
+.surveyRg{
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.surveyRg button{
+    cursor: pointer;
+}
+
+.svRg-pageTitle-box{
+    position: relative;
+    border-bottom: 1px solid #545147;
+    margin-bottom: 20px; padding: 10px 0;
+}
+
+.svRg-pageTitle{
+    text-align: center;
+}
+
+.svRg-btn-close{
+    position: absolute; top: 10px; right: 5px;
+    border: none;
+}
+
+.svRg-form-box{
+    display: flex; justify-content: center;
+}
+
+.svRg-form-list{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.svRg-form-list label{
+    width: 110px;
+    margin-right: 10px;
+    text-align: left;
+}
+
+.svRg-form-list input{
+    margin-right: 15px;
+}
+
+.svRg-label-point{
+    width: 70px;
+}
+
+#svRgFileName{
+    border: none;
+    outline: none;
+}
+
+#svRgFileRegister{
+    width: 0; height: 0;
+    padding: 0; margin: 0;
+}
+
+#svRgFileBtn{
+    width: 80px;
+    cursor: pointer;
+    font-size: 12px;
+    text-align: center;
+}
+
+#svRgWave{
+    width: 15px;
+}
+
+.svRg-profile-list{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.svRg-profile-title{
+    width: 110px;
+    margin-right: 10px;
+}
+
+.svRg-options-box{
+    width: 100px; height: 60px;
+    margin-right: 10px;
+}
+
+.svRg-options-depth1{
+    height: 30px;
+}
+
+.svRg-options-box input{
+    margin-right: 5px;
+}
+
+.svRg-profile-steps{
+    margin-right: 10px;
+}
+
+.svRg-options-depth1{
+    margin-bottom: 5px;
+}

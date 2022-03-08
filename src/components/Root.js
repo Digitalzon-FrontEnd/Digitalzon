@@ -5,6 +5,7 @@ import { Route } from "react-router-dom";
 
 import Survey from "./survey/Survey";
 import SurveyDetail from "./survey/SurveyDetail";
+import SurveyRegist from "./survey/SurveyRegist";
 
 const Root = () => {
   const [posts, setPosts] = useState([
@@ -278,6 +279,7 @@ const Root = () => {
         )}
       />
       <Route path={`/survey/SurveyDetail/:num`} component={SurveyDetail} />
+      <Route path="/surveyregist" component={SurveyRegist} />
       <Footer />
     </div>
   );
