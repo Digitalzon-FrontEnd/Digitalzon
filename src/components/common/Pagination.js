@@ -43,6 +43,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, setIndex }) => {
           {pageNumbers.map((number) => (
             <li key={number} className="pagination-item">
               <span
+                className={currenntIndex === number ? "pagination-color" : ""}
                 onClick={() => {
                   paginate(number);
                   setCurrenntIndex(number);
