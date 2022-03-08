@@ -11,6 +11,7 @@ const SurveyRow = ({
   registrant,
   affiliation,
   activation,
+  setIndex,
 }) => {
   return (
     <tr className={activation ? "survey-row-on" : "survey-row-off"}>
@@ -19,6 +20,15 @@ const SurveyRow = ({
           type="radio"
           className="survey-row-radio"
           name="survey-row-radio"
+          onClick={(e) => {
+            if (!activation) {
+              alert("승인이 완료된 설문만 발송 할 수 있습니다.");
+              e.preventDefault();
+            } else {
+              // setIndex(Number(e.target.parentElement.nextSibling.innerText));
+              setIndex(num);
+            }
+          }}
         />
       </td>
       <td>{num}</td>
