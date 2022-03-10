@@ -11,12 +11,15 @@
 .search-box{
     height: 80px;
 }
-.account-manage-info{
+#testId2, #testId3{
+    display: none;
+}
+.account-manage-info,.account-manage-info2, .account-manage-info3{
     margin-top: 0;
     margin-left: 38.8px;
     width: 434.6px;
 }
-.account-manage-info label{
+.account-manage-info label, .account-manage-info2 label,.account-manage-info3 label{
     width: 97.1px;
     height: 59px;
     line-height: 59px;
@@ -51,6 +54,10 @@
     margin-left: 26px;
     list-style: disc;
     cursor: pointer;
+}
+.name-list li:hover{
+    font-weight: 600;
+    color: #44423b;
 }
 .account-manage-btn{
     margin-top: 31.1px;

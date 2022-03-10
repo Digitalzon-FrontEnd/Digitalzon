@@ -50,6 +50,9 @@
     margin-right: 15.9px;
     width: 101.0px;
 }
+#accountCallNum1::-webkit-outer-spin-button, #accountCallNum1::-webkit-inner-spin-button, #accountCallNum2::-webkit-outer-spin-button, #accountCallNum2::-webkit-inner-spin-button, #accountCallNum3::-webkit-outer-spin-button, #accountCallNum3::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
 #accountCallNum3{margin-right: 0;}
 .account-affiliate, .account-id, .account-password, .account-password-check, .account-email, .account-username, .account-call, .accountCerBox{
     display: flex;

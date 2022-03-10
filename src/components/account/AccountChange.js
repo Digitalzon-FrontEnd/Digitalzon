@@ -82,7 +82,7 @@ const AccountChange = () => {
                         <label>휴대폰 번호</label>
                         <input
                         id="accountCallNum1"
-                        type="text"
+                        type="number"
                         maxLength="3"
                         onKeyUp={lengthcheck}
                         required
@@ -92,7 +92,7 @@ const AccountChange = () => {
                         />
                         <input
                         id="accountCallNum2"
-                        type="text"
+                        type="number"
                         maxLength="4"
                         onKeyUp={lengthcheck}
                         required
@@ -101,7 +101,7 @@ const AccountChange = () => {
                         defaultValue="1234"
                         />
                         <input id="accountCallNum3"
-                        type="text"
+                        type="number"
                         maxLength="4"
                         className=" account-input"
                         disabled ref={inputRefThree}
