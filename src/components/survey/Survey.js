@@ -3,6 +3,7 @@ import "./Survey.css";
 import SurveyRow from "./SurveyRow";
 import Pagination from "../common/Pagination";
 import Modal from "../common/Modal";
+
 const Survey = ({
   totalIndexPosts,
   posts,
@@ -10,6 +11,8 @@ const Survey = ({
   postsPerPage,
   totalPosts,
   paginate,
+  surveySerachFnc,
+  currentPage,
 }) => {
   const [surveyRegistModal, setSurveyRegistModal] = useState(false);
   const surveyRegistModalClose = () => {
@@ -21,7 +24,7 @@ const Survey = ({
   };
   
   const [index, setIndex] = useState(null);
-
+  const surveyInputRef = useRef();
   const checkIndexFnc = (index) => {
     if (index == null) {
       alert("설문을 선택 해주세요.");
@@ -31,6 +34,17 @@ const Survey = ({
     }
   };
 
+  /*  */
+
+  const surveyInputEnter = (e) => {
+    if (e.key === "Enter") {
+      surveySerachFnc(surveyInputRef);
+    }
+  };
+  const surveyInputClick = () => {
+    surveySerachFnc(surveyInputRef);
+  };
+  /*  */
   return (
     <div className="survey-box">
       <div className="inner-800">
@@ -68,9 +82,18 @@ const Survey = ({
             </button>
           </div>
           <div className="survey-input-box">
-            <input type="text" className="survey-input" />
+            <input
+              type="text"
+              className="survey-input"
+              onKeyPress={surveyInputEnter}
+              ref={surveyInputRef}
+            />
             <button className="survey-input-btn">
-              <img src="/img/mdi-magnify.png" alt="검색버튼" />
+              <img
+                src="/img/mdi-magnify.png"
+                alt="검색버튼"
+                onClick={surveyInputClick}
+              />
             </button>
           </div>
         </div>
@@ -103,6 +126,10 @@ const Survey = ({
                   affiliation={data.affiliation}
                   activation={data.activation}
                   setIndex={setIndex}
+                  link={data.link}
+                  profile1={data.profile1}
+                  profile2={data.profile2}
+                  profile3={data.profile3}
                 />
               );
             })}
@@ -113,6 +140,7 @@ const Survey = ({
           totalPosts={totalPosts}
           paginate={paginate}
           setIndex={setIndex}
+          currentPage={currentPage}
         />
       </div>
     </div>

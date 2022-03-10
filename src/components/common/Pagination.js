@@ -1,31 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Pagination.css";
-const Pagination = ({ postsPerPage, totalPosts, paginate, setIndex }) => {
-  const [currenntIndex, setCurrenntIndex] = useState(1);
+const Pagination = ({
+  postsPerPage,
+  totalPosts,
+  paginate,
+  setIndex,
+  currentPage,
+}) => {
   const pageNumbers = [];
+  console.log("currentPage " + currentPage);
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumbers.push(i);
   }
 
-  function minusCurrenntIndex(currenntIndex) {
+  function minusCurrenntIndex(currentPage) {
     return new Promise(function (resolve, reject) {
-      if (currenntIndex > 1) {
-        const idx = currenntIndex - 1;
-        setCurrenntIndex(idx);
+      if (currentPage > 1) {
+        const idx = currentPage - 1;
+        paginate(idx);
       }
     });
   }
-  minusCurrenntIndex().then(paginate(currenntIndex));
 
-  function plusCurrenntIndex(currenntIndex) {
+  function plusCurrenntIndex(currentPage) {
     return new Promise(function (resolve, reject) {
-      if (currenntIndex < pageNumbers.length) {
-        const idx = currenntIndex + 1;
-        setCurrenntIndex(idx);
+      if (currentPage < pageNumbers.length) {
+        const idx = currentPage + 1;
+        paginate(idx);
       }
     });
   }
-  plusCurrenntIndex().then(paginate(currenntIndex));
 
   return (
     <div>
@@ -36,17 +40,16 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, setIndex }) => {
             src="/img/eva-arrow-ios-back-outline.png"
             alt="이전 목록 보기"
             onClick={() => {
-              minusCurrenntIndex(currenntIndex);
+              minusCurrenntIndex(currentPage);
               setIndex(null);
             }}
           />
           {pageNumbers.map((number) => (
             <li key={number} className="pagination-item">
               <span
-                className={currenntIndex === number ? "pagination-color" : ""}
+                className={currentPage === number ? "pagination-color" : ""}
                 onClick={() => {
                   paginate(number);
-                  setCurrenntIndex(number);
                   setIndex(null);
                 }}
               >
@@ -59,7 +62,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, setIndex }) => {
             src="/img/eva-arrow-ios-back-outline.png"
             alt="다음 목록 보기"
             onClick={() => {
-              plusCurrenntIndex(currenntIndex);
+              plusCurrenntIndex(currentPage);
               setIndex(null);
             }}
           />

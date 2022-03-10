@@ -12,6 +12,10 @@ const SurveyRow = ({
   affiliation,
   activation,
   setIndex,
+  link,
+  profile1,
+  profile2,
+  profile3,
 }) => {
   return (
     <tr className={activation ? "survey-row-on" : "survey-row-off"}>
@@ -45,6 +49,10 @@ const SurveyRow = ({
               state: state,
               registrant: registrant,
               affiliation: affiliation,
+              link: link,
+              profile1: profile1,
+              profile2: profile2,
+              profile3: profile3,
             },
           }}
         >

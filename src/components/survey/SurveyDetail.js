@@ -5,7 +5,6 @@ import "./SurveyDetail.css";
 
 const SurveyDetail = ({ location }) => {
   const params = location.state;
-  console.log(params);
   return (
     <div className="survey-detail-box">
       <div className="inner-800">
@@ -77,7 +76,7 @@ const SurveyDetail = ({ location }) => {
             </div>
           </div>
         </div>
-        <Profile />
+        <Profile params={params} />
       </div>
     </div>
   );
