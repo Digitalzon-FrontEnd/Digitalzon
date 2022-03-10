@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect, useCallback } from "react";
 import dummy from '../../db/accountData.json'
 import "./AccountUser.css";
 
@@ -14,7 +14,7 @@ const AccountUser = ()=>{
         }
     };
 
-    const [userDate,setUserData]  = useState({
+    const [userData,setUserData]  = useState({
         accountid:'',
         accountpw:'',
         mail:'',
@@ -37,7 +37,7 @@ const AccountUser = ()=>{
                 userinfo:'i'    
         })
     }, [])
-
+    
 
 
     return (
@@ -46,19 +46,19 @@ const AccountUser = ()=>{
                 <div className="account-manage-info2" id="clickForm">
                     <div className="account-id">
                         <label>아이디</label>
-                        <input className=" account-input" value={userDate.useraccountid}></input>
+                        <input className=" account-input" value={userData.useraccountid}></input>
                     </div>
                     <div className="account-password">
                         <label>비밀번호</label>
-                        <input type="text" className=" account-input" value={userDate.useraccountpw}></input>
+                        <input type="text" className=" account-input" value={userData.useraccountpw}></input>
                     </div>
                     <div className="account-email">
                         <label>E-Mail</label>
-                        <input type="email" className=" account-input" value={userDate.usermail}></input>
+                        <input type="email" className=" account-input" value={userData.usermail}></input>
                     </div>
                     <div className="account-username">
                         <label>사용자명</label>
-                        <input className=" account-input" value={userDate.userid}></input>
+                        <input className=" account-input" value={userData.userid}></input>
                     </div>
                     <div className="account-call">
                         <label>휴대폰 번호</label>
@@ -69,7 +69,7 @@ const AccountUser = ()=>{
                         onKeyUp={lengthcheck}
                         required
                         className=" account-input"
-                        value={userDate.usercall1}
+                        value={userData.usercall1}
                         />
                         <input
                         id="accountCallNum2"
@@ -78,13 +78,13 @@ const AccountUser = ()=>{
                         onKeyUp={lengthcheck}
                         required
                         className=" account-input"
-                        value={userDate.usercall2}
+                        value={userData.usercall2}
                         />
                         <input id="accountCallNum3"
                         type="text"
                         maxLength="4"
                         className=" account-input"
-                        value={userDate.usercall3}
+                        value={userData.usercall3}
                         />
                     </div>
                 </div>
