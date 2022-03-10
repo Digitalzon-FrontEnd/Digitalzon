@@ -5,6 +5,7 @@ import { Route } from "react-router-dom";
 import Survey from "./survey/Survey";
 import SurveyDetail from "./survey/SurveyDetail";
 import SurveyRegist from "./survey/SurveyRegist";
+import SurveyModify from "./survey/SurveyModify";
 
 const Root = () => {
   const [posts, setPosts] = useState([
@@ -267,7 +268,23 @@ const Root = () => {
     currentPosts = tmp.slice(indexOfFirst, indexOfLast); // 0 ~ 10 |  10 ~ 20
     return currentPosts;
   }
+  /*  */
+  const surveySerachFnc = (ref) => {
+    return new Promise(function (resolve, reject) {
+      const value = ref.current.value;
+      const searchPosts = [...posts];
+      const result = searchPosts.filter(
+        (post) => post.surveyName.indexOf(value) !== -1
+      );
+      if (result.length <= 0) {
+        alert("입력하신 조사명은 존재 하지 않습니다.");
+        return false;
+      }
+      setPosts(result);
+    });
+  };
 
+  /*  */
   return (
     <div>
       <Route
@@ -282,11 +299,15 @@ const Root = () => {
             postsPerPage={postsPerPage} /* 한 화면에 볼 수 있는 설문 개수 */
             totalPosts={posts.length} /* 데이터 수 */
             paginate={setCurrentPage} /* 현재 페이지 위치  */
+            surveySerachFnc={surveySerachFnc}
+            currentPage={currentPage}
           />
         )}
       />
       <Route path={`/survey/SurveyDetail/:num`} component={SurveyDetail} />
       <Route path="/surveyregist" component={SurveyRegist} />
+      <Route path="/surveymodify" component={SurveyModify} />
+
       <Footer />
     </div>
   );
