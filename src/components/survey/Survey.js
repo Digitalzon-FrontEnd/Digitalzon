@@ -6,6 +6,7 @@ import Modal from "../common/Modal";
 const Survey = ({
   totalIndexPosts,
   posts,
+  setPosts,
   postsPerPage,
   totalPosts,
   paginate,
@@ -43,6 +44,8 @@ const Survey = ({
         {surveyRegistModal && (
           <Modal
             modalClose={surveyRegistModalClose}
+            posts={totalIndexPosts}
+            setPosts={setPosts}
             component="SurveyRegist"
           />
         )}
