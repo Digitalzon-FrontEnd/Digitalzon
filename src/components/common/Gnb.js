@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import "./Gnb.css";
 const Gnb = ({ user }) => {
+  user = true;
   const sampleLocation = useLocation();
   const url = sampleLocation.pathname;
-  console.log(url);
+  // console.log(url);
   return (
     <nav className="menu-nav ">
       {user ? (
@@ -27,10 +28,10 @@ const Gnb = ({ user }) => {
             <Link to="/">계정설정</Link>
           </li>
           <li>
-            <Link to="/">설문등록/현황조회</Link>
+            <Link to="/survey/approve/board">설문등록/현황조회</Link>
           </li>
           <li>
-            <Link to="/">포인트 관리</Link>
+            <Link to="/point/board">포인트 관리</Link>
           </li>
           <li>
             <Link to="/">통합관리</Link>

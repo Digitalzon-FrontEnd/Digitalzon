@@ -1,0 +1,83 @@
+table,
+th,
+td {
+  border-bottom: 1px solid #c4c4c4;
+  text-align: center;
+  height: 45px;
+  font-size: 12px;
+  line-height: normal;
+  letter-spacing: normal;
+}
+table {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+
+th {
+  height: 45px;
+  border-top: 3px solid #545147;
+  border-bottom: 1px solid #545147;
+  background-color: #ebebeb;
+}
+th:first-child {
+  width: 60px;
+}
+th:last-child {
+  width: 60px;
+}
+
+td:nth-child(2) {
+  text-decoration: underline;
+}
+.approve-board-box {
+  width: 794px;
+  margin-top: 92px;
+  margin-left: 183px;
+  margin-right: 183px;
+  /* height: 600.8px; */
+  height: 700px;
+}
+
+.approve-board-select-box {
+  width: 100%;
+  display: flex;
+  margin-bottom: 9px;
+  font-size: 12px;
+  justify-content: flex-end;
+}
+
+.approve-board-search-box {
+  display: inline-block;
+  width: 238.6px;
+  height: 31.8px;
+  border: solid 2px #c4c4c4;
+  border-radius: 26px;
+  position: relative;
+  margin-left: 36px;
+}
+.approve-board-search-box input {
+  width: 195px;
+  height: 27px;
+  border: none;
+  margin-left: 8px;
+  outline: none;
+}
+.approve-board-search-box label {
+  display: block;
+  width: 29px;
+  height: 29px;
+  background: url(../../../../public/img/mdi-magnify.png) no-repeat;
+  text-indent: -9999px;
+  position: absolute;
+  right: 2px;
+  top: -3px;
+}
+
+#search-btn {
+  margin-left: 13px;
+  width: 94.7px;
+  height: 30px;
+  border-radius: 50px;
+}

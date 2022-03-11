@@ -22,7 +22,7 @@ const Faq = () => {
     });
     e.target.classList.add("btn-b");
     e.target.classList.remove("btn-w");
-    arrows.forEach(item => {
+    arrows.forEach((item) => {
       item.classList.remove("faq-arrow-up");
     });
     if (category === "0") {
@@ -76,19 +76,27 @@ const Faq = () => {
         <div className="faq-list-title">제목</div>
         <dl className="faq-list-box">
           <dt data-category="1">
-            <span className="faq-category-name">카테고리1</span>카테고리1의 첫번째 질문인가요?<span className="faq-arrow" onClick={slideToggle}></span>
+            <span className="faq-category-name">카테고리1</span>카테고리1의
+            첫번째 질문인가요?
+            <span className="faq-arrow" onClick={slideToggle}></span>
           </dt>
           <dd data-category="1">네, 카테고리1의 첫번째 질문입니다.</dd>
           <dt data-category="2">
-            <span className="faq-category-name">카테고리2</span>카테고리2의 첫번째 질문인가요?<span className="faq-arrow" onClick={slideToggle}></span>
+            <span className="faq-category-name">카테고리2</span>카테고리2의
+            첫번째 질문인가요?
+            <span className="faq-arrow" onClick={slideToggle}></span>
           </dt>
           <dd data-category="2">네, 카테고리2의 첫번째 질문입니다.</dd>
           <dt data-category="3">
-            <span className="faq-category-name">카테고리3</span>카테고리3의 첫번째 질문인가요?<span className="faq-arrow" onClick={slideToggle}></span>
+            <span className="faq-category-name">카테고리3</span>카테고리3의
+            첫번째 질문인가요?
+            <span className="faq-arrow" onClick={slideToggle}></span>
           </dt>
           <dd data-category="3">네, 카테고리3의 첫번째 질문입니다.</dd>
           <dt data-category="1">
-            <span className="faq-category-name">카테고리1</span>카테고리1의 두번째 질문인가요?<span className="faq-arrow" onClick={slideToggle}></span>
+            <span className="faq-category-name">카테고리1</span>카테고리1의
+            두번째 질문인가요?
+            <span className="faq-arrow" onClick={slideToggle}></span>
           </dt>
           <dd data-category="1">네, 카테고리1의 두번째 질문입니다.</dd>
         </dl>

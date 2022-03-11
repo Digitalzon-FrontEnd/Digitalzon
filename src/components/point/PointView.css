@@ -1,0 +1,134 @@
+.pointDetails-box {
+  width: 692px;
+  height: 816px;
+  margin-left: 245px;
+  margin-right: 245px;
+  margin-top: 92px;
+  /* padding-top: 70px; */
+  /* overflow: auto; */
+}
+.point-details-inner {
+  padding-left: 21px;
+  padding-right: 21px;
+  background-color: #ebebeb;
+}
+.point-section .title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #545147;
+}
+
+.title-box {
+  display: inline-block;
+  height: 60px;
+  width: 127px;
+  background-color: #ebebeb;
+  font-size: 12px;
+  font-weight: 600;
+  color: #545147;
+  line-height: 60px;
+  padding-left: 19px;
+}
+
+.row {
+  /* display: inline-block; */
+  padding-left: 21px;
+  padding-right: 21px;
+  height: 60px;
+  width: 650px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #545147;
+  line-height: 60px;
+  border-bottom: 1px dashed #9a9a9a;
+}
+
+.key {
+  display: inline-block;
+  width: 125px;
+}
+select {
+  width: 100%;
+
+  height: 100%;
+
+  text-align: center;
+  /* padding: 0 28px 0 10px; */
+
+  padding-right: 15px;
+  font-size: 12px;
+
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  appearance: none;
+
+  box-sizing: border-box;
+  background: transparent;
+}
+
+select::-ms-expand {
+  display: none; /*for IE10,11*/
+}
+
+.select-wrap {
+  margin-left: 16px;
+  display: inline-block;
+  width: 67.4px;
+  height: 28px;
+
+  border: 1px solid #ccc;
+
+  background: url("../../../public/img/dashicons-arrow-down-alt-2.png")
+    no-repeat 97% 50%/15px auto;
+}
+
+.point-board-select-box {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 9px;
+  font-size: 12px;
+}
+
+.point-details-select-menu {
+  display: inline-block;
+  margin-left: 348px;
+  margin-top: 29px;
+}
+.statusTitle {
+  font-size: 12px;
+}
+
+.save-btn {
+  height: 32px;
+  width: 94.7px;
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+.list-btn {
+  height: 32px;
+  width: 94.7px;
+  margin-left: 9.7px;
+  cursor: pointer;
+}
+
+.status-record-container {
+  margin-left: 5px;
+  margin-top: 17px;
+}
+.status-record-title {
+  font-size: 13px;
+  font-weight: 600;
+}
+.record-list {
+  margin-top: 13px;
+  overflow: auto;
+  height: 200px;
+}
+.record-list li {
+  font-size: 13px;
+  margin-left: 13px;
+  margin-top: 15px;
+}

@@ -1,0 +1,148 @@
+.surveyApproveDetails-box {
+  width: 688px;
+  height: 800px;
+  margin-left: 245px;
+  margin-right: 245px;
+  margin-top: 92px;
+  /* padding-top: 70px; */
+}
+
+.details-container {
+  /* width: 289px; */
+  /* width: 100%; */
+  /* height: 298px; */
+}
+.details-container .details-wrap {
+  width: 100%;
+  /* height: 298px;
+   */
+  height: 330px;
+  display: flex;
+  justify-content: space-between;
+}
+.details-left {
+  width: 289px;
+  height: 266px;
+  background-color: #ebebeb;
+  margin-right: 30px;
+}
+.details-right {
+  width: 362px;
+  /* height: 266px;
+   */
+  height: 100%;
+}
+
+.details-left-inner {
+  margin-top: 13px;
+}
+.details-left .row {
+  margin-left: 9px;
+  height: 48px;
+  width: 269px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #545147;
+  line-height: 48px;
+  border-bottom: 1px dashed #9a9a9a;
+}
+
+.key {
+  display: inline-block;
+  width: 125px;
+  height: 100%;
+}
+.row:last-child {
+  border: none;
+}
+
+.details-right li {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #545147;
+}
+
+.details-right li:first-child {
+  margin-top: 0px;
+}
+.details-right .payment-point {
+  display: inline-block;
+  margin-top: 33px;
+  font-weight: 600;
+  font-size: 16px;
+
+  color: #545147;
+}
+.details-right .select-container {
+  margin-top: 30px;
+}
+
+.details-right .select-wrap {
+  margin-left: 13px;
+  display: inline-block;
+  width: 98px;
+  height: 27px;
+
+  border: 1px solid #ccc;
+
+  background: url("../../../../public/img/dashicons-arrow-down-alt-2.png")
+    no-repeat 97% 50%/15px auto;
+}
+
+.save-btn {
+  height: 32px;
+  width: 94.7px;
+  margin-left: 16px;
+}
+
+.list-btn {
+  height: 32px;
+  width: 94.7px;
+  margin-left: 9.7px;
+}
+
+.status-title {
+  margin-top: 42px;
+  font-size: 12px;
+}
+.details-right li {
+  margin-top: 9px;
+}
+
+.details-right .btn-container {
+  margin-top: 15px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.details-container .status-record {
+  margin-top: 10px;
+}
+.record-list {
+  overflow: auto;
+}
+
+.survey-profile-container {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+}
+.survey-profile-container .survey-profile-text {
+  margin-right: 3px;
+}
+
+#reason {
+  font-size: 12px;
+  padding-left: 7px;
+  margin-left: 13px;
+  border: solid 1px #c4c4c4;
+  background-color: #fff;
+  width: 139px;
+  height: 27px;
+}
+input::placeholder {
+  opacity: 1;
+  color: #545147;
+  color: bue;
+}
