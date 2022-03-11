@@ -44,7 +44,7 @@ const DetailQA1 = ({location}) => {
         <div id="item4">{params.등록일}</div>
       </div>
       <div className='text-input'>
-        내용입력
+        {params.내용}
       </div>
       <CommentList onEdit={onEdit} onRemove={onRemove} CommentList={data} />
       <CommentEditor onCreate={onCreate} />
