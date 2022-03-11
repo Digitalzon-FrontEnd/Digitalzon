@@ -112,7 +112,7 @@ function SurveyModify({ posts, setPosts, location }) {
     }
     setPosts(arrPost);
     alert("수정이 완료되었습니다");
-    history.push(`/`);
+    history.push(`/survey`);
   };
   console.log(posts);
   return (
@@ -382,7 +382,7 @@ function SurveyModify({ posts, setPosts, location }) {
                 className="surveyModify-btn-submit btn-s btn-o"
                 onClick={() => {
                   alert("수정이 취소되었습니다.");
-                  history.push(`/`);
+                  history.push(`/survey`);
                 }}
               >
                 취소
