@@ -65,7 +65,8 @@ const Root = () => {
   return (
     <div>
     <  Header />
-      <Route exact path="/mainqa" render={() => (
+      <Route  exact path="/" component={Main}/>
+      <Route  exact path="/mainqa" render={() => (
         <MainQA  tableInfo={tableInfo}/>
   )} />
       <Route path="/faq" render={() => <Faq user={user} />} />
