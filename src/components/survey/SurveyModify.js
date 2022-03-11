@@ -5,7 +5,6 @@ import "./SurveyModify.css";
 function SurveyModify({ posts, setPosts, location }) {
   const history = useHistory();
   const params = location.state;
-  console.log(params.params);
   const dateData = params.params.date.replace(/\./gi, "-");
   const dateArr = dateData.split("~");
   dateArr[0] = dateArr[0].trim();

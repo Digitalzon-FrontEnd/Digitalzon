@@ -4,7 +4,6 @@ import SurveyChart from "./SurveyChart";
 import "./SurveyDetail.css";
 
 const SurveyDetail = ({ posts, setPosts, location }) => {
-  console.log(location.state);
   const params = location.state;
   return (
     <div className="survey-detail-box">
