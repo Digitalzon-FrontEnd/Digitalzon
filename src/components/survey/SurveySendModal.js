@@ -1,4 +1,5 @@
 import React from "react";
+import { numberComma } from "../../util/NumberComma";
 import "./SurveySendModal.css";
 
 const SurveySendModal = ({ modalClose, post }) => {
@@ -22,15 +23,39 @@ const SurveySendModal = ({ modalClose, post }) => {
           <li>참여포인트 : {post.pointPerPerson} point</li>
           <li>설문기간 : {post.date}</li>
           <li>발송패널 수 : {post.completeSample} 건</li>
-          <li>
-            설문 프로파일 : <span>{post.profile1}</span>
-            <span>{post.profile2}</span>
-            <span>{post.profile3}</span>
+          <li className="SurveySendModal-list-li">
+            <div className="SurveySendModal-list-profile-title">
+              설문 프로파일 :
+            </div>
+            <div className="SurveySendModal-list-profile-des">
+              {post.profile1.map((item, index) => {
+                return (
+                  <span className="SurveySendModal-list-span" key={index}>
+                    {item}
+                  </span>
+                );
+              })}
+              {post.profile2.map((item, index) => {
+                return (
+                  <span className="SurveySendModal-list-span" key={index}>
+                    {item}
+                  </span>
+                );
+              })}
+              {post.profile3.map((item, index) => {
+                return (
+                  <span className="SurveySendModal-list-span" key={index}>
+                    {item}
+                  </span>
+                );
+              })}
+            </div>
           </li>
         </ul>
       </div>
       <h3 className="SurveySendModal-point-deduction">
-        총 {post.pointPerPerson * post.completeSample} point가 차감됩니다.
+        총 {numberComma(post.pointPerPerson * post.needSample)} point가
+        차감됩니다.
       </h3>
       <div className="SurveySendModal-footer-btn-box">
         <button

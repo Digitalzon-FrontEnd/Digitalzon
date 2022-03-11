@@ -39,7 +39,6 @@ header + * {
   display: block;
   width: 75px;
   height: 29px;
-
   font-size: 23px;
   font-weight: 600;
   text-align: center;
@@ -48,7 +47,6 @@ header + * {
 .info-nav > ul .faq {
   width: 46px;
   height: 29px;
-
   font-size: 23px;
   font-weight: 600;
   text-align: center;

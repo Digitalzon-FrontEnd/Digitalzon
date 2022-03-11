@@ -3,7 +3,8 @@ import Profile from "./Profile";
 import SurveyChart from "./SurveyChart";
 import "./SurveyDetail.css";
 
-const SurveyDetail = ({ location }) => {
+const SurveyDetail = ({ posts, setPosts, location }) => {
+  console.log(location.state);
   const params = location.state;
   return (
     <div className="survey-detail-box">

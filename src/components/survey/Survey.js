@@ -1,4 +1,4 @@
-import React, { useState }from "react";
+import React, { useRef, useState } from "react";
 import "./Survey.css";
 import SurveyRow from "./SurveyRow";
 import Pagination from "../common/Pagination";
@@ -22,7 +22,7 @@ const Survey = ({
   const modalClose = () => {
     surveySetModalOpen(!surveyModalOpen);
   };
-  
+
   const [index, setIndex] = useState(null);
   const surveyInputRef = useRef();
   const checkIndexFnc = (index) => {
@@ -65,8 +65,9 @@ const Survey = ({
         )}
         <div className="survey-top-box">
           <div className="survey-top-box-btnbox">
-            <button className="survey-registration-btn  btn-o btn-r"
-            onClick={surveyRegistModalClose}
+            <button
+              className="survey-registration-btn  btn-o btn-r"
+              onClick={surveyRegistModalClose}
             >
               신규등록
             </button>
@@ -115,6 +116,7 @@ const Survey = ({
             {posts.map((data) => {
               return (
                 <SurveyRow
+                  setPosts={setPosts}
                   key={data.num}
                   num={data.num}
                   surveyName={data.surveyName}
@@ -130,6 +132,7 @@ const Survey = ({
                   profile1={data.profile1}
                   profile2={data.profile2}
                   profile3={data.profile3}
+                  pointPerPerson={data.pointPerPerson}
                 />
               );
             })}

@@ -8,7 +8,6 @@ const Pagination = ({
   currentPage,
 }) => {
   const pageNumbers = [];
-  console.log("currentPage " + currentPage);
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumbers.push(i);
   }
