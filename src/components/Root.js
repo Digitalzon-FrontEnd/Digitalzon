@@ -64,10 +64,10 @@ const Root = () => {
 ])
   return (
     <div>
-    <  Header />
+    {/* <  Header /> */}
       <Route  exact path="/" component={Main}/>
       <Route  exact path="/mainqa" render={() => (
-        <MainQA  tableInfo={tableInfo}/>
+        <MainQA  tableInfo={tableInfo} setTableInfo={setTableInfo}/>
   )} />
       <Route path="/faq" render={() => <Faq user={user} />} />
       <Route path="/guide" render={() => <Guide user={user} />} />

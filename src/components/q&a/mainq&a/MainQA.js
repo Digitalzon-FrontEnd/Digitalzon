@@ -4,7 +4,7 @@ import PublishQA from '../publishq&a/PublishQA';
 
 import "./MainQA.css"
 
-function MainQA({tableInfo}){
+function MainQA({tableInfo,setTableInfo}){
 
   const [publsihTitle,setPublishTitle] = useState('');
   const [publsihText,setPublishText] = useState('');
@@ -20,15 +20,7 @@ function MainQA({tableInfo}){
   return(
     <div className='mainqa'>
         <div className='btn-head'>
-          {/* <Link to = {{
-            pathname:"/publsih",
-            state:{
-              publsihTitle:publsihTitle,
-              setPublishTtitle:setPublishTitle,
-              setPublishText:setPublishText,
-              publishInfo:publishInfo
-            }
-          }}> */}<button className='btn-publish'>신규등록</button>{/* </Link> */}
+          <Link to='/publish'><button className='btn-publish'>신규등록</button></Link>
           <input className='btn-search'></input>
         </div>
         <table className='mainqa-table'>

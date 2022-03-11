@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import './PublishQA.css'
-import { Link, Route, Switch} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import MainQA from "../mainq&a/MainQA";
 
-function PublishQA(location){
+function PublishQA({location}){
   const tableparams = location.state;
+  console.log(location)
   return(
     <div className="publish-qa">
       <h1 className="qa-head1">Q&A등록</h1>
@@ -21,7 +22,7 @@ function PublishQA(location){
       <div className="publishbtn">
         <button className="publishbtn-publish" onClick={()=>{tableparams.publishInfo(tableparams.publishTitle)}}
        >등록</button>
-        <Link to="/"><button className="publishbtn-cancel">취소</button></Link>
+        <Link to="/mainqa"><button className="publishbtn-cancel">취소</button></Link>
       </div>
     </div>
   )
