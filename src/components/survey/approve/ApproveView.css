@@ -7,12 +7,12 @@
   /* padding-top: 70px; */
 }
 
-.details-container {
+.surveyApproveDetails-box .details-container {
   /* width: 289px; */
   /* width: 100%; */
   /* height: 298px; */
 }
-.details-container .details-wrap {
+.surveyApproveDetails-box .details-container .details-wrap {
   width: 100%;
   /* height: 298px;
    */
@@ -20,23 +20,25 @@
   display: flex;
   justify-content: space-between;
 }
-.details-left {
+.surveyApproveDetails-box .details-left {
   width: 289px;
   height: 266px;
   background-color: #ebebeb;
   margin-right: 30px;
 }
-.details-right {
+
+.surveyApproveDetails-box .details-right {
   width: 362px;
   /* height: 266px;
    */
   height: 100%;
 }
 
-.details-left-inner {
+.surveyApproveDetails-box.details-left-inner {
   margin-top: 13px;
 }
-.details-left .row {
+
+.surveyApproveDetails-box .details-left .row {
   margin-left: 9px;
   height: 48px;
   width: 269px;
@@ -47,25 +49,27 @@
   border-bottom: 1px dashed #9a9a9a;
 }
 
-.key {
+.surveyApproveDetails-box .key {
   display: inline-block;
   width: 125px;
   height: 100%;
 }
-.row:last-child {
+
+.surveyApproveDetails-box .row:last-child {
   border: none;
 }
 
-.details-right li {
+.surveyApproveDetails-box .details-right li {
   margin-top: 12px;
   font-size: 12px;
   color: #545147;
 }
 
-.details-right li:first-child {
+.surveyApproveDetails-box .details-right li:first-child {
   margin-top: 0px;
 }
-.details-right .payment-point {
+
+.surveyApproveDetails-box .details-right .payment-point {
   display: inline-block;
   margin-top: 33px;
   font-weight: 600;
@@ -73,11 +77,35 @@
 
   color: #545147;
 }
-.details-right .select-container {
+
+.surveyApproveDetails-box .details-right .select-container {
   margin-top: 30px;
 }
 
-.details-right .select-wrap {
+.surveyApproveDetails-box select {
+  width: 100%;
+
+  height: 100%;
+
+  text-align: center;
+  /* padding: 0 28px 0 10px; */
+
+  padding-right: 15px;
+  font-size: 12px;
+
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  appearance: none;
+
+  box-sizing: border-box;
+  background: transparent;
+}
+.surveyApproveDetails-box select::-ms-expand {
+  display: none; /*for IE10,11*/
+}
+.surveyApproveDetails-box .details-right .select-wrap {
   margin-left: 13px;
   display: inline-block;
   width: 98px;
@@ -89,50 +117,53 @@
     no-repeat 97% 50%/15px auto;
 }
 
-.save-btn {
+.surveyApproveDetails-box .save-btn {
   height: 32px;
   width: 94.7px;
   margin-left: 16px;
 }
 
-.list-btn {
+.surveyApproveDetails-box .list-btn {
   height: 32px;
   width: 94.7px;
   margin-left: 9.7px;
 }
 
-.status-title {
+.surveyApproveDetails-box .status-title {
   margin-top: 42px;
   font-size: 12px;
 }
-.details-right li {
+
+.surveyApproveDetails-box .details-right li {
   margin-top: 9px;
 }
 
-.details-right .btn-container {
+.surveyApproveDetails-box .details-right .btn-container {
   margin-top: 15px;
   margin-right: 10px;
   display: flex;
   justify-content: flex-end;
 }
 
-.details-container .status-record {
+.surveyApproveDetails-box.details-container .status-record {
   margin-top: 10px;
 }
-.record-list {
+
+.surveyApproveDetails-box .record-list {
   overflow: auto;
 }
 
-.survey-profile-container {
+.surveyApproveDetails-box .survey-profile-container {
   display: flex;
   flex-direction: row;
   /* justify-content: space-between; */
 }
-.survey-profile-container .survey-profile-text {
+
+.surveyApproveDetails-box .survey-profile-container .survey-profile-text {
   margin-right: 3px;
 }
 
-#reason {
+.surveyApproveDetails-box #reason {
   font-size: 12px;
   padding-left: 7px;
   margin-left: 13px;
@@ -141,8 +172,15 @@
   width: 139px;
   height: 27px;
 }
-input::placeholder {
+
+.surveyApproveDetails-box input::placeholder {
   opacity: 1;
   color: #545147;
   color: bue;
+}
+
+.surveyApproveDetails-box .record-list li {
+  font-size: 13px;
+  margin-left: 13px;
+  margin-top: 15px;
 }

@@ -1,6 +1,6 @@
-table,
-th,
-td {
+.approve-board-box table,
+.approve-board-box th,
+.approve-board-box td {
   border-bottom: 1px solid #c4c4c4;
   text-align: center;
   height: 45px;
@@ -8,27 +8,27 @@ td {
   line-height: normal;
   letter-spacing: normal;
 }
-table {
+.approve-board-box table {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   border-collapse: collapse;
 }
 
-th {
+.approve-board-box th {
   height: 45px;
   border-top: 3px solid #545147;
   border-bottom: 1px solid #545147;
   background-color: #ebebeb;
 }
-th:first-child {
+.approve-board-box th:first-child {
   width: 60px;
 }
-th:last-child {
+.approve-board-box th:last-child {
   width: 60px;
 }
 
-td:nth-child(2) {
+.approve-board-box td:nth-child(2) {
   text-decoration: underline;
 }
 .approve-board-box {
@@ -75,7 +75,7 @@ td:nth-child(2) {
   top: -3px;
 }
 
-#search-btn {
+.approve-board-box #search-btn {
   margin-left: 13px;
   width: 94.7px;
   height: 30px;

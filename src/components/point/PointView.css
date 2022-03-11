@@ -7,18 +7,18 @@
   /* padding-top: 70px; */
   /* overflow: auto; */
 }
-.point-details-inner {
+.pointDetails-box .point-details-inner {
   padding-left: 21px;
   padding-right: 21px;
   background-color: #ebebeb;
 }
-.point-section .title {
+.pointDetails-box .point-section .title {
   font-size: 13px;
   font-weight: 600;
   color: #545147;
 }
 
-.title-box {
+.pointDetails-box .title-box {
   display: inline-block;
   height: 60px;
   width: 127px;
@@ -30,7 +30,7 @@
   padding-left: 19px;
 }
 
-.row {
+.pointDetails-box .row {
   /* display: inline-block; */
   padding-left: 21px;
   padding-right: 21px;
@@ -43,11 +43,11 @@
   border-bottom: 1px dashed #9a9a9a;
 }
 
-.key {
+.pointDetails-box .key {
   display: inline-block;
   width: 125px;
 }
-select {
+.pointDetails-box select {
   width: 100%;
 
   height: 100%;
@@ -68,11 +68,11 @@ select {
   background: transparent;
 }
 
-select::-ms-expand {
+.pointDetails-box select::-ms-expand {
   display: none; /*for IE10,11*/
 }
 
-.select-wrap {
+.pointDetails-box .select-wrap {
   margin-left: 16px;
   display: inline-block;
   width: 67.4px;
@@ -84,50 +84,50 @@ select::-ms-expand {
     no-repeat 97% 50%/15px auto;
 }
 
-.point-board-select-box {
+.pointDetails-box .point-board-select-box {
   width: 100%;
   display: inline-block;
   margin-bottom: 9px;
   font-size: 12px;
 }
 
-.point-details-select-menu {
+.pointDetails-box .point-details-select-menu {
   display: inline-block;
   margin-left: 348px;
   margin-top: 29px;
 }
-.statusTitle {
+.pointDetails-box .statusTitle {
   font-size: 12px;
 }
 
-.save-btn {
+.pointDetails-box .save-btn {
   height: 32px;
   width: 94.7px;
   margin-left: 16px;
   cursor: pointer;
 }
 
-.list-btn {
+.pointDetails-box .list-btn {
   height: 32px;
   width: 94.7px;
   margin-left: 9.7px;
   cursor: pointer;
 }
 
-.status-record-container {
+.pointDetails-box .status-record-container {
   margin-left: 5px;
   margin-top: 17px;
 }
-.status-record-title {
+.pointDetails-box .status-record-title {
   font-size: 13px;
   font-weight: 600;
 }
-.record-list {
+.pointDetails-box .record-list {
   margin-top: 13px;
   overflow: auto;
   height: 200px;
 }
-.record-list li {
+.pointDetails-box .record-list li {
   font-size: 13px;
   margin-left: 13px;
   margin-top: 15px;

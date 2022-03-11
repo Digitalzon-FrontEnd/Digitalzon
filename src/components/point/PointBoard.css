@@ -1,6 +1,6 @@
-table,
-th,
-td {
+.point-board-box .table,
+.point-board-box th,
+.point-board-box td {
   border-bottom: 1px solid #c4c4c4;
   text-align: center;
   height: 45px;
@@ -8,21 +8,25 @@ td {
   line-height: normal;
   letter-spacing: normal;
 }
-table {
+.point-board-box table {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   border-collapse: collapse;
 }
 
-th {
+.point-board-box th {
   height: 45px;
   border-top: 3px solid #545147;
   border-bottom: 1px solid #545147;
   background-color: #ebebeb;
 }
 
-td:nth-child(2):hover {
+.point-board-box td:nth-child(2) {
+  text-decoration: underline;
+}
+
+.point-board-box td:nth-child(2):hover {
   /* cursor: pointer;
   background-color: black; */
 }
@@ -35,7 +39,7 @@ td:nth-child(2):hover {
   height: 700px;
 }
 
-input[type="date"] {
+.point-board-box input[type="date"] {
   position: relative;
   padding-left: 10px;
   padding-top: 11px;
@@ -46,16 +50,16 @@ input[type="date"] {
   font-size: 10px;
 }
 
-input[type="date"]::-webkit-clear-button,
-input[type="date"]::-webkit-inner-spin-button {
+.point-board-box input[type="date"]::-webkit-clear-button,
+.point-board-box input[type="date"]::-webkit-inner-spin-button {
   display: none;
 }
-input[type="date"]::-webkit-calendar-picker-indicator {
+.point-board-box input[type="date"]::-webkit-calendar-picker-indicator {
   background: transparent;
   z-index: 1;
 }
 
-.input_date_box input::after {
+.point-board-box .input_date_box input::after {
   position: absolute;
   top: 44%;
   right: 6px;
@@ -67,7 +71,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   transform: translateY(-50%);
   z-index: 0;
 }
-select {
+.point-board-box select {
   width: 100%;
 
   height: 100%;
@@ -88,11 +92,11 @@ select {
   background: transparent;
 }
 
-select::-ms-expand {
+.point-board-box select::-ms-expand {
   display: none; /*for IE10,11*/
 }
 
-.select-wrap {
+.point-board-box .select-wrap {
   margin-left: 16px;
   display: inline-block;
   width: 87.4px;
@@ -159,7 +163,7 @@ select::-ms-expand {
   top: -3px;
 }
 
-#search-btn {
+.point-board-box #search-btn {
   margin-left: 13px;
   width: 94.7px;
   height: 30px;

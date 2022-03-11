@@ -6,7 +6,6 @@ const Gnb = ({ user }) => {
   user = true;
   const sampleLocation = useLocation();
   const url = sampleLocation.pathname;
-  // console.log(url);
   return (
     <nav className="menu-nav ">
       {user ? (
