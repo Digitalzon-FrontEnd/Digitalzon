@@ -19,57 +19,57 @@ import DetailQA1 from "./q&a/detailq&a/DetailQA1";
 const Root = () => {
   const [user, SetUser] = useState(false);
   let [tableInfo,setTableInfo] = useState ([{
-    번호 :'8',
-    제목 : 'Q&A 게시판',
-    등록일 : '2021.09.30',
-    등록자 : '전선향',
-    내용 : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
+    num :'8',
+    title : 'Q&A 게시판',
+    date : '2021.09.30',
+    user : '전선향',
+    content : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
 
   },{
-    번호 :'7',
-    제목 : 'Q&A 게시판',
-    등록일 : '2021.09.28',
-    등록자 : '고승원',
-    내용 : 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  '
+    num :'7',
+    title : 'Q&A 게시판',
+    date : '2021.09.28',
+    user : '고승원',
+    content : 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  '
   },{
-    번호 :'6',
-    제목 : 'Q&A 게시판',
-    등록일 : '2021.09.17',
-    등록자 : '안소향',
-    내용 : 'Many desktop publishing packages'
+    num :'6',
+    title : 'Q&A 게시판',
+    date : '2021.09.17',
+    user : '안소향',
+    content : 'Many desktop publishing packages'
   },{
-    번호 :'5',
-    제목 : 'Q&A 게시판',
-    등록일 : '2021.09.08',
-    등록자 : '황유희',
-    내용 : 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it'
+    num :'5',
+    title : 'Q&A 게시판',
+    date : '2021.09.08',
+    user : '황유희',
+    content : 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it'
     
   },{
-    번호 :'4',
-    제목 : 'Q&A 게시판',
-    등록일 : '2021.08.28',
-    등록자 : '홍길동',
-    내용 : 'Many desktop publishing packages'
+    num :'4',
+    title : 'Q&A 게시판',
+    date : '2021.08.28',
+    user : '홍길동',
+    content : 'Many desktop publishing packages'
   },
   {
-    번호 :'3',
-    제목 : 'Q&A 게시판',
-    등록일 : '2021.08.13',
-    등록자 : '고승원',
-    내용 : 'Many desktop publishing packages'
+    num :'3',
+    title : 'Q&A 게시판',
+    date : '2021.08.13',
+    user : '고승원',
+    content : 'Many desktop publishing packages'
   },
   {
-    번호 :'2',
-    제목 : 'Q&A 게시판',
-    등록일 : '2021.07.28',
-    등록자 : '고승원',
-    내용 : 'Many desktop publishing packages'
+    num :'2',
+    title : 'Q&A 게시판',
+    date : '2021.07.28',
+    user : '고승원',
+    content : 'Many desktop publishing packages'
   },{
-    번호 :'1',
-    제목 : 'Q&A 게시판',
-    등록일 : '2021.07.10',
-    등록자 : '황유희',
-    내용 : 'Many desktop publishing packages'
+    num :'1',
+    title : 'Q&A 게시판',
+    date : '2021.07.10',
+    user : '황유희',
+    content : 'Many desktop publishing packages'
   },
 ])
   return (

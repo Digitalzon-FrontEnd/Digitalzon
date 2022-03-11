@@ -44,7 +44,7 @@ const CommentItem = ({
           관리자 
         </span>
         <span className="date">
-          {new Date(created_date).toLocaleDateString()}&nbsp;&nbsp;  
+          {new Date(created_date).toLocaleDateString().slice(0,-1)}&nbsp;&nbsp;  
           {new Date(created_date).toLocaleTimeString()}
         </span>
         <div className="content">

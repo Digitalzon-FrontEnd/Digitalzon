@@ -10,7 +10,8 @@ function Home() {
     완료샘플수:'0',
     상태:'설문예정',
     등록자:'홍길동',
-    소속:'개인'
+    소속:'개인',
+
   },{
     설문번호:'159',
     조사명:'패널인증시스템 수요도 조사',
@@ -58,31 +59,19 @@ function Home() {
     소속:'B업체'
   }
 ]);
-  
-  function changeType0(){
-    let newarray = [...checkedType]
-    newarray[0]= '설문예정'
-    setcheckedType(newarray)
-  }
-  function changeType1(){
-    let newarray = [...checkedType]
-    newarray[0]= '설문중'
-    setcheckedType(newarray)
-  }
-  function changeType2(){
-    let newarray = [...checkedType]
-    newarray[0]='설문마감'
-    setcheckedType(newarray)
+  const [radioValue, setRadioValue] = useState("설문예정");
+  function changeRadioValue(e){
+    setRadioValue(e.target.value)
   }
   return (
     <div>
       <form className='select'>
         <label>
-          <input onClick={changeType0} className='select-one' type="radio" name="설문" defaultChecked/>설문예정</label>
+          <input onClick={changeRadioValue} className='select-one' type="radio" name="설문" value="설문예정" defaultChecked />설문예정</label>
         <label>
-        <input onClick={changeType1} className='select-two' type="radio" name="설문"/>설문중</label>
+        <input onClick={changeRadioValue} className='select-two' type="radio" name="설문" value="설문중"/>설문중</label>
         <label>
-          <input onClick={changeType2} className='select-three' type="radio" name="설문"/>설문마감</label>
+          <input onClick={changeRadioValue} className='select-three' type="radio" name="설문" value="설문마감"/>설문마감</label>
       </form>
       <table className='qa-table'>
         <thead className=''>
@@ -100,7 +89,8 @@ function Home() {
         <tbody>
         {checkedType.map(function(a){
                 return(
-                        <tr key={a.설문번호}>
+                  radioValue === a.상태 ? 
+                    <tr key={a.설문번호}>
                           <td>{a.설문번호}</td>
                           <td>{a.조사명}</td>
                           <td>{a.요청기간}</td>
@@ -109,7 +99,7 @@ function Home() {
                           <td>{a.상태}</td>
                           <td>{a.등록자}</td>
                           <td>{a.소속}</td>
-                        </tr> 
+                        </tr> : null 
                 )
               })}
         </tbody>

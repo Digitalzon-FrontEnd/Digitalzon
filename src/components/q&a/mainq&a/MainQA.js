@@ -24,15 +24,15 @@ function MainQA({tableInfo,setTableInfo}){
           <tbody>
                 {tableInfo.map(function(a){
                 return(
-                        <tr key={a.번호}>
-                          <td>{a.번호}</td>
+                        <tr key={a.num}>
+                          <td>{a.num}</td>
                           <td><Link to={{
-                            pathname:`/mainqa/detailqa/${a.번호}`,
-                            state:{번호:a.번호,제목:a.제목,등록일:a.등록일,등록자:a.등록자,내용:a.내용}
+                            pathname:`/mainqa/detailqa/${a.num}`,
+                            state:{num:a.num,title:a.title,date:a.date,user:a.user,content:a.content}
                             }}
-                          >{a.제목}</Link></td>
-                          <td>{a.등록일}</td>
-                          <td>{a.등록자}  </td>
+                          >{a.title}</Link></td>
+                          <td>{a.date}</td>
+                          <td>{a.user}  </td>
                         </tr> 
                 )
               })}

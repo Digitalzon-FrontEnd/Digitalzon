@@ -13,11 +13,11 @@ function PublishQA({tableInfo, setTableInfo}){
   const created_date = new Date();
   function publishInfo(){
     const newPublishTitle = [...tableInfo];
-    newPublishTitle.unshift({ 번호 :tableInfo.length+1,
-    제목 : publishTitleInput.current.value,
-    등록일 :created_date.toLocaleDateString().slice(0,-1),
-    등록자 : '홍길동',
-    내용: publishTextInput.current.value
+    newPublishTitle.unshift({ num :tableInfo.length+1,
+    title : publishTitleInput.current.value,
+    date :created_date.toLocaleDateString().slice(0,-1),
+    user : '홍길동',
+    content : publishTextInput.current.value
 })
     setTableInfo(newPublishTitle)
     alert('질문이 등록되었습니다.')
@@ -26,7 +26,7 @@ function PublishQA({tableInfo, setTableInfo}){
   console.log(tableInfo);
   return(
     <div className="publish-qa">
-      <h1 className="qa-head1">Q&A등록</h1>
+      <h1 className="qa-head1">Q&amp;A등록</h1>
       <h2 className="qa-head2">설문 관련하여 궁금하신 점을 아래에 작성해주시면<br/>
         최대한 빠른 시간 내 답변을 등록하겠습니다.
       </h2>

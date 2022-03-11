@@ -38,13 +38,13 @@ const DetailQA1 = ({location}) => {
   return (
     <div className="detail-qa">
       <div className='head-list'>
-        <div id="item1">{params.번호}</div>
-        <div id="item2">{params.제목}</div>
-        <div id="item3">{params.등록자}</div>
-        <div id="item4">{params.등록일}</div>
+        <div id="item1">{params.num}</div>
+        <div id="item2">{params.title}</div>
+        <div id="item3">{params.date}</div>
+        <div id="item4">{params.user}</div>
       </div>
       <div className='text-input'>
-        {params.내용}
+        {params.content}
       </div>
       <CommentList onEdit={onEdit} onRemove={onRemove} CommentList={data} />
       <CommentEditor onCreate={onCreate} />
