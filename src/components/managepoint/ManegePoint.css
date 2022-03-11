@@ -1,0 +1,121 @@
+.Manage-inner{
+    margin: auto;
+    text-align: center;
+    
+}
+.managePoint-header{
+    margin: 136px 0 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+.managePoint-header>h1{
+    font-size: 22px;
+    color: #545147;
+    font-weight: 600;
+    margin-right: 36px;
+}
+.managePoint-log-box>h2{
+    font-size: 17px;
+    color: #545147;
+    font-weight: 600;
+}
+.managePoint-header>span{
+    font-size: 23px;
+    color: #545147;
+    font-weight: 600;
+}
+/* header-txt 부분 */
+
+.managePoint-refund-box{
+    margin-top: 34px;
+}
+/* 환불박스 부분 */
+
+.inner_box input{
+    height: 28px;
+    border: 1px solid #c4c4c4;
+    font-size: 13px;
+    color: #545147;
+    text-indent: 7px;
+}
+.inner_box input::placeholder{
+    color: #c4c4c4;
+}
+.managePoint-refund-box .refund-input{
+    width: 620px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+#bankTitle{
+    height: 28px;
+    border: 1px solid #c4c4c4;
+    font-size: 13px;
+    color: #545147;
+    text-align: center;
+
+    /* -webkit-appearance: none; /* 화살표 없애기 for chrome*/ 
+    /* -moz-appearance: none; /* 화살표 없애기 for firefox*/
+    /* appearance: none; /* 화살표 없애기 공통*/ 
+}
+select::-ms-expand {
+display: none;  
+}
+.bank-option{width: 67px;}
+.backaccount-input{ width: 200px;}
+.backaccount-title-input{width: 126px;}
+.refund-point-input{width: 110px;}
+/* input 박스 크기 */
+
+
+.text-refund{
+    position: absolute;
+    top: 30px; right: 10px;    
+}
+
+.text-refund p, .form-charge-point p{
+    font-size: 11px;
+    color: #9a9a9a;
+    margin-top: 11px;
+}
+
+.managePoint-log-box{
+    margin-top: 55px;
+}
+
+.managePoint-log-list{
+    margin-top: 32px;
+}
+
+.managePoint-log-list li{
+    width: 440px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.managePoint-log-list li span{
+    font-size: 13px;
+    color: #545147;
+    line-height: 30px;
+}
+
+
+.managePoint-charge-point{
+    margin: 50px 0 155px 0;
+}
+.btn-refund, .btn-charge{ 
+    width: 94px; 
+    height: 30px;
+    color: #545147;
+    font-size: 13px; 
+    font-weight: 600;
+    background-color: #fba92f;
+    border: none;
+}
+
+.btn-charge{
+    margin-top: 24px;
+}

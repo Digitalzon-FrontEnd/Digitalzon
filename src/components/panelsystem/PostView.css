@@ -1,0 +1,109 @@
+.postview-wrap{
+    width: 693px;
+    margin: auto;
+    font-size: 13px;
+    color: #545147;
+    text-align: left;
+}
+
+
+.postview-table{
+    margin: 200px auto 22px;
+    width: 693px;
+    height: 266px;
+    border-collapse: collapse;
+    background-color: #ebebeb;  
+}
+.postview-thead,.postview-tbody{
+    position: relative;   
+}
+.postview-thead tr{
+    position: absolute;
+    top: 20px; left: 21px;
+    height: 235px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    font-weight: 600;
+}
+.postview-tbody tr{
+    position: absolute;
+    top: 20px; left: 170px;
+    height: 235px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.postview-thead td{
+    position:relative;
+}
+.postview-thead td::before{
+    position:absolute;
+    content: '';
+    width: 650px;
+    height: 1px;
+    border-bottom : 1px dashed #9a9a9a;
+}
+.postview-thead td:nth-child(1)::before 
+,.postview-thead td:nth-child(2)::before 
+,.postview-thead td:nth-child(3)::before
+,.postview-thead td:nth-child(4)::before{
+    top: 28px;
+}
+
+.postview-thead td:last-child::before{
+    display: none;
+}
+
+/* table 부분 */
+
+.postview-btn-box{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.postview-btn-box p{
+    line-height: 25px;
+    color: #545147;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+#postview-select{
+    width: 98px;
+    height: 27px;
+    border: solid 1px #c4c4c4;
+    background-color: #fff;
+    margin-left: 13px;
+    font-size: 12px;
+    color: #545147;
+    font-weight: 600;
+    text-indent: 13px;
+}
+.postview-btn{
+    width: 95px;
+    height: 32px;
+    background-color: #fba92f;
+    border: none;
+    color: #545147;
+}
+.back-btn{
+    margin-left: 9px;
+}
+.save-btn{
+    margin-left: 13px;
+}
+/* postview-btn-box 끝 */
+.postview-loglist{
+    margin: 11px 0 200px 10px;
+    font-size: 13px;
+}
+.postview-loglist p{
+    margin-bottom: 13px;
+}
+.postview-loglist ul{
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+   
+}
