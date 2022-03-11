@@ -73,7 +73,7 @@ const Profile = ({ params }) => {
           >
             <button className="profile-footer-btn btn-o  btn-s">수정</button>
           </Link>
-          <Link to="/">
+          <Link to="/survey">
             <button className="profile-footer-btn btn-o  btn-s">목록</button>
           </Link>
         </div>

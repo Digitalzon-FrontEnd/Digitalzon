@@ -288,7 +288,7 @@ const Root = () => {
     <div>
       <Route
         exact={true}
-        path="/"
+        path="/survey"
         render={() => (
           <Survey
             totalIndexPosts={
