@@ -35,6 +35,7 @@ const SurveyRow = ({
           }}
         />
       </td>
+      
       <td>{num}</td>
       <td>
         <Link

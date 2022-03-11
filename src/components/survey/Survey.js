@@ -1,4 +1,4 @@
-import React, { useState }from "react";
+import React, { useRef, useState }from "react";
 import "./Survey.css";
 import SurveyRow from "./SurveyRow";
 import Pagination from "../common/Pagination";

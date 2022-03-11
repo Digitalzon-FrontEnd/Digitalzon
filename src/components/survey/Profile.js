@@ -11,9 +11,9 @@ const Profile = ({ params }) => {
             <div className="profile-box-level">
               <span className="profile-box-level-text">1단계 :</span>
               <div className="profile-box-level-des">
-                {params.profile1.map((item) => {
+                {params.profile1.map((item,index) => {
                   return (
-                    <span className="profile-box-level-detail">{item}</span>
+                    <span className="profile-box-level-detail" key={index}>{item}</span>
                   );
                 })}
               </div>
@@ -23,9 +23,9 @@ const Profile = ({ params }) => {
             <div className="profile-box-level">
               <span className="profile-box-level-text">2단계 :</span>
               <div className="profile-box-level-des">
-                {params.profile2.map((item) => {
+                {params.profile2.map((item,index) => {
                   return (
-                    <span className="profile-box-level-detail">{item}</span>
+                    <span className="profile-box-level-detail" key={index}>{item}</span>
                   );
                 })}
               </div>
@@ -35,9 +35,9 @@ const Profile = ({ params }) => {
             <div className="profile-box-level">
               <span className="profile-box-level-text">3단계 :</span>
               <div className="profile-box-level-des">
-                {params.profile3.map((item) => {
+                {params.profile3.map((item,index) => {
                   return (
-                    <span className="profile-box-level-detail">{item}</span>
+                    <span className="profile-box-level-detail" key={index}>{item}</span>
                   );
                 })}
               </div>
@@ -60,7 +60,7 @@ const Profile = ({ params }) => {
           <Link to="/surveymodify">
             <button className="profile-footer-btn btn-o  btn-s">수정</button>
           </Link>
-          <Link to="/">
+          <Link to="/survey">
             <button className="profile-footer-btn btn-o  btn-s">목록</button>
           </Link>
         </div>
