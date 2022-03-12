@@ -56,6 +56,7 @@ const AccountManage = () => {
         setUserData(userInfo);
     };
     
+    
     return (
     <div className="account-wrapper">
         <div className="account-inner">
@@ -82,19 +83,19 @@ const AccountManage = () => {
                         <div className="account-info-area" id="clickForm">
                             <div className="account-id">
                                 <label>아이디</label>
-                                <input className=" account-input" defaultValue={userData.accountid}></input>
+                                <input className=" account-input" value={userData.accountid} ></input>
                             </div>
                             <div className="account-password">
                                 <label>비밀번호</label>
-                                <input type="text" className=" account-input" defaultValue={userData.accountpw}></input>
+                                <input type="text" className=" account-input" value={userData.accountpw}></input>
                             </div>
                             <div className="account-email">
                                 <label>E-Mail</label>
-                                <input type="email" className=" account-input" defaultValue={userData.mail}></input>
+                                <input type="email" className=" account-input" value={userData.mail}></input>
                             </div>
                             <div className="account-username">
                                 <label>사용자명</label>
-                                <input className=" account-input" defaultValue={userData.userid}></input>
+                                <input className=" account-input" value={userData.userid}></input>
                             </div>
                             <div className="account-call">
                                 <label>휴대폰 번호</label>
@@ -105,7 +106,7 @@ const AccountManage = () => {
                                 onKeyUp={lengthcheck}
                                 required
                                 className=" account-input"
-                                defaultValue={userData.usercall1}
+                                value={userData.usercall1}
                                 />
                                 <input
                                 id="accountCallNum2"
@@ -114,13 +115,13 @@ const AccountManage = () => {
                                 onKeyUp={lengthcheck}
                                 required
                                 className=" account-input"
-                                defaultValue={userData.usercall2}
+                                value={userData.usercall2}
                                 />
                                 <input id="accountCallNum3"
                                 type="text"
                                 maxLength="4"
                                 className=" account-input"
-                                defaultValue={userData.usercall3}
+                                value={userData.usercall3}
                                 />
                             </div>
                         </div>
