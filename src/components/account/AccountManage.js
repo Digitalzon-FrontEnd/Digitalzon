@@ -2,8 +2,7 @@ import React,{useState,useEffect, useRef} from "react";
 import "./AccountManage.css";
 import { Link } from "react-router-dom";
 
-
-const AccountManage = () => {
+const AccountManage = ({userList}) => {
     const $ = (selector) => {
         return document.querySelector(selector);
     };
@@ -13,6 +12,9 @@ const AccountManage = () => {
         if (value.length === length) {
         $(`#accountCallNum${length - 1}`).focus();
         }
+    };
+    const click = (userInfo) => {
+        setUserData(userInfo);
     };
 
     const [userData,setUserData]  = useState({
@@ -25,36 +27,23 @@ const AccountManage = () => {
         usercall3:'' 
     })
 
-    const userList = [
-        {
-            "id": 1,
-            "userco": "(주) A",
-            "accountid": "juri42", 
-            "accountpw": 123456789, 
-            "mail": "juri42@gmail.com", 
-            "userid": "김주리", 
-            "usercall1": "010",
-            "usercall2": "1234",
-            "usercall3": "5678",
-            "userinfo": "(주) A 김주리"
-        },
-        {
-            "id": 2,
-            "userco": "(주) B",
-            "accountid": "perfume22", 
-            "accountpw": 987654321, 
-            "mail": "perfume22@naver.com", 
-            "userid": "전선향", 
-            "usercall1": "010",
-            "usercall2": "9876",
-            "usercall3": "5432",
-            "userinfo": "(주) B 전선향"
+    const mounted =useRef(false) //렌더링 되자마자 실행 안되게 하는 기능
+    useEffect(() => { 
+        if(!mounted.current){
+            mounted.current=true;
+        } else {
+            setUserData({
+                useraccountid:'juri42',
+                useraccountpw:'123456789',
+                usermail:'juri42@gmail.com',
+                userid:'김주리',
+                usercall1:'010',
+                usercall2:'1234',
+                usercall3:'5678'
+            })
         }
-    ]
-
-    const click = (userInfo) => {
-        setUserData(userInfo);
-    };
+    }, [])
+    
 
     return (
     <div className="account-wrapper">
@@ -75,14 +64,26 @@ const AccountManage = () => {
                                 <button id="searchIcon">돋보기</button>
                             </div>
                             <ul className="name-list">
-                                {userList.map((userinfo)=>(<li onClick={()=>{click(userinfo)}}>{userinfo.userinfo}</li>))} {/* map 함수로 리스트*/}
-                            </ul>
+                                {userList.map((userinfo) => (
+                                    <li
+                                    onClick={() => {
+                                        click(userinfo);
+                                    }}
+                                    key={userinfo.userid}
+                                    >
+                                    {userinfo.userinfo}
+                                    </li>
+                                ))}{''}
+                                </ul>
                         </div>
-
+                        {/*userList.map(c=>{
+                            return <AccountUser key={c.id} id={c.id} accountid={c.accountid} accountpw={c.accountpw} mail={c.mail} userid={c.userid} usercall1={c.usercall1} usercall2={c.usercall2} usercall3={c.usercall3} />
+                        })*/}
+                        {/*<AccountUser/>*/}
                         <div className="account-info-area" id="clickForm">
                             <div className="account-id">
                                 <label>아이디</label>
-                                <input className=" account-input" value={userData.accountid} ></input>
+                                <input className=" account-input" value={userData.accountid}></input>
                             </div>
                             <div className="account-password">
                                 <label>비밀번호</label>

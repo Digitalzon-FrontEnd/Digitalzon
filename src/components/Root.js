@@ -19,6 +19,52 @@ import MyPage from "./account/MyPage";
 
 const Root = () => {
   const [user, setUser] = useState(false);
+  
+  const [userList, setUserList] = useState([
+    {
+        "id": 1,
+        "userco": "(주) A",
+        "accountid": "juri42", 
+        "accountpw": 123456789, 
+        "mail": "juri42@gmail.com", 
+        "userid": "김주리", 
+        "usercall1": "010",
+        "usercall2": "1234",
+        "usercall3": "5678",
+        "userinfo": "(주) A 김주리"
+    },
+    {
+        "id": 2,
+        "userco": "(주) B",
+        "accountid": "perfume22", 
+        "accountpw": 987654321, 
+        "mail": "perfume22@naver.com", 
+        "userid": "전선향", 
+        "usercall1": "010",
+        "usercall2": "9876",
+        "usercall3": "5432",
+        "userinfo": "(주) B 전선향"
+    }
+]);
+/* user-List */
+
+  const handleCreate = (accountid,accountpw,mail,userid,usercall1,usercall2,usercall3) => {
+    const userArray = [...userList];
+    userArray.push({
+        "id": 3,
+        "userco": "(주) C",
+        "accountid": `${accountid}`, 
+        "accountpw": `${accountpw}`, 
+        "mail": `${mail}`, 
+        "userid": `${userid}`, 
+        "usercall1": `${usercall1}`,
+        "usercall2": `${usercall2}`,
+        "usercall3": `${usercall3}`,
+        "userinfo": `(주) C ${userid}`
+    })
+    setUserList(userArray)
+  };
+  /* user-List에 push 해주는 함수 */
 
   return (
     <div>
@@ -34,8 +80,8 @@ const Root = () => {
       <Route path="/infoinput" component={InfoInput} />
       <Route path="/complete" component={Complete} />
       <Route path="/accountchange" component={AccountChange} />
-      <Route path="/accountsetup" component={AccountSetup} />
-      <Route path="/accountmanage" component={AccountManage} />
+      <Route path="/accountsetup" render={() => <AccountSetup handleCreate={handleCreate} setUserList={setUserList}/>} />
+      <Route path="/accountmanage" render={() => <AccountManage userList={userList} handleCreate={handleCreate} setUserList={setUserList}/>} />
       <Route path="/mypage" component={MyPage} />
       <Footer />
     </div>
