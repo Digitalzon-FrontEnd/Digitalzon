@@ -1,6 +1,7 @@
 import React,{useState } from "react";
 import "./AccountManage.css";
 import { Link } from "react-router-dom";
+import { hasSelectionSupport } from "@testing-library/user-event/dist/utils";
 
 const AccountManage = ({userList}) => {
     const $ = (selector) => {
@@ -23,8 +24,28 @@ const AccountManage = ({userList}) => {
         usercall2:'',
         usercall3:'' 
     })
+    
     const click = (userInfo) => {
         setUserData(userInfo);
+    };
+    
+    {/*
+    const [users,setUsers]  = useState({
+        accountid:userData.accountid,
+        accountpw:userData.accountpw,
+        mail:userData.mail,
+        userid:userData.userid,
+        usercall1:userData.usercall1,
+        usercall2:userData.usercall2,
+        usercall3:userData.usercall3 
+    })
+    */}
+    const onChange = (e) => {
+        const {name,value}=e.target;
+        setUserData({
+            ...userData,
+            [name] : value,
+        })
     };
     return (
     <div className="account-wrapper">
@@ -60,19 +81,19 @@ const AccountManage = ({userList}) => {
                         <div className="account-info-area" id="clickForm">
                             <div className="account-id">
                                 <label>아이디</label>
-                                <input className=" account-input" value={userData.accountid}></input>
+                                <input className=" account-input" value={userData.accountid} onChange={onChange} name='accountid'></input>
                             </div>
                             <div className="account-password">
                                 <label>비밀번호</label>
-                                <input type="text" className=" account-input" value={userData.accountpw}></input>
+                                <input type="text" className=" account-input" value={userData.accountpw} onChange={onChange} name='accountpw'></input>
                             </div>
                             <div className="account-email">
                                 <label>E-Mail</label>
-                                <input type="email" className=" account-input" value={userData.mail}></input>
+                                <input type="email" className=" account-input" value={userData.mail} onChange={onChange} name='mail'></input>
                             </div>
                             <div className="account-username">
                                 <label>사용자명</label>
-                                <input className=" account-input" value={userData.userid}></input>
+                                <input className=" account-input" value={userData.userid} onChange={onChange} name='userid'></input>
                             </div>
                             <div className="account-call">
                                 <label>휴대폰 번호</label>
@@ -84,6 +105,8 @@ const AccountManage = ({userList}) => {
                                 required
                                 className=" account-input"
                                 value={userData.usercall1}
+                                onChange={onChange}
+                                name='usercall1'
                                 />
                                 <input
                                 id="accountCallNum2"
@@ -93,12 +116,16 @@ const AccountManage = ({userList}) => {
                                 required
                                 className=" account-input"
                                 value={userData.usercall2}
+                                onChange={onChange}
+                                name='usercall2'
                                 />
                                 <input id="accountCallNum3"
                                 type="number"
                                 maxLength="4"
                                 className=" account-input"
                                 value={userData.usercall3}
+                                onChange={onChange}
+                                name='usercall3'
                                 />
                             </div>
                         </div>

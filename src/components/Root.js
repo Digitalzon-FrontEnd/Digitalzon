@@ -19,7 +19,6 @@ import MyPage from "./account/MyPage";
 
 const Root = () => {
   const [user, setUser] = useState(false);
-  
   const [userList, setUserList] = useState([
     {
         "id": 1,
