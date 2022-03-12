@@ -1,8 +1,7 @@
 import React,{useState,useEffect, useRef} from "react";
 import "./AccountManage.css";
 import { Link } from "react-router-dom";
-import dummy from '../../db/accountData.json'
-import AccountUser from "./AccountUser";
+
 
 const AccountManage = () => {
     const $ = (selector) => {
@@ -96,10 +95,7 @@ const AccountManage = () => {
                                 {userList.map((userinfo)=>(<li onClick={()=>{click(userinfo)}}>{userinfo.userinfo}</li>))} {/* map 함수로 리스트*/}
                             </ul>
                         </div>
-                        {/*userList.map(c=>{
-                            return <AccountUser key={c.id} id={c.id} accountid={c.accountid} accountpw={c.accountpw} mail={c.mail} userid={c.userid} usercall1={c.usercall1} usercall2={c.usercall2} usercall3={c.usercall3} />
-                        })*/}
-                        {/*<AccountUser/>*/}
+
                         <div className="account-info-area" id="clickForm">
                             <div className="account-id">
                                 <label>아이디</label>
