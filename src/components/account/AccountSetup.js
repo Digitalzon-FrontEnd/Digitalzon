@@ -3,7 +3,7 @@ import "./AccountSetup.css";
 import { Link } from "react-router-dom";
 
 
-const AccountSetup = () => {
+const AccountSetup = ({handleCreate,setUserList}) => {
     const $ = (selector) => {
         return document.querySelector(selector);
     };
@@ -14,6 +14,50 @@ const AccountSetup = () => {
         $(`#accountCallNum${length - 1}`).focus();
         }
     };
+    
+    const onChangeId = (e) => {
+        setAccountId(e.target.value)
+    }
+    const onChangePw = (e) => {
+        setAccountPw(e.target.value)
+    }
+    const onChangeEmail = (e) => {
+        setAccountEmail(e.target.value)
+    }
+    const onChangeUser = (e) => {
+        setAccountUser(e.target.value)
+    }
+    const onChangeCallNum1 = (e) => {
+        setAccountCallNum1(e.target.value)
+    }
+    const onChangeCallNum2 = (e) => {
+        setAccountCallNum2(e.target.value)
+    }
+    const onChangeCallNum3 = (e) => {
+        setAccountCallNum3(e.target.value)
+    }
+    /* onchange 함수 */
+
+    const submitAccount = (e) => {
+        e.preventDefault();
+        handleCreate(accountId,accountPw,accountEmail,accountUser,accountCallNum1,accountCallNum2,accountCallNum3)
+        setAccountId('')
+        setAccountPw('')
+        setAccountEmail('')
+        setAccountUser('')
+        setAccountCallNum1('')
+        setAccountCallNum2('')
+        setAccountCallNum3('')
+    }
+    /* 저장버튼 */
+    const [ accountId, setAccountId ] = useState('')
+    const [ accountPw, setAccountPw ] = useState('')
+    const [ accountEmail, setAccountEmail ] = useState('')
+    const [ accountUser, setAccountUser ] = useState('')
+    const [ accountCallNum1, setAccountCallNum1 ] = useState('')
+    const [ accountCallNum2, setAccountCallNum2 ] = useState('')
+    const [ accountCallNum3, setAccountCallNum3 ] = useState('')
+   /* state  */
 
 
     return (
@@ -28,19 +72,19 @@ const AccountSetup = () => {
                 <div className="account-change-info">
                     <div className="account-id">
                         <label>아이디</label>
-                        <input type="id" className="account-input" required></input>
+                        <input type="id" value={accountId} onChange={onChangeId} className="account-input" required></input>
                     </div>
                     <div className="account-password">
                         <label>비밀번호</label>
-                        <input type="password" className=" account-input" required></input>
+                        <input type="password" value={accountPw} onChange={onChangePw} className=" account-input" required></input>
                     </div>
                     <div className="account-email">
                         <label>E-Mail</label>
-                        <input type="email" className=" account-input" required></input>
+                        <input type="email" value={accountEmail} onChange={onChangeEmail} className=" account-input" required></input>
                     </div>
                     <div className="account-username">
                         <label>사용자명</label>
-                        <input className=" account-input" required></input>
+                        <input value={accountUser} onChange={onChangeUser}className=" account-input" required></input>
                     </div>
                     <div className="account-call">
                         <label>휴대폰 번호</label>
@@ -51,6 +95,7 @@ const AccountSetup = () => {
                         onKeyUp={lengthcheck}
                         required
                         className=" account-input"
+                        value={accountCallNum1} onChange={onChangeCallNum1}
                         />
                         <input
                         id="accountCallNum2"
@@ -59,17 +104,19 @@ const AccountSetup = () => {
                         onKeyUp={lengthcheck}
                         required
                         className=" account-input"
+                        value={accountCallNum2} onChange={onChangeCallNum2}
                         />
                         <input id="accountCallNum3"
                         type="text"
                         maxLength="4"
                         className=" account-input"
+                        value={accountCallNum3} onChange={onChangeCallNum3}
                         />
                     </div>
                     <button id="accountIdBtn" type="button">중복확인</button>
                 </div>
                 <div className="account-btn-box">
-                    <button className="account-btn" type="submit">저장</button>
+                    <button className="account-btn" onClick={submitAccount} type="submit">저장</button>
                 </div>
             </form>
         </div>

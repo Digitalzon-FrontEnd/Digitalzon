@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import dummy from '../../db/accountData.json'
 import AccountUser from "./AccountUser";
 
-const AccountManage = () => {
+const AccountManage = ({userList}) => {
     const $ = (selector) => {
         return document.querySelector(selector);
     };
@@ -15,6 +15,9 @@ const AccountManage = () => {
         $(`#accountCallNum${length - 1}`).focus();
         }
     };
+    const click = (userInfo) => {
+        setUserData(userInfo);
+      };
 
     const [userData,setUserData]  = useState({
         accountid:'',
@@ -41,44 +44,14 @@ const AccountManage = () => {
                 usercall3:'5678'
             })
         }
-    
     }, [])
-    const userClick = ()=>{
-        
-    }
-
-    const userList = [
-        {
-            "id": 1,
-            "userco": "(주) A",
-            "accountid": "juri42", 
-            "accountpw": 123456789, 
-            "mail": "juri42@gmail.com", 
-            "userid": "김주리", 
-            "usercall1": "010",
-            "usercall2": "1234",
-            "usercall3": "5678",
-            "userinfo": "(주) A 김주리"
-        },
-        {
-            "id": 2,
-            "userco": "(주) B",
-            "accountid": "perfume22", 
-            "accountpw": 987654321, 
-            "mail": "perfume22@naver.com", 
-            "userid": "전선향", 
-            "usercall1": "010",
-            "usercall2": "9876",
-            "usercall3": "5432",
-            "userinfo": "(주) B 전선향"
-        }
-    ]
+    
 
     {/*const [visible,setVisible] = useState(false);*/}
     
     const [selected,setSelected] = useState('');
     const handleSelect = (e)=>{
-        setSelected(e.target.getAttribute(id));
+        setSelected(e.target.getAttribute());
     }
     console.log(handleSelect)
 
@@ -101,8 +74,17 @@ const AccountManage = () => {
                                 <button id="searchIcon">돋보기</button>
                             </div>
                             <ul className="name-list">
-                                {userList.map((userinfo)=>(<li>{userinfo.userinfo}</li>))} {/* map 함수로 리스트*/}
-                            </ul>
+                                {userList.map((userinfo) => (
+                                    <li
+                                    onClick={() => {
+                                        click(userinfo);
+                                    }}
+                                    key={userinfo.userid}
+                                    >
+                                    {userinfo.userinfo}
+                                    </li>
+                                ))}{''}
+                                </ul>
                         </div>
                         {/*userList.map(c=>{
                             return <AccountUser key={c.id} id={c.id} accountid={c.accountid} accountpw={c.accountpw} mail={c.mail} userid={c.userid} usercall1={c.usercall1} usercall2={c.usercall2} usercall3={c.usercall3} />
@@ -111,15 +93,15 @@ const AccountManage = () => {
                         <div className="account-info-area" id="clickForm">
                             <div className="account-id">
                                 <label>아이디</label>
-                                <input className=" account-input" value={userData.useraccountid}></input>
+                                <input className=" account-input" value={userData.accountid}></input>
                             </div>
                             <div className="account-password">
                                 <label>비밀번호</label>
-                                <input type="text" className=" account-input" value={userData.useraccountpw}></input>
+                                <input type="text" className=" account-input" value={userData.accountpw}></input>
                             </div>
                             <div className="account-email">
                                 <label>E-Mail</label>
-                                <input type="email" className=" account-input" value={userData.usermail}></input>
+                                <input type="email" className=" account-input" value={userData.mail}></input>
                             </div>
                             <div className="account-username">
                                 <label>사용자명</label>
