@@ -25,23 +25,6 @@ const AccountManage = () => {
         usercall3:'' 
     })
 
-    const mounted =useRef(false) //렌더링 되자마자 실행 안되게 하는 기능
-    useEffect(() => { 
-        if(!mounted.current){
-            mounted.current=true;
-        } else {
-            setUserData({
-                useraccountid:'juri42',
-                useraccountpw:'123456789',
-                usermail:'juri42@gmail.com',
-                userid:'김주리',
-                usercall1:'010',
-                usercall2:'1234',
-                usercall3:'5678'
-            })
-        }
-    
-    }, [])
     const userList = [
         {
             "id": 1,
@@ -72,7 +55,7 @@ const AccountManage = () => {
     const click = (userInfo) => {
         setUserData(userInfo);
     };
-
+    
     return (
     <div className="account-wrapper">
         <div className="account-inner">
