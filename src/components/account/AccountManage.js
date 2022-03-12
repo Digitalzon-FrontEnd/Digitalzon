@@ -55,8 +55,7 @@ const AccountManage = () => {
     const click = (userInfo) => {
         setUserData(userInfo);
     };
-    
-    
+
     return (
     <div className="account-wrapper">
         <div className="account-inner">
