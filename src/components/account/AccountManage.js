@@ -1,4 +1,4 @@
-import React,{useState,useEffect, useRef} from "react";
+import React,{useState } from "react";
 import "./AccountManage.css";
 import { Link } from "react-router-dom";
 
@@ -13,9 +13,6 @@ const AccountManage = ({userList}) => {
         $(`#accountCallNum${length - 1}`).focus();
         }
     };
-    const click = (userInfo) => {
-        setUserData(userInfo);
-    };
 
     const [userData,setUserData]  = useState({
         accountid:'',
@@ -26,25 +23,9 @@ const AccountManage = ({userList}) => {
         usercall2:'',
         usercall3:'' 
     })
-
-    const mounted =useRef(false) //렌더링 되자마자 실행 안되게 하는 기능
-    useEffect(() => { 
-        if(!mounted.current){
-            mounted.current=true;
-        } else {
-            setUserData({
-                useraccountid:'juri42',
-                useraccountpw:'123456789',
-                usermail:'juri42@gmail.com',
-                userid:'김주리',
-                usercall1:'010',
-                usercall2:'1234',
-                usercall3:'5678'
-            })
-        }
-    }, [])
-    
-
+    const click = (userInfo) => {
+        setUserData(userInfo);
+    };
     return (
     <div className="account-wrapper">
         <div className="account-inner">
@@ -76,10 +57,6 @@ const AccountManage = ({userList}) => {
                                 ))}{''}
                                 </ul>
                         </div>
-                        {/*userList.map(c=>{
-                            return <AccountUser key={c.id} id={c.id} accountid={c.accountid} accountpw={c.accountpw} mail={c.mail} userid={c.userid} usercall1={c.usercall1} usercall2={c.usercall2} usercall3={c.usercall3} />
-                        })*/}
-                        {/*<AccountUser/>*/}
                         <div className="account-info-area" id="clickForm">
                             <div className="account-id">
                                 <label>아이디</label>
@@ -101,7 +78,7 @@ const AccountManage = ({userList}) => {
                                 <label>휴대폰 번호</label>
                                 <input
                                 id="accountCallNum1"
-                                type="text"
+                                type="number"
                                 maxLength="3"
                                 onKeyUp={lengthcheck}
                                 required
@@ -110,7 +87,7 @@ const AccountManage = ({userList}) => {
                                 />
                                 <input
                                 id="accountCallNum2"
-                                type="text"
+                                type="number"
                                 maxLength="4"
                                 onKeyUp={lengthcheck}
                                 required
@@ -118,7 +95,7 @@ const AccountManage = ({userList}) => {
                                 value={userData.usercall2}
                                 />
                                 <input id="accountCallNum3"
-                                type="text"
+                                type="number"
                                 maxLength="4"
                                 className=" account-input"
                                 value={userData.usercall3}

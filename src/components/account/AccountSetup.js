@@ -14,6 +14,7 @@ const AccountSetup = ({handleCreate, setUserList}) => {
         $(`#accountCallNum${length - 1}`).focus();
         }
     };
+    
 
     const onChangeId = (e) => {
         setAccountId(e.target.value)
@@ -90,7 +91,8 @@ const AccountSetup = ({handleCreate, setUserList}) => {
                         <label>휴대폰 번호</label>
                         <input
                         id="accountCallNum1"
-                        type="text"
+                        type="number"
+                        minLength="1"
                         maxLength="3"
                         onKeyUp={lengthcheck}
                         required
@@ -99,7 +101,7 @@ const AccountSetup = ({handleCreate, setUserList}) => {
                         />
                         <input
                         id="accountCallNum2"
-                        type="text"
+                        type="number"
                         maxLength="4"
                         onKeyUp={lengthcheck}
                         required
@@ -107,13 +109,13 @@ const AccountSetup = ({handleCreate, setUserList}) => {
                         value={accountCallNum2} onChange={onChangeCallNum2}
                         />
                         <input id="accountCallNum3"
-                        type="text"
+                        type="number"
                         maxLength="4"
                         className=" account-input"
                         value={accountCallNum3} onChange={onChangeCallNum3}
                         />
                     </div>
-                    <button id="accountIdBtn" type="button">중복확인</button>
+                    <button id="accountIdBtn" type="button" required>중복확인</button>
                 </div>
                 <div className="account-btn-box">
                     <button className="account-btn" onClick={submitAccount} type="submit">저장</button>
