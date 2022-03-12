@@ -1,7 +1,11 @@
 .guide-section-title{
     font-size: 20px;
     font-weight: bold;
-    margin: 20px 0;
+    margin: 50px 0 20px;
+}
+
+.guide-section-list{
+    margin-bottom: 50px;
 }
 
 .guide-section-list li{

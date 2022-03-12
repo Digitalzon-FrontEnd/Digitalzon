@@ -1,8 +1,8 @@
 import React from "react";
 import "./Panel.css";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-const Panel = () => {
+const Panel = ({history}) => {
   const $ = (selector) => {
     return document.querySelector(selector);
   };
