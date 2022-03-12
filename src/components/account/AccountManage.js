@@ -43,10 +43,6 @@ const AccountManage = () => {
         }
     
     }, [])
-    const userClick = ()=>{
-        
-    }
-
     const userList = [
         {
             "id": 1,
@@ -74,13 +70,9 @@ const AccountManage = () => {
         }
     ]
 
-    {/*const [visible,setVisible] = useState(false);*/}
-    
-    const [selected,setSelected] = useState('');
-    const handleSelect = (e)=>{
-        setSelected(e.target.getAttribute(id));
-    }
-    console.log(handleSelect)
+    const click = (userInfo) => {
+        setUserData(userInfo);
+    };
 
     return (
     <div className="account-wrapper">
@@ -101,7 +93,7 @@ const AccountManage = () => {
                                 <button id="searchIcon">돋보기</button>
                             </div>
                             <ul className="name-list">
-                                {userList.map((userinfo)=>(<li>{userinfo.userinfo}</li>))} {/* map 함수로 리스트*/}
+                                {userList.map((userinfo)=>(<li onClick={()=>{click(userinfo)}}>{userinfo.userinfo}</li>))} {/* map 함수로 리스트*/}
                             </ul>
                         </div>
                         {/*userList.map(c=>{
@@ -111,19 +103,19 @@ const AccountManage = () => {
                         <div className="account-info-area" id="clickForm">
                             <div className="account-id">
                                 <label>아이디</label>
-                                <input className=" account-input" value={userData.useraccountid}></input>
+                                <input className=" account-input" defaultValue={userData.accountid}></input>
                             </div>
                             <div className="account-password">
                                 <label>비밀번호</label>
-                                <input type="text" className=" account-input" value={userData.useraccountpw}></input>
+                                <input type="text" className=" account-input" defaultValue={userData.accountpw}></input>
                             </div>
                             <div className="account-email">
                                 <label>E-Mail</label>
-                                <input type="email" className=" account-input" value={userData.usermail}></input>
+                                <input type="email" className=" account-input" defaultValue={userData.mail}></input>
                             </div>
                             <div className="account-username">
                                 <label>사용자명</label>
-                                <input className=" account-input" value={userData.userid}></input>
+                                <input className=" account-input" defaultValue={userData.userid}></input>
                             </div>
                             <div className="account-call">
                                 <label>휴대폰 번호</label>
@@ -134,7 +126,7 @@ const AccountManage = () => {
                                 onKeyUp={lengthcheck}
                                 required
                                 className=" account-input"
-                                value={userData.usercall1}
+                                defaultValue={userData.usercall1}
                                 />
                                 <input
                                 id="accountCallNum2"
@@ -143,13 +135,13 @@ const AccountManage = () => {
                                 onKeyUp={lengthcheck}
                                 required
                                 className=" account-input"
-                                value={userData.usercall2}
+                                defaultValue={userData.usercall2}
                                 />
                                 <input id="accountCallNum3"
                                 type="text"
                                 maxLength="4"
                                 className=" account-input"
-                                value={userData.usercall3}
+                                defaultValue={userData.usercall3}
                                 />
                             </div>
                         </div>
