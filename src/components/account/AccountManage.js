@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React,{useState,useEffect, useRef} from "react";
 import "./AccountManage.css";
 import { Link } from "react-router-dom";
 import dummy from '../../db/accountData.json'
@@ -23,23 +23,29 @@ const AccountManage = () => {
         userid:'',
         usercall1:'',
         usercall2:'',
-        usercall3:'',
-        userinfo:''     
+        usercall3:'' 
     })
 
+    const mounted =useRef(false) //렌더링 되자마자 실행 안되게 하는 기능
     useEffect(() => { 
-        setUserData({
+        if(!mounted.current){
+            mounted.current=true;
+        } else {
+            setUserData({
                 useraccountid:'juri42',
                 useraccountpw:'123456789',
                 usermail:'juri42@gmail.com',
                 userid:'김주리',
                 usercall1:'010',
                 usercall2:'1234',
-                usercall3:'5678',
-                userinfo:'i'    
-        })
+                usercall3:'5678'
+            })
+        }
+    
     }, [])
-
+    const userClick = ()=>{
+        
+    }
 
     const userList = [
         {
@@ -72,7 +78,7 @@ const AccountManage = () => {
     
     const [selected,setSelected] = useState('');
     const handleSelect = (e)=>{
-        setSelected(e.target.value);
+        setSelected(e.target.getAttribute(id));
     }
     console.log(handleSelect)
 
