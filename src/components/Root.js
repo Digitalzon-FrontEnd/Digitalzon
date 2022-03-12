@@ -47,7 +47,7 @@ const Root = () => {
         "userinfo": "(주) B 전선향"
     }
 ]);
-/* user-List 데이터  */
+/* user-List */
 
   const handleCreate = (accountid,accountpw,mail,userid,usercall1,usercall2,usercall3) => {
     const userArray = [...userList];

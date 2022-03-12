@@ -14,7 +14,7 @@ const AccountSetup = ({handleCreate,setUserList}) => {
         $(`#accountCallNum${length - 1}`).focus();
         }
     };
-    
+
     const onChangeId = (e) => {
         setAccountId(e.target.value)
     }
@@ -49,7 +49,7 @@ const AccountSetup = ({handleCreate,setUserList}) => {
         setAccountCallNum2('')
         setAccountCallNum3('')
     }
-    /* 저장버튼 */
+    /* 저장 btn */
     const [ accountId, setAccountId ] = useState('')
     const [ accountPw, setAccountPw ] = useState('')
     const [ accountEmail, setAccountEmail ] = useState('')
