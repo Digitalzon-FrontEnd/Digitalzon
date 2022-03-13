@@ -47,6 +47,14 @@ const AccountManage = ({userList}) => {
             [name] : value,
         })
     };
+    {/*
+    const onChangeHandle = (e)=>{
+        setUserData({
+            [e.target.name]:e.target.value
+        })
+    }
+    */}
+
     return (
     <div className="account-wrapper">
         <div className="account-inner">
