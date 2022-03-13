@@ -3,7 +3,7 @@ import "./AccountManage.css";
 import { Link } from "react-router-dom";
 
 
-const AccountManage = ({userList,userDatas,setUserDatas}) => {
+const AccountManage = ({userList}) => {
     const $ = (selector) => {
         return document.querySelector(selector);
     };
@@ -14,6 +14,7 @@ const AccountManage = ({userList,userDatas,setUserDatas}) => {
         $(`#accountCallNum${length - 1}`).focus();
         }
     };
+    // 핸드폰번호 글자수&자동넘김 함수 
 
     const [userData,setUserData]  = useState({
         id:'',
@@ -25,12 +26,12 @@ const AccountManage = ({userList,userDatas,setUserDatas}) => {
         usercall2:'',
         usercall3:'' 
     })
-    //기본 상태=>유저정보 불러오는 상태
+    // 기본 상태=>유저정보 불러오는 상태 
 
     const click = (userInfo) => {
         setUserData(userInfo);
     };
-    //리스트 명단 클릭시 정보 불러옴
+    // 리스트 명단 클릭시 정보 불러옴
 
     const onChange = (e) => {
         const {name,value}=e.target;
@@ -38,13 +39,18 @@ const AccountManage = ({userList,userDatas,setUserDatas}) => {
             ...userData,
             [name] : value,
         })
-    }; //input onChange에 걸 함수
+    }; 
+    //input onChange에 걸 함수
+
     /////////////////////////////////////////////////////////////////
-    
+    function submitdefalut(e){
+        e.preventDefalut();
+    }
+
     return (
     <div className="account-wrapper">
         <div className="account-inner">
-            <form>
+            <form onSubmit={submitdefalut}>
                 <div className="account-manage-info">
                     <div className="account-step-box">
                         <Link to="/accountchange"><p className="account-step">계정변경</p></Link>
@@ -73,7 +79,7 @@ const AccountManage = ({userList,userDatas,setUserDatas}) => {
                         <div className="account-info-area" id="clickForm">
                             <div className="account-id">
                                 <label>아이디</label>
-                                <input className=" account-input" onChange={onChange} defaultValue={userData.accountid}  name='accountid'></input>
+                                <input className=" account-input" onChange={onChange} value={userData.accountid}  name='accountid'></input>
                             </div>
                             <div className="account-password">
                                 <label>비밀번호</label>
@@ -121,8 +127,8 @@ const AccountManage = ({userList,userDatas,setUserDatas}) => {
                     </div>
                 </div>
                 <div className="account-btn-box">
-                    <button className="account-manage-btn" id="accountDelBtn" >삭제</button>
-                    <button className="account-manage-btn" type="submit">저장</button>
+                    <button className="account-manage-btn" id="accountDelBtn">삭제</button>
+                    <button className="account-manage-btn"  onSubmit={submitdefalut}>저장</button>
                 </div>
             </form>
             </div>

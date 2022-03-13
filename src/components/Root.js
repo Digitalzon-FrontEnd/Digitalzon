@@ -16,7 +16,7 @@ import AccountChange from "./account/AccountChange";
 import AccountSetup from "./account/AccountSetup";
 import AccountManage from "./account/AccountManage";
 import MyPage from "./account/MyPage";
-import dummy from "../db/accountData.json"
+
 
 const Root = () => {
   const [user, setUser] = useState(false);
@@ -45,8 +45,8 @@ const Root = () => {
         "usercall3": "5432",
         "userinfo": "(주) B 전선향"
     }
-]);
-/* user-List */
+  ]);
+// user-List 
 
   const handleCreate = (accountid,accountpw,mail,userid,usercall1,usercall2,usercall3) => {
     const userArray = [...userList];
@@ -64,9 +64,9 @@ const Root = () => {
     })
     setUserList(userArray)
   };
-  /* user-List에 push 해주는 함수 */
+// user-List에 push 해주는 함수
 
-  const [userDatas,setUserDatas] = useState(dummy);
+  
 
   return (
     <div>
@@ -83,7 +83,7 @@ const Root = () => {
       <Route path="/complete" component={Complete} />
       <Route path="/accountchange" component={AccountChange} />
       <Route path="/accountsetup" render={() => <AccountSetup handleCreate={handleCreate} setUserList={setUserList}/>} />
-      <Route path="/accountmanage" render={() => <AccountManage userList={userList} handleCreate={handleCreate} setUserList={setUserList} userDatas={userDatas} setPosts={setUserDatas} />} />
+      <Route path="/accountmanage" render={() => <AccountManage userList={userList} handleCreate={handleCreate} setUserList={setUserList} />} />
       <Route path="/mypage" component={MyPage} />
       <Footer />
     </div>
