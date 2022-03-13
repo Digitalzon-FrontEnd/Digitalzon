@@ -76,19 +76,19 @@ const AccountManage = ({userList}) => {
                         <div className="account-info-area" id="clickForm">
                             <div className="account-id">
                                 <label>아이디</label>
-                                <input className=" account-input"  value={userData.accountid} name='accountid'></input>
+                                <input className=" account-input" defaultValue={userData.accountid} name='accountid'></input>
                             </div>
                             <div className="account-password">
                                 <label>비밀번호</label>
-                                <input type="text" className=" account-input" value={userData.accountpw} onChange={onChange} name='accountpw'></input>
+                                <input type="text" className=" account-input" defaultValue={userData.accountpw} name='accountpw'></input>
                             </div>
                             <div className="account-email">
                                 <label>E-Mail</label>
-                                <input type="email" className=" account-input" value={userData.mail} onChange={onChange} name='mail'></input>
+                                <input type="email" className=" account-input" defaultValue={userData.mail} name='mail'></input>
                             </div>
                             <div className="account-username">
                                 <label>사용자명</label>
-                                <input className=" account-input" value={userData.userid} onChange={onChange} name='userid'></input>
+                                <input className=" account-input" defaultValue={userData.userid} name='userid'></input>
                             </div>
                             <div className="account-call">
                                 <label>휴대폰 번호</label>
@@ -99,8 +99,7 @@ const AccountManage = ({userList}) => {
                                 onKeyUp={lengthcheck}
                                 required
                                 className=" account-input"
-                                value={userData.usercall1}
-                                onChange={onChange}
+                                defaultValue={userData.usercall1}
                                 name='usercall1'
                                 />
                                 <input
@@ -110,16 +109,14 @@ const AccountManage = ({userList}) => {
                                 onKeyUp={lengthcheck}
                                 required
                                 className=" account-input"
-                                value={userData.usercall2}
-                                onChange={onChange}
+                                defaultValue={userData.usercall2}
                                 name='usercall2'
                                 />
                                 <input id="accountCallNum3"
                                 type="number"
                                 maxLength="4"
                                 className=" account-input"
-                                value={userData.usercall3}
-                                onChange={onChange}
+                                defaultValue={userData.usercall3}
                                 name='usercall3'
                                 />
                             </div>
