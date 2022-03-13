@@ -14,8 +14,8 @@ const AccountSetup = ({handleCreate, setUserList}) => {
         $(`#accountCallNum${length - 1}`).focus();
         }
     };
+    /* 전화번호 3칸 & 자동넘어감 함수 */
     
-
     const onChangeId = (e) => {
         setAccountId(e.target.value)
     }

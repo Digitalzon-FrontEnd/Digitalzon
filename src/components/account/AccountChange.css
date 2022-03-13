@@ -38,7 +38,9 @@
     font-size: 12px;
     font-weight: 600;
 }
-
+.account-change-info input{
+    text-indent: 7px;
+}
 #accountCallNum1, #accountCallNum2, #accountCallNum3, .account-input, #cerInput{
     height: 28px;
     margin-top: 15.5px;

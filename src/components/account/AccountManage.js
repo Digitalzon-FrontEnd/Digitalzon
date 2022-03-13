@@ -1,9 +1,9 @@
-import React,{useState } from "react";
+import React,{useRef, useState } from "react";
 import "./AccountManage.css";
 import { Link } from "react-router-dom";
 
 
-const AccountManage = ({userList}) => {
+const AccountManage = ({userList,userDatas,setUserDatas}) => {
     const $ = (selector) => {
         return document.querySelector(selector);
     };
@@ -16,6 +16,7 @@ const AccountManage = ({userList}) => {
     };
 
     const [userData,setUserData]  = useState({
+        id:'',
         accountid:'',
         accountpw:'',
         mail:'',
@@ -26,9 +27,6 @@ const AccountManage = ({userList}) => {
     })
     //기본 상태=>유저정보 불러오는 상태
 
-
-
-    
     const click = (userInfo) => {
         setUserData(userInfo);
     };
@@ -41,13 +39,12 @@ const AccountManage = ({userList}) => {
             [name] : value,
         })
     }; //input onChange에 걸 함수
+    /////////////////////////////////////////////////////////////////
     
     return (
     <div className="account-wrapper">
         <div className="account-inner">
-            <form onSubmit={function(e){
-                e.preventDefault();
-            }}>
+            <form>
                 <div className="account-manage-info">
                     <div className="account-step-box">
                         <Link to="/accountchange"><p className="account-step">계정변경</p></Link>
@@ -76,7 +73,7 @@ const AccountManage = ({userList}) => {
                         <div className="account-info-area" id="clickForm">
                             <div className="account-id">
                                 <label>아이디</label>
-                                <input className=" account-input" defaultValue={userData.accountid} name='accountid'></input>
+                                <input className=" account-input" onChange={onChange} defaultValue={userData.accountid}  name='accountid'></input>
                             </div>
                             <div className="account-password">
                                 <label>비밀번호</label>
@@ -124,7 +121,7 @@ const AccountManage = ({userList}) => {
                     </div>
                 </div>
                 <div className="account-btn-box">
-                    <button className="account-manage-btn" id="accountDelBtn">삭제</button>
+                    <button className="account-manage-btn" id="accountDelBtn" >삭제</button>
                     <button className="account-manage-btn" type="submit">저장</button>
                 </div>
             </form>

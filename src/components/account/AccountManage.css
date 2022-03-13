@@ -17,6 +17,9 @@
 .account-info-area{
     margin-left: 38.8px;
 }
+.account-info-area input{
+    text-indent: 7px;
+}
 .account-manage-info label{
     width: 85px;
     height: 59px;

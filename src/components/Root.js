@@ -16,6 +16,7 @@ import AccountChange from "./account/AccountChange";
 import AccountSetup from "./account/AccountSetup";
 import AccountManage from "./account/AccountManage";
 import MyPage from "./account/MyPage";
+import dummy from "../db/accountData.json"
 
 const Root = () => {
   const [user, setUser] = useState(false);
@@ -65,6 +66,8 @@ const Root = () => {
   };
   /* user-List에 push 해주는 함수 */
 
+  const [userDatas,setUserDatas] = useState(dummy);
+
   return (
     <div>
       <Header />
@@ -80,7 +83,7 @@ const Root = () => {
       <Route path="/complete" component={Complete} />
       <Route path="/accountchange" component={AccountChange} />
       <Route path="/accountsetup" render={() => <AccountSetup handleCreate={handleCreate} setUserList={setUserList}/>} />
-      <Route path="/accountmanage" render={() => <AccountManage userList={userList} handleCreate={handleCreate} setUserList={setUserList}/>} />
+      <Route path="/accountmanage" render={() => <AccountManage userList={userList} handleCreate={handleCreate} setUserList={setUserList} userDatas={userDatas} setPosts={setUserDatas} />} />
       <Route path="/mypage" component={MyPage} />
       <Footer />
     </div>

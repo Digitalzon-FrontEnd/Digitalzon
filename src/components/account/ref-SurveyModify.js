@@ -115,6 +115,8 @@ function SurveyModify({ posts, setPosts, location }) {
     history.push(`/survey`);
   };
   console.log(posts);
+
+  
   return (
     <div className="surveyModify">
       <div className="surveyModify-pageTitle-box">
