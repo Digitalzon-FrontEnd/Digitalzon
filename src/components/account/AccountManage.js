@@ -25,6 +25,9 @@ const AccountManage = ({userList}) => {
         usercall3:'' 
     })
     //기본 상태=>유저정보 불러오는 상태
+
+
+
     
     const click = (userInfo) => {
         setUserData(userInfo);
@@ -73,7 +76,7 @@ const AccountManage = ({userList}) => {
                         <div className="account-info-area" id="clickForm">
                             <div className="account-id">
                                 <label>아이디</label>
-                                <input className=" account-input" onChange={onChange} value={userData.accountid} name='accountid'></input>
+                                <input className=" account-input"  value={userData.accountid} name='accountid'></input>
                             </div>
                             <div className="account-password">
                                 <label>비밀번호</label>
