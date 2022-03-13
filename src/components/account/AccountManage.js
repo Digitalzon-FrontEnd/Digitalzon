@@ -1,7 +1,7 @@
 import React,{useState } from "react";
 import "./AccountManage.css";
 import { Link } from "react-router-dom";
-import { hasSelectionSupport } from "@testing-library/user-event/dist/utils";
+
 
 const AccountManage = ({userList}) => {
     const $ = (selector) => {
@@ -24,37 +24,21 @@ const AccountManage = ({userList}) => {
         usercall2:'',
         usercall3:'' 
     })
+    //기본 상태=>유저정보 불러오는 상태
     
     const click = (userInfo) => {
         setUserData(userInfo);
     };
-    
-    {/*
-    const [users,setUsers]  = useState({
-        accountid:userData.accountid,
-        accountpw:userData.accountpw,
-        mail:userData.mail,
-        userid:userData.userid,
-        usercall1:userData.usercall1,
-        usercall2:userData.usercall2,
-        usercall3:userData.usercall3 
-    })
-    */}
+    //리스트 명단 클릭시 정보 불러옴
+
     const onChange = (e) => {
         const {name,value}=e.target;
         setUserData({
             ...userData,
             [name] : value,
         })
-    };
-    {/*
-    const onChangeHandle = (e)=>{
-        setUserData({
-            [e.target.name]:e.target.value
-        })
-    }
-    */}
-
+    }; //input onChange에 걸 함수
+    
     return (
     <div className="account-wrapper">
         <div className="account-inner">
@@ -89,7 +73,7 @@ const AccountManage = ({userList}) => {
                         <div className="account-info-area" id="clickForm">
                             <div className="account-id">
                                 <label>아이디</label>
-                                <input className=" account-input" value={userData.accountid} onChange={onChange} name='accountid'></input>
+                                <input className=" account-input" onChange={onChange} value={userData.accountid} name='accountid'></input>
                             </div>
                             <div className="account-password">
                                 <label>비밀번호</label>
