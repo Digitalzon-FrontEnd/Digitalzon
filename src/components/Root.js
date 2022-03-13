@@ -22,7 +22,7 @@ const Root = () => {
   const [user, setUser] = useState(false);
   const [userList, setUserList] = useState([
     {
-        "id": 1,
+        "id": 0,
         "userco": "(주) A",
         "accountid": "juri42", 
         "accountpw": 123456789, 
@@ -34,7 +34,7 @@ const Root = () => {
         "userinfo": "(주) A 김주리"
     },
     {
-        "id": 2,
+        "id": 1,
         "userco": "(주) B",
         "accountid": "perfume22", 
         "accountpw": 987654321, 
@@ -66,7 +66,6 @@ const Root = () => {
   };
 // user-List에 push 해주는 함수
 
-  
 
   return (
     <div>
@@ -83,7 +82,7 @@ const Root = () => {
       <Route path="/complete" component={Complete} />
       <Route path="/accountchange" component={AccountChange} />
       <Route path="/accountsetup" render={() => <AccountSetup handleCreate={handleCreate} setUserList={setUserList}/>} />
-      <Route path="/accountmanage" render={() => <AccountManage userList={userList} handleCreate={handleCreate} setUserList={setUserList} />} />
+      <Route path="/accountmanage" render={(props) => <AccountManage userList={userList} handleCreate={handleCreate} setUserList={setUserList} />} />
       <Route path="/mypage" component={MyPage} />
       <Footer />
     </div>

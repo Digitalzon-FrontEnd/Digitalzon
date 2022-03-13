@@ -28,6 +28,16 @@ const AccountManage = ({userList}) => {
     })
     // 기본 상태=>유저정보 불러오는 상태 
 
+    const userRemove = (e)=>{
+        userData.splice(e.target.id,1)}
+    
+    const removeBtn = (e) => {
+        e.preventDefault();
+        userRemove(userList)
+    }
+    //이상하다...이게 아닌가???!!!!!!!!!! 선생님께 질문해봐!
+
+
     const click = (userInfo) => {
         setUserData(userInfo);
     };
@@ -42,15 +52,11 @@ const AccountManage = ({userList}) => {
     }; 
     //input onChange에 걸 함수
 
-    /////////////////////////////////////////////////////////////////
-    function submitdefalut(e){
-        e.preventDefalut();
-    }
 
     return (
     <div className="account-wrapper">
         <div className="account-inner">
-            <form onSubmit={submitdefalut}>
+            <form>
                 <div className="account-manage-info">
                     <div className="account-step-box">
                         <Link to="/accountchange"><p className="account-step">계정변경</p></Link>
@@ -65,14 +71,7 @@ const AccountManage = ({userList}) => {
                             </div>
                             <ul className="name-list">
                                 {userList.map((userinfo) => (
-                                    <li
-                                    onClick={() => {
-                                        click(userinfo);
-                                    }}
-                                    key={userinfo.userid}
-                                    >
-                                    {userinfo.userinfo}
-                                    </li>
+                                    <li onClick={() => {click(userinfo);}} key={userinfo.userid}>{userinfo.userinfo}</li>
                                 ))}{''}
                                 </ul>
                         </div>
@@ -127,8 +126,8 @@ const AccountManage = ({userList}) => {
                     </div>
                 </div>
                 <div className="account-btn-box">
-                    <button className="account-manage-btn" id="accountDelBtn">삭제</button>
-                    <button className="account-manage-btn"  onSubmit={submitdefalut}>저장</button>
+                    <button className="account-manage-btn" id="accountDelBtn" onClick={removeBtn}>삭제</button>
+                    <button className="account-manage-btn">저장</button>
                 </div>
             </form>
             </div>

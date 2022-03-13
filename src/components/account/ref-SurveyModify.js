@@ -80,6 +80,7 @@ function SurveyModify({ posts, setPosts, location }) {
     });
     setOptions3(newOptions);
   };
+  /////////////////////////////////////////////////////////
   const surveyName = useRef(params.params.surveyName);
   const link = useRef(params.params.link);
   const needSample = useRef(params.params.needSample);
