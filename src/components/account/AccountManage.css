@@ -54,7 +54,7 @@
 .name-list{
     width: 215px;
     height: 180px;
-    overflow-y: scroll;
+    overflow: auto;
 }
 .name-list li{
     font-size: 14px;

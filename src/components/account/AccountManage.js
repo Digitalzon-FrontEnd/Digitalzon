@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./AccountManage.css";
 import { Link } from "react-router-dom";
+import Gnb from "../common/Gnb";
 
 const AccountManage = ({ userList, setUserList }) => {
     const [userId, setUserId] = useState("");
@@ -90,130 +91,133 @@ const AccountManage = ({ userList, setUserList }) => {
     };
     // 인풋 상태값 변화 확인 함수
     return (
-        <div className="account-wrapper">
-            <div className="account-inner">
-                <form>
-                <div className="account-manage-info">
-                    <div className="account-step-box">
-                    <Link to="/accountchange">
-                        <p className="account-step">계정변경</p>
-                    </Link>
-                    <Link to="/accountsetup">
-                        <p className="account-step">계정생성</p>
-                    </Link>
-                    <Link to="/accountmanage">
-                        <p className="account-step" id="accountStepEnter">
-                        계정관리
-                        </p>
-                    </Link>
-                    </div>
-                    <div className="manage-box">
-                    <div className="account-manage-list">
-                        <div className="search-box">
-                        <input id="searchBox"></input>
-                        <button id="searchIcon">돋보기</button>
+        <div>
+            <Gnb />
+            <div className="account-wrapper">
+                <div className="account-inner">
+                    <form>
+                    <div className="account-manage-info">
+                        <div className="account-step-box">
+                        <Link to="/accountchange">
+                            <p className="account-step">계정변경</p>
+                        </Link>
+                        <Link to="/accountsetup">
+                            <p className="account-step">계정생성</p>
+                        </Link>
+                        <Link to="/accountmanage">
+                            <p className="account-step" id="accountStepEnter">
+                            계정관리
+                            </p>
+                        </Link>
                         </div>
-                        <ul className="name-list">
-                        {userList.map((userinfo) => (
-                            <li onClick={() => { click(userinfo.id); }} key={userinfo.userid}>
-                            {userinfo.userinfo}
-                            </li>
-                        ))}
-                        </ul>
-                    </div>
-                    <div className="account-info-area" id="clickForm">
-                        <div className="account-id">
-                        <label>아이디</label>
-                        <input
-                            className=" account-input"
-                            ref={currentUserId}
-                            name="accountid"
-                            onChange={onChange}
-                            //value,defaultValue로 넣어주면 input값 변경되지않음 ref 사용해서 변경
-                        ></input>
+                        <div className="manage-box">
+                        <div className="account-manage-list">
+                            <div className="search-box">
+                            <input id="searchBox"></input>
+                            <button id="searchIcon">돋보기</button>
+                            </div>
+                            <ul className="name-list">
+                            {userList.map((userinfo) => (
+                                <li onClick={() => { click(userinfo.id); }} key={userinfo.userid}>
+                                {userinfo.userinfo}
+                                </li>
+                            ))}
+                            </ul>
                         </div>
-                        <div className="account-password">
-                        <label>비밀번호재설정</label>
-                        <input
-                            type="text"
-                            className=" account-input"
-                            ref={currentPw}
-                            name="accountpw"
-                        ></input>
-                        </div>
-                        <div className="account-email">
-                        <label>E-Mail</label>
-                        <input
-                            type="email"
-                            className=" account-input"
-                            ref={currentEmail}
-                            name="mail"
-                            onChange={onChange}
-                        ></input>
-                        </div>
-                        <div className="account-username">
-                        <label>사용자명</label>
-                        <input
-                            className=" account-input"
-                            ref={currentUsername}
-                            name="userid"
-                            onChange={onChange}
-                        ></input>
-                        </div>
-                        <div className="account-call">
-                            <label>휴대폰 번호</label>
+                        <div className="account-info-area" id="clickForm">
+                            <div className="account-id">
+                            <label>아이디</label>
                             <input
-                                id="accountCallNum1"
-                                type="number"
-                                maxLength="3"
-                                onKeyUp={lengthcheck}
-                                ref={currentPhone1}
-                                required
                                 className=" account-input"
+                                ref={currentUserId}
+                                name="accountid"
                                 onChange={onChange}
-                                name="usercall1"
-                            />
+                                //value,defaultValue로 넣어주면 input값 변경되지않음 ref 사용해서 변경
+                            ></input>
+                            </div>
+                            <div className="account-password">
+                            <label>비밀번호재설정</label>
                             <input
-                                id="accountCallNum2"
-                                type="number"
-                                maxLength="4"
-                                ref={currentPhone2}
-                                onKeyUp={lengthcheck}
-                                required
+                                type="text"
                                 className=" account-input"
-                                onChange={onChange}
-                                name="usercall2"
-                            />
+                                ref={currentPw}
+                                name="accountpw"
+                            ></input>
+                            </div>
+                            <div className="account-email">
+                            <label>E-Mail</label>
                             <input
-                                id="accountCallNum3"
-                                type="number"
-                                onChange={onChange}
-                                maxLength="4"
-                                ref={currentPhone3}
+                                type="email"
                                 className=" account-input"
-                                name="usercall3"
-                            />
+                                ref={currentEmail}
+                                name="mail"
+                                onChange={onChange}
+                            ></input>
+                            </div>
+                            <div className="account-username">
+                            <label>사용자명</label>
+                            <input
+                                className=" account-input"
+                                ref={currentUsername}
+                                name="userid"
+                                onChange={onChange}
+                            ></input>
+                            </div>
+                            <div className="account-call">
+                                <label>휴대폰 번호</label>
+                                <input
+                                    id="accountCallNum1"
+                                    type="number"
+                                    maxLength="3"
+                                    onKeyUp={lengthcheck}
+                                    ref={currentPhone1}
+                                    required
+                                    className=" account-input"
+                                    onChange={onChange}
+                                    name="usercall1"
+                                />
+                                <input
+                                    id="accountCallNum2"
+                                    type="number"
+                                    maxLength="4"
+                                    ref={currentPhone2}
+                                    onKeyUp={lengthcheck}
+                                    required
+                                    className=" account-input"
+                                    onChange={onChange}
+                                    name="usercall2"
+                                />
+                                <input
+                                    id="accountCallNum3"
+                                    type="number"
+                                    onChange={onChange}
+                                    maxLength="4"
+                                    ref={currentPhone3}
+                                    className=" account-input"
+                                    name="usercall3"
+                                />
+                            </div>
+                        </div>
                         </div>
                     </div>
+                    <div className="account-btn-box">
+                        <button
+                        className="account-manage-btn"
+                        id="accountDelBtn"
+                        onClick={removeBtn}
+                        >
+                        삭제
+                        </button>
+                        <button
+                        type="button"
+                        className="account-manage-btn"
+                        onClick={changeBtn}
+                        >
+                        저장
+                        </button>
                     </div>
+                    </form>
                 </div>
-                <div className="account-btn-box">
-                    <button
-                    className="account-manage-btn"
-                    id="accountDelBtn"
-                    onClick={removeBtn}
-                    >
-                    삭제
-                    </button>
-                    <button
-                    type="button"
-                    className="account-manage-btn"
-                    onClick={changeBtn}
-                    >
-                    저장
-                    </button>
-                </div>
-                </form>
             </div>
         </div>
     );    

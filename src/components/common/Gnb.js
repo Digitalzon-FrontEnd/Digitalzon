@@ -24,7 +24,7 @@ const Gnb = ({ user }) => {
             <Link to="/mainqa">Q&amp;A</Link>
           </li>
           <li>
-            <Link to="/mypage">계정설정</Link>
+            <Link to="/mypage">계정설정</Link> {/* 일반회원/슈퍼관리자 로그인시 계정설정 링크 달라짐 */}
           </li>
           <li>
             <Link to="/survey">설문등록/현황조회</Link>

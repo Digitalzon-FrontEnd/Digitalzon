@@ -376,7 +376,6 @@ const Root = () => {
   // userList
 
   const handleCreate = (
-    id,
     accountid,
     accountpw,
     mail,
@@ -387,7 +386,7 @@ const Root = () => {
   ) => {
     const userArray = [...userList];
     userArray.push({
-      id: `${id}+1`,
+      id: 2,
       userco: "(주) C",
       accountid: `${accountid}`,
       accountpw: `${accountpw}`,
