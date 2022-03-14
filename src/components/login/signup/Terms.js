@@ -32,14 +32,14 @@ const Terms = () => {
           <div className="agreeCheck">
             <input 
             type="checkbox"
-            id="check"
+            id="termsCheck"
             onChange={e => {
               changeHandler(e.currentTarget.checked, 'check');
             }}
             checked={checkedInputs.includes('check') ? true : false}
-            required></input>
-            <label id="check"></label>
-            &nbsp;<span className="agree">동의합니다</span>
+            required></input>&nbsp;
+            <label className="agree" htmlFor="check">동의합니다</label>
+            
           </div>
         </div>
         <p className="termsContents">이용 약관 1.
@@ -56,14 +56,13 @@ const Terms = () => {
           <div className="agreeCheck">
             <input
             type="checkbox"
-            id="check2"
+            id="termsCheck2"
             onChange={e => {
               changeHandler(e.currentTarget.checked, 'check2');
             }}
             checked={checkedInputs.includes('check2') ? true : false}
-            required></input>
-            <label id="check2"></label>
-            &nbsp;<span className="agree">동의합니다</span>
+            required></input>&nbsp;
+            <label className="agree" htmlFor="check2">동의합니다</label>
           </div>
         </div>
         <p className="termsContents">아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관아무이용약관</p>

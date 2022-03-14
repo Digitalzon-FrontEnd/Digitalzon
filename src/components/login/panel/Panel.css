@@ -1,3 +1,7 @@
+.panel-box{
+    padding-bottom: 100px;
+}
+
 .panel-page-des{
     margin: 20px auto;
     text-align: center;
@@ -23,6 +27,10 @@
     height: 27px;
     font-size: 12px;
     text-indent: 5px;
+}
+
+.panel-form-area button{
+    cursor: pointer;
 }
 
 .panel-form-area #panelReqContents{

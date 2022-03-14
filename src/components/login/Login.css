@@ -18,6 +18,10 @@
     text-indent: 5px;
 }
 
+.login-form-area button{
+    cursor: pointer;
+}
+
 .login-btn-box{
     width: 280px;
     text-align: right;
@@ -33,6 +37,10 @@
     width: 280px;
     text-align: center;
     margin: 60px auto 30px;
+}
+
+.login-btn-panelBox button{
+    cursor: pointer;
 }
 
 .login-btn-panel-register{

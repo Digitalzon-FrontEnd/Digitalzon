@@ -1,8 +1,8 @@
 import React from "react";
 import "./Panel.css";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-const Panel = () => {
+const Panel = ({history}) => {
   const $ = (selector) => {
     return document.querySelector(selector);
   };
@@ -25,19 +25,19 @@ const Panel = () => {
       <ul className="panel-form-area">
         <li>
           <label htmlFor="panelUserCorpName">업체명</label>
-          <input id="panelUserCorpName" type="text" autoFocus required />
+          <input id="panelUserCorpName" type="text" autoFocus />
         </li>
         <li>
           <label htmlFor="panelUserName">담당자명</label>
-          <input id="panelUserName" type="text" required />
+          <input id="panelUserName" type="text" />
         </li>
         <li>
           <label htmlFor="panelUserCellNum">연락처</label>
-          <input id="panelUserCellNum" type="number" required />
+          <input id="panelUserCellNum" type="text" />
         </li>
         <li>
           <label htmlFor="panelUserEmail">이메일</label>
-          <input id="panelUserEmail" type="email" onKeyUp={emailcheck} required />
+          <input id="panelUserEmail" type="text" onKeyUp={emailcheck} />
           <p className="warn">
             <span id="panelNoAt" className="trans">
               잘못된 메일형식입니다.
@@ -46,16 +46,14 @@ const Panel = () => {
         </li>
         <li>
           <label htmlFor="panelReqContents">신청/문의내용</label>
-          <textarea id="panelReqContents" wrap="keep-all" required/>
+          <textarea id="panelReqContents" wrap="keep-all" />
         </li>
       </ul>
       <div className="panel-btn-box">
         <button className="panel-btn-panel-req btn-r btn-o">문의신청</button>
-        <Link to="/login">
-          <button className="panel-btn-cancel btn-r btn-g">
-            취소
-          </button>
-        </Link>
+        <button className="panel-btn-cancel btn-r btn-g">
+          <Link to="/login">취소</Link>
+        </button>
       </div>
     </div>
   );

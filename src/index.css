@@ -32,12 +32,19 @@ button {
   text-decoration: none;
   border: 1px solid #000;
   box-shadow: none;
+  cursor: pointer;
 }
 
 body {
   width: 100%;
   line-height: 1;
   overflow-x: hidden;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* 유틸 */
@@ -65,7 +72,7 @@ body {
   margin: auto;
   padding-left: 20px;
   padding-right: 20px;
-  min-height: 600px;
+  min-height: 500px
 }
 
 .warn {

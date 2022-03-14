@@ -1,9 +1,9 @@
-import React,{useRef, useState } from "react";
+import React,{ useState } from "react";
 import "./AccountManage.css";
 import { Link } from "react-router-dom";
 
 
-const AccountManage = ({userList,setUserList,userSelect}) => {
+const AccountManage = ({userList,setUserList}) => {
     const $ = (selector) => {
         return document.querySelector(selector);
     };
@@ -29,7 +29,10 @@ const AccountManage = ({userList,setUserList,userSelect}) => {
     // 기본 상태=>유저정보 불러오는 상태 -필요없다?!
 
     const userRemove = (e)=>{
-        const list = [...user]
+        const list=[...userList];
+        list.splice(e.target.id,1);
+        setUserList(list);
+    };
     
     const removeBtn = (e) => {
         e.preventDefault();
@@ -85,7 +88,7 @@ const AccountManage = ({userList,setUserList,userSelect}) => {
                                 <input className=" account-input" onChange={onChange} value={userData.accountid}  name='accountid'></input>
                             </div>
                             <div className="account-password">
-                                <label>비밀번호</label>
+                                <label>비밀번호재설정</label>
                                 <input type="text" className=" account-input" onChange={onChange} value={userData.accountpw} name='accountpw'></input>
                             </div>
                             <div className="account-email">
@@ -105,6 +108,7 @@ const AccountManage = ({userList,setUserList,userSelect}) => {
                                 onKeyUp={lengthcheck}
                                 required
                                 className=" account-input"
+                                onChange={onChange}
                                 value={userData.usercall1}
                                 name='usercall1'
                                 onChange={onChange}
@@ -116,6 +120,7 @@ const AccountManage = ({userList,setUserList,userSelect}) => {
                                 onKeyUp={lengthcheck}
                                 required
                                 className=" account-input"
+                                onChange={onChange}
                                 value={userData.usercall2}
                                 name='usercall2'
                                 onChange={onChange}
@@ -124,6 +129,7 @@ const AccountManage = ({userList,setUserList,userSelect}) => {
                                 type="number"
                                 maxLength="4"
                                 className=" account-input"
+                                onChange={onChange}
                                 value={userData.usercall3}
                                 name='usercall3'
                                 onChange={onChange}
