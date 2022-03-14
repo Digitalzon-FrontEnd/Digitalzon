@@ -3,6 +3,7 @@ import CommentEditor from "./Commenteditor";
 import CommentList from "./CommentList";
 import { Link } from "react-router-dom";
 import './DetailQA.css'
+import { useHistory } from 'react-router-dom';
 
 const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
   const [data, setData] = useState([]);
@@ -35,11 +36,20 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
     );
   };
   const params = location.state;
-  const tableRemove =(targetId)=>{
-    const newTable = tableInfo.filter((it)=> it.num !== targetId);
+  const history = useHistory();
+  const tableRemove =()=>{
+    const newTable = tableInfo.filter((it)=> it.num !== params.num);
     setTableInfo(newTable)
-    console.log(newTable);
-  };//왜 num 값이 다 같은지 모르겠음.
+    alert('질문이 삭제되었습니다.')
+    history.push("/mainqa")
+  };
+  const tableEdit = ( newContent) => {
+    setTableInfo(
+      tableInfo.map((it) =>
+        it.num === params.num ? { ...it, content: newContent } : it
+      )
+    );
+  };
   return (
     <div className="detail-qa">
       <div className='head-list'>
@@ -54,7 +64,7 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
       <CommentList onEdit={onEdit} onRemove={onRemove} CommentList={data} />
       <CommentEditor onCreate={onCreate} />
       <div className='btn-list'>
-        <button>수정</button>
+        <button onClick={tableEdit}>수정</button>
         <button onClick={tableRemove} >삭제</button>
         <Link to="/mainqa"><button>목록</button></Link>
       </div>
