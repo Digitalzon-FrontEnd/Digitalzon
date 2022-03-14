@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import React from "react";
 import "./PointBoard.css";
 import Gnb from "./../common/Gnb";
 import Pagination from "./Pagination";

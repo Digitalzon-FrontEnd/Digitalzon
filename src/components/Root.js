@@ -13,18 +13,14 @@ import InfoInput from "./login/signup/InfoInput";
 import PointView from "./point/PointView";
 import PointBoard from "./point/PointBoard";
 import ApproveBoard from "./survey/approve/ApproveBoard";
-import Approve from "./survey/approve/Approve";
 import ApproveView from "./survey/approve/ApproveView";
 import AccountChange from "./account/AccountChange";
 import AccountSetup from "./account/AccountSetup";
 import AccountManage from "./account/AccountManage";
 import MyPage from "./account/MyPage";
-
-
 import ManagePoint from "./managepoint/ManagePoint";
 import PostView from "./panelsystem/PostView";
 import PostList from "./panelsystem/PostList";
-
 import Survey from "./survey/Survey";
 import SurveyDetail from "./survey/SurveyDetail";
 import SurveyRegist from "./survey/SurveyRegist";
@@ -307,10 +303,10 @@ const Root = () => {
     {
         "id": 0,
         "userco": "(주) A",
-        "accountid": "juri42", 
-        "accountpw": 123456789, 
-        "mail": "juri42@gmail.com", 
-        "userid": "김주리", 
+        "accountid": "juri42",
+        "accountpw": 123456789,
+        "mail": "juri42@gmail.com",
+        "userid": "김주리",
         "usercall1": "010",
         "usercall2": "1234",
         "usercall3": "5678",
@@ -319,27 +315,27 @@ const Root = () => {
     {
         "id": 1,
         "userco": "(주) B",
-        "accountid": "perfume22", 
-        "accountpw": 987654321, 
-        "mail": "perfume22@naver.com", 
-        "userid": "전선향", 
+        "accountid": "perfume22",
+        "accountpw": 987654321,
+        "mail": "perfume22@naver.com",
+        "userid": "전선향",
         "usercall1": "010",
         "usercall2": "9876",
         "usercall3": "5432",
         "userinfo": "(주) B 전선향"
     }
   ]);
-// user-List 
+// user-List
 
   const handleCreate = (accountid,accountpw,mail,userid,usercall1,usercall2,usercall3) => {
     const userArray = [...userList];
     userArray.push({
-        "id": 3,
+        "id": 2,
         "userco": "(주) C",
-        "accountid": `${accountid}`, 
-        "accountpw": `${accountpw}`, 
-        "mail": `${mail}`, 
-        "userid": `${userid}`, 
+        "accountid": `${accountid}`,
+        "accountpw": `${accountpw}`,
+        "mail": `${mail}`,
+        "userid": `${userid}`,
         "usercall1": `${usercall1}`,
         "usercall2": `${usercall2}`,
         "usercall3": `${usercall3}`,
@@ -554,7 +550,7 @@ const Root = () => {
     date : '2021.09.08',
     user : '황유희',
     content : 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it'
-    
+
   },{
     num :'4',
     title : 'Q&A 게시판',
@@ -590,7 +586,7 @@ const Root = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   //현재 페이지 위치
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const postsPerPage = 10;
   // 한 화면에 볼 수 있는 설문 개수
   const [user, setUser] = useState(false);
   // 로그인 비로그인
@@ -619,7 +615,7 @@ const Root = () => {
     });
   };
   /* 설문조사 검색 */
-  
+
   return (
     <div>
     <  Header />

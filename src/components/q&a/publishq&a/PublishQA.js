@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import './PublishQA.css'
 import {Link} from 'react-router-dom'
-import MainQA from "../mainq&a/MainQA";
 import { useHistory } from 'react-router-dom';
 
 function PublishQA({tableInfo, setTableInfo}){

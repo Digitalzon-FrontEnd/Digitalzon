@@ -1,6 +1,5 @@
 import React from "react";
 import "./PointList.css";
-import { Link } from "react-router-dom";
 import Point from "./Point";
 
 const PointList = ({ selectPointItem, pointItems, onPointClick }) => {

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./PostView.css";
 import moment from "moment";
 
-const PostView = ({ history, posts, setPosts }) => {
+const PostView = ({ posts, setPosts }) => {
   const [prevState, setPrevState] = useState("");
   const [selectState, setSelectState] = useState("접수");
 

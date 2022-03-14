@@ -3,7 +3,6 @@ import CommentEditor from "./Commenteditor";
 import CommentList from "./CommentList";
 import { Link } from "react-router-dom";
 import './DetailQA.css'
-import { tab } from "@testing-library/user-event/dist/tab";
 
 const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
   const [data, setData] = useState([]);

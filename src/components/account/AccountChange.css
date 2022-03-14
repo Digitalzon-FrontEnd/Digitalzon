@@ -112,6 +112,6 @@
 }
 .account-btn-box{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     border-top: 2px solid #545147;
 }
