@@ -22,9 +22,9 @@ function MainQA({tableInfo,setTableInfo}){
               </tr>
           </thead>
           <tbody>
-                {tableInfo.map(function(a){
+                {tableInfo.map(function(a,index){
                 return(
-                        <tr key={a.num}>
+                        <tr key={index}>
                           <td>{a.num}</td>
                           <td><Link to={{
                             pathname:`/mainqa/detailqa/${a.num}`,

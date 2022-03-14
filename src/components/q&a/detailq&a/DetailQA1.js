@@ -3,8 +3,9 @@ import CommentEditor from "./Commenteditor";
 import CommentList from "./CommentList";
 import { Link } from "react-router-dom";
 import './DetailQA.css'
+import { tab } from "@testing-library/user-event/dist/tab";
 
-const DetailQA1 = ({location}) => {
+const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
   const [data, setData] = useState([]);
 
   const dataId = useRef(0);
@@ -24,7 +25,7 @@ const DetailQA1 = ({location}) => {
 
   const onRemove = (targetId) => {
     const newCommentList = data.filter((it) => it.id !== targetId);
-    setData(newCommentList);
+    setData(newCommentList);  
   };
 
   const onEdit = (targetId, newContent) => {
@@ -35,6 +36,11 @@ const DetailQA1 = ({location}) => {
     );
   };
   const params = location.state;
+  const tableRemove =(targetId)=>{
+    const newTable = tableInfo.filter((it)=> it.num !== targetId);
+    setTableInfo(newTable)
+    console.log(newTable);
+  };//왜 num 값이 다 같은지 모르겠음.
   return (
     <div className="detail-qa">
       <div className='head-list'>
@@ -50,7 +56,7 @@ const DetailQA1 = ({location}) => {
       <CommentEditor onCreate={onCreate} />
       <div className='btn-list'>
         <button>수정</button>
-        <button>삭제</button>
+        <button onClick={tableRemove} >삭제</button>
         <Link to="/mainqa"><button>목록</button></Link>
       </div>
     </div>

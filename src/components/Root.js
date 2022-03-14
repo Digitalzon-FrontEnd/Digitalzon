@@ -90,9 +90,12 @@ const Root = () => {
       <Route path="/complete" component={Complete} />
       <Route path="/home" component={Home}/>
       <Route path="/publish" render={(props) => (
-        <PublishQA  tableInfo={tableInfo} setTableInfo={setTableInfo} {...props}/>
+        <PublishQA  tableInfo={tableInfo} setTableInfo={setTableInfo} {...props} />
   )}/>
-      <Route path={`/mainqa/detailqa/:num`}component={DetailQA1}/>
+      <Route path={`/mainqa/detailqa/:num`} render={(props) => (
+        <DetailQA1 tableInfo={tableInfo} setTableInfo={setTableInfo} {...props}/>
+  )}
+      />
       <Footer /> 
     </div>
   );

@@ -17,13 +17,12 @@ function PublishQA({tableInfo, setTableInfo}){
     title : publishTitleInput.current.value,
     date :created_date.toLocaleDateString().slice(0,-1),
     user : '홍길동',
-    content : publishTextInput.current.value
+    content : publishTextInput.current.value,
 })
     setTableInfo(newPublishTitle)
     alert('질문이 등록되었습니다.')
     history.push("/mainqa")
   }
-  console.log(tableInfo);
   return(
     <div className="publish-qa">
       <h1 className="qa-head1">Q&amp;A등록</h1>
