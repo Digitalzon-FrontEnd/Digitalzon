@@ -28,8 +28,8 @@ import SurveyModify from "./survey/SurveyModify";
 import Header from "./common/Header";
 import Main from "./main/Main";
 import surveyData from "../data/SurveyData";
-import Home from "./home/Home.js"
-import MainQA from './q&a/mainq&a/MainQA'
+import Home from "./home/Home.js";
+import MainQA from "./q&a/mainq&a/MainQA";
 import PublishQA from "./q&a/publishq&a/PublishQA";
 import DetailQA1 from "./q&a/detailq&a/DetailQA1";
 const Root = () => {
@@ -301,54 +301,105 @@ const Root = () => {
   ]);
   const [userList, setUserList] = useState([
     {
-        "id": 0,
-        "userco": "(주) A",
-        "accountid": "juri42",
-        "accountpw": 123456789,
-        "mail": "juri42@gmail.com",
-        "userid": "김주리",
-        "usercall1": "010",
-        "usercall2": "1234",
-        "usercall3": "5678",
-        "userinfo": "(주) A 김주리"
+      id: 0,
+      userco: "(주) A",
+      accountid: "juri42",
+      accountpw: 123456789,
+      mail: "juri42@gmail.com",
+      userid: "김주리",
+      usercall1: "010",
+      usercall2: "1234",
+      usercall3: "5678",
+      userinfo: "(주) A 김주리",
     },
     {
-        "id": 1,
-        "userco": "(주) B",
-        "accountid": "perfume22",
-        "accountpw": 987654321,
-        "mail": "perfume22@naver.com",
-        "userid": "전선향",
-        "usercall1": "010",
-        "usercall2": "9876",
-        "usercall3": "5432",
-        "userinfo": "(주) B 전선향"
-    }
+      id: 1,
+      userco: "(주) B",
+      accountid: "perfume22",
+      accountpw: 987654321,
+      mail: "perfume22@naver.com",
+      userid: "전선향",
+      usercall1: "010",
+      usercall2: "9876",
+      usercall3: "5432",
+      userinfo: "(주) B 전선향",
+    },
+    {
+      id: 2,
+      userco: "(주) B",
+      accountid: "asd2",
+      accountpw: 987654321,
+      mail: "perfume22@naver.com",
+      userid: "전선향234",
+      usercall1: "010",
+      usercall2: "9876",
+      usercall3: "5432",
+      userinfo: "(주) B 전선향",
+    },
+    {
+      id: 3,
+      userco: "(주) B",
+      accountid: "sav",
+      accountpw: 987654321,
+      mail: "perfume22@naver.com",
+      userid: "전선향31",
+      usercall1: "010",
+      usercall2: "9876",
+      usercall3: "5432",
+      userinfo: "(주) B 전선향",
+    },
+    {
+      id: 4,
+      userco: "(주) B",
+      accountid: "z412",
+      accountpw: 987654321,
+      mail: "perfume22@naver.com",
+      userid: "전선향12",
+      usercall1: "010",
+      usercall2: "9876",
+      usercall3: "5432",
+      userinfo: "(주) B 전선향",
+    },
+    {
+      id: 5,
+      userco: "(주) B",
+      accountid: "dfh5",
+      accountpw: 987654321,
+      mail: "perfume22@naver.com",
+      userid: "전선향1",
+      usercall1: "010",
+      usercall2: "9876",
+      usercall3: "5432",
+      userinfo: "(주) B 전선향",
+    },
   ]);
-// user-List
+  // user-List
 
-  const handleCreate = (accountid,accountpw,mail,userid,usercall1,usercall2,usercall3) => {
+  const handleCreate = (
+    accountid,
+    accountpw,
+    mail,
+    userid,
+    usercall1,
+    usercall2,
+    usercall3
+  ) => {
     const userArray = [...userList];
     userArray.push({
-        "id": 2,
-        "userco": "(주) C",
-        "accountid": `${accountid}`,
-        "accountpw": `${accountpw}`,
-        "mail": `${mail}`,
-        "userid": `${userid}`,
-        "usercall1": `${usercall1}`,
-        "usercall2": `${usercall2}`,
-        "usercall3": `${usercall3}`,
-        "userinfo": `(주) C ${userid}`
-    })
-    setUserList(userArray)
+      id: 2,
+      userco: "(주) C",
+      accountid: `${accountid}`,
+      accountpw: `${accountpw}`,
+      mail: `${mail}`,
+      userid: `${userid}`,
+      usercall1: `${usercall1}`,
+      usercall2: `${usercall2}`,
+      usercall3: `${usercall3}`,
+      userinfo: `(주) C ${userid}`,
+    });
+    setUserList(userArray);
   };
-// user-List에 push 해주는 함수
-
-  const userSelect = (userpush) => {
-    setUserList(userpush);
-  }
-
+  // user-List에 push 해주는 함수
 
   const [panelPosts, setPanelPosts] = useState([
     {
@@ -529,61 +580,68 @@ const Root = () => {
     },
   ]);
   /* 패널시스템 현황 데이터 */
-  let [tableInfo,setTableInfo] = useState ([{
-    num :'8',
-    title : 'Q&A 게시판',
-    date : '2021.09.30',
-    user : '전선향',
-    content : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
-
-  },{
-    num :'7',
-    title : 'Q&A 게시판',
-    date : '2021.09.28',
-    user : '고승원',
-    content : 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  '
-  },{
-    num :'6',
-    title : 'Q&A 게시판',
-    date : '2021.09.17',
-    user : '안소향',
-    content : 'Many desktop publishing packages'
-  },{
-    num :'5',
-    title : 'Q&A 게시판',
-    date : '2021.09.08',
-    user : '황유희',
-    content : 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it'
-
-  },{
-    num :'4',
-    title : 'Q&A 게시판',
-    date : '2021.08.28',
-    user : '홍길동',
-    content : 'Many desktop publishing packages'
-  },
-  {
-    num :'3',
-    title : 'Q&A 게시판',
-    date : '2021.08.13',
-    user : '고승원',
-    content : 'Many desktop publishing packages'
-  },
-  {
-    num :'2',
-    title : 'Q&A 게시판',
-    date : '2021.07.28',
-    user : '고승원',
-    content : 'Many desktop publishing packages'
-  },{
-    num :'1',
-    title : 'Q&A 게시판',
-    date : '2021.07.10',
-    user : '황유희',
-    content : 'Many desktop publishing packages'
-  },
-])
-/* Q&A 데이터 */
+  let [tableInfo, setTableInfo] = useState([
+    {
+      num: "8",
+      title: "Q&A 게시판",
+      date: "2021.09.30",
+      user: "전선향",
+      content:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+    },
+    {
+      num: "7",
+      title: "Q&A 게시판",
+      date: "2021.09.28",
+      user: "고승원",
+      content:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  ",
+    },
+    {
+      num: "6",
+      title: "Q&A 게시판",
+      date: "2021.09.17",
+      user: "안소향",
+      content: "Many desktop publishing packages",
+    },
+    {
+      num: "5",
+      title: "Q&A 게시판",
+      date: "2021.09.08",
+      user: "황유희",
+      content:
+        "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it",
+    },
+    {
+      num: "4",
+      title: "Q&A 게시판",
+      date: "2021.08.28",
+      user: "홍길동",
+      content: "Many desktop publishing packages",
+    },
+    {
+      num: "3",
+      title: "Q&A 게시판",
+      date: "2021.08.13",
+      user: "고승원",
+      content: "Many desktop publishing packages",
+    },
+    {
+      num: "2",
+      title: "Q&A 게시판",
+      date: "2021.07.28",
+      user: "고승원",
+      content: "Many desktop publishing packages",
+    },
+    {
+      num: "1",
+      title: "Q&A 게시판",
+      date: "2021.07.10",
+      user: "황유희",
+      content: "Many desktop publishing packages",
+    },
+  ]);
+  /* Q&A 데이터 */
 
   const [posts, setPosts] = useState(surveyData);
   // 설문 테스트 데이터
@@ -622,11 +680,19 @@ const Root = () => {
 
   return (
     <div>
-    <  Header />
-      <Route  exact path="/" component={Main}/>
-      <Route  exact path="/mainqa" render={(props) => (
-        <MainQA  tableInfo={tableInfo} setTableInfo={setTableInfo} {...props}/>
-  )} />
+      <Header />
+      <Route exact path="/" component={Main} />
+      <Route
+        exact
+        path="/mainqa"
+        render={(props) => (
+          <MainQA
+            tableInfo={tableInfo}
+            setTableInfo={setTableInfo}
+            {...props}
+          />
+        )}
+      />
       <Route path="/faq" render={() => <Faq user={user} />} />
       <Route path="/guide" render={() => <Guide user={user} />} />
       <Route path="/login" render={() => <Login setUser={setUser} />} />
@@ -720,17 +786,44 @@ const Root = () => {
       />
 
       <Route path="/surveyregist" component={SurveyRegist} />
-      <Route path="/home" component={Home}/>
-      <Route path="/publish" render={(props) => (
-        <PublishQA  tableInfo={tableInfo} setTableInfo={setTableInfo} {...props} />
-  )}/>
-      <Route path={`/mainqa/detailqa/:num`} render={(props) => (
-        <DetailQA1 tableInfo={tableInfo} setTableInfo={setTableInfo} {...props}/>
-  )}
+      <Route path="/home" component={Home} />
+      <Route
+        path="/publish"
+        render={(props) => (
+          <PublishQA
+            tableInfo={tableInfo}
+            setTableInfo={setTableInfo}
+            {...props}
+          />
+        )}
+      />
+      <Route
+        path={`/mainqa/detailqa/:num`}
+        render={(props) => (
+          <DetailQA1
+            tableInfo={tableInfo}
+            setTableInfo={setTableInfo}
+            {...props}
+          />
+        )}
       />
       <Route path="/accountchange" component={AccountChange} />
-      <Route path="/accountsetup" render={() => <AccountSetup handleCreate={handleCreate} setUserList={setUserList}/>} />
-      <Route path="/accountmanage" render={(props) => <AccountManage userList={userList} handleCreate={handleCreate} setUserList={setUserList} userSelect={userSelect} />} />
+      <Route
+        path="/accountsetup"
+        render={() => (
+          <AccountSetup handleCreate={handleCreate} setUserList={setUserList} />
+        )}
+      />
+      <Route
+        path="/accountmanage"
+        render={(props) => (
+          <AccountManage
+            userList={userList}
+            handleCreate={handleCreate}
+            setUserList={setUserList}
+          />
+        )}
+      />
       <Route path="/mypage" component={MyPage} />
       <Footer />
     </div>
@@ -738,4 +831,3 @@ const Root = () => {
 };
 
 export default Root;
-
