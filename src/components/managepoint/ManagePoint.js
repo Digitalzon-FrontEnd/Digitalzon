@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import moment from 'moment'
 import "./ManegePoint.css"
+import Gnb from "../common/Gnb"
 
 const ManagePoint = () => {
     const [inputPoint, setInputPoint] = useState('');
@@ -89,6 +90,7 @@ const ManagePoint = () => {
     
     return (
         <div className="inner_box Manage-inner">
+            <Gnb />
             <div className="managePoint-header">
                 <h1>[보유포인트]</h1>
                 <span>{point} point</span>

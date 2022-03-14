@@ -1,11 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import Gnb from "../../common/Gnb"
+
+
 
 import "./MainQA.css"
 
 function MainQA({tableInfo,setTableInfo}){
   return(
     <div className='mainqa'>
+      <Gnb />
         <div className='btn-head'>
           <Link to={{pathname:'/publish',
         }}><button className='btn-publish'>신규등록</button></Link>
