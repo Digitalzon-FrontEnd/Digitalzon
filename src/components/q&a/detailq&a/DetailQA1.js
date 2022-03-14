@@ -4,6 +4,7 @@ import CommentList from "./CommentList";
 import { Link } from "react-router-dom";
 import './DetailQA.css'
 import { useHistory } from 'react-router-dom';
+import Gnb from "../../common/Gnb";
 
 const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
   const [data, setData] = useState([]);
@@ -43,7 +44,7 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
     alert('질문이 삭제되었습니다.')
     history.push("/mainqa")
   };
-  const tableEdit = ( newContent) => {
+  const tableEdit = (newContent) => {
     setTableInfo(
       tableInfo.map((it) =>
         it.num === params.num ? { ...it, content: newContent } : it
@@ -52,21 +53,24 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
   };
   return (
     <div className="detail-qa">
-      <div className='head-list'>
-        <div id="item1">{params.num}</div>
-        <div id="item2">{params.title}</div>
-        <div id="item3">{params.date}</div>
-        <div id="item4">{params.user}</div>
-      </div>
-      <div className='text-input'>
-        {params.content}
-      </div>
-      <CommentList onEdit={onEdit} onRemove={onRemove} CommentList={data} />
-      <CommentEditor onCreate={onCreate} />
-      <div className='btn-list'>
-        <button onClick={tableEdit}>수정</button>
-        <button onClick={tableRemove} >삭제</button>
-        <Link to="/mainqa"><button>목록</button></Link>
+      <Gnb/>
+      <div className="table">
+        <div className='head-list'>
+          <div id="item1">{params.num}</div>
+          <div id="item2">{params.title}</div>
+          <div id="item3">{params.date}</div>
+          <div id="item4">{params.user}</div>
+        </div>
+        <div className='text-input'>
+          {params.content}
+        </div>
+        <CommentList onEdit={onEdit} onRemove={onRemove} CommentList={data} />
+        <CommentEditor onCreate={onCreate} />
+        <div className='btn-list'>
+          <button onClick={tableEdit}>수정</button>
+          <button onClick={tableRemove} >삭제</button>
+          <Link to="/mainqa"><button>목록</button></Link>
+        </div>
       </div>
     </div>
   );

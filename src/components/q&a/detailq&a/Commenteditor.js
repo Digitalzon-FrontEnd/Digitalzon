@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 
 const CommentEditor = ({ onCreate }) => {
-  const authorInput = useRef();
   const contentInput = useRef();
 
   const [state, setState] = useState({

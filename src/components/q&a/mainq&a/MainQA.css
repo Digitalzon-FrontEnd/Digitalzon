@@ -1,9 +1,11 @@
 .mainqa{
-  width:792.2px;
+  width: 1200px;;
   margin:auto;
 }
 .btn-head{
   display: flex;
+  width: 794px;
+  margin: auto;
   margin-bottom: 10.2px;
   justify-content: space-between;
 }
@@ -23,7 +25,8 @@
   border: solid 2px #c4c4c4;
 }
 .mainqa-table{
-  width: 100%;
+  width: 794px;
+  margin: auto;
   margin-bottom: 100px;
   text-align: center;
   color: #545147;
