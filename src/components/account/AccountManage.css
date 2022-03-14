@@ -21,11 +21,14 @@
     text-indent: 7px;
 }
 .account-manage-info label{
-    width: 85px;
+    width: 105px;
     height: 59px;
     line-height: 59px;
     font-size: 12px;
     font-weight: 600;
+}
+.account-manage-info input{
+    width: 315.5px;
 }
 #searchBox{
     width: 205px;
@@ -48,11 +51,16 @@
     right: -185px;
     cursor: pointer;
 }
+.name-list{
+    width: 215px;
+    height: 180px;
+    overflow-y: scroll;
+}
 .name-list li{
     font-size: 14px;
     color: #545147;
     margin-bottom: 15px;
-    margin-left: 26px;
+    margin-left: 35px;
     list-style: disc;
     cursor: pointer;
 }
@@ -76,4 +84,7 @@
 }
 #accountDelBtn{
     margin-right: 19px;
+}
+#accountCallNum1, #accountCallNum2, #accountCallNum3{
+    width: 94px;
 }

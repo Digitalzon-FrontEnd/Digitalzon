@@ -326,56 +326,57 @@ const Root = () => {
     },
     {
       id: 2,
-      userco: "(주) B",
+      userco: "(주) C",
       accountid: "asd2",
-      accountpw: 987654321,
-      mail: "perfume22@naver.com",
-      userid: "전선향234",
+      accountpw: 246246446,
+      mail: "egseg5@naver.com",
+      userid: "정규대",
       usercall1: "010",
-      usercall2: "9876",
-      usercall3: "5432",
-      userinfo: "(주) B 전선향",
+      usercall2: "3958",
+      usercall3: "3643",
+      userinfo: "(주) C 정규대",
     },
     {
       id: 3,
-      userco: "(주) B",
+      userco: "(주) D",
       accountid: "sav",
-      accountpw: 987654321,
-      mail: "perfume22@naver.com",
-      userid: "전선향31",
+      accountpw: 34646477,
+      mail: "eljif074@naver.com",
+      userid: "김지영",
       usercall1: "010",
-      usercall2: "9876",
-      usercall3: "5432",
-      userinfo: "(주) B 전선향",
+      usercall2: "4446",
+      usercall3: "2978",
+      userinfo: "(주) D 김지영",
     },
     {
       id: 4,
-      userco: "(주) B",
+      userco: "(주) E",
       accountid: "z412",
-      accountpw: 987654321,
-      mail: "perfume22@naver.com",
-      userid: "전선향12",
+      accountpw: 6768971,
+      mail: "alie97@naver.com",
+      userid: "배예린",
       usercall1: "010",
-      usercall2: "9876",
-      usercall3: "5432",
-      userinfo: "(주) B 전선향",
+      usercall2: "1037",
+      usercall3: "3094",
+      userinfo: "(주) E 배예린",
     },
     {
       id: 5,
-      userco: "(주) B",
+      userco: "(주) F",
       accountid: "dfh5",
-      accountpw: 987654321,
-      mail: "perfume22@naver.com",
-      userid: "전선향1",
+      accountpw: 79634634,
+      mail: "wjgid7444@naver.com",
+      userid: "양준혁",
       usercall1: "010",
-      usercall2: "9876",
-      usercall3: "5432",
-      userinfo: "(주) B 전선향",
+      usercall2: "4686",
+      usercall3: "2677",
+      userinfo: "(주) F 양준혁",
     },
   ]);
-  // user-List
+  // userList
 
   const handleCreate = (
+    id,
     accountid,
     accountpw,
     mail,
@@ -386,7 +387,7 @@ const Root = () => {
   ) => {
     const userArray = [...userList];
     userArray.push({
-      id: 2,
+      id: `${id}+1`,
       userco: "(주) C",
       accountid: `${accountid}`,
       accountpw: `${accountpw}`,
@@ -399,7 +400,7 @@ const Root = () => {
     });
     setUserList(userArray);
   };
-  // user-List에 push 해주는 함수
+  // userList에 push 해주는 함수
 
   const [panelPosts, setPanelPosts] = useState([
     {
@@ -682,17 +683,8 @@ const Root = () => {
     <div>
       <Header />
       <Route exact path="/" component={Main} />
-      <Route
-        exact
-        path="/mainqa"
-        render={(props) => (
-          <MainQA
-            tableInfo={tableInfo}
-            setTableInfo={setTableInfo}
-            {...props}
-          />
-        )}
-      />
+      <Route exact path="/mainqa" render={(props) => (
+          <MainQA tableInfo={tableInfo} setTableInfo={setTableInfo} {...props}/>)} />
       <Route path="/faq" render={() => <Faq user={user} />} />
       <Route path="/guide" render={() => <Guide user={user} />} />
       <Route path="/login" render={() => <Login setUser={setUser} />} />
@@ -702,46 +694,17 @@ const Root = () => {
       <Route exact path="/panel" component={Panel} />
       <Route path="/infoinput" component={InfoInput} />
       <Route path="/complete" component={Complete} />
-      <Route
-        exact
-        path="/point/board"
-        render={() => (
-          <PointBoard
-            pointItems={pointItems}
-            setPointItems={setPointItems}
-            setSelectPointItem={setSelectPointItem}
-            selectPointItem={selectPointItem}
-          />
-        )}
-      ></Route>
-      <Route
-        exact
-        path="/point/view/:id"
-        render={() => (
-          <PointView pointItems={pointItems} setPointItems={setPointItems} />
-        )}
-      />
-      <Route
-        exact
-        path="/survey/approve/board"
-        render={() => (
-          <ApproveBoard
-            surveyApproveItems={surveyApproveItems}
-            setSurveyApproveItems={setSurveyApproveItems}
-          />
-        )}
-      ></Route>
-      <Route
-        exact
-        path="/survey/approve/view/:id"
-        render={() => (
-          <ApproveView
-            surveyApproveItems={surveyApproveItems}
-            setSurveyApproveItems={setSurveyApproveItems}
-          />
-        )}
-      ></Route>
-
+      <Route exact path="/point/board" render={() => (
+          <PointBoard pointItems={pointItems} setPointItems={setPointItems} setSelectPointItem={setSelectPointItem}
+            selectPointItem={selectPointItem}/>)} />
+      <Route exact path="/point/view/:id" render={() => (
+          <PointView pointItems={pointItems} setPointItems={setPointItems} />)} />
+      <Route exact path="/survey/approve/board" render={() => (
+          <ApproveBoard surveyApproveItems={surveyApproveItems} setSurveyApproveItems={setSurveyApproveItems}/>
+        )} />
+      <Route exact path="/survey/approve/view/:id" render={() => (
+          <ApproveView surveyApproveItems={surveyApproveItems} setSurveyApproveItems={setSurveyApproveItems}
+          />)} />
       <Route
         exact
         path="/panel/board"
