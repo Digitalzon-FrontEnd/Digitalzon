@@ -35,8 +35,7 @@ const AccountManage = ({userList}) => {
         e.preventDefault();
         userRemove(userList)
     }
-    //이상하다...이게 아닌가???!!!!!!!!!! 선생님께 질문해봐!
-
+    // 삭제하는 함수 시도해봤지만 작동하지 않음...강사님께 도움 요청
 
     const click = (userInfo) => {
         setUserData(userInfo);
@@ -82,15 +81,15 @@ const AccountManage = ({userList}) => {
                             </div>
                             <div className="account-password">
                                 <label>비밀번호</label>
-                                <input type="text" className=" account-input" defaultValue={userData.accountpw} name='accountpw'></input>
+                                <input type="text" className=" account-input" value={userData.accountpw} name='accountpw'></input>
                             </div>
                             <div className="account-email">
                                 <label>E-Mail</label>
-                                <input type="email" className=" account-input" defaultValue={userData.mail} name='mail'></input>
+                                <input type="email" className=" account-input" value={userData.mail} name='mail'></input>
                             </div>
                             <div className="account-username">
                                 <label>사용자명</label>
-                                <input className=" account-input" defaultValue={userData.userid} name='userid'></input>
+                                <input className=" account-input" value={userData.userid} name='userid'></input>
                             </div>
                             <div className="account-call">
                                 <label>휴대폰 번호</label>
@@ -101,7 +100,7 @@ const AccountManage = ({userList}) => {
                                 onKeyUp={lengthcheck}
                                 required
                                 className=" account-input"
-                                defaultValue={userData.usercall1}
+                                value={userData.usercall1}
                                 name='usercall1'
                                 />
                                 <input
@@ -111,14 +110,14 @@ const AccountManage = ({userList}) => {
                                 onKeyUp={lengthcheck}
                                 required
                                 className=" account-input"
-                                defaultValue={userData.usercall2}
+                                value={userData.usercall2}
                                 name='usercall2'
                                 />
                                 <input id="accountCallNum3"
                                 type="number"
                                 maxLength="4"
                                 className=" account-input"
-                                defaultValue={userData.usercall3}
+                                value={userData.usercall3}
                                 name='usercall3'
                                 />
                             </div>
