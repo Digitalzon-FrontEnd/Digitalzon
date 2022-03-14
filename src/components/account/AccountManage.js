@@ -38,10 +38,12 @@ const AccountManage = ({userList,setUserList}) => {
         e.preventDefault();
         userRemove(e)
     }
+    // 삭제하는 함수
 
     const click = (userInfo) => {
-        setUserData(userInfo);
+        setUserId(Number(userInfo.id));
     };
+    console.log(userId)
     // 리스트 명단 클릭시 정보 불러옴
 
     const submitValue = (userData) => {
@@ -85,19 +87,19 @@ const AccountManage = ({userList,setUserList}) => {
                         <div className="account-info-area" id="clickForm">
                             <div className="account-id">
                                 <label>아이디</label>
-                                <input className=" account-input" onChange={onChange} value={userData.accountid}  name='accountid'></input>
+                                <input className=" account-input" onChange={onChange} value={userList[userId].accountid}  name='accountid'></input>
                             </div>
                             <div className="account-password">
                                 <label>비밀번호재설정</label>
-                                <input type="text" className=" account-input" onChange={onChange} value={userData.accountpw} name='accountpw'></input>
+                                <input type="text" className=" account-input" onChange={onChange} value={userList[userId].accountpw} name='accountpw'></input>
                             </div>
                             <div className="account-email">
                                 <label>E-Mail</label>
-                                <input type="email" className=" account-input" onChange={onChange} value={userData.mail} name='mail'></input>
+                                <input type="email" className=" account-input" onChange={onChange} value={userList[userId].mail} name='mail'></input>
                             </div>
                             <div className="account-username">
                                 <label>사용자명</label>
-                                <input className=" account-input" onChange={onChange} value={userData.userid} name='userid'></input>
+                                <input className=" account-input" onChange={onChange} value={userList[userId].userid} name='userid'></input>
                             </div>
                             <div className="account-call">
                                 <label>휴대폰 번호</label>
@@ -109,9 +111,9 @@ const AccountManage = ({userList,setUserList}) => {
                                 required
                                 className=" account-input"
                                 onChange={onChange}
-                                value={userData.usercall1}
+                                value={userList[userId].usercall1}
                                 name='usercall1'
-                                onChange={onChange}
+                                //onChange={onChange}
                                 />
                                 <input
                                 id="accountCallNum2"
@@ -121,18 +123,18 @@ const AccountManage = ({userList,setUserList}) => {
                                 required
                                 className=" account-input"
                                 onChange={onChange}
-                                value={userData.usercall2}
+                                value={userList[userId].usercall2}
                                 name='usercall2'
-                                onChange={onChange}
+                                //onChange={onChange}
                                 />
                                 <input id="accountCallNum3"
                                 type="number"
                                 maxLength="4"
                                 className=" account-input"
                                 onChange={onChange}
-                                value={userData.usercall3}
+                                value={userList[userId].usercall3}
                                 name='usercall3'
-                                onChange={onChange}
+                                //onChange={onChange}
                                 />
                             </div>
                         </div>
