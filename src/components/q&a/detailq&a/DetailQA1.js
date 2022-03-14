@@ -32,7 +32,7 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
   const onEdit = (targetId, newContent) => {
     setData(
       data.map((it) =>
-        it.id === targetId ? { ...it, content: newContent } : it
+        it.id === targetId ? { ...it, content: newContent} : it
       )
     );
   };
@@ -44,6 +44,10 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
     alert('질문이 삭제되었습니다.')
     history.push("/mainqa")
   };
+  const [localContent, setLocalContent] = useState(params.content);
+  const localContentInput = useRef();
+  const [isEdit, setIsEdit] = useState(false);
+  const toggleIsEdit = () => setIsEdit(!isEdit);
   const tableEdit = (newContent) => {
     setTableInfo(
       tableInfo.map((it) =>
@@ -62,12 +66,21 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
           <div id="item4">{params.user}</div>
         </div>
         <div className='text-input'>
-          {params.content}
+            {isEdit ? (
+              <textarea
+                ref={localContentInput}
+                value={localContent}
+                onChange={(e) => setLocalContent(e.target.value)}
+              />
+            ) : (
+              params.content
+            )}
+          
         </div>
         <CommentList onEdit={onEdit} onRemove={onRemove} CommentList={data} />
         <CommentEditor onCreate={onCreate} />
         <div className='btn-list'>
-          <button onClick={tableEdit}>수정</button>
+          <button onClick={toggleIsEdit}>수정</button>
           <button onClick={tableRemove} >삭제</button>
           <Link to="/mainqa"><button>목록</button></Link>
         </div>
