@@ -3,7 +3,7 @@ import "./AccountManage.css";
 import { Link } from "react-router-dom";
 
 
-const AccountManage = ({userList}) => {
+const AccountManage = ({userList,setUserList,userSelect}) => {
     const $ = (selector) => {
         return document.querySelector(selector);
     };
@@ -26,21 +26,25 @@ const AccountManage = ({userList}) => {
         usercall2:'',
         usercall3:'' 
     })
-    // 기본 상태=>유저정보 불러오는 상태 
+    // 기본 상태=>유저정보 불러오는 상태 -필요없다?!
 
     const userRemove = (e)=>{
-        userData.splice(e.target.id,1)}
+        const list = [...user]
     
     const removeBtn = (e) => {
         e.preventDefault();
-        userRemove(userList)
+        userRemove(e)
     }
-    // 삭제하는 함수 시도해봤지만 작동하지 않음...강사님께 도움 요청
 
     const click = (userInfo) => {
         setUserData(userInfo);
     };
     // 리스트 명단 클릭시 정보 불러옴
+
+    const submitValue = (userData) => {
+        userSelect(userData);
+    }
+    // 수정&저장
 
     const onChange = (e) => {
         const {name,value}=e.target;
@@ -48,6 +52,7 @@ const AccountManage = ({userList}) => {
             ...userData,
             [name] : value,
         })
+        console.log(userData)
     }; 
     //input onChange에 걸 함수
 
@@ -70,9 +75,9 @@ const AccountManage = ({userList}) => {
                             </div>
                             <ul className="name-list">
                                 {userList.map((userinfo) => (
-                                    <li onClick={() => {click(userinfo);}} key={userinfo.userid}>{userinfo.userinfo}</li>
+                                    <li onClick={() => { click(userinfo)}} key={userinfo.userid}>{userinfo.userinfo}</li>
                                 ))}{''}
-                                </ul>
+                            </ul>
                         </div>
                         <div className="account-info-area" id="clickForm">
                             <div className="account-id">
@@ -81,15 +86,15 @@ const AccountManage = ({userList}) => {
                             </div>
                             <div className="account-password">
                                 <label>비밀번호</label>
-                                <input type="text" className=" account-input" value={userData.accountpw} name='accountpw'></input>
+                                <input type="text" className=" account-input" onChange={onChange} value={userData.accountpw} name='accountpw'></input>
                             </div>
                             <div className="account-email">
                                 <label>E-Mail</label>
-                                <input type="email" className=" account-input" value={userData.mail} name='mail'></input>
+                                <input type="email" className=" account-input" onChange={onChange} value={userData.mail} name='mail'></input>
                             </div>
                             <div className="account-username">
                                 <label>사용자명</label>
-                                <input className=" account-input" value={userData.userid} name='userid'></input>
+                                <input className=" account-input" onChange={onChange} value={userData.userid} name='userid'></input>
                             </div>
                             <div className="account-call">
                                 <label>휴대폰 번호</label>
@@ -102,6 +107,7 @@ const AccountManage = ({userList}) => {
                                 className=" account-input"
                                 value={userData.usercall1}
                                 name='usercall1'
+                                onChange={onChange}
                                 />
                                 <input
                                 id="accountCallNum2"
@@ -112,6 +118,7 @@ const AccountManage = ({userList}) => {
                                 className=" account-input"
                                 value={userData.usercall2}
                                 name='usercall2'
+                                onChange={onChange}
                                 />
                                 <input id="accountCallNum3"
                                 type="number"
@@ -119,17 +126,18 @@ const AccountManage = ({userList}) => {
                                 className=" account-input"
                                 value={userData.usercall3}
                                 name='usercall3'
+                                onChange={onChange}
                                 />
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="account-btn-box">
-                    <button className="account-manage-btn" id="accountDelBtn" onClick={removeBtn}>삭제</button>
-                    <button className="account-manage-btn">저장</button>
-                </div>
             </form>
+            <div className="account-btn-box">
+                    <button className="account-manage-btn"  id="accountDelBtn">삭제</button>
+                    <button className="account-manage-btn" type="button" onClick={submitValue}>저장</button>
             </div>
+        </div>
     </div>
     );
 };

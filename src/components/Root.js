@@ -66,6 +66,10 @@ const Root = () => {
   };
 // user-List에 push 해주는 함수
 
+  const userSelect = (userpush) => {
+    setUserList(userpush);
+  }
+
 
   return (
     <div>
@@ -82,7 +86,7 @@ const Root = () => {
       <Route path="/complete" component={Complete} />
       <Route path="/accountchange" component={AccountChange} />
       <Route path="/accountsetup" render={() => <AccountSetup handleCreate={handleCreate} setUserList={setUserList}/>} />
-      <Route path="/accountmanage" render={(props) => <AccountManage userList={userList} handleCreate={handleCreate} setUserList={setUserList} />} />
+      <Route path="/accountmanage" render={(props) => <AccountManage userList={userList} handleCreate={handleCreate} setUserList={setUserList} userSelect={userSelect} />} />
       <Route path="/mypage" component={MyPage} />
       <Footer />
     </div>
