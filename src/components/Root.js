@@ -525,6 +525,10 @@ const Root = () => {
     },
   ]);
   /* 패널시스템 현황 데이터 */
+  const [prevState, setPrevState] = useState("");
+  const [selectState, setSelectState] = useState("접수");
+  /* 패널 시스템 select 관련 state */
+
   let [tableInfo,setTableInfo] = useState ([{
     num :'8',
     title : 'Q&A 게시판',
@@ -675,12 +679,18 @@ const Root = () => {
       <Route
         exact
         path="/panel/board"
-        render={() => <PostList posts={panelPosts} />}
+        render={() => <PostList posts={panelPosts} selectState={selectState}/>}
       />
       <Route
         exact
         path="/panel/view/:no"
-        render={() => <PostView posts={panelPosts} setPosts={setPanelPosts} />}
+        render={() => <PostView 
+          posts={panelPosts} 
+          setPosts={setPanelPosts} 
+          prevState={prevState} 
+          setPrevState={setPrevState}
+          selectState={selectState}
+          setSelectState={setSelectState}/>}
       />
 
       <Route path="/managepoint" component={ManagePoint} />

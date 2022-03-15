@@ -1,17 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./PostView.css";
 import moment from "moment";
 
-const PostView = ({ posts, setPosts }) => {
-  const [prevState, setPrevState] = useState("");
-  const [selectState, setSelectState] = useState("접수");
-
+const PostView = ({
+  posts,
+  setPosts,
+  prevState,
+  setPrevState,
+  selectState,
+  setSelectState,
+}) => {
   const params = useParams(); //파라미터로 받기 위한 함수
   let no = params.no;
   const postItem = posts.find((item) => {
     return item.number === no;
   });
+
+  /* -추가 부분 - */
+  useEffect(() => {
+    setSelectState(postItem.state);
+  }, []);
+  /* -추가 부분 - */
+
   let date = moment().format("YYYY-MM-DD HH:mm:ss");
   /* 날짜 */
 
@@ -32,7 +43,10 @@ const PostView = ({ posts, setPosts }) => {
       posts.map((item) => {
         if (item.number === no) {
           item.record.unshift(recordTxt);
+
+          /* -추가 부분 - */
           item.state = selectState;
+          /* -추가 부분 - */
         }
         return item;
       })
@@ -91,16 +105,24 @@ const PostView = ({ posts, setPosts }) => {
               </tr>
             </tbody>
           </table>
+          {/* 테이블 끝 */}
         </div>
         <div className="postview-btn-box">
           <p>상태</p>
-          <select name="접수" id="postview-select" onChange={selectChange}>
-            {options.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.name}
-              </option>
-            ))}
-          </select>
+          <div className="select-wrap">
+            <select
+              value={selectState}
+              name="접수"
+              id="postview-select"
+              onChange={selectChange}
+            >
+              {options.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.name}
+                </option>
+              ))}
+            </select>
+          </div>
           <button className="postview-btn save-btn" onClick={saveBtn}>
             저장
           </button>
