@@ -358,7 +358,7 @@ const Root = () => {
       usercall1: "010",
       usercall2: "9876",
       usercall3: "5432",
-      userinfo: "(주) B 전선향",
+      userinfo: "(주) B AAA전선향",
     },
     {
       id: 5,
@@ -412,6 +412,7 @@ const Root = () => {
       state: "처리 완료",
       statemanager: "홍길동",
       record: [],
+      panelContent: "mmmmmmmmmmmmmmmasadhha",
     },
     {
       number: "15",
@@ -423,6 +424,7 @@ const Root = () => {
       state: "처리 완료",
       statemanager: "홍길동",
       record: [],
+      panelContent: "bbbbbbbbbbbbbbbasadhha",
     },
     {
       number: "14",
@@ -434,6 +436,7 @@ const Root = () => {
       state: "처리 완료",
       statemanager: "홍길동",
       record: [],
+      panelContent: "zzzzzzzzzzzzasadhha",
     },
     {
       number: "13",
@@ -445,6 +448,7 @@ const Root = () => {
       state: "처리중",
       statemanager: "홍길동",
       record: [],
+      panelContent: "afffffffffffffsadhha",
     },
     {
       number: "12",
@@ -456,6 +460,7 @@ const Root = () => {
       state: "처리 완료",
       statemanager: "홍길동",
       record: [],
+      panelContent: "asadhfafha",
     },
     {
       number: "11",
@@ -467,6 +472,7 @@ const Root = () => {
       state: "처리 완료",
       statemanager: "홍길동",
       record: [],
+      panelContent: "asadh75ha",
     },
     {
       number: "10",
@@ -478,6 +484,7 @@ const Root = () => {
       state: "처리 완료",
       statemanager: "홍길동",
       record: [],
+      panelContent: "asadhh11111a",
     },
     {
       number: "9",
@@ -489,6 +496,7 @@ const Root = () => {
       state: "처리 완료",
       statemanager: "해당없음",
       record: [],
+      panelContent: "asadhhka",
     },
     {
       number: "8",
@@ -500,6 +508,7 @@ const Root = () => {
       state: "처리 완료",
       statemanager: "홍길동",
       record: [],
+      panelContent: "asadhh1gfa",
     },
     {
       number: "7",
@@ -511,6 +520,7 @@ const Root = () => {
       state: "처리 완료",
       statemanager: "홍길동",
       record: [],
+      panelContent: "asadhha",
     },
     {
       number: "6",
@@ -522,6 +532,7 @@ const Root = () => {
       state: "처리 완료",
       statemanager: "해당없음",
       record: [],
+      panelContent: "asa11da",
     },
     {
       number: "5",
@@ -533,6 +544,7 @@ const Root = () => {
       state: "처리 완료",
       statemanager: "홍길동",
       record: [],
+      panelContent: "asada",
     },
     {
       number: "4",
@@ -544,6 +556,7 @@ const Root = () => {
       state: "처리 완료",
       statemanager: "김주리",
       record: [],
+      panelContent: "acvba",
     },
     {
       number: "3",
@@ -555,6 +568,7 @@ const Root = () => {
       state: "처리 완료",
       statemanager: "김주리",
       record: [],
+      panelContent: "aaasd",
     },
     {
       number: "2",
@@ -566,6 +580,7 @@ const Root = () => {
       state: "처리 중",
       statemanager: "해당없음",
       record: [],
+      panelContent: "aa22",
     },
     {
       number: "1",
@@ -577,6 +592,7 @@ const Root = () => {
       state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "aa",
     },
   ]);
   /* 패널시스템 현황 데이터 */
@@ -699,7 +715,13 @@ const Root = () => {
       <Route path="/terms" component={Terms} />
       <Route path="/findId" component={FindId} />
       <Route path="/findPw" component={FindPw} />
-      <Route exact path="/panel" component={Panel} />
+      <Route
+        exact
+        path="/panel"
+        render={() => (
+          <Panel panelPosts={panelPosts} setPanelPosts={setPanelPosts} />
+        )}
+      />
       <Route path="/infoinput" component={InfoInput} />
       <Route path="/complete" component={Complete} />
       <Route

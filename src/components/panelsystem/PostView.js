@@ -84,7 +84,7 @@ const PostView = ({ posts, setPosts }) => {
                 <td>{postItem.statemanager}</td>
                 <td>{postItem.phonenumber}</td>
                 <td>{postItem.email}</td>
-                <td>패널인증시스템 신청합니다.</td>
+                <td>{postItem.panelContent}</td>
               </tr>
             </tbody>
           </table>
