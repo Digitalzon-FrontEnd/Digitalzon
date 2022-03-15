@@ -21,7 +21,7 @@ const ManagePoint = () => {
 
     let date = moment().format("YYYY-MM-DD")
     /* 날짜 */
-
+    
     const onChengePoint = (e) => {
         setInputPoint(e.target.value);
     };

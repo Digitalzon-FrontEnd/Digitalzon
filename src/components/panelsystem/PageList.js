@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import './PageList.css'
 
+
 const PageList = ({ postsPerPage,totalPosts,paginate }) => {
     
     const [ page, setPage ] = useState(1)
@@ -38,6 +39,7 @@ const PageList = ({ postsPerPage,totalPosts,paginate }) => {
     
     return (
             <div className="panelsystem-pages">
+               
                 
                     <ul className="panelsystem-page-list">
                         <li>

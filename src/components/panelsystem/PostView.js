@@ -3,9 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import "./PostView.css";
 import moment from "moment";
 
-const PostView = ({ posts, setPosts }) => {
-  const [prevState, setPrevState] = useState("");
-  const [selectState, setSelectState] = useState("접수");
+const PostView = ({ posts, setPosts, prevState, setPrevState, selectState, setSelectState}) => {
+  
 
   const params = useParams(); //파라미터로 받기 위한 함수
   let no = params.no;
@@ -26,11 +25,13 @@ const PostView = ({ posts, setPosts }) => {
     setSelectState(e.target.value);
   };
   //select메뉴 변경시 벨류값
+  
 
   const saveBtn = () => {
     setPosts(
       posts.map((item) => {
-        if (item.number === no) item.record.unshift(recordTxt);
+        if (item.number === no){ item.record.unshift(recordTxt);
+        console.log(item.number);}
         return item;
       })
     );
@@ -87,17 +88,19 @@ const PostView = ({ posts, setPosts }) => {
                 <td>패널인증시스템 신청합니다.</td>
               </tr>
             </tbody>
-          </table>
+          </table>{/* 테이블 끝 */}
         </div>
         <div className="postview-btn-box">
           <p>상태</p>
-          <select name="접수" id="postview-select" onChange={selectChange}>
-            {options.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.name}
-              </option>
-            ))}
-          </select>
+          <div className="select-wrap">
+            <select value={selectState} name="접수" id="postview-select" onChange={selectChange}>
+              {options.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.name}
+                </option>
+              ))}
+            </select>
+          </div>
           <button className="postview-btn save-btn" onClick={saveBtn}>
             저장
           </button>

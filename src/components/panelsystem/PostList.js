@@ -2,8 +2,11 @@ import React, { useState} from "react";
 import { Link } from "react-router-dom";
 import "./PostList.css";
 import PageList from "./PageList";
+import Gnb from "../common/Gnb"
 
-const PostList = ({ posts }) => {
+const PostList = ({ posts,selectState }) => {
+  
+
   const [currentPage, setCurrentPage] = useState(1); //현재 페이지
   const postsPerPage = 10; //한 페이지에 글 갯수
 
@@ -18,7 +21,8 @@ const PostList = ({ posts }) => {
   //1부터 10까지의 페이지 포스트?
 
   return (
-    <div>
+    <div className="inner_box">
+       <Gnb />
       <div className="pannelsystem-content">
         <form className="pannelsystem-form">
           <div className="pannelsystem-input-box">
