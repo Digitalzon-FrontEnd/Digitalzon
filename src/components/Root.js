@@ -31,7 +31,7 @@ import surveyData from "../data/SurveyData";
 import surveyApproveData from "../data/SurveyApproveData";
 import pointData from "../data/pointData";
 import panelData from "../data/panelData";
-import userData from "../data/userData;";
+import userData from "../data/userData";
 import qaData from "../data/qaData";
 import Home from "./home/Home.js";
 import MainQA from "./q&a/mainq&a/MainQA";

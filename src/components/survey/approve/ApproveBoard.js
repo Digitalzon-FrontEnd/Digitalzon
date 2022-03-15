@@ -1,7 +1,6 @@
-import { React} from "react";
+import { React } from "react";
 import "./ApproveBoard.css";
 import ApproveList from "./ApproveList";
-import Pagination from "../../point/Pagination";
 import Gnb from "../../common/Gnb";
 const ApproveBoard = ({ surveyApproveItems }) => {
   return (
@@ -19,7 +18,7 @@ const ApproveBoard = ({ surveyApproveItems }) => {
           </button>
         </div>
         <ApproveList surveyApproveItems={surveyApproveItems} />
-        <Pagination itemsCount={50} pageSize={10} />
+        {/* <Pagination itemsCount={50} pageSize={10} /> */}
       </div>
     </div>
   );

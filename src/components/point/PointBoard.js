@@ -44,13 +44,13 @@ const PointBoard = ({ selectPointItem, pointItems, setSelectPointItem }) => {
           onPointClick={onPointClick}
         />
       </div>
-      <Pagination
+      {/* <Pagination
         postsPerPage={postsPerPage}
         totalPosts={totalPosts}
         paginate={paginate}
         setIndex={setIndex}
         currentPage={currentPage}
-      />
+      /> */}
     </div>
   );
 };
