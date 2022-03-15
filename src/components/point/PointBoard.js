@@ -1,8 +1,8 @@
 import React from "react";
 import "./PointBoard.css";
 import Gnb from "./../common/Gnb";
-import Pagination from "./Pagination";
 import PointList from "./PointList";
+import Pagination from "./../common/Pagination";
 const PointBoard = ({ selectPointItem, pointItems, setSelectPointItem }) => {
   const onPointClick = (item) => {
     setSelectPointItem(item);
@@ -43,8 +43,14 @@ const PointBoard = ({ selectPointItem, pointItems, setSelectPointItem }) => {
           pointItems={pointItems}
           onPointClick={onPointClick}
         />
-        <Pagination itemsCount={50} pageSize={10} />
       </div>
+      <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={totalPosts}
+        paginate={paginate}
+        setIndex={setIndex}
+        currentPage={currentPage}
+      />
     </div>
   );
 };
