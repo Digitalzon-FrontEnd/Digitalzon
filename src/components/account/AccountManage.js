@@ -5,6 +5,7 @@ import Gnb from "../common/Gnb";
 
 const AccountManage = ({ userList, setUserList }) => {
     const [userId, setUserId] = useState("");
+
     const currentUserId = useRef();
     const currentPw = useRef();
     const currentEmail = useRef();
@@ -30,7 +31,7 @@ const AccountManage = ({ userList, setUserList }) => {
         accountid: "",
         accountpw: "",
         mail: "",
-        userid: "",
+        username: "",
         usercall1: "",
         usercall2: "",
         usercall3: "",
@@ -58,14 +59,14 @@ const AccountManage = ({ userList, setUserList }) => {
         currentUserId.current.value = userList[id].accountid;
         currentPw.current.value = userList[id].accountpw;
         currentEmail.current.value = userList[id].mail;
-        currentUsername.current.value = userList[id].userid;
+        currentUsername.current.value = userList[id].username;
         currentPhone1.current.value = userList[id].usercall1;
         currentPhone2.current.value = userList[id].usercall2;
         currentPhone3.current.value = userList[id].usercall3;
         });
     }
     // 좌측 유저리스트의 유저 클릭시 값 물어오는 함수
-
+    console.log(click)
     const changeBtn = () => {
         const copyList = [...userList];
         copyList.splice(userId, 1, {
@@ -83,7 +84,7 @@ const AccountManage = ({ userList, setUserList }) => {
         accountid: currentUserId.current.value,
         accountpw: currentPw.current.value,
         mail: currentEmail.current.value,
-        userid: currentUsername.current.value,
+        username: currentUsername.current.value,
         usercall1: currentPhone1.current.value,
         usercall2: currentPhone2.current.value,
         usercall3: currentPhone3.current.value,
@@ -119,7 +120,7 @@ const AccountManage = ({ userList, setUserList }) => {
                             <ul className="name-list">
                             {userList.map((userinfo) => (
                                 <li onClick={() => { click(userinfo.id); }} key={userinfo.userid}>
-                                {userinfo.userinfo}
+                                {userinfo.userco}&nbsp;{userinfo.username}
                                 </li>
                             ))}
                             </ul>
@@ -159,7 +160,7 @@ const AccountManage = ({ userList, setUserList }) => {
                             <input
                                 className=" account-input"
                                 ref={currentUsername}
-                                name="userid"
+                                name="username"
                                 onChange={onChange}
                             ></input>
                             </div>

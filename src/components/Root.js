@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Footer from "./common/Footer";
 import { Route } from "react-router-dom";
 import Faq from "./faq/Faq";
@@ -306,7 +306,7 @@ const Root = () => {
       accountid: "juri42",
       accountpw: 123456789,
       mail: "juri42@gmail.com",
-      userid: "김주리",
+      username: "김주리",
       usercall1: "010",
       usercall2: "1234",
       usercall3: "5678",
@@ -318,7 +318,7 @@ const Root = () => {
       accountid: "perfume22",
       accountpw: 987654321,
       mail: "perfume22@naver.com",
-      userid: "전선향",
+      username: "전선향",
       usercall1: "010",
       usercall2: "9876",
       usercall3: "5432",
@@ -330,7 +330,7 @@ const Root = () => {
       accountid: "asd2",
       accountpw: 246246446,
       mail: "egseg5@naver.com",
-      userid: "정규대",
+      username: "정규대",
       usercall1: "010",
       usercall2: "3958",
       usercall3: "3643",
@@ -342,7 +342,7 @@ const Root = () => {
       accountid: "sav",
       accountpw: 34646477,
       mail: "eljif074@naver.com",
-      userid: "김지영",
+      username: "김지영",
       usercall1: "010",
       usercall2: "4446",
       usercall3: "2978",
@@ -354,7 +354,7 @@ const Root = () => {
       accountid: "z412",
       accountpw: 6768971,
       mail: "alie97@naver.com",
-      userid: "배예린",
+      username: "배예린",
       usercall1: "010",
       usercall2: "1037",
       usercall3: "3094",
@@ -366,7 +366,7 @@ const Root = () => {
       accountid: "dfh5",
       accountpw: 79634634,
       mail: "wjgid7444@naver.com",
-      userid: "양준혁",
+      username: "양준혁",
       usercall1: "010",
       usercall2: "4686",
       usercall3: "2677",
@@ -375,28 +375,31 @@ const Root = () => {
   ]);
   // userList
 
+  const nextId = useRef(6);
+
   const handleCreate = (
     accountid,
     accountpw,
     mail,
-    userid,
+    username,
     usercall1,
     usercall2,
     usercall3
-  ) => {
+  ) => { 
     const userArray = [...userList];
     userArray.push({
-      id: 2,
+      id : nextId.current,
       userco: "(주) C",
       accountid: `${accountid}`,
       accountpw: `${accountpw}`,
       mail: `${mail}`,
-      userid: `${userid}`,
+      username: `${username}`,
       usercall1: `${usercall1}`,
       usercall2: `${usercall2}`,
       usercall3: `${usercall3}`,
-      userinfo: `(주) C ${userid}`,
+      userinfo: `(주) C ${username}`,
     });
+    nextId.current = nextId.current+=1;
     setUserList(userArray);
   };
   // userList에 push 해주는 함수

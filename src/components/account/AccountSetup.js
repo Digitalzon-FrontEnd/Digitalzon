@@ -15,8 +15,17 @@ const AccountSetup = ({handleCreate, setUserList}) => {
         $(`#accountCallNum${length - 1}`).focus();
         }
     };
-    /* 전화번호 3칸 & 자동넘어감 함수 */
+    // 전화번호 3칸 & 자동넘어감 함수
     
+    const [ accountId, setAccountId ] = useState('')
+    const [ accountPw, setAccountPw ] = useState('')
+    const [ accountEmail, setAccountEmail ] = useState('')
+    const [ username, setUsername ] = useState('')
+    const [ accountCallNum1, setAccountCallNum1 ] = useState('')
+    const [ accountCallNum2, setAccountCallNum2 ] = useState('')
+    const [ accountCallNum3, setAccountCallNum3 ] = useState('')
+    // state 
+
     const onChangeId = (e) => {
         setAccountId(e.target.value)
     }
@@ -27,7 +36,7 @@ const AccountSetup = ({handleCreate, setUserList}) => {
         setAccountEmail(e.target.value)
     }
     const onChangeUser = (e) => {
-        setAccountUser(e.target.value)
+        setUsername(e.target.value)
     }
     const onChangeCallNum1 = (e) => {
         setAccountCallNum1(e.target.value)
@@ -38,28 +47,20 @@ const AccountSetup = ({handleCreate, setUserList}) => {
     const onChangeCallNum3 = (e) => {
         setAccountCallNum3(e.target.value)
     }
-    /* onchange 함수 */
+    // onchange 함수
 
     const submitAccount = (e) => {
         e.preventDefault();
-        handleCreate(accountId,accountPw,accountEmail,accountUser,accountCallNum1,accountCallNum2,accountCallNum3)
+        handleCreate(accountId,accountPw,accountEmail,username,accountCallNum1,accountCallNum2,accountCallNum3)
         setAccountId('')
         setAccountPw('')
         setAccountEmail('')
-        setAccountUser('')
+        setUsername('')
         setAccountCallNum1('')
         setAccountCallNum2('')
         setAccountCallNum3('')
     }
-    /* 저장 btn */
-    const [ accountId, setAccountId ] = useState('')
-    const [ accountPw, setAccountPw ] = useState('')
-    const [ accountEmail, setAccountEmail ] = useState('')
-    const [ accountUser, setAccountUser ] = useState('')
-    const [ accountCallNum1, setAccountCallNum1 ] = useState('')
-    const [ accountCallNum2, setAccountCallNum2 ] = useState('')
-    const [ accountCallNum3, setAccountCallNum3 ] = useState('')
-   /* state  */
+    // 저장버튼 함수
 
 
     return (
@@ -88,7 +89,7 @@ const AccountSetup = ({handleCreate, setUserList}) => {
                             </div>
                             <div className="account-username">
                                 <label>사용자명</label>
-                                <input value={accountUser} onChange={onChangeUser}className=" account-input" required></input>
+                                <input value={username} onChange={onChangeUser}className=" account-input" required></input>
                             </div>
                             <div className="account-call">
                                 <label>휴대폰 번호</label>
