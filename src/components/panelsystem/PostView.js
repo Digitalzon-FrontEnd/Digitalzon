@@ -22,9 +22,9 @@ const PostView = ({posts,setPosts}) => {
   } 변경하였습니다.`;
 
   const selectChange = (e) => {
-    if ( selectValue === postItem.state) {
+    if ( selectValue === prevState ) {
       alert('같은 상태입니다')
-      return
+      return;
     } else {
       setPrevState(selectValue);
       setSelectValue(e.target.value);

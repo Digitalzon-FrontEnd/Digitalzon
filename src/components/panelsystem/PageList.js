@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import './PageList.css'
 
 
-const PageList = ({ postsPerPage,totalPosts,paginate }) => {
+const PageList = ({ postsPerPage,totalPosts,paginate,currentPage }) => {
     
     const [ page, setPage ] = useState(1)
     const pageNumbers = [];

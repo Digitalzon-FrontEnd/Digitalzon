@@ -528,6 +528,9 @@ const Root = () => {
   
   
   /* 패널 시스템 select 관련 state */
+  const [ point, setPoint ] = useState(0);  //아직 초기 데이터 값을 모르기 때문에 0으로 처리했다.
+  const [ list, setList ] = useState([]);
+    /* 사용내역 로그 */
 
   let [tableInfo,setTableInfo] = useState ([{
     num :'8',
@@ -592,7 +595,11 @@ const Root = () => {
   //현재 페이지 위치
   const postsPerPage = 10;
   // 한 화면에 볼 수 있는 설문 개수
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState({
+    id : '',
+    login: false,
+    grade: 0,
+  });
   // 로그인 비로그인
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
@@ -622,7 +629,8 @@ const Root = () => {
 
   return (
     <div>
-    <  Header />
+    <  Header user={user}/>
+
       <Route  exact path="/" component={Main}/>
       <Route  exact path="/mainqa" render={(props) => (
         <MainQA  tableInfo={tableInfo} setTableInfo={setTableInfo} {...props}/>
@@ -645,18 +653,17 @@ const Root = () => {
             setPointItems={setPointItems}
             setSelectPointItem={setSelectPointItem}
             selectPointItem={selectPointItem}
+            
           />
         )}
       ></Route>
       <Route
-        exact
         path="/point/view/:id"
         render={() => (
           <PointView pointItems={pointItems} setPointItems={setPointItems} />
         )}
       />
       <Route
-        exact
         path="/survey/approve/board"
         render={() => (
           <ApproveBoard
@@ -679,7 +686,10 @@ const Root = () => {
       <Route
         exact
         path="/panel/board"
-        render={() => <PostList posts={panelPosts}/>}
+        render={() => <PostList 
+          posts={panelPosts} 
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}/>}
       />
       <Route
         exact
@@ -690,7 +700,7 @@ const Root = () => {
         />}
       />
 
-      <Route path="/managepoint" component={ManagePoint} />
+      <Route path="/managepoint" render={()=>(<ManagePoint point={point} setPoint={setPoint} list={list} setList={setList}/>)} />
       <Route
         exact={true}
         path="/survey"
