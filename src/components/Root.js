@@ -512,6 +512,7 @@ const Root = () => {
     <div>
       <Header user={user} />
       <Route exact path="/" component={Main} />
+
       <Route path="/faq" render={() => <Faq user={user} />} />
       <Route path="/guide" render={() => <Guide user={user} />} />
       <Route path="/login" render={() => <Login setUser={setUser} />} />
