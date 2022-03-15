@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./AccountSetup.css";
 import { Link } from "react-router-dom";
 import Gnb from "../common/Gnb";
@@ -16,6 +16,22 @@ const AccountSetup = ({handleCreate, setUserList}) => {
         }
     };
     // 전화번호 3칸 & 자동넘어감 함수
+
+    //const idValue = useRef();
+    //const pwValue = useRef();
+    //const emailValue = useRef();
+    //const nameValue = useRef();
+    //const numValue1 = useRef(null);
+    //const numValue2 = useRef(null);
+    //const numValue3 = useRef(null);
+    {/*function numFocus() {
+        numValue1.current.disabled = false;
+        numValue1.current.focus();
+        numValue2.current.disabled = false;
+        numValue3.current.disabled = false;
+    }*/}
+    // 기본 입력정보 설정
+
     
     const [ accountId, setAccountId ] = useState('')
     const [ accountPw, setAccountPw ] = useState('')

@@ -388,8 +388,8 @@ const Root = () => {
   ) => { 
     const userArray = [...userList];
     userArray.push({
-      id : nextId.current,
-      userco: "(주) C",
+      id : userList.length,
+      userco: "(주) o",
       accountid: `${accountid}`,
       accountpw: `${accountpw}`,
       mail: `${mail}`,
@@ -399,7 +399,7 @@ const Root = () => {
       usercall3: `${usercall3}`,
       userinfo: `(주) C ${username}`,
     });
-    nextId.current = nextId.current+=1;
+    //nextId.current = nextId.current+=1;
     setUserList(userArray);
   };
   // userList에 push 해주는 함수

@@ -15,9 +15,23 @@ const AccountChange = () => {
         $(`#accountCallNum${length - 1}`).focus();
         }
     };
+    // 전화번호칸 함수
+
     const pwValue = useRef();
     const pwCheckValue = useRef();
     const emailCheck = useRef();
+    // 비밀번호,비밀번호재입력,이메일 설정
+    const inputRef = useRef(null);
+    const inputRefTwo = useRef(null);
+    const inputRefThree = useRef(null);
+    function handleFocus() {
+        inputRef.current.disabled = false;
+        inputRef.current.focus();
+        inputRefTwo.current.disabled = false;
+        inputRefThree.current.disabled = false;
+    };
+    // 전화번호 설정
+    
     const handleSubmit = (e) => {
         const inputValue = (i) => {
             return i.current.value
@@ -30,19 +44,11 @@ const AccountChange = () => {
             pwCheckValue.current.value = "";
         };
     };
-
-    const inputRef = useRef(null);
-    const inputRefTwo = useRef(null);
-    const inputRefThree = useRef(null);
-    function handleFocus() {
-        inputRef.current.disabled = false;
-        inputRef.current.focus();
-        inputRefTwo.current.disabled = false;
-        inputRefThree.current.disabled = false;
-    };
+    // submit 함수
 
     const [showcertification, setShowcertification] = useState(false);
     const onClickCer = () => setShowcertification(true);
+    // 번호인증 함수
 
 
     return (

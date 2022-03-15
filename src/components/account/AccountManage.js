@@ -137,7 +137,7 @@ const AccountManage = ({ userList, setUserList }) => {
                             ></input>
                             </div>
                             <div className="account-password">
-                            <label>비밀번호재설정</label>
+                            <label>비밀번호</label>
                             <input
                                 type="text"
                                 className=" account-input"
