@@ -30,7 +30,10 @@ const PostView = ({ posts, setPosts }) => {
   const saveBtn = () => {
     setPosts(
       posts.map((item) => {
-        if (item.number === no) item.record.unshift(recordTxt);
+        if (item.number === no) {
+          item.record.unshift(recordTxt);
+          item.state = selectState;
+        }
         return item;
       })
     );
