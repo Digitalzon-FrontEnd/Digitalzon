@@ -19,6 +19,10 @@ const Point = ({ pointItems, setPointItems }) => {
     var date = now.format("YYYY-MM-DD HH:mm:ss");
     let recordText = "";
 
+    if (selectValue === pointItem.status) {
+      alert("변경하려는 상태 값이 같습니다.");
+      return;
+    }
     if (prevSelectedValue === "") {
       recordText = `· ${date}  김주리님이 상태를  ${selectValue} 로 변경하였습니다. `;
     } else {
