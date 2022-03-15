@@ -13,7 +13,7 @@ const AccountManage = ({ userList, setUserList }) => {
     const currentPhone1 = useRef();
     const currentPhone2 = useRef();
     const currentPhone3 = useRef();
-    // useRef 사용해서 current아이디명 잡아주기
+    // useRef 사용해서 current 잡아주기
 
     const $ = (selector) => {
         return document.querySelector(selector);
@@ -55,18 +55,22 @@ const AccountManage = ({ userList, setUserList }) => {
 
     function click(id) {
         return new Promise(function (resolve, reject) {
-        setUserId(Number(id));
-        currentUserId.current.value = userList[id].accountid;
-        currentPw.current.value = userList[id].accountpw;
-        currentEmail.current.value = userList[id].mail;
-        currentUsername.current.value = userList[id].username;
-        currentPhone1.current.value = userList[id].usercall1;
-        currentPhone2.current.value = userList[id].usercall2;
-        currentPhone3.current.value = userList[id].usercall3;
+            setUserId(Number(id));
+            for (let x of userList) {
+                if (x.id === Number(id)) {
+                currentUserId.current.value = x.accountid;
+                currentPw.current.value = x.accountpw;
+                currentEmail.current.value = x.mail;
+                currentUsername.current.value = x.username;
+                currentPhone1.current.value = x.usercall1;
+                currentPhone2.current.value = x.usercall2;
+                currentPhone3.current.value = x.usercall3;
+                }
+            }
         });
     }
     // 좌측 유저리스트의 유저 클릭시 값 물어오는 함수
-    console.log(click)
+    
     const changeBtn = () => {
         const copyList = [...userList];
         copyList.splice(userId, 1, {
