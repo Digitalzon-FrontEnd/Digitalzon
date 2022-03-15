@@ -629,7 +629,7 @@ const Root = () => {
 
   return (
     <div>
-    <  Header user={user}/>
+    <  Header user={user} point={point}/>
 
       <Route  exact path="/" component={Main}/>
       <Route  exact path="/mainqa" render={(props) => (
