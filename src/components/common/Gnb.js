@@ -12,7 +12,7 @@ const Gnb = ({ user }) => {
         /* 로그인 시 Gnb 홈 화면은 로그인 비로그인  다름 */
         <ul>
           <li>
-            <Link to="/">홈</Link>
+            <Link to="/home">홈</Link>
           </li>
           <li>
             <Link to="/guide">이용안내</Link>
@@ -21,19 +21,19 @@ const Gnb = ({ user }) => {
             <Link to="/faq">FAQ</Link>
           </li>
           <li>
-            <Link to="/">Q&amp;A</Link>
+            <Link to="/mainqa">Q&amp;A</Link>
           </li>
           <li>
-            <Link to="/">계정설정</Link>
+            <Link to="/mypage">계정설정</Link>
           </li>
           <li>
-            <Link to="/survey/approve/board">설문등록/현황조회</Link>
+            <Link to="/survey">설문등록/현황조회</Link>
           </li>
           <li>
-            <Link to="/point/board">포인트 관리</Link>
+            <Link to="/managepoint">포인트 관리</Link>
           </li>
           <li>
-            <Link to="/">통합관리</Link>
+            <Link to="/panel/board">통합관리</Link>
           </li>
         </ul>
       ) : (

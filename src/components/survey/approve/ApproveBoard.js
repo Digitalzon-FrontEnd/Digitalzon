@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React} from "react";
 import "./ApproveBoard.css";
 import ApproveList from "./ApproveList";
 import Pagination from "../../point/Pagination";

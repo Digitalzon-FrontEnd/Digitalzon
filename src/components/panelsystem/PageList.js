@@ -1,7 +1,5 @@
 import React,{useState} from 'react';
-import { Link } from "react-router-dom";
 import './PageList.css'
-import PostView from './PostView';
 
 const PageList = ({ postsPerPage,totalPosts,paginate }) => {
     

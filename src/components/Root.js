@@ -13,13 +13,14 @@ import InfoInput from "./login/signup/InfoInput";
 import PointView from "./point/PointView";
 import PointBoard from "./point/PointBoard";
 import ApproveBoard from "./survey/approve/ApproveBoard";
-import Approve from "./survey/approve/Approve";
 import ApproveView from "./survey/approve/ApproveView";
-
+import AccountChange from "./account/AccountChange";
+import AccountSetup from "./account/AccountSetup";
+import AccountManage from "./account/AccountManage";
+import MyPage from "./account/MyPage";
 import ManagePoint from "./managepoint/ManagePoint";
 import PostView from "./panelsystem/PostView";
 import PostList from "./panelsystem/PostList";
-
 import Survey from "./survey/Survey";
 import SurveyDetail from "./survey/SurveyDetail";
 import SurveyRegist from "./survey/SurveyRegist";
@@ -27,6 +28,10 @@ import SurveyModify from "./survey/SurveyModify";
 import Header from "./common/Header";
 import Main from "./main/Main";
 import surveyData from "../data/SurveyData";
+import Home from "./home/Home.js";
+import MainQA from "./q&a/mainq&a/MainQA";
+import PublishQA from "./q&a/publishq&a/PublishQA";
+import DetailQA1 from "./q&a/detailq&a/DetailQA1";
 const Root = () => {
   const [selectPointItem, setSelectPointItem] = useState({});
   const [pointItems, setPointItems] = useState([
@@ -294,6 +299,59 @@ const Root = () => {
       record: [],
     },
   ]);
+  const [userList, setUserList] = useState([
+    {
+      id: 0,
+      userco: "(주) A",
+      accountid: "juri42",
+      accountpw: 123456789,
+      mail: "juri42@gmail.com",
+      userid: "김주리",
+      usercall1: "010",
+      usercall2: "1234",
+      usercall3: "5678",
+      userinfo: "(주) A 김주리",
+    },
+    {
+      id: 1,
+      userco: "(주) B",
+      accountid: "perfume22",
+      accountpw: 987654321,
+      mail: "perfume22@naver.com",
+      userid: "전선향",
+      usercall1: "010",
+      usercall2: "9876",
+      usercall3: "5432",
+      userinfo: "(주) B 전선향",
+    },
+  ]);
+  // user-List
+
+  const handleCreate = (
+    accountid,
+    accountpw,
+    mail,
+    userid,
+    usercall1,
+    usercall2,
+    usercall3
+  ) => {
+    const userArray = [...userList];
+    userArray.push({
+      id: 2,
+      userco: "(주) C",
+      accountid: `${accountid}`,
+      accountpw: `${accountpw}`,
+      mail: `${mail}`,
+      userid: `${userid}`,
+      usercall1: `${usercall1}`,
+      usercall2: `${usercall2}`,
+      usercall3: `${usercall3}`,
+      userinfo: `(주) C ${userid}`,
+    });
+    setUserList(userArray);
+  };
+  // user-List에 push 해주는 함수
 
   const [panelPosts, setPanelPosts] = useState([
     {
@@ -474,12 +532,75 @@ const Root = () => {
     },
   ]);
   /* 패널시스템 현황 데이터 */
+  let [tableInfo, setTableInfo] = useState([
+    {
+      num: "8",
+      title: "Q&A 게시판",
+      date: "2021.09.30",
+      user: "전선향",
+      content:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+    },
+    {
+      num: "7",
+      title: "Q&A 게시판",
+      date: "2021.09.28",
+      user: "고승원",
+      content:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  ",
+    },
+    {
+      num: "6",
+      title: "Q&A 게시판",
+      date: "2021.09.17",
+      user: "안소향",
+      content: "Many desktop publishing packages",
+    },
+    {
+      num: "5",
+      title: "Q&A 게시판",
+      date: "2021.09.08",
+      user: "황유희",
+      content:
+        "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it",
+    },
+    {
+      num: "4",
+      title: "Q&A 게시판",
+      date: "2021.08.28",
+      user: "홍길동",
+      content: "Many desktop publishing packages",
+    },
+    {
+      num: "3",
+      title: "Q&A 게시판",
+      date: "2021.08.13",
+      user: "고승원",
+      content: "Many desktop publishing packages",
+    },
+    {
+      num: "2",
+      title: "Q&A 게시판",
+      date: "2021.07.28",
+      user: "고승원",
+      content: "Many desktop publishing packages",
+    },
+    {
+      num: "1",
+      title: "Q&A 게시판",
+      date: "2021.07.10",
+      user: "황유희",
+      content: "Many desktop publishing packages",
+    },
+  ]);
+  /* Q&A 데이터 */
+
   const [posts, setPosts] = useState(surveyData);
   // 설문 테스트 데이터
 
   const [currentPage, setCurrentPage] = useState(1);
   //현재 페이지 위치
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const postsPerPage = 10;
   // 한 화면에 볼 수 있는 설문 개수
   const [user, setUser] = useState(false);
   // 로그인 비로그인
@@ -491,7 +612,7 @@ const Root = () => {
     currentPosts = tmp.slice(indexOfFirst, indexOfLast); // 0 ~ 10 |  10 ~ 20
     return currentPosts;
   }
-  /*  */
+  /* 현재 포스트 */
   const surveySerachFnc = (ref) => {
     return new Promise(function (resolve, reject) {
       const value = ref.current.value;
@@ -507,12 +628,23 @@ const Root = () => {
       setCurrentPage(1);
     });
   };
-  /*  */
+  /* 설문조사 검색 */
+
   return (
     <div>
-      <Header user={user} />
+      <Header />
       <Route exact path="/" component={Main} />
-
+      <Route
+        exact
+        path="/mainqa"
+        render={(props) => (
+          <MainQA
+            tableInfo={tableInfo}
+            setTableInfo={setTableInfo}
+            {...props}
+          />
+        )}
+      />
       <Route path="/faq" render={() => <Faq user={user} />} />
       <Route path="/guide" render={() => <Guide user={user} />} />
       <Route path="/login" render={() => <Login setUser={setUser} />} />
@@ -606,7 +738,45 @@ const Root = () => {
       />
 
       <Route path="/surveyregist" component={SurveyRegist} />
-
+      <Route path="/home" component={Home} />
+      <Route
+        path="/publish"
+        render={(props) => (
+          <PublishQA
+            tableInfo={tableInfo}
+            setTableInfo={setTableInfo}
+            {...props}
+          />
+        )}
+      />
+      <Route
+        path={`/mainqa/detailqa/:num`}
+        render={(props) => (
+          <DetailQA1
+            tableInfo={tableInfo}
+            setTableInfo={setTableInfo}
+            {...props}
+          />
+        )}
+      />
+      <Route path="/accountchange" component={AccountChange} />
+      <Route
+        path="/accountsetup"
+        render={() => (
+          <AccountSetup handleCreate={handleCreate} setUserList={setUserList} />
+        )}
+      />
+      <Route
+        path="/accountmanage"
+        render={(props) => (
+          <AccountManage
+            userList={userList}
+            handleCreate={handleCreate}
+            setUserList={setUserList}
+          />
+        )}
+      />
+      <Route path="/mypage" component={MyPage} />
       <Footer />
     </div>
   );
