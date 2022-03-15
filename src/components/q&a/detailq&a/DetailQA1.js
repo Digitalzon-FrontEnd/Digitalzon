@@ -48,12 +48,15 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
   const localContentInput = useRef();
   const [isEdit, setIsEdit] = useState(false);
   const toggleIsEdit = () => setIsEdit(!isEdit);
-  const tableEdit = (newContent) => {
-    setTableInfo(
-      tableInfo.map((it) =>
-        it.num === params.num ? { ...it, content: newContent } : it
-      )
-    );
+  const handleEdit = () => {
+    if (localContent.length < 3) {
+      localContentInput.current.focus();
+      return;
+    }
+    if (window.confirm(`현재 목록을 수정하시겠습니까?`)) {
+      setTableInfo(localContent)
+      toggleIsEdit();
+    }
   };
   return (
     <div className="detail-qa">
@@ -67,7 +70,7 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
         </div>
         <div className='text-input'>
             {isEdit ? (
-              <textarea
+              <textarea className="content-textarea"
                 ref={localContentInput}
                 value={localContent}
                 onChange={(e) => setLocalContent(e.target.value)}
@@ -75,14 +78,23 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
             ) : (
               params.content
             )}
-          
         </div>
         <CommentList onEdit={onEdit} onRemove={onRemove} CommentList={data} />
         <CommentEditor onCreate={onCreate} />
         <div className='btn-list'>
-          <button onClick={toggleIsEdit}>수정</button>
-          <button onClick={tableRemove} >삭제</button>
-          <Link to="/mainqa"><button>목록</button></Link>
+        {isEdit ? (
+          <>
+            <button onClick={handleEdit}>완료</button>
+            <button onClick={tableRemove} >삭제</button>
+            <Link to="/mainqa"><button>목록</button></Link>
+          </>
+        ) : (
+          <>
+            <button onClick={toggleIsEdit}>수정</button>
+            <button onClick={tableRemove} >삭제</button>
+            <Link to="/mainqa"><button>목록</button></Link>
+          </>
+        )}
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ import Gnb from "../../common/Gnb"
 
 import "./MainQA.css"
 
-function MainQA({tableInfo,setTableInfo}){
+function MainQA({tableInfo}){
   return(
     <div className='mainqa'>
       <Gnb />
