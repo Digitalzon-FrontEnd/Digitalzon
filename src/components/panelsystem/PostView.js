@@ -3,38 +3,33 @@ import { Link, useParams } from "react-router-dom";
 import "./PostView.css";
 import moment from "moment";
 
-const PostView = ({
-  posts,
-  setPosts,
-  prevState,
-  setPrevState,
-  selectState,
-  setSelectState,
-}) => {
+const PostView = ({posts,setPosts}) => {
   const params = useParams(); //파라미터로 받기 위한 함수
   let no = params.no;
   const postItem = posts.find((item) => {
     return item.number === no;
   });
-
-  /* -추가 부분 - */
-  useEffect(() => {
-    setSelectState(postItem.state);
-  }, []);
-  /* -추가 부분 - */
+  const [prevState, setPrevState] = useState("");
+  const [selectValue, setSelectValue] = useState(postItem.state);
 
   let date = moment().format("YYYY-MM-DD HH:mm:ss");
   /* 날짜 */
 
   let recordTxt = `· ${date} ${
     postItem.statemanager
-  } 님이 상태를 ${prevState} 에서 ${selectState} ${
-    selectState === "처리중" ? "으로" : "로"
+  } 님이 상태를 ${prevState} 에서 ${selectValue} ${
+    selectValue === "처리중" ? "으로" : "로"
   } 변경하였습니다.`;
 
   const selectChange = (e) => {
-    setPrevState(selectState);
-    setSelectState(e.target.value);
+    if ( selectValue === postItem.state) {
+      alert('같은 상태입니다')
+      return
+    } else {
+      setPrevState(selectValue);
+      setSelectValue(e.target.value);
+    }
+    
   };
   //select메뉴 변경시 벨류값
 
@@ -45,23 +40,12 @@ const PostView = ({
           item.record.unshift(recordTxt);
 
           /* -추가 부분 - */
-          item.state = selectState;
+          item.state = selectValue;
           /* -추가 부분 - */
         }
         return item;
       })
     );
-    //  item.number===no ? {...item,record:[...item.record,recordTxt]} : item
-    //  )) //item 값을 스프레드로 전개하는 이유 -> posts 값이 useState를 써서 깊은 복사를 해줘야 값을 바꿀 수 있다.
-    //  ))};
-    /* posts.map((item)=>
-    {  
-      if(item.number===no)    
-         item.record.unshift(recordTxt)
-       return item;
-       
-     }
-    ) */
   };
 
   const data = {
@@ -111,7 +95,7 @@ const PostView = ({
           <p>상태</p>
           <div className="select-wrap">
             <select
-              value={selectState}
+              value={selectValue}
               name="접수"
               id="postview-select"
               onChange={selectChange}

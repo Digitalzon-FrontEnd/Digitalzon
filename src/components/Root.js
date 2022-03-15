@@ -354,7 +354,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2022-02-04",
       statedate: "2022-02-04",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
     },
@@ -365,7 +365,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2022-02-04",
       statedate: "2022-02-04",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
     },
@@ -376,7 +376,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2022-01-22",
       statedate: "2022-01-22",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
     },
@@ -387,7 +387,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2022-01-15",
       statedate: "2022-01-15",
-      state: "처리중",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
     },
@@ -398,7 +398,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-12-28",
       statedate: "2021-12-28",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
     },
@@ -409,7 +409,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-11-28",
       statedate: "2021-11-28",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
     },
@@ -420,7 +420,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-10-28",
       statedate: "2021-10-28",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
     },
@@ -431,7 +431,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-09-04",
       statedate: "2021-09-05",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "해당없음",
       record: [],
     },
@@ -442,7 +442,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-08-04",
       statedate: "2021-08-05",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
     },
@@ -453,7 +453,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-07-10",
       statedate: "2021-07-11",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
     },
@@ -464,7 +464,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-07-04",
       statedate: "2021-07-05",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "해당없음",
       record: [],
     },
@@ -475,7 +475,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-06-04",
       statedate: "2021-06-05",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
     },
@@ -486,7 +486,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-05-10",
       statedate: "2021-05-10",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "김주리",
       record: [],
     },
@@ -497,7 +497,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-05-04",
       statedate: "2021-05-05",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "김주리",
       record: [],
     },
@@ -508,7 +508,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-04-05",
       statedate: "2021-04-05",
-      state: "처리 중",
+      state: "접수",
       statemanager: "해당없음",
       record: [],
     },
@@ -525,8 +525,8 @@ const Root = () => {
     },
   ]);
   /* 패널시스템 현황 데이터 */
-  const [prevState, setPrevState] = useState("");
-  const [selectState, setSelectState] = useState("접수");
+  
+  
   /* 패널 시스템 select 관련 state */
 
   let [tableInfo,setTableInfo] = useState ([{
@@ -679,7 +679,7 @@ const Root = () => {
       <Route
         exact
         path="/panel/board"
-        render={() => <PostList posts={panelPosts} selectState={selectState}/>}
+        render={() => <PostList posts={panelPosts}/>}
       />
       <Route
         exact
@@ -687,10 +687,7 @@ const Root = () => {
         render={() => <PostView 
           posts={panelPosts} 
           setPosts={setPanelPosts} 
-          prevState={prevState} 
-          setPrevState={setPrevState}
-          selectState={selectState}
-          setSelectState={setSelectState}/>}
+        />}
       />
 
       <Route path="/managepoint" component={ManagePoint} />
