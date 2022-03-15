@@ -39,7 +39,7 @@ import PublishQA from "./q&a/publishq&a/PublishQA";
 import DetailQA1 from "./q&a/detailq&a/DetailQA1";
 const Root = () => {
   const [selectPointItem, setSelectPointItem] = useState({});
-  const [pointItems, setPointItems] = useState([pointData]);
+  const [pointItems, setPointItems] = useState(pointData);
   const [surveyApproveItems, setSurveyApproveItems] =
     useState(surveyApproveData);
   const [userList, setUserList] = useState(userData);
@@ -142,9 +142,7 @@ const Root = () => {
         render={() => (
           <PointBoard
             pointItems={pointItems}
-            setPointItems={setPointItems}
             setSelectPointItem={setSelectPointItem}
-            selectPointItem={selectPointItem}
           />
         )}
       ></Route>

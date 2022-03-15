@@ -2,7 +2,7 @@ import React from "react";
 import "./PointList.css";
 import Point from "./Point";
 
-const PointList = ({ selectPointItem, pointItems, onPointClick }) => {
+const PointList = ({ pointItems, onPointClick }) => {
   return (
     // <Link to={`/point/view/${selectPointItem.id}`}>
     <table>
@@ -10,7 +10,6 @@ const PointList = ({ selectPointItem, pointItems, onPointClick }) => {
         <th>번호</th>
         <th>업체명</th>
         <th>연락처</th>
-
         <th>이메일</th>
         <th>포인트</th>
         <th>구분</th>

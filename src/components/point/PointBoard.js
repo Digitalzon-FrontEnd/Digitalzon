@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./PointBoard.css";
 import Gnb from "./../common/Gnb";
 import PointList from "./PointList";
 import Pagination from "./../common/Pagination";
-const PointBoard = ({ selectPointItem, pointItems, setSelectPointItem }) => {
+const PointBoard = ({ pointItems, setSelectPointItem }) => {
   const onPointClick = (item) => {
     setSelectPointItem(item);
   };
+
+  const [currentPage, setCurrentPage] = useState(1); //현재 페이지
+  const postsPerPage = 5; //한 페이지에 글 갯수
+
+  const indexOfLast = currentPage * postsPerPage; // 페이지를 글 갯수만큼 곱해서 보여준게 마지막 페이지넘버
+  const indexOfFirst = indexOfLast - postsPerPage; // 마지막페이지 넘버 - 한 페이지의 글 갯수 = 첫번째 페이지 넘버
+
+  function currentPosts(posts) {
+    let currentPosts = 0;
+    currentPosts = posts.slice(indexOfFirst, indexOfLast);
+    return currentPosts;
+  }
+
   return (
     <div className="inner">
       <Gnb />
@@ -39,18 +52,17 @@ const PointBoard = ({ selectPointItem, pointItems, setSelectPointItem }) => {
           </button>
         </span>
         <PointList
-          selectPointItem={selectPointItem}
-          pointItems={pointItems}
+          pointItems={currentPosts(pointItems)}
           onPointClick={onPointClick}
         />
+        <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={pointItems.length}
+          paginate={setCurrentPage}
+          // setIndex={setIndex}
+          currentPage={currentPage}
+        />
       </div>
-      {/* <Pagination
-        postsPerPage={postsPerPage}
-        totalPosts={totalPosts}
-        paginate={paginate}
-        setIndex={setIndex}
-        currentPage={currentPage}
-      /> */}
     </div>
   );
 };
