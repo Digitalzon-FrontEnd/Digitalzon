@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import "./PointView.css";
 import Gnb from "../common/Gnb";
 import { Link, useParams } from "react-router-dom";
@@ -12,7 +12,8 @@ const Point = ({ pointItems, setPointItems }) => {
   });
 
   const [prevSelectedValue, setPrevSelectValue] = useState("");
-  const [selectValue, setSelectValue] = useState("접수");
+  const [selectValue, setSelectValue] = useState(pointItem.status);
+
   const onSaveClick = () => {
     var now = moment();
     var date = now.format("YYYY-MM-DD HH:mm:ss");
@@ -26,7 +27,6 @@ const Point = ({ pointItems, setPointItems }) => {
       }   변경하였습니다. `;
     }
 
-    // console.log(recordText);
     setPointItems(
       pointItems.map((item) =>
         item.id === id
@@ -92,9 +92,10 @@ const Point = ({ pointItems, setPointItems }) => {
                 onChange={(e) => {
                   onSelectHandler(e);
                 }}
+                value={selectValue}
               >
-                <option value="접수">접수</option>
-                <option value="처리중">처리중</option>
+                <option value="접수"> 접수</option>
+                <option value="처리 중">처리 중</option>
                 <option value="완료">완료</option>
               </select>
             </span>
