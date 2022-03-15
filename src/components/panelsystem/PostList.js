@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./PostList.css";
 import PageList from "./PageList";
@@ -62,11 +62,11 @@ const PostList = ({ posts }) => {
         })}
       </table>
       <PageList
-        posts={posts}
+        // posts={posts}
         postsPerPage={postsPerPage}
         totalPosts={posts.length}
         paginate={setCurrentPage}
-        currentPage={currentPage}
+        // currentPage={currentPage}
       />
     </div>
   );

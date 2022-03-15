@@ -71,7 +71,7 @@ const Root = () => {
   };
   // user-List에 push 해주는 함수
 
-  const [panelPosts, setPanelPosts] = useState([panelData]);
+  const [panelPosts, setPanelPosts] = useState(panelData);
   /* 패널시스템 현황 데이터 */
   let [tableInfo, setTableInfo] = useState(qaData);
   /* Q&A 데이터 */
@@ -91,6 +91,7 @@ const Root = () => {
   function currentPosts(tmp) {
     let currentPosts = 0;
     currentPosts = tmp.slice(indexOfFirst, indexOfLast); // 0 ~ 10 |  10 ~ 20
+    console.log(currentPosts);
     return currentPosts;
   }
   /* 현재 포스트 */

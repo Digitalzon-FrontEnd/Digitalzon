@@ -23,6 +23,7 @@ const surveyApproveData = [
     modifiedBy: "홍길동",
     affiliation: "개인",
     record: [],
+    surveyProfiles: ["남성", "20세~39세", "SKT"],
   },
   {
     id: 8,
@@ -35,6 +36,7 @@ const surveyApproveData = [
     modifiedBy: "홍길동",
     affiliation: "개인",
     record: [],
+    surveyProfiles: ["남성", "20세~39세", "SKT"],
   },
   {
     id: 7,
@@ -47,6 +49,7 @@ const surveyApproveData = [
     modifiedBy: "홍길동",
     affiliation: "개인",
     record: [],
+    surveyProfiles: ["남성", "20세~39세", "SKT"],
   },
   {
     id: 6,
@@ -59,6 +62,7 @@ const surveyApproveData = [
     modifiedBy: "홍길동",
     affiliation: "개인",
     record: [],
+    surveyProfiles: ["남성", "20세~39세", "SKT"],
   },
   {
     id: 5,
@@ -71,6 +75,7 @@ const surveyApproveData = [
     modifiedBy: "홍길동",
     affiliation: "개인",
     record: [],
+    surveyProfiles: ["남성", "20세~39세", "SKT"],
   },
   {
     id: 4,
@@ -83,6 +88,7 @@ const surveyApproveData = [
     modifiedBy: "홍길동",
     affiliation: "개인",
     record: [],
+    surveyProfiles: ["남성", "20세~39세", "SKT"],
   },
   {
     id: 3,
@@ -95,6 +101,7 @@ const surveyApproveData = [
     modifiedBy: "홍길동",
     affiliation: "개인",
     record: [],
+    surveyProfiles: ["남성", "20세~39세", "SKT"],
   },
   {
     id: 2,
@@ -107,6 +114,7 @@ const surveyApproveData = [
     modifiedBy: "홍길동",
     affiliation: "개인",
     record: [],
+    surveyProfiles: ["남성", "20세~39세", "SKT"],
   },
   {
     id: 1,
@@ -119,6 +127,7 @@ const surveyApproveData = [
     modifiedBy: "홍길동",
     affiliation: "개인",
     record: [],
+    surveyProfiles: ["남성", "20세~39세", "SKT"],
   },
 ];
 

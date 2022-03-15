@@ -5,6 +5,7 @@ import "./ApproveView.css";
 import moment from "moment";
 
 const ApproveView = ({ surveyApproveItems, setSurveyApproveItems }) => {
+  console.log(surveyApproveItems);
   const params = useParams();
   const id = Number(params.id);
   console.log("id", id);
