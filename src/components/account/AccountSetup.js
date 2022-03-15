@@ -75,6 +75,7 @@ const AccountSetup = ({handleCreate, setUserList}) => {
         setAccountCallNum1('')
         setAccountCallNum2('')
         setAccountCallNum3('')
+        alert("계정 생성이 완료되었습니다.")
     }
     // 저장버튼 함수
 
@@ -89,7 +90,7 @@ const AccountSetup = ({handleCreate, setUserList}) => {
                         <Link to="/accountsetup"><p className="account-step"  id="accountStepEnter">계정생성</p></Link>
                         <Link to="/accountmanage"><p className="account-step">계정관리</p></Link>
                     </div>
-                    <form action="/accountsetup">
+                    <form action="/accountsetup" onSubmit={submitAccount}>
                         <div className="account-change-info">
                             <div className="account-id">
                                 <label>아이디</label>

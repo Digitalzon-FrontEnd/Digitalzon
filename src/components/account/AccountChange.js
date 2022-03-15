@@ -50,6 +50,10 @@ const AccountChange = () => {
     const onClickCer = () => setShowcertification(true);
     // 번호인증 함수
 
+    const cerBtn = () => {
+        alert("번호인증이 완료되었습니다.")
+    }
+
 
     return (
     <div>
@@ -124,7 +128,7 @@ const AccountChange = () => {
                                 <label>인증번호입력</label>
                                 <input id="cerInput"  required></input>
                             </div>
-                            <button id="accountCerBtn" type="button">확인</button>
+                            <button id="accountCerBtn" type="button" onClick={cerBtn}>확인</button>
                         </div>
                         : null }
                     </div>
