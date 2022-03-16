@@ -45,6 +45,7 @@ const AccountManage = ({ userList, setUserList, user }) => {
         const copyList = [...userList];
         const filterList = copyList.filter((item) => item.id !== userId);
         setUserList(filterList);
+        setSearchTerm(filterList); //한번 만들어봄
         currentUserId.current.value = "";
         currentPw.current.value = "";
         currentEmail.current.value = "";
@@ -111,7 +112,7 @@ const AccountManage = ({ userList, setUserList, user }) => {
         })
         setSearchTerm(userSearch)
     }
-    // search 함수
+    // search 함수(돋보기 클릭시)
     
     const searchKey = (e) => {
         if(e.key === "Enter"){
@@ -235,6 +236,7 @@ const AccountManage = ({ userList, setUserList, user }) => {
                     </div>
                     <div className="account-btn-box">
                         <button
+                        type="button"
                         className="account-manage-btn"
                         id="accountDelBtn"
                         onClick={removeBtn}

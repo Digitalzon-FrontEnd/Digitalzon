@@ -123,7 +123,7 @@ const AccountChange = ({user}) => {
                                 <label>인증번호입력</label>
                                 <input id="cerInput"  required></input>
                             </div>
-                            <button id="accountCerBtn" type="button" onClick={cerBtn}>확인</button>
+                            <button id="accountCerBtn" type="button">확인</button>
                         </div>
                         : null }
                     </div>
