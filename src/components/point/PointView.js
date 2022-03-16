@@ -26,7 +26,6 @@ const Point = ({ pointItems, setPointItems }) => {
       }   변경하였습니다. `;
     }
 
-    // console.log(recordText);
     setPointItems(
       pointItems.map((item) =>
         item.id === id

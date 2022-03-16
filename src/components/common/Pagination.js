@@ -40,7 +40,6 @@ const Pagination = ({
             alt="이전 목록 보기"
             onClick={() => {
               minusCurrenntIndex(currentPage);
-              setIndex(null);
             }}
           />
           {pageNumbers.map((number) => (
@@ -49,7 +48,6 @@ const Pagination = ({
                 className={currentPage === number ? "pagination-color" : ""}
                 onClick={() => {
                   paginate(number);
-                  setIndex(null);
                 }}
               >
                 {number}

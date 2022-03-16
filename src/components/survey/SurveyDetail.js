@@ -1,12 +1,14 @@
 import React from "react";
+import Gnb from "../common/Gnb";
 import Profile from "./Profile";
 import SurveyChart from "./SurveyChart";
 import "./SurveyDetail.css";
 
-const SurveyDetail = ({ posts, setPosts, location }) => {
+const SurveyDetail = ({ posts, setPosts, location, user }) => {
   const params = location.state;
   return (
     <div className="survey-detail-box">
+      <Gnb user={user} />
       <div className="inner-800">
         <h1 className="survey-detail-title">[{params.surveyName}]</h1>
         <h3 className="survey-detail-date">{params.date}</h3>

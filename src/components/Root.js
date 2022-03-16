@@ -32,6 +32,8 @@ import Home from "./home/Home.js";
 import MainQA from "./q&a/mainq&a/MainQA";
 import PublishQA from "./q&a/publishq&a/PublishQA";
 import DetailQA1 from "./q&a/detailq&a/DetailQA1";
+import Gnb from "./common/Gnb";
+
 const Root = () => {
   const [selectPointItem, setSelectPointItem] = useState({});
   const [pointItems, setPointItems] = useState([
@@ -403,9 +405,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2022-02-04",
       statedate: "2022-02-04",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "mmmmmmmmmmmmmmmasadhha",
     },
     {
       number: "15",
@@ -414,9 +417,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2022-02-04",
       statedate: "2022-02-04",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "bbbbbbbbbbbbbbbasadhha",
     },
     {
       number: "14",
@@ -425,9 +429,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2022-01-22",
       statedate: "2022-01-22",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "zzzzzzzzzzzzasadhha",
     },
     {
       number: "13",
@@ -436,9 +441,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2022-01-15",
       statedate: "2022-01-15",
-      state: "처리중",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "afffffffffffffsadhha",
     },
     {
       number: "12",
@@ -447,9 +453,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-12-28",
       statedate: "2021-12-28",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "asadhfafha",
     },
     {
       number: "11",
@@ -458,9 +465,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-11-28",
       statedate: "2021-11-28",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "asadh75ha",
     },
     {
       number: "10",
@@ -469,9 +477,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-10-28",
       statedate: "2021-10-28",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "asadhh11111a",
     },
     {
       number: "9",
@@ -480,9 +489,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-09-04",
       statedate: "2021-09-05",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "해당없음",
       record: [],
+      panelContent: "asadhhka",
     },
     {
       number: "8",
@@ -491,9 +501,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-08-04",
       statedate: "2021-08-05",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "asadhh1gfa",
     },
     {
       number: "7",
@@ -502,9 +513,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-07-10",
       statedate: "2021-07-11",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "asadhha",
     },
     {
       number: "6",
@@ -513,9 +525,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-07-04",
       statedate: "2021-07-05",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "해당없음",
       record: [],
+      panelContent: "asa11da",
     },
     {
       number: "5",
@@ -524,9 +537,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-06-04",
       statedate: "2021-06-05",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "asada",
     },
     {
       number: "4",
@@ -535,9 +549,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-05-10",
       statedate: "2021-05-10",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "김주리",
       record: [],
+      panelContent: "acvba",
     },
     {
       number: "3",
@@ -546,9 +561,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-05-04",
       statedate: "2021-05-05",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "김주리",
       record: [],
+      panelContent: "aaasd",
     },
     {
       number: "2",
@@ -557,9 +573,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-04-05",
       statedate: "2021-04-05",
-      state: "처리 중",
+      state: "접수",
       statemanager: "해당없음",
       record: [],
+      panelContent: "aa22",
     },
     {
       number: "1",
@@ -571,71 +588,89 @@ const Root = () => {
       state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "aa",
     },
   ]);
+  const [ point, setPoint ] = useState(0);  //아직 초기 데이터 값을 모르기 때문에 0으로 처리했다.
+  const [ list, setList ] = useState([]);
+    /* 사용내역 로그 */
   /* 패널시스템 현황 데이터 */
-  let [tableInfo, setTableInfo] = useState([
+  let [tableInfo,setTableInfo] = useState ([{
+    num :'11',
+    title : 'Q&A 게시판',
+    date : '2021.10.15',
+    user : '홍길동',
+    content : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
+  },
     {
-      num: "8",
-      title: "Q&A 게시판",
-      date: "2021.09.30",
-      user: "전선향",
-      content:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
-    },
+    num :'10',
+    title : 'Q&A 게시판',
+    date : '2021.10.10',
+    user : '전선향',
+    content : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
+  },
     {
-      num: "7",
-      title: "Q&A 게시판",
-      date: "2021.09.28",
-      user: "고승원",
-      content:
-        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  ",
-    },
-    {
-      num: "6",
-      title: "Q&A 게시판",
-      date: "2021.09.17",
-      user: "안소향",
-      content: "Many desktop publishing packages",
-    },
-    {
-      num: "5",
-      title: "Q&A 게시판",
-      date: "2021.09.08",
-      user: "황유희",
-      content:
-        "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it",
-    },
-    {
-      num: "4",
-      title: "Q&A 게시판",
-      date: "2021.08.28",
-      user: "홍길동",
-      content: "Many desktop publishing packages",
-    },
-    {
-      num: "3",
-      title: "Q&A 게시판",
-      date: "2021.08.13",
-      user: "고승원",
-      content: "Many desktop publishing packages",
-    },
-    {
-      num: "2",
-      title: "Q&A 게시판",
-      date: "2021.07.28",
-      user: "고승원",
-      content: "Many desktop publishing packages",
-    },
-    {
-      num: "1",
-      title: "Q&A 게시판",
-      date: "2021.07.10",
-      user: "황유희",
-      content: "Many desktop publishing packages",
-    },
-  ]);
-  /* Q&A 데이터 */
+      num :'9',
+      title : 'Q&A 게시판',
+      date : '2021.10.03',
+      user : '안소향',
+      content : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
+    },{
+   
+      num :'8',
+    title : 'Q&A 게시판',
+    date : '2021.09.30',
+    user : '전선향',
+    content : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
+
+  },{
+    num :'7',
+    title : 'Q&A 게시판',
+    date : '2021.09.28',
+    user : '고승원',
+    content : 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  '
+  },{
+    num :'6',
+    title : 'Q&A 게시판',
+    date : '2021.09.17',
+    user : '안소향',
+    content : 'Many desktop publishing packages'
+  },{
+    num :'5',
+    title : 'Q&A 게시판',
+    date : '2021.09.08',
+    user : '황유희',
+    content : 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it'
+
+  },{
+    num :'4',
+    title : 'Q&A 게시판',
+    date : '2021.08.28',
+    user : '홍길동',
+    content : 'Many desktop publishing packages'
+  },
+  {
+    num :'3',
+    title : 'Q&A 게시판',
+    date : '2021.08.13',
+    user : '고승원',
+    content : 'Many desktop publishing packages'
+  },
+  {
+    num :'2',
+    title : 'Q&A 게시판',
+    date : '2021.07.28',
+    user : '고승원',
+    content : 'Many desktop publishing packages'
+  },{
+    num :'1',
+    title : 'Q&A 게시판',
+    date : '2021.07.10',
+    user : '황유희',
+    content : 'Many desktop publishing packages'
+  },
+])
+/* Q&A 데이터 */
 
   const [posts, setPosts] = useState(surveyData);
   // 설문 테스트 데이터
@@ -644,7 +679,11 @@ const Root = () => {
   //현재 페이지 위치
   const postsPerPage = 10;
   // 한 화면에 볼 수 있는 설문 개수
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState({
+    id: "",
+    login: false,
+    grade: 0,
+  });
   // 로그인 비로그인
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
@@ -655,6 +694,12 @@ const Root = () => {
     return currentPosts;
   }
   /* 현재 포스트 */
+  
+
+  
+
+
+
   const surveySerachFnc = (ref) => {
     return new Promise(function (resolve, reject) {
       const value = ref.current.value;
@@ -674,47 +719,100 @@ const Root = () => {
 
   return (
     <div>
-      <Header />
+      <Header user={user} point={point} setUser={setUser} />
       <Route exact path="/" component={Main} />
-      <Route exact path="/mainqa" render={(props) => (
-          <MainQA tableInfo={tableInfo} setTableInfo={setTableInfo} {...props}/>)} />
+      <Route
+        exact
+        path="/mainqa"
+        render={(props) => (
+          <MainQA
+            tableInfo={tableInfo}
+            setTableInfo={setTableInfo}
+            {...props}
+            user={user}
+          />
+        )}
+      />
+
       <Route path="/faq" render={() => <Faq user={user} />} />
       <Route path="/guide" render={() => <Guide user={user} />} />
       <Route path="/login" render={() => <Login setUser={setUser} />} />
       <Route path="/terms" component={Terms} />
       <Route path="/findId" component={FindId} />
       <Route path="/findPw" component={FindPw} />
-      <Route exact path="/panel" component={Panel} />
+      <Route
+        exact
+        path="/panel"
+        render={() => (
+          <Panel panelPosts={panelPosts} setPanelPosts={setPanelPosts} />
+        )}
+      />
       <Route path="/infoinput" component={InfoInput} />
       <Route path="/complete" component={Complete} />
-      <Route exact path="/point/board" render={() => (
-          <PointBoard pointItems={pointItems} setPointItems={setPointItems} setSelectPointItem={setSelectPointItem}
-            selectPointItem={selectPointItem}/>)} />
-      <Route exact path="/point/view/:id" render={() => (
-          <PointView pointItems={pointItems} setPointItems={setPointItems} />)} />
-      <Route exact path="/survey/approve/board" render={() => (
-          <ApproveBoard surveyApproveItems={surveyApproveItems} setSurveyApproveItems={setSurveyApproveItems}/>
-        )} />
-      <Route exact path="/survey/approve/view/:id" render={() => (
-          <ApproveView surveyApproveItems={surveyApproveItems} setSurveyApproveItems={setSurveyApproveItems}
-          />)} />
+      <Route
+        exact
+        path="/point/board"
+        render={() => (
+          <PointBoard
+            pointItems={pointItems}
+            setPointItems={setPointItems}
+            setSelectPointItem={setSelectPointItem}
+            selectPointItem={selectPointItem}
+            user={user}
+          />
+        )}
+      ></Route>
+      <Route
+        path="/point/view/:id"
+        render={() => (
+          <PointView pointItems={pointItems} setPointItems={setPointItems} />
+        )}
+      />
+      <Route
+        path="/survey/approve/board"
+        render={() => (
+          <ApproveBoard
+            surveyApproveItems={posts}
+            setSurveyApproveItems={setPosts}
+          />
+        )}
+      ></Route>
+      <Route
+        exact
+        path="/survey/approve/view/:id"
+        render={() => <ApproveView posts={posts} setPosts={setPosts} />}
+      ></Route>
+
       <Route
         exact
         path="/panel/board"
-        render={() => <PostList posts={panelPosts} />}
+        render={(props) => <PostList 
+          posts={panelPosts} 
+          setPosts={setPanelPosts}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        user={user}
+        {...props}
+        />}
       />
       <Route
         exact
         path="/panel/view/:no"
-        render={() => <PostView posts={panelPosts} setPosts={setPanelPosts} />}
+        render={(props) => <PostView 
+          posts={panelPosts} 
+          setPosts={setPanelPosts} 
+          user={user}
+          {...props}
+        />}
       />
 
-      <Route path="/managepoint" component={ManagePoint} />
+      <Route path="/managepoint" render={()=>(<ManagePoint point={point} setPoint={setPoint} list={list} setList={setList} user={user}/>)} />
       <Route
         exact={true}
         path="/survey"
-        render={() => (
+        render={(props) => (
           <Survey
+            {...props}
             totalIndexPosts={
               posts
             } /* 전체 데이터 (라디오 버튼에서 사용함으로 다른 컴포넌트에서 필요 X) */
@@ -725,24 +823,33 @@ const Root = () => {
             paginate={setCurrentPage} /* 현재 페이지 위치  */
             surveySerachFnc={surveySerachFnc}
             currentPage={currentPage}
+            user={user}
+            AllDataPosts={posts}
           />
         )}
       />
 
       <Route
-        path="/survey/SurveyDetail/:num"
-        component={(props) => <SurveyDetail setPosts={setPosts} {...props} />}
+        path="/survey/surveydetail/:num"
+        component={(props) => (
+          <SurveyDetail setPosts={setPosts} {...props} user={user} />
+        )}
       />
 
       <Route
         path="/surveymodify"
         component={(props) => (
-          <SurveyModify posts={posts} setPosts={setPosts} {...props} />
+          <SurveyModify
+            posts={posts}
+            setPosts={setPosts}
+            {...props}
+            user={user}
+          />
         )}
       />
 
       <Route path="/surveyregist" component={SurveyRegist} />
-      <Route path="/home" component={Home} />
+      <Route path="/home" render={() => <Home user={user}/>} />
       <Route
         path="/publish"
         render={(props) => (
@@ -759,11 +866,12 @@ const Root = () => {
           <DetailQA1
             tableInfo={tableInfo}
             setTableInfo={setTableInfo}
+            user={user}
             {...props}
           />
         )}
       />
-      <Route path="/accountchange" component={AccountChange} />
+      <Route path="/accountchange" render={() => <AccountChange />} />
       <Route
         path="/accountsetup"
         render={() => (
@@ -780,8 +888,9 @@ const Root = () => {
           />
         )}
       />
+
       <Route path="/mypage" component={MyPage} />
-      <Footer />
+      <Footer user={user} />
     </div>
   );
 };

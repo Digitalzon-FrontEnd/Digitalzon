@@ -32,12 +32,9 @@
   text-decoration: underline;
 }
 .approve-board-box {
-  width: 794px;
+  margin: 0 auto;
   margin-top: 92px;
-  margin-left: 183px;
-  margin-right: 183px;
-  /* height: 600.8px; */
-  height: 700px;
+  width: 810px; height: 700px;
 }
 
 .approve-board-select-box {

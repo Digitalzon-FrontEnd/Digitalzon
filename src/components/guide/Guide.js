@@ -2,10 +2,10 @@ import React from "react";
 import Gnb from "../common/Gnb";
 import "./Guide.css";
 
-const Guide = () => {
+const Guide = ({ user }) => {
   return (
     <div className="inner">
-      <Gnb />
+      <Gnb user={user} />
 
       <h3 className="guide-section-title">설문발송순서</h3>
       <ol className="guide-section-list">

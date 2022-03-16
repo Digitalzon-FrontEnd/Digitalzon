@@ -12,12 +12,12 @@ const ApproveList = ({ surveyApproveItems }) => {
 
         <th>완료샘플 수</th>
         <th>상태</th>
-        <th>상태변경자</th>
         <th>상태변경일</th>
+        <th>상태변경자</th>
         <th>소속</th>
       </tr>
       {surveyApproveItems.map((item) => {
-        return <Approve surveyApproveItem={item} />;
+        return <Approve post={item} key={item.num}/>;
       })}
     </table>
   );
