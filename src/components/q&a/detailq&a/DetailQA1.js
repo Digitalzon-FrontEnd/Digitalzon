@@ -11,12 +11,11 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
 
   const dataId = useRef(0);
 
-  const onCreate = (author, content, emotion) => {
+  const onCreate = (author, content) => {
     const created_date = new Date().getTime();
     const newItem = {
       author,
       content,
-      emotion,
       created_date,
       id: dataId.current
     };
@@ -29,13 +28,14 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
     setData(newCommentList);  
   };
 
-  const onEdit = (targetId, newContent) => {
+  const onEdit = (targetId, newContent, newDate) => {
     setData(
       data.map((it) =>
-        it.id === targetId ? { ...it, content: newContent} : it
+        it.id === targetId ? { ...it, content: newContent , created_date: newDate} : it
       )
     );
   };
+
   const params = location.state;
   const history = useHistory();
   const tableRemove =()=>{
@@ -44,17 +44,25 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
     alert('질문이 삭제되었습니다.')
     history.push("/mainqa")
   };
+  const tableEdit = (num, newContent) => {
+    setTableInfo(
+      tableInfo.map((it) =>
+        it.num === num ? { ...it, content:newContent} : it
+      )
+    );
+  };
   const [localContent, setLocalContent] = useState(params.content);
   const localContentInput = useRef();
   const [isEdit, setIsEdit] = useState(false);
   const toggleIsEdit = () => setIsEdit(!isEdit);
   const handleEdit = () => {
-    if (localContent.length < 3) {
+    if (localContent.length < 1) {
       localContentInput.current.focus();
       return;
     }
     if (window.confirm(`현재 목록을 수정하시겠습니까?`)) {
-      setTableInfo(localContent)
+      tableEdit(params.num, localContent)
+      params.content(localContent)
       toggleIsEdit();
     }
   };

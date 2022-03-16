@@ -19,10 +19,23 @@
   color: #fff;
 }
 .btn-search{
-  width: 238.6px;
-  height: 31.8px;
+  width: 239px;
+  height: 32px;
   border-radius: 39.8px;
   border: solid 2px #c4c4c4;
+}
+.btn-search input{
+  height: 20px;
+  border: none;
+  position: relative;
+  bottom: 10px; left: 15px;
+  color: #545147;
+  font-size: 13px;
+}
+.btn-search button{
+  border: none;
+  width: 30px;height: 30px;
+  margin-left: 35px;
 }
 .mainqa-table{
   width: 794px;

@@ -5,8 +5,7 @@ const CommentEditor = ({ onCreate }) => {
 
   const [state, setState] = useState({
     author: "",
-    content: "",
-    emotion: 1
+    content: ""
   });
 
   const handleChangeState = (e) => {
@@ -17,17 +16,16 @@ const CommentEditor = ({ onCreate }) => {
   };
 
   const handleSubmit = () => {
-    if (state.content.length < 3) {
+    if (state.content.length < 1) {
       contentInput.current.focus();
       return;
     }
 
-    onCreate(state.author, state.content, state.emotion);
-    alert("저장");
+    onCreate(state.author, state.content);
+    alert("댓글이 저장되었습니다.");
     setState({
       author: "",
-      content: "",
-      emotion: 1
+      content: ""
     });
   };
 

@@ -4,11 +4,10 @@ const CommentItem = ({
   onRemove,
   onEdit,
   id,
-  author,
   content,
-  emotion,
   created_date
 }) => {
+  const new_date = new Date().getTime();
   const localContentInput = useRef();
   const [localContent, setLocalContent] = useState(content);
   const [isEdit, setIsEdit] = useState(false);
@@ -31,7 +30,7 @@ const CommentItem = ({
     }
 
     if (window.confirm(`현재 댓글을 수정하시겠습니까?`)) {
-      onEdit(id, localContent);
+      onEdit(id, localContent, new_date);
       toggleIsEdit();
     }
   };
