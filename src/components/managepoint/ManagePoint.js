@@ -3,7 +3,7 @@ import moment from 'moment'
 import "./ManegePoint.css"
 import Gnb from "../common/Gnb"
 
-const ManagePoint = ({point, setPoint, list, setList}) => {
+const ManagePoint = ({point, setPoint, list, setList, user}) => {
     const [inputPoint, setInputPoint] = useState('');
     /* 충전포인트 input 값 */
     const [refundPoint, setRefundPoint] = useState('');
@@ -79,7 +79,7 @@ const ManagePoint = ({point, setPoint, list, setList}) => {
     
     return (
         <div className="inner_box Manage-inner">
-            <Gnb />
+            <Gnb user={user}/>
             <div className="managePoint-header">
                 <h1>[보유포인트]</h1>
                 <span>{point} point</span>

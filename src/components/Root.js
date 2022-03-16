@@ -795,7 +795,7 @@ const Root = () => {
         />}
       />
 
-      <Route path="/managepoint" render={()=>(<ManagePoint point={point} setPoint={setPoint} list={list} setList={setList}/>)} />
+      <Route path="/managepoint" render={()=>(<ManagePoint point={point} setPoint={setPoint} list={list} setList={setList} user={user}/>)} />
       <Route
         exact={true}
         path="/survey"
