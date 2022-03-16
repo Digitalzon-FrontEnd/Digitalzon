@@ -115,9 +115,7 @@ function SurveyModify({ posts, setPosts, location }) {
     alert("수정이 완료되었습니다");
     history.push(`/survey`);
   };
-  console.log(posts);
 
-  
   return (
     <div className="surveyModify">
       <div className="surveyModify-pageTitle-box">

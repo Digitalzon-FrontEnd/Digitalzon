@@ -45,7 +45,6 @@ const Panel = ({ setPanelPosts, panelPosts }) => {
     alert("패널인증 문의 신청이 완료 되었습니다.");
     history.push(`/`);
   };
-  console.log(panelPosts);
   return (
     <div className="inner">
       <h2 className="page-title">패널인증시스템 신청</h2>

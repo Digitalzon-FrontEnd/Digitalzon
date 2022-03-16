@@ -7,16 +7,17 @@ import moment from "moment";
 const ApproveView = ({ posts, setPosts }) => {
   const params = useParams();
   const id = Number(params.id);
-  console.log("id", id);
   const surveyApproveItem = posts.find((item) => {
     return item.num === id;
   });
-  const surveyProfiles = surveyApproveItem.profile1.concat(surveyApproveItem.profile2,surveyApproveItem.profile3);
+  const surveyProfiles = surveyApproveItem.profile1.concat(
+    surveyApproveItem.profile2,
+    surveyApproveItem.profile3
+  );
 
   const [prevSelectedValue, setPrevSelectValue] = useState("");
   const [selectValue, setSelectValue] = useState("승인대기");
   const onSaveClick = () => {
-    console.log(surveyApproveItem);
     var now = moment();
     var date = now.format("YYYY-MM-DD HH:mm:ss");
     let recordText = "";
@@ -95,9 +96,11 @@ const ApproveView = ({ posts, setPosts }) => {
                 <li>
                   <span className="survey-profile-container">
                     · 설문 프로파일 :
-                    {surveyProfiles.map((profile,index) => {
+                    {surveyProfiles.map((profile, index) => {
                       return (
-                        <span className="survey-profile-text" key={index}>{profile}</span>
+                        <span className="survey-profile-text" key={index}>
+                          {profile}
+                        </span>
                       );
                     })}
                   </span>
