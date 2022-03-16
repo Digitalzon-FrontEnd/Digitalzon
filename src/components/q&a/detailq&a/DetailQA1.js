@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import './DetailQA.css'
 import { useHistory } from 'react-router-dom';
 import Gnb from "../../common/Gnb";
+import { iteratee } from "lodash";
 
 const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
   const [data, setData] = useState([]);
@@ -61,9 +62,8 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
       return;
     }
     if (window.confirm(`현재 목록을 수정하시겠습니까?`)) {
-      tableEdit(params.num, localContent)
-      params.content(localContent)
-      toggleIsEdit();
+      tableEdit(params.num, localContent);
+      toggleIsEdit()
     }
   };
   return (
@@ -78,13 +78,13 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
         </div>
         <div className='text-input'>
             {isEdit ? (
-              <textarea className="content-textarea"
-                ref={localContentInput}
-                value={localContent}
-                onChange={(e) => setLocalContent(e.target.value)}
-              />
+                <textarea className="content-textarea"
+                  ref={localContentInput}
+                  value={localContent}
+                  onChange={(e) => setLocalContent(e.target.value)}
+                />
             ) : (
-              params.content
+             localContent
             )}
         </div>
         <CommentList onEdit={onEdit} onRemove={onRemove} CommentList={data} />

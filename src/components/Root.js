@@ -621,7 +621,7 @@ const Root = () => {
     <  Header />
       <Route  exact path="/" component={Main}/>
       <Route  exact path="/mainqa" render={(props) => (
-        <MainQA  tableInfo={tableInfo} setTableInfo={setTableInfo} {...props}/>
+        <MainQA  tableInfo={tableInfo} setTableInfo={setTableInfo} {...props} user={user} />
   )} />
       <Route path="/faq" render={() => <Faq user={user} />} />
       <Route path="/guide" render={() => <Guide user={user} />} />

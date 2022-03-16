@@ -104,4 +104,4 @@ font-size: 12px;
 .comment-input p{
   line-height: 23px;
 }
-.content-textarea{width: 450px;}
+.content-textarea{width: 550px; height: 150px; padding: 10px;}

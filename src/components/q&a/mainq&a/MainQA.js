@@ -1,12 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import Gnb from "../../common/Gnb"
-
-
-
+import Pagination from '../../point/Pagination';
 import "./MainQA.css"
 
-function MainQA({tableInfo}){
+function MainQA({tableInfo,user}){
   return(
     <div className='mainqa'>
       <Gnb />
