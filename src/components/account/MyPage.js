@@ -21,6 +21,7 @@ const MyPage = () => {
     const pwCheckValue = useRef();
     const emailCheck = useRef();
     // 비밀번호,비밀번호재입력,이메일 설정
+    
     const inputRef = useRef(null);
     const inputRefTwo = useRef(null);
     const inputRefThree = useRef(null);

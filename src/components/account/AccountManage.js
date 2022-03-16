@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import "./AccountManage.css";
 import { Link } from "react-router-dom";
 import Gnb from "../common/Gnb";
-import { isEmpty } from "lodash";
 
 const AccountManage = ({ userList, setUserList }) => {
     const [userId, setUserId] = useState("");
@@ -145,21 +144,6 @@ const AccountManage = ({ userList, setUserList }) => {
                                 {findUser.userco}&nbsp;{findUser.username}
                                 </li>
                             ))}
-                            
-                            {/*
-                            {userList.filter((val)=>{
-                                if (searchTerm === "")
-                                {return val}
-                                else if (val.accountid.toLowerCase().includes(searchTerm.toLowerCase())||val.accountpw.toLowerCase().includes(searchTerm.toLowerCase()) || val.email.toLowerCase().includes(searchTerm.toLowerCase()) || val.username.toLowerCase().includes(searchTerm.toLowerCase()) || val.usercall1.toLowerCase().includes(searchTerm.toLowerCase()) || val.usercall2.toLowerCase().includes(searchTerm.toLowerCase()) || val.usercall3.toLowerCase().includes(searchTerm.toLowerCase()))
-                                {return val}
-                                }).map((val) => (
-                                    <li onClick={() => { click(val.id); }} key={val.userid}>
-                                    {val.userco}&nbsp;{val.username}
-                                    </li>
-                                ))
-                            }
-                            */}
-                            
                             </ul>
                         </div>
                         <div className="account-info-area" id="clickForm">
