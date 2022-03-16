@@ -1,19 +1,20 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import Gnb from "../../common/Gnb"
-
-
-
+import Pagination from '../../point/Pagination';
 import "./MainQA.css"
 
-function MainQA({tableInfo,setTableInfo}){
+function MainQA({tableInfo,user}){
   return(
     <div className='mainqa'>
       <Gnb />
         <div className='btn-head'>
-          <Link to={{pathname:'/publish',
-        }}><button className='btn-publish'>신규등록</button></Link>
-          <input className='btn-search'></input>
+          <Link to={{pathname:'/publish',}}>
+            <button className='btn-publish'>신규등록</button></Link>
+          <div className='btn-search'>
+            <input type="text"></input>
+            <button><img src="/img/mdi-magnify.png" /></button>
+          </div>
         </div>
         <table className='mainqa-table'>
           <thead className='table-head'>
