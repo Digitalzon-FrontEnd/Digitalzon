@@ -95,6 +95,27 @@ const AccountManage = ({ userList, setUserList }) => {
         });
     };
     // 인풋 상태값 변화 확인 함수
+
+    {/*const [searchValue, setSearchValue] = useState("");
+
+    const handleInputChange = (e) => {
+        // console.log(e.target.value);        
+        setSearchValue(e.target.value)
+    }
+    const shouldDisplayButton = searchValue.length > 0;
+    
+    const handleInputClear = () => {
+        setSearchValue("")
+    }*/}
+
+    //const filteredUser = userList.filter((filterUser)=>{
+    //    return filterUser.includes(searchValue);
+    //})
+
+    const [searchTerm, setSearchTerm] = useState("");
+
+
+    
     return (
         <div>
             <Gnb />
@@ -127,6 +148,7 @@ const AccountManage = ({ userList, setUserList }) => {
                                 {userinfo.userco}&nbsp;{userinfo.username}
                                 </li>
                             ))}
+                            
                             </ul>
                         </div>
                         <div className="account-info-area" id="clickForm">

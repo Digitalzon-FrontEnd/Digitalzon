@@ -53,7 +53,10 @@ const AccountChange = () => {
     const cerBtn = () => {
         alert("번호인증이 완료되었습니다.")
     }
-
+    // 번호인증 알람
+    const saveBtn = () => {
+        alert("계정변경이 완료되었습니다.")
+    }
 
     return (
     <div>
@@ -133,7 +136,7 @@ const AccountChange = () => {
                         : null }
                     </div>
                     <div className="account-btn-box">
-                        <button className="account-btn" type="submit">저장</button>
+                        <button className="account-btn" type="submit" onClick={saveBtn}>저장</button>
                     </div>
                 </form>
             </div>
