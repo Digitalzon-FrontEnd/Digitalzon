@@ -115,7 +115,6 @@ const AccountManage = ({ userList, setUserList, user }) => {
     
     const searchKey = (e) => {
         if(e.key === "Enter"){
-            console.log('나도')
             searchFnc();
         }
     }

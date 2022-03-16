@@ -26,8 +26,6 @@ const PostView = ({posts,setPosts,user,location, history}) => {
   const selectChange = (e) => {
       setPrevState(selectValue);
       setSelectValue(e.target.value);
-      console.log(selectValue)
-      console.log(prevState)
   };
   //select메뉴 변경시 벨류값
 

@@ -8,7 +8,6 @@ const PointList = ({
   currentPage,
   searchedItems,
 }) => {
-  console.log("PointList searchedItems:", searchedItems);
   return (
     // <Link to={`/point/view/${selectPointItem.id}`}>
     <table className="point-table">

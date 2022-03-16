@@ -39,7 +39,6 @@ const PostList = ({ posts, user, location }) => {
          ){
           return value;
       }});
-    console.log(searchPanel)
     setPostCopy(searchPanel);
     setCurrentPage(1); 
   };

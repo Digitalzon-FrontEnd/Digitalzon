@@ -436,7 +436,6 @@ const Root = () => {
   function currentPosts(tmp) {
     let currentPosts = 0;
     currentPosts = tmp.slice(indexOfFirst, indexOfLast); // 0 ~ 10 |  10 ~ 20
-    console.log(currentPosts);
     return currentPosts;
   }
   /* 현재 포스트 */

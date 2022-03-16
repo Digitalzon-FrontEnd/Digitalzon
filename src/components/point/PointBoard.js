@@ -25,7 +25,6 @@ const PointBoard = ({ pointItems, setSelectPointItem, user }) => {
       setSearchedItems(pointItems);
       setCurrentPage(1);
     } else {
-      console.log(location);
 
       setCurrentPage(location.state.currentPage);
       setSearchedItems(location.state.searchedItems);
@@ -44,14 +43,13 @@ const PointBoard = ({ pointItems, setSelectPointItem, user }) => {
 
   const onChangeHandler = (e) => {
     setSelectState(e.target.value);
-    if (e.target.value === "선택") console.log(e.target.value);
+    if (e.target.value === "선택") return;
     else {
       setSelectState(e.target.value);
     }
   };
   const onSearchHandler = (e) => {
     let tmpItems = [...pointItems];
-    console.log("tmpItems:", tmpItems);
     if (!isEmpty(selectStartDate)) {
       tmpItems = tmpItems.filter((item) => {
         if (item.applyDate >= selectStartDate) {
@@ -168,7 +166,7 @@ const PointBoard = ({ pointItems, setSelectPointItem, user }) => {
         {!searchedItems.length ? (
           <div className="no-result">게시물이 없습니다.</div>
         ) : (
-          searchedItems.length
+          null
         )}
 
         <Pagination
