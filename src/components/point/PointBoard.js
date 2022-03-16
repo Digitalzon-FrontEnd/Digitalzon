@@ -3,13 +3,18 @@ import "./PointBoard.css";
 import Gnb from "./../common/Gnb";
 import Pagination from "./Pagination";
 import PointList from "./PointList";
-const PointBoard = ({ selectPointItem, pointItems, setSelectPointItem }) => {
+const PointBoard = ({
+  selectPointItem,
+  pointItems,
+  setSelectPointItem,
+  user,
+}) => {
   const onPointClick = (item) => {
     setSelectPointItem(item);
   };
   return (
     <div className="inner">
-      <Gnb />
+      <Gnb user={user} />
 
       <div className="point-board-box">
         <span className="point-board-select-box">

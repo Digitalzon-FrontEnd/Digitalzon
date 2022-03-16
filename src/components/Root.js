@@ -32,6 +32,7 @@ import Home from "./home/Home.js";
 import MainQA from "./q&a/mainq&a/MainQA";
 import PublishQA from "./q&a/publishq&a/PublishQA";
 import DetailQA1 from "./q&a/detailq&a/DetailQA1";
+import Gnb from "./common/Gnb";
 
 const Root = () => {
   const [selectPointItem, setSelectPointItem] = useState({});
@@ -740,6 +741,7 @@ const Root = () => {
             setPointItems={setPointItems}
             setSelectPointItem={setSelectPointItem}
             selectPointItem={selectPointItem}
+            user={user}
           />
         )}
       ></Route>
@@ -794,6 +796,7 @@ const Root = () => {
             surveySerachFnc={surveySerachFnc}
             currentPage={currentPage}
             user={user}
+            AllDataPosts={posts}
           />
         )}
       />

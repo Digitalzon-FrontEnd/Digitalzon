@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Survey.css";
 import SurveyRow from "./SurveyRow";
 import Pagination from "../common/Pagination";
@@ -9,14 +9,19 @@ const Survey = ({
   totalIndexPosts,
   posts,
   setPosts,
-  postsPerPage,
   totalPosts,
   paginate,
-  surveySerachFnc,
-  currentPage,
+  // surveySerachFnc,
   user,
+  AllDataPosts,
 }) => {
-  console.log(user);
+  const [searchedSurveys, setSearchedSurveys] = useState(AllDataPosts);
+
+  useEffect(() => {
+    return () => {
+      paginate(1);
+    };
+  }, []);
   const [surveyRegistModal, setSurveyRegistModal] = useState(false);
   const surveyRegistModalClose = () => {
     setSurveyRegistModal(!surveyRegistModal);
@@ -38,14 +43,41 @@ const Survey = ({
   };
 
   /*  */
+  // AllDataPosts 전체 데이터
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 10;
 
+  const indexOfLast = currentPage * postsPerPage;
+  const indexOfFirst = indexOfLast - postsPerPage;
+
+  function currentPosts(tmp) {
+    let currentPosts = 0;
+    currentPosts = tmp.slice(indexOfFirst, indexOfLast); // 0 ~ 10 |  10 ~ 20
+    return currentPosts;
+  }
+
+  const surveySerachFnc = () => {
+    let tmpItems = [...AllDataPosts];
+    const val = surveyInputRef.current.value;
+    tmpItems = tmpItems.filter((item) => {
+      if (item.surveyName.indexOf(val) !== -1) {
+        return item;
+      }
+    });
+    console.log(tmpItems);
+    setSearchedSurveys(tmpItems);
+  };
+
+  /*  */
   const surveyInputEnter = (e) => {
     if (e.key === "Enter") {
-      surveySerachFnc(surveyInputRef);
+      // surveySerachFnc(surveyInputRef);
+      surveySerachFnc();
     }
   };
   const surveyInputClick = () => {
-    surveySerachFnc(surveyInputRef);
+    // surveySerachFnc(surveyInputRef);
+    surveySerachFnc();
   };
   /*  */
   return (
@@ -117,7 +149,7 @@ const Survey = ({
             </tr>
           </thead>
           <tbody className="survey-table-tbody">
-            {posts.map((data) => {
+            {searchedSurveys.map((data) => {
               return (
                 <SurveyRow
                   setPosts={setPosts}
