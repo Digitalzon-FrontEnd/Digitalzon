@@ -19,7 +19,7 @@ const ApproveList = ({ surveyApproveItems, currentPage, searchedItems }) => {
       {surveyApproveItems.map((item) => {
         return (
           <Approve
-            surveyApproveItem={item}
+            post={item}
             currentPage={currentPage}
             searchedItems={searchedItems}
           />

@@ -67,7 +67,7 @@ const PointBoard = ({ pointItems, setSelectPointItem, user }) => {
 
     if (!isEmpty(selectState)) {
       tmpItems = tmpItems.filter((item) => {
-        if (item.status === selectState) {
+        if (item.division === selectState) {
           return item;
         }
       });
@@ -133,10 +133,9 @@ const PointBoard = ({ pointItems, setSelectPointItem, user }) => {
             <span className="point-refund-select-box">구분</span>
           </span>
           <span className="select-wrap">
-            <select name="status" onChange={onChangeHandler}>
+            <select name="division" onChange={onChangeHandler} value={selectState}>
               <option value=""> 선택 </option>
               <option value="환불">환불</option>
-
               <option value="환불신청">환불신청</option>
               <option value="충전">충전</option>
               <option value="환불완료">환불완료</option>

@@ -4,14 +4,16 @@ import Gnb from "../../common/Gnb";
 import "./ApproveView.css";
 import moment from "moment";
 
-const ApproveView = ({ posts, setPosts , user }) => {
+const ApproveView = ({ surveyApproveItems, setPosts , user }) => {
   const params = useParams();
   const id = Number(params.id);
   const surveyApproveItem = surveyApproveItems.find((item) => {
-    return item.id === id;
+    return item.num === id;
   });
+  console.log(surveyApproveItem)
+  const surveyProfiles = surveyApproveItems.profile1//.concat(surveyApproveItems.profile2,surveyApproveItems.profile3)
   const [prevSelectedValue, setPrevSelectValue] = useState("");
-  const [selectValue, setSelectValue] = useState(surveyApproveItem.status);
+  const [selectValue, setSelectValue] = useState(surveyApproveItem.state);
   const location = useLocation();
   const { currentPage, searchedItems } = location.state;
   const onSaveClick = () => {
@@ -19,7 +21,7 @@ const ApproveView = ({ posts, setPosts , user }) => {
     var date = now.format("YYYY-MM-DD HH:mm:ss");
     let recordText = "";
 
-    if (selectValue === surveyApproveItem.status) {
+    if (selectValue === surveyApproveItem.state) {
       alert("변경하려는 상태 값이 같습니다.");
       return;
     }
@@ -31,7 +33,7 @@ const ApproveView = ({ posts, setPosts , user }) => {
       }   변경하였습니다. `;
     }
     setPosts(
-      posts.map((item) =>
+      surveyApproveItems.map((item) =>
         item.num === id
           ? {
               ...item,

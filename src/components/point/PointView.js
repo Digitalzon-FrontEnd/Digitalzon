@@ -4,7 +4,7 @@ import Gnb from "../common/Gnb";
 import { Link, useParams, useLocation } from "react-router-dom";
 import moment from "moment";
 
-const PointView = ({ pointItems, setPointItems }) => {
+const PointView = ({ pointItems, setPointItems, user }) => {
   const location = useLocation();
   const params = useParams();
   const id = Number(params.id);
@@ -56,7 +56,7 @@ const PointView = ({ pointItems, setPointItems }) => {
 
   return (
     <div className="inner">
-      <Gnb />
+      <Gnb user={user}/>
       <div className="pointDetails-box">
         <div className="point-details">
           <div className="point-details-inner">

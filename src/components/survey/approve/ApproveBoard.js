@@ -4,8 +4,8 @@ import ApproveList from "./ApproveList";
 import Gnb from "../../common/Gnb";
 import Pagination from "../../common/Pagination";
 import { useLocation, useHistory } from "react-router-dom";
-const ApproveBoard = ({ surveyApproveItems }) => {
-  const [searchedItems, setSearchedItems] = useState([]);
+const ApproveBoard = ({ surveyApproveItems , user }) => {
+  const [searchedItems, setSearchedItems] = useState(surveyApproveItems);
   const [currentPage, setCurrentPage] = useState(); //현재 페이지
   const [searchText, setSearchText] = useState();
   const postsPerPage = 10; //한 페이지에 글 갯수
@@ -69,7 +69,7 @@ const ApproveBoard = ({ surveyApproveItems }) => {
 
   return (
     <div className="inner">
-      <Gnb />
+      <Gnb user={user}/>
       <div className="approve-board-box">
         <div className="approve-board-select-box">
           <span className="approve-board-search-box">

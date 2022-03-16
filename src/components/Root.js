@@ -510,7 +510,7 @@ const Root = () => {
       <Route
         path="/point/view/:id"
         render={() => (
-          <PointView pointItems={pointItems} setPointItems={setPointItems} />
+          <PointView pointItems={pointItems} setPointItems={setPointItems} user={user}/>
         )}
       />
       <Route
@@ -526,7 +526,7 @@ const Root = () => {
       <Route
         exact
         path="/survey/approve/view/:id"
-        render={() => <ApproveView posts={posts} setPosts={setPosts} />}
+        render={() => <ApproveView surveyApproveItems={posts} setPosts={setPosts} user={user}/>}
       ></Route>
 
       <Route
