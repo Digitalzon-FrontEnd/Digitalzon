@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Gnb from "../common/Gnb";
 
 
-const AccountSetup = ({handleCreate, setUserList}) => {
+const AccountSetup = ({handleCreate, setUserList ,user}) => {
     const $ = (selector) => {
         return document.querySelector(selector);
     };
@@ -65,7 +65,7 @@ const AccountSetup = ({handleCreate, setUserList}) => {
 
     return (
         <div>
-            <Gnb />
+            <Gnb user={user}/>
             <div className="account-wrapper">
                 <div className="account-inner">
                     <div className="account-step-box">

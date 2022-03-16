@@ -3,7 +3,7 @@ import "./AccountManage.css";
 import { Link } from "react-router-dom";
 import Gnb from "../common/Gnb";
 
-const AccountManage = ({ userList, setUserList }) => {
+const AccountManage = ({ userList, setUserList, user }) => {
     const [userId, setUserId] = useState("");
 
     const currentUserId = useRef();
@@ -40,6 +40,8 @@ const AccountManage = ({ userList, setUserList }) => {
 
     const removeBtn = (e) => {
         e.preventDefault();
+        const confirmId = window.confirm(`${currentUserId.current.value} 계정을 삭제하시겠습니까?`)
+        if (!confirmId) return;
         const copyList = [...userList];
         const filterList = copyList.filter((item) => item.id !== userId);
         setUserList(filterList);
@@ -120,7 +122,7 @@ const AccountManage = ({ userList, setUserList }) => {
     
     return (
         <div>
-            <Gnb />
+            <Gnb user={user}/>
             <div className="account-wrapper">
                 <div className="account-inner">
                     <form>

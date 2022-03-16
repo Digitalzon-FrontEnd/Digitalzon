@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useRef,useState } from "react";
 import Gnb from "../common/Gnb";
 
-const AccountChange = () => {
+const AccountChange = ({user}) => {
     const $ = (selector) => {
         return document.querySelector(selector);
     };
@@ -58,7 +58,7 @@ const AccountChange = () => {
 
     return (
     <div>
-        <Gnb />
+        <Gnb user={user}/>
         <div className="account-wrapper">
             <div className="account-inner">
                 <div className="account-step-box">

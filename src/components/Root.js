@@ -382,7 +382,7 @@ const Root = () => {
   ) => { 
     const userArray = [...userList];
     userArray.push({
-      id : userList.length,
+      id : userList[userList.length-1].id+1,
       userco: "(주) o",
       accountid: `${accountid}`,
       accountpw: `${accountpw}`,
@@ -871,11 +871,11 @@ const Root = () => {
           />
         )}
       />
-      <Route path="/accountchange" render={() => <AccountChange />} />
+      <Route path="/accountchange" render={() => <AccountChange user={user}/>} />
       <Route
         path="/accountsetup"
         render={() => (
-          <AccountSetup handleCreate={handleCreate} setUserList={setUserList} />
+          <AccountSetup handleCreate={handleCreate} setUserList={setUserList} user={user}/>
         )}
       />
       <Route
@@ -885,11 +885,18 @@ const Root = () => {
             userList={userList}
             handleCreate={handleCreate}
             setUserList={setUserList}
+            user={user}
           />
         )}
       />
 
-      <Route path="/mypage" component={MyPage} />
+      <Route path="/mypage" 
+      render={(props) => (
+          <MyPage
+            user={user}
+            
+          />
+        )} />
       <Footer user={user} />
     </div>
   );
