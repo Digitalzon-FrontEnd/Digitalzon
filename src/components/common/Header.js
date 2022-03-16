@@ -43,7 +43,7 @@ const Header = ({ user, point, setUser }) => {
               </li>
             ) : (
               <li className="point">
-                <Link to="/managepoint">{point}point</Link>
+                <Link to="/managepoint">{point}&nbsp;point</Link>
               </li>
             )}
             {user.login === false ? (

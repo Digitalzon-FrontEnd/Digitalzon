@@ -12,7 +12,7 @@ const Login = ({ setUser }) => {
       login: true,
       grade: 2,
     });
-    history.push("/survey"); // /home 변경
+    history.push("/home"); // /home 변경
   };
   return (
     <div className="login-box">

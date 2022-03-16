@@ -855,7 +855,7 @@ const Root = () => {
       />
 
       <Route path="/surveyregist" component={SurveyRegist} />
-      <Route path="/home" render={() => <Home />} />
+      <Route path="/home" render={() => <Home user={user}/>} />
       <Route
         path="/publish"
         render={(props) => (
@@ -872,6 +872,7 @@ const Root = () => {
           <DetailQA1
             tableInfo={tableInfo}
             setTableInfo={setTableInfo}
+            user={user}
             {...props}
           />
         )}

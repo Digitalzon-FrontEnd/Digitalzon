@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Home.css'
 import Gnb from '../common/Gnb';
 
-function Home() {
+function Home({user}) {
   let [checkedType,setcheckedType] = useState([{
     num:'160',
     name:'갤럭시S21 사용자 만족도 조사',
@@ -66,7 +66,7 @@ function Home() {
   }
   return (
     <div>
-      <Gnb/>
+      <Gnb user={user}/>
       <form className='select'>
         <label>
           <input onClick={changeRadioValue} className='select-one' type="radio" name="설문" value="설문예정" defaultChecked />설문예정</label>
