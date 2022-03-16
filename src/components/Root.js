@@ -143,6 +143,7 @@ const Root = () => {
           <PointBoard
             pointItems={pointItems}
             setSelectPointItem={setSelectPointItem}
+            setPointItems={setPointItems}
           />
         )}
       ></Route>

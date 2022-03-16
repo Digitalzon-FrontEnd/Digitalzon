@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Profile.css";
+import Gnb from "./../common/Gnb";
 const Profile = ({ params }) => {
   return (
     <div className="profile-box">

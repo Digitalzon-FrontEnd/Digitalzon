@@ -5,22 +5,25 @@ import "./ApproveView.css";
 import moment from "moment";
 
 const ApproveView = ({ surveyApproveItems, setSurveyApproveItems }) => {
-  console.log(surveyApproveItems);
   const params = useParams();
   const id = Number(params.id);
-  console.log("id", id);
   const surveyApproveItem = surveyApproveItems.find((item) => {
     return item.id === id;
   });
-
   const [prevSelectedValue, setPrevSelectValue] = useState("");
-  const [selectValue, setSelectValue] = useState("승인대기");
+  const [selectValue, setSelectValue] = useState(surveyApproveItem.status);
+
+  console.log("surveyApproveItem:", surveyApproveItem);
+  console.log(selectValue);
   const onSaveClick = () => {
-    console.log(surveyApproveItem);
     var now = moment();
     var date = now.format("YYYY-MM-DD HH:mm:ss");
     let recordText = "";
 
+    if (selectValue === surveyApproveItem.status) {
+      alert("변경하려는 상태 값이 같습니다.");
+      return;
+    }
     if (prevSelectedValue === "") {
       recordText = `· ${date}  김주리님이 상태를  ${selectValue} 로 변경하였습니다. `;
     } else {
@@ -41,18 +44,12 @@ const ApproveView = ({ surveyApproveItems, setSurveyApproveItems }) => {
           : item
       )
     );
-
-    surveyApproveItems.map((item) => {
-      return item + item;
-    });
-    surveyApproveItems.map((item) => {
-      return item;
-    });
   };
   const onSelectHandler = (e) => {
     setPrevSelectValue(selectValue);
     setSelectValue(e.target.value);
   };
+
   return (
     <div className="inner">
       <Gnb />
@@ -118,6 +115,7 @@ const ApproveView = ({ surveyApproveItems, setSurveyApproveItems }) => {
                           onChange={(e) => {
                             onSelectHandler(e);
                           }}
+                          value={selectValue}
                         >
                           <option value="승인대기" color="#0000ff">
                             승인대기{" "}
@@ -138,12 +136,6 @@ const ApproveView = ({ surveyApproveItems, setSurveyApproveItems }) => {
                       type="text"
                       placeholder="사유를 입력해주세요"
                     ></input>
-                    {/* <span className="reason-select-wrap">
-                        <select name="status">
-                          <option value="none"> 사유를 입력해주세요 </option>
-                        </select>
-                      </span>
-                    </span> */}
                   </li>
                 </ul>
                 <div className="btn-container">
@@ -152,7 +144,7 @@ const ApproveView = ({ surveyApproveItems, setSurveyApproveItems }) => {
                       저장
                     </button>
                     <Link to="/survey/approve/board">
-                      <button className="list-btn btn-o">목록</button>
+                      <button className="list-btn btn-o" >목록</button>
                     </Link>
                   </div>
                 </div>

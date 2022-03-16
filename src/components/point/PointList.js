@@ -5,7 +5,7 @@ import Point from "./Point";
 const PointList = ({ pointItems, onPointClick }) => {
   return (
     // <Link to={`/point/view/${selectPointItem.id}`}>
-    <table>
+    <table className="point-table">
       <tr>
         <th>번호</th>
         <th>업체명</th>

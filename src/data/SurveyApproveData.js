@@ -1,7 +1,7 @@
 const surveyApproveData = [
   {
     id: 20,
-    surveyName: "갤럭시S21 사용자 만족도 조사",
+    surveyName: "갤럭시S21 사용자 만족도 조사10",
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
@@ -33,7 +33,7 @@ const surveyApproveData = [
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
-    status: "승인완료",
+    status: "승인대기",
     modifiedDate: "2021.10.28",
     modifiedBy: "홍길동",
     affiliation: "개인",
@@ -47,7 +47,7 @@ const surveyApproveData = [
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
-    status: "승인완료",
+    status: "승인거부",
     modifiedDate: "2021.10.28",
     modifiedBy: "홍길동",
     affiliation: "개인",

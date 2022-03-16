@@ -9,7 +9,7 @@ const Approve = ({ surveyApproveItem }) => {
         {/* <Link to={`/survey/approve/view/${surveyApproveItem.id}`}>
           {surveyApproveItem.surveyName}
         </Link> */}
-        <Link to={`/survey/approve/view/1`}>
+        <Link to={`/survey/approve/view/${surveyApproveItem.id}`}>
           {surveyApproveItem.surveyName}
         </Link>
       </td>

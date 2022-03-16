@@ -14,6 +14,7 @@ const Point = ({ pointItems, setPointItems }) => {
   const [prevSelectedValue, setPrevSelectValue] = useState("");
   const [selectValue, setSelectValue] = useState(pointItem.status);
 
+  console.log("selectValue:", selectValue);
   const onSaveClick = () => {
     var now = moment();
     var date = now.format("YYYY-MM-DD HH:mm:ss");
@@ -98,9 +99,10 @@ const Point = ({ pointItems, setPointItems }) => {
                 }}
                 value={selectValue}
               >
-                <option value="접수"> 접수</option>
-                <option value="처리 중">처리 중</option>
-                <option value="완료">완료</option>
+                <option value="충전"> 충전</option>
+
+                <option value="환불신청">환불신청</option>
+                <option value="환불완료">환불완료</option>
               </select>
             </span>
             <button className="save-btn btn-o" onClick={onSaveClick}>

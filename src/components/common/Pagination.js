@@ -5,6 +5,7 @@ const Pagination = ({
   totalPosts,
   paginate,
   /*  setIndex, */
+
   currentPage,
 }) => {
   const pageNumbers = [];
