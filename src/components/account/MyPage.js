@@ -63,7 +63,7 @@ const MyPage = () => {
                     <div className="mypage-step-box">
                         <p className="account-step" id="accountStepEnter"><Link to="/mypage">마이페이지</Link></p>
                     </div>
-                    <form onSubmit={handleSubmit} action="/accountchange">
+                    <form onSubmit={handleSubmit} action="/mypage">
                         <div className="account-change-info">
                             <div className="account-affiliate">
                                 <label>소속</label>
