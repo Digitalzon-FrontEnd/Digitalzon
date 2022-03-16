@@ -701,13 +701,6 @@ const Root = () => {
 
   return (
     <div>
-<<<<<<< HEAD
-    <  Header />
-      <Route  exact path="/" component={Main}/>
-      <Route  exact path="/mainqa" render={(props) => (
-        <MainQA  tableInfo={tableInfo} setTableInfo={setTableInfo} {...props} user={user} />
-  )} />
-=======
       <Header user={user} point={point} setUser={setUser} />
       <Route exact path="/" component={Main} />
       <Route
@@ -718,10 +711,11 @@ const Root = () => {
             tableInfo={tableInfo}
             setTableInfo={setTableInfo}
             {...props}
+            user={user}
           />
         )}
       />
->>>>>>> 0aea32e957375a1db759dc040673e249fd9acd8b
+
       <Route path="/faq" render={() => <Faq user={user} />} />
       <Route path="/guide" render={() => <Guide user={user} />} />
       <Route path="/login" render={() => <Login setUser={setUser} />} />
@@ -769,12 +763,7 @@ const Root = () => {
       <Route
         exact
         path="/survey/approve/view/:id"
-        render={() => (
-          <ApproveView
-            posts={posts}
-            setPosts={setPosts}
-          />
-        )}
+        render={() => <ApproveView posts={posts} setPosts={setPosts} />}
       ></Route>
 
       <Route
