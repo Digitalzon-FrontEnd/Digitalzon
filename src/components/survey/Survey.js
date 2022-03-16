@@ -17,6 +17,10 @@ const Survey = ({
 
   const [searchedSurveys, setSearchedSurveys] = useState(AllDataPosts);
 
+  useEffect(() => {
+    setSearchedSurveys(AllDataPosts);
+  }, [AllDataPosts]);
+
   const [surveyRegistModal, setSurveyRegistModal] = useState(false);
   const surveyRegistModalClose = () => {
     setSurveyRegistModal(!surveyRegistModal);
