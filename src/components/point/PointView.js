@@ -56,7 +56,7 @@ const PointView = ({ pointItems, setPointItems, user }) => {
 
   return (
     <div className="inner">
-      <Gnb user={user}/>
+      <Gnb user={user} />
       <div className="pointDetails-box">
         <div className="point-details">
           <div className="point-details-inner">
@@ -102,7 +102,7 @@ const PointView = ({ pointItems, setPointItems, user }) => {
                 value={selectValue}
                 disabled={pointItem.division === "충전" ? "true" : ""}
               >
-                <option value="접수"> 접수</option>
+                <option value="접수">접수</option>
 
                 <option value="처리 중">처리 중</option>
                 <option value="완료">완료</option>

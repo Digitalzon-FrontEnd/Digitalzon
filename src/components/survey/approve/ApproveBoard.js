@@ -4,7 +4,7 @@ import ApproveList from "./ApproveList";
 import Gnb from "../../common/Gnb";
 import Pagination from "../../common/Pagination";
 import { useLocation, useHistory } from "react-router-dom";
-const ApproveBoard = ({ surveyApproveItems , user }) => {
+const ApproveBoard = ({ surveyApproveItems, user }) => {
   const [searchedItems, setSearchedItems] = useState(surveyApproveItems);
   const [currentPage, setCurrentPage] = useState(); //현재 페이지
   const [searchText, setSearchText] = useState();
@@ -20,8 +20,7 @@ const ApproveBoard = ({ surveyApproveItems , user }) => {
       setCurrentPage(1);
     } else {
       setCurrentPage(location.state.currentPage);
-
-      setSearchedItems(location.state.searchedItems);
+      // setSearchedItems(location.state.searchedItems);
       history.replace();
     }
   }, []);
@@ -69,7 +68,7 @@ const ApproveBoard = ({ surveyApproveItems , user }) => {
 
   return (
     <div className="inner">
-      <Gnb user={user}/>
+      <Gnb user={user} />
       <div className="approve-board-box">
         <div className="approve-board-select-box">
           <span className="approve-board-search-box">

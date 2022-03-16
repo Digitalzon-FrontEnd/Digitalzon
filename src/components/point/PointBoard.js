@@ -25,10 +25,9 @@ const PointBoard = ({ pointItems, setSelectPointItem, user }) => {
       setSearchedItems(pointItems);
       setCurrentPage(1);
     } else {
-
       setCurrentPage(location.state.currentPage);
-      setSearchedItems(location.state.searchedItems);
-
+      // setSearchedItems(location.state.searchedItems);
+      setSearchedItems(pointItems);
       history.replace();
     }
   }, []);
@@ -48,18 +47,24 @@ const PointBoard = ({ pointItems, setSelectPointItem, user }) => {
       setSelectState(e.target.value);
     }
   };
+
   const onSearchHandler = (e) => {
     let tmpItems = [...pointItems];
     if (!isEmpty(selectStartDate)) {
       tmpItems = tmpItems.filter((item) => {
-        if (item.applyDate >= selectStartDate) {
+        console.log(
+          item.applyDate,
+          selectStartDate,
+          item.applyDate >= selectStartDate
+        );
+        if (new Date(item.applyDate) >= new Date(selectStartDate)) {
           return item;
         }
       });
     }
     if (!isEmpty(selectEndDate)) {
       tmpItems = tmpItems.filter((item) => {
-        if (item.applyDate <= selectEndDate) {
+        if (new Date(item.applyDate) <= new Date(selectEndDate)) {
           return item;
         }
       });
@@ -133,7 +138,11 @@ const PointBoard = ({ pointItems, setSelectPointItem, user }) => {
             <span className="point-refund-select-box">구분</span>
           </span>
           <span className="select-wrap">
-            <select name="division" onChange={onChangeHandler} value={selectState}>
+            <select
+              name="division"
+              onChange={onChangeHandler}
+              value={selectState}
+            >
               <option value=""> 선택 </option>
               <option value="환불">환불</option>
               <option value="환불신청">환불신청</option>
@@ -164,9 +173,7 @@ const PointBoard = ({ pointItems, setSelectPointItem, user }) => {
         />
         {!searchedItems.length ? (
           <div className="no-result">게시물이 없습니다.</div>
-        ) : (
-          null
-        )}
+        ) : null}
 
         <Pagination
           postsPerPage={postsPerPage}
