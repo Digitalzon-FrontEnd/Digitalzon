@@ -110,7 +110,7 @@ const AccountManage = ({ userList, setUserList }) => {
         })
         setSearchTerm(userSearch)
     }
-
+    // search 함수
     
     return (
         <div>

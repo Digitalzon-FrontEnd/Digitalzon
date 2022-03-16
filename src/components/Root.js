@@ -375,8 +375,6 @@ const Root = () => {
   ]);
   // userList
 
-  //const nextId = useRef(6);
-
   const handleCreate = (
     accountid,
     accountpw,
@@ -397,9 +395,8 @@ const Root = () => {
       usercall1: `${usercall1}`,
       usercall2: `${usercall2}`,
       usercall3: `${usercall3}`,
-      userinfo: `(주) C ${username}`,
+      userinfo: `(주) o ${username}`,
     });
-    //nextId.current = nextId.current+=1;
     setUserList(userArray);
   };
   // userList에 push 해주는 함수
