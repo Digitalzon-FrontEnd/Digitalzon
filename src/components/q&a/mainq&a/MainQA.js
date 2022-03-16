@@ -36,7 +36,6 @@ function MainQA({location,tableInfo, user}){
         return item;
       }
     });
-    console.log(tmpItems);
     setSearchedSurveys(tmpItems);
     setCurrentPage(1);
   };
