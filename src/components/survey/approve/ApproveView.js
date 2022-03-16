@@ -1,27 +1,28 @@
 import { React, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import Gnb from "../../common/Gnb";
 import "./ApproveView.css";
 import moment from "moment";
 
-const ApproveView = ({ posts, setPosts }) => {
+const ApproveView = ({ posts, setPosts , user }) => {
   const params = useParams();
   const id = Number(params.id);
-  const surveyApproveItem = posts.find((item) => {
-    return item.num === id;
+  const surveyApproveItem = surveyApproveItems.find((item) => {
+    return item.id === id;
   });
-  const surveyProfiles = surveyApproveItem.profile1.concat(
-    surveyApproveItem.profile2,
-    surveyApproveItem.profile3
-  );
-
   const [prevSelectedValue, setPrevSelectValue] = useState("");
-  const [selectValue, setSelectValue] = useState("승인대기");
+  const [selectValue, setSelectValue] = useState(surveyApproveItem.status);
+  const location = useLocation();
+  const { currentPage, searchedItems } = location.state;
   const onSaveClick = () => {
     var now = moment();
     var date = now.format("YYYY-MM-DD HH:mm:ss");
     let recordText = "";
 
+    if (selectValue === surveyApproveItem.status) {
+      alert("변경하려는 상태 값이 같습니다.");
+      return;
+    }
     if (prevSelectedValue === "") {
       recordText = `· ${date}  김주리님이 상태를  ${selectValue} 로 변경하였습니다. `;
     } else {
@@ -42,21 +43,15 @@ const ApproveView = ({ posts, setPosts }) => {
           : item
       )
     );
-
-    posts.map((item) => {
-      return item + item;
-    });
-    posts.map((item) => {
-      return item;
-    });
   };
   const onSelectHandler = (e) => {
     setPrevSelectValue(selectValue);
     setSelectValue(e.target.value);
   };
+
   return (
     <div className="inner">
-      <Gnb />
+      <Gnb user={user}/>
       <div className="surveyApproveDetails-box">
         <div className="details-container">
           <div className="details-wrap">
@@ -121,6 +116,7 @@ const ApproveView = ({ posts, setPosts }) => {
                           onChange={(e) => {
                             onSelectHandler(e);
                           }}
+                          value={selectValue}
                         >
                           <option value="승인대기" color="#0000ff">
                             승인대기{" "}
@@ -141,12 +137,6 @@ const ApproveView = ({ posts, setPosts }) => {
                       type="text"
                       placeholder="사유를 입력해주세요"
                     ></input>
-                    {/* <span className="reason-select-wrap">
-                        <select name="status">
-                          <option value="none"> 사유를 입력해주세요 </option>
-                        </select>
-                      </span>
-                    </span> */}
                   </li>
                 </ul>
                 <div className="btn-container">
@@ -154,7 +144,16 @@ const ApproveView = ({ posts, setPosts }) => {
                     <button className="save-btn btn-o" onClick={onSaveClick}>
                       저장
                     </button>
-                    <Link to="/survey/approve/board">
+
+                    <Link
+                      to={{
+                        pathname: `/survey/approve/board`,
+                        state: {
+                          currentPage: currentPage,
+                          searchedItems: searchedItems,
+                        },
+                      }}
+                    >
                       <button className="list-btn btn-o">목록</button>
                     </Link>
                   </div>

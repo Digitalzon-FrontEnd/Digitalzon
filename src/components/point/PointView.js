@@ -1,23 +1,31 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import "./PointView.css";
 import Gnb from "../common/Gnb";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import moment from "moment";
 
-const Point = ({ pointItems, setPointItems }) => {
+const PointView = ({ pointItems, setPointItems }) => {
+  const location = useLocation();
   const params = useParams();
   const id = Number(params.id);
   const pointItem = pointItems.find((item) => {
     return item.id === id;
   });
 
+  const { currentPage, searchedItems } = location.state;
+
   const [prevSelectedValue, setPrevSelectValue] = useState("");
-  const [selectValue, setSelectValue] = useState("접수");
+  const [selectValue, setSelectValue] = useState(pointItem.status);
+
   const onSaveClick = () => {
     var now = moment();
     var date = now.format("YYYY-MM-DD HH:mm:ss");
     let recordText = "";
 
+    if (selectValue === pointItem.status) {
+      alert("변경하려는 상태 값이 같습니다.");
+      return;
+    }
     if (prevSelectedValue === "") {
       recordText = `· ${date}  김주리님이 상태를  ${selectValue} 로 변경하였습니다. `;
     } else {
@@ -91,16 +99,27 @@ const Point = ({ pointItems, setPointItems }) => {
                 onChange={(e) => {
                   onSelectHandler(e);
                 }}
+                value={selectValue}
+                disabled={pointItem.division === "충전" ? "true" : ""}
               >
-                <option value="접수">접수</option>
-                <option value="처리중">처리중</option>
+                <option value="접수"> 접수</option>
+
+                <option value="처리 중">처리 중</option>
                 <option value="완료">완료</option>
               </select>
             </span>
             <button className="save-btn btn-o" onClick={onSaveClick}>
               저장
             </button>
-            <Link to="/point/board">
+            <Link
+              to={{
+                pathname: `/point/board`,
+                state: {
+                  currentPage: currentPage,
+                  searchedItems: searchedItems,
+                },
+              }}
+            >
               <button className="list-btn btn-o">목록</button>
             </Link>
           </span>
@@ -118,4 +137,4 @@ const Point = ({ pointItems, setPointItems }) => {
   );
 };
 
-export default Point;
+export default PointView;

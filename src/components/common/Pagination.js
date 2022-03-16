@@ -4,7 +4,8 @@ const Pagination = ({
   postsPerPage,
   totalPosts,
   paginate,
-  setIndex,
+  /*  setIndex, */
+
   currentPage,
 }) => {
   const pageNumbers = [];
@@ -60,7 +61,7 @@ const Pagination = ({
             alt="다음 목록 보기"
             onClick={() => {
               plusCurrenntIndex(currentPage);
-              setIndex(null);
+              // setIndex(null);
             }}
           />
         </ul>

@@ -2,15 +2,20 @@ import React from "react";
 import "./PointList.css";
 import Point from "./Point";
 
-const PointList = ({ selectPointItem, pointItems, onPointClick }) => {
+const PointList = ({
+  pointItems,
+  onPointClick,
+  currentPage,
+  searchedItems,
+}) => {
+  console.log("PointList searchedItems:", searchedItems);
   return (
     // <Link to={`/point/view/${selectPointItem.id}`}>
-    <table>
+    <table className="point-table">
       <tr>
         <th>번호</th>
         <th>업체명</th>
         <th>연락처</th>
-
         <th>이메일</th>
         <th>포인트</th>
         <th>구분</th>
@@ -20,7 +25,14 @@ const PointList = ({ selectPointItem, pointItems, onPointClick }) => {
         <th>상태변경자</th>
       </tr>
       {pointItems.map((item) => {
-        return <Point onPointClick={onPointClick} pointItem={item} />;
+        return (
+          <Point
+            onPointClick={onPointClick}
+            pointItem={item}
+            currentPage={currentPage}
+            searchedItems={searchedItems}
+          />
+        );
       })}
     </table>
     // </Link>
