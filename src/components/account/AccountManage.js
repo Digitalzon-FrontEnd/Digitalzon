@@ -98,54 +98,17 @@ const AccountManage = ({ userList, setUserList }) => {
     };
     // 인풋 상태값 변화 확인 함수
 
-
-    
-
-    //const handleInputChange = (e) => {        
-    //    setSearchValue(e.target.value)
-    //}
-
-    //const shouldDisplayButton = searchValue.length > 0;
-    
-    //const handleInputClear = () => {
-    //    setSearchValue("")
-    //}
-
-    //const filteredUser = userList.filter((filterUser)=>{
-    //    return filterUser.includes(searchValue);
-    //})
-    // search 함수 구현중...\
-
-    //const [searchedUser,setSearchedUser] = useState(userList);
-    
- 
     const [searchTerm, setSearchTerm] = useState(userList);
     const searchPoint = useRef();
     const searchFnc = () => {
         const userSelect = searchPoint.current.value;
         let userSearch = [...userList];
         userSearch = userSearch.filter((findUser) => {
-            if(findUser.accountid.indexOf(userSelect) !== -1){
+            if(findUser.accountid.indexOf(userSelect) !== -1 || findUser.mail.indexOf(userSelect) !== -1 || findUser.usercall1.indexOf(userSelect) !== -1 || findUser.usercall2.indexOf(userSelect) !== -1 || findUser.usercall3.indexOf(userSelect) !== -1){
                 return findUser;
             }
         })
         setSearchTerm(userSearch)
-
-        let userSearch2 = [...userList];
-        userSearch2 = userSearch2.filter((findUser) => {
-            if(findUser.username.indexOf(userSelect) !== -1){
-                return findUser;
-            }
-        })
-        setSearchTerm(userSearch2)
-
-        // let userSearch3 = [...userList];
-        // userSearch3 = userSearch3.filter((findUser) => {
-        //     if(findUser.email.indexOf(userSelect) !== -1){
-        //         return findUser;
-        //     }
-        // })
-        // setSearchTerm(userSearch3)
     }
 
     
