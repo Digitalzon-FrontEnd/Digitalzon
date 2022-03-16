@@ -656,8 +656,8 @@ const Root = () => {
         path="/survey/approve/board"
         render={() => (
           <ApproveBoard
-            surveyApproveItems={surveyApproveItems}
-            setSurveyApproveItems={setSurveyApproveItems}
+            surveyApproveItems={posts}
+            setSurveyApproveItems={setPosts}
           />
         )}
       ></Route>
@@ -666,8 +666,8 @@ const Root = () => {
         path="/survey/approve/view/:id"
         render={() => (
           <ApproveView
-            surveyApproveItems={surveyApproveItems}
-            setSurveyApproveItems={setSurveyApproveItems}
+            posts={posts}
+            setPosts={setPosts}
           />
         )}
       ></Route>

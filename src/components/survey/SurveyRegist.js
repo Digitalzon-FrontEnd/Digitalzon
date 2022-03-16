@@ -90,6 +90,7 @@ function SurveyRegist({ modalClose, posts, setPosts }) {
     profile1: [],
     profile2: [],
     profile3: [],
+    record: [],
     state: "승인대기",
     registrant: "홍길동",
     affiliation: "개인",
@@ -108,7 +109,6 @@ function SurveyRegist({ modalClose, posts, setPosts }) {
     newPost.profile1 = options1;
     newPost.profile2 = options2;
     newPost.profile3 = options3;
-    console.log(newPost);
     const newPosts = [...posts];
     newPosts.unshift(newPost);
     setPosts(newPosts);
@@ -118,6 +118,7 @@ function SurveyRegist({ modalClose, posts, setPosts }) {
     newPosts.unshift(newPost);
     setPosts(newPosts);
   };
+ 
 
   return (
     <div className="surveyRg">

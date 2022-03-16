@@ -3,6 +3,7 @@ import "./Survey.css";
 import SurveyRow from "./SurveyRow";
 import Pagination from "../common/Pagination";
 import Modal from "../common/Modal";
+import Gnb from "../common/Gnb";
 
 const Survey = ({
   totalIndexPosts,
@@ -48,6 +49,7 @@ const Survey = ({
   return (
     <div className="survey-box">
       <div className="inner-800">
+        <Gnb />
         {surveyModalOpen && (
           <Modal
             modalClose={modalClose}
