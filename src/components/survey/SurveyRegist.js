@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import "./SurveyRegist.css";
 
 function SurveyRegist({ modalClose, posts, setPosts }) {
+  console.log(posts);
   const fileInput = useRef();
   const fileName = useRef();
   const panelNum = useRef();
@@ -118,7 +119,6 @@ function SurveyRegist({ modalClose, posts, setPosts }) {
     newPosts.unshift(newPost);
     setPosts(newPosts);
   };
- 
 
   return (
     <div className="surveyRg">
