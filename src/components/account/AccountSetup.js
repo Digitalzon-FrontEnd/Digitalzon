@@ -139,7 +139,7 @@ const AccountSetup = ({handleCreate, setUserList}) => {
                             <button id="accountIdBtn" type="button" required>중복확인</button>
                         </div>
                         <div className="account-btn-box">
-                            <button className="account-btn" onClick={submitAccount} type="submit">저장</button>
+                            <button className="account-btn" type="submit">저장</button>
                         </div>
                     </form>
                 </div>

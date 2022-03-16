@@ -68,6 +68,10 @@
     font-weight: 600;
     color: #44423b;
 }
+.name-list li:visited{
+    font-weight: 600;
+    color: #44423b;
+}
 .account-manage-btn{
     margin-top: 31.1px;
     margin-bottom: 122.5px;

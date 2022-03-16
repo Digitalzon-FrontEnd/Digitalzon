@@ -119,7 +119,7 @@ const AccountManage = ({ userList, setUserList }) => {
                         <div className="account-manage-list">
                             <div className="search-box">
                             <input id="searchBox"></input>
-                            <button id="searchIcon">돋보기</button>
+                            <button id="searchIcon" type="button">돋보기</button>
                             </div>
                             <ul className="name-list">
                             {userList.map((userinfo) => (
