@@ -115,9 +115,7 @@ const Root = () => {
   const [pointItems, setPointItems] = useState(pointData);
   const [surveyApproveItems, setSurveyApproveItems] =
     useState(surveyApproveData);
-  const [userList, setUserList] = useState(userData);
-  // user-List
-
+  
   const handleCreate = (
     accountid,
     accountpw,
