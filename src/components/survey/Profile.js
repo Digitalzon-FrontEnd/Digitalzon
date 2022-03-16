@@ -1,9 +1,7 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./Profile.css";
 const Profile = ({ params }) => {
-  const history = useHistory();
   return (
     <div className="profile-box">
       <div className="inner-800">
@@ -73,18 +71,21 @@ const Profile = ({ params }) => {
               },
             }}
           >
+            {" "}
+            {/* params.currentPage */}
             <button className="profile-footer-btn btn-o  btn-s">수정</button>
           </Link>
-          {/* <Link to="/survey"> */}
-          <button
-            className="profile-footer-btn btn-o  btn-s"
-            onClick={() => {
-              history.goBack();
+
+          <Link
+            to={{
+              pathname: `/survey/`,
+              state: {
+                currentPage: params.currentPage,
+              },
             }}
           >
-            목록
-          </button>
-          {/* </Link> */}
+            <button className="profile-footer-btn btn-o  btn-s">목록</button>
+          </Link>
         </div>
       </div>
     </div>

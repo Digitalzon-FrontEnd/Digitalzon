@@ -783,8 +783,9 @@ const Root = () => {
       <Route
         exact={true}
         path="/survey"
-        render={() => (
+        render={(props) => (
           <Survey
+            {...props}
             totalIndexPosts={
               posts
             } /* 전체 데이터 (라디오 버튼에서 사용함으로 다른 컴포넌트에서 필요 X) */

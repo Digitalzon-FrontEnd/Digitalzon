@@ -4,24 +4,19 @@ import SurveyRow from "./SurveyRow";
 import Pagination from "../common/Pagination";
 import Modal from "../common/Modal";
 import Gnb from "../common/Gnb";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Survey = ({
   totalIndexPosts,
-  posts,
   setPosts,
-  totalPosts,
-  paginate,
-  // surveySerachFnc,
   user,
   AllDataPosts,
+  location,
 }) => {
+  const history = useHistory();
+
   const [searchedSurveys, setSearchedSurveys] = useState(AllDataPosts);
 
-  useEffect(() => {
-    return () => {
-      paginate(1);
-    };
-  }, []);
   const [surveyRegistModal, setSurveyRegistModal] = useState(false);
   const surveyRegistModalClose = () => {
     setSurveyRegistModal(!surveyRegistModal);
@@ -64,8 +59,8 @@ const Survey = ({
         return item;
       }
     });
-    console.log(tmpItems);
     setSearchedSurveys(tmpItems);
+    setCurrentPage(1);
   };
 
   /*  */
@@ -80,6 +75,14 @@ const Survey = ({
     surveySerachFnc();
   };
   /*  */
+  useEffect(() => {
+    if (location.state === undefined) {
+      setCurrentPage(1);
+    } else {
+      setCurrentPage(location.state.currentPage);
+      history.replace();
+    }
+  }, []);
   return (
     <div className="survey-box">
       <Gnb user={user} />
@@ -149,7 +152,7 @@ const Survey = ({
             </tr>
           </thead>
           <tbody className="survey-table-tbody">
-            {searchedSurveys.map((data) => {
+            {currentPosts(searchedSurveys).map((data) => {
               return (
                 <SurveyRow
                   setPosts={setPosts}
@@ -169,6 +172,7 @@ const Survey = ({
                   profile2={data.profile2}
                   profile3={data.profile3}
                   pointPerPerson={data.pointPerPerson}
+                  currentPage={currentPage}
                 />
               );
             })}
@@ -176,9 +180,8 @@ const Survey = ({
         </table>
         <Pagination
           postsPerPage={postsPerPage}
-          totalPosts={totalPosts}
-          paginate={paginate}
-          setIndex={setIndex}
+          totalPosts={searchedSurveys.length}
+          paginate={setCurrentPage}
           currentPage={currentPage}
         />
       </div>
