@@ -610,6 +610,12 @@ const Root = () => {
     return currentPosts;
   }
   /* 현재 포스트 */
+  
+
+  
+
+
+
   const surveySerachFnc = (ref) => {
     return new Promise(function (resolve, reject) {
       const value = ref.current.value;
@@ -686,17 +692,23 @@ const Root = () => {
       <Route
         exact
         path="/panel/board"
-        render={() => <PostList 
+        render={(props) => <PostList 
           posts={panelPosts} 
+          setPosts={setPanelPosts}
         currentPage={currentPage}
-        setCurrentPage={setCurrentPage}/>}
+        setCurrentPage={setCurrentPage}
+        user={user}
+        {...props}
+        />}
       />
       <Route
         exact
         path="/panel/view/:no"
-        render={() => <PostView 
+        render={(props) => <PostView 
           posts={panelPosts} 
           setPosts={setPanelPosts} 
+          user={user}
+          {...props}
         />}
       />
 

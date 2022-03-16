@@ -92,6 +92,10 @@ const ManagePoint = ({point, setPoint, list, setList}) => {
                             <option value="shinhan">신한은행</option>
                             <option value="kb">국민은행</option>
                             <option value="nh">농협은행</option>
+                            <option value="기업">기업은행</option>
+                            <option value="하나">하나은행</option>
+                            <option value="카카오">카카오뱅크</option>
+                            <option value="우리">우리은행</option>
                             </select>
                         </span>
                         <span>

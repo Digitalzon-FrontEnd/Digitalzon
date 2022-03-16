@@ -1,10 +1,54 @@
-import React, { useState} from "react";
+import React, { useState , useRef, useEffect} from "react";
 import { Link } from "react-router-dom";
 import "./PostList.css";
-import PageList from "./PageList";
 import Gnb from "../common/Gnb"
+import Pagination from "../common/Pagination";
+import { useHistory } from "react-router-dom";
 
-const PostList = ({ posts, currentPage, setCurrentPage }) => {
+const PostList = ({ posts, user, location }) => {
+
+  const history = useHistory();
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    if (location.state === undefined) {
+      setCurrentPage(1);
+    } else {
+      setCurrentPage(location.state.currentPage);
+      history.replace();
+    }
+  }, []);
+
+  //현재 페이지 위치
+  
+  const [ postCopy, setPostCopy] = useState(posts);
+  
+  const searchPanel1 = useRef();
+
+  const searchBtn = () => {
+   const searchBtn1 = searchPanel1.current.value;
+    let searchPanel = [...posts];
+      searchPanel = searchPanel.filter( value => {
+        if(value.name.indexOf(searchBtn1) !== -1 ||
+        value.number.indexOf(searchBtn1) !== -1 || 
+        value.state.indexOf(searchBtn1) !== -1 ||
+        value.statemanager.indexOf(searchBtn1) !== -1 ||
+        value.email.indexOf(searchBtn1) !== -1 ||
+        value.phonenumber.indexOf(searchBtn1) !== -1 
+         ){
+          return value;
+      }});
+    console.log(searchPanel)
+    setPostCopy(searchPanel);
+    setCurrentPage(1); 
+  };
+
+  const onKey = (e) => {
+    if (e.key === "Enter") {
+      searchBtn();
+      
+  }}
   
   const postsPerPage = 10; //한 페이지에 글 갯수
 
@@ -20,16 +64,16 @@ const PostList = ({ posts, currentPage, setCurrentPage }) => {
 
   return (
     <div className="inner_box">
-       <Gnb />
+       <Gnb user={user}/>
       <div className="pannelsystem-content">
-        <form className="pannelsystem-form">
+        <div className="pannelsystem-form">
           <div className="pannelsystem-input-box">
-            <input type="text" id="pannelsystem-input" />
-            <button className="pannelsystem-input-btn">
+            <input ref={searchPanel1} onKeyPress={onKey} type="text" id="pannelsystem-input" />
+            <button type="button" className="pannelsystem-input-btn" onClick={searchBtn}>
               <img src="/img/mdi-magnify.png" alt="검색버튼" />
             </button>
           </div>
-        </form>
+        </div>
       </div>
       <table className="pannelsystem-table">
         <thead className="pannelsystem-thead">
@@ -44,13 +88,20 @@ const PostList = ({ posts, currentPage, setCurrentPage }) => {
             <th>상태변경자</th>
           </tr>
         </thead>
-        {currentPosts(posts).map((item) => {
+        {currentPosts(postCopy).map((item) => {
           return (
-            <tbody className="pannelsystem-tbody">
-              <tr key={item.number}>
+            <tbody className="pannelsystem-tbody" key={item.number}>
+              <tr >
                 <td>{item.number}</td>
                 <td>
-                  <Link to={`/panel/view/${item.number}`}>{item.name}</Link>
+                  <Link
+                  to={{
+                    pathname: `/panel/view/${item.number}`,
+                    state: {
+                      currentPage : currentPage
+                    },
+                  }}
+                  >{item.name}</Link>
                 </td>
                 <td>{item.phonenumber}</td>
                 <td>{item.email}</td>
@@ -63,10 +114,9 @@ const PostList = ({ posts, currentPage, setCurrentPage }) => {
           );
         })}
       </table>
-      <PageList
-        posts={posts}
+      <Pagination
         postsPerPage={postsPerPage}
-        totalPosts={posts.length}
+        totalPosts={postCopy.length}
         paginate={setCurrentPage}
         currentPage={currentPage}
       />

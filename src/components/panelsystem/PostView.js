@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./PostView.css";
+import Gnb from "../common/Gnb";
 import moment from "moment";
 
-const PostView = ({posts,setPosts}) => {
+const PostView = ({posts,setPosts,user,location, history}) => {
+  const {currentPage} = location.state
   const params = useParams(); //파라미터로 받기 위한 함수
   let no = params.no;
   const postItem = posts.find((item) => {
     return item.number === no;
   });
-  const [prevState, setPrevState] = useState("");
+  const [prevState, setPrevState] = useState('');
   const [selectValue, setSelectValue] = useState(postItem.state);
 
   let date = moment().format("YYYY-MM-DD HH:mm:ss");
@@ -22,23 +24,22 @@ const PostView = ({posts,setPosts}) => {
   } 변경하였습니다.`;
 
   const selectChange = (e) => {
-    if ( selectValue === prevState ) {
-      alert('같은 상태입니다')
-      return;
-    } else {
       setPrevState(selectValue);
       setSelectValue(e.target.value);
-    }
-    
+      console.log(selectValue)
+      console.log(prevState)
   };
   //select메뉴 변경시 벨류값
 
   const saveBtn = () => {
-    setPosts(
+    if( selectValue === postItem.state ){
+      alert('상태를 변경해주세요')
+    }
+    else setPosts(
       posts.map((item) => {
+        
         if (item.number === no) {
           item.record.unshift(recordTxt);
-
           /* -추가 부분 - */
           item.state = selectValue;
           /* -추가 부분 - */
@@ -67,6 +68,7 @@ const PostView = ({posts,setPosts}) => {
 
   return (
     <div className="inner_box">
+      <Gnb user={user}/>
       <div className="postview-wrap">
         <div className="postview-content">
           <table className="postview-table">
@@ -110,8 +112,14 @@ const PostView = ({posts,setPosts}) => {
           <button className="postview-btn save-btn" onClick={saveBtn}>
             저장
           </button>
-          <Link to="/panel/board">
-            <button className="postview-btn back-btn">목록</button>
+          <Link
+              to={{
+                pathname:`/panel/board`,
+                state: {
+                  currentPage : currentPage
+                },
+              }}
+            ><button className="postview-btn back-btn">목록</button>
           </Link>
         </div>
         <div className="postview-loglist">
