@@ -32,8 +32,8 @@ header + * {
 }
 .info-nav > .user-login {
   display: flex;
-  width: 200px;
-  justify-content: space-between;
+  width: 100%;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -64,6 +64,8 @@ header + * {
   font-weight: 600;
   text-align: center;
   color: #545147;
+  margin-left: 50px;
+  cursor: pointer;
 }
 .info-nav > ul .point {
   height: 29px;
