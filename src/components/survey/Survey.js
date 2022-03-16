@@ -14,6 +14,7 @@ const Survey = ({
   paginate,
   surveySerachFnc,
   currentPage,
+  user,
 }) => {
   const [surveyRegistModal, setSurveyRegistModal] = useState(false);
   const surveyRegistModalClose = () => {
@@ -48,6 +49,7 @@ const Survey = ({
   /*  */
   return (
     <div className="survey-box">
+      <Gnb user={user} />
       <div className="inner-800">
         <Gnb />
         {surveyModalOpen && (
