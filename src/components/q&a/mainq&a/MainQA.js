@@ -1,10 +1,45 @@
-import React from 'react';
+import React, { useState ,useRef } from "react";
 import {Link} from 'react-router-dom'
 import Gnb from "../../common/Gnb"
 import Pagination from '../../point/Pagination';
 import "./MainQA.css"
 
 function MainQA({tableInfo, user}){
+  const [searchedSurveys, setSearchedSurveys] = useState(tableInfo);
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 10;
+
+  const indexOfLast = currentPage * postsPerPage;
+  const indexOfFirst = indexOfLast - postsPerPage;
+
+  function currentPosts(tmp) {
+    let currentPosts = 0;
+    currentPosts = tmp.slice(indexOfFirst, indexOfLast); // 0 ~ 10 |  10 ~ 20
+    return currentPosts;
+  }
+  const surveyInputRef =useRef(0)
+  const surveySerachFnc = () => {
+    let tmpItems = [...tableInfo];
+    const val = surveyInputRef.current.value;
+    tmpItems = tmpItems.filter((item) => {
+      if (item.user.indexOf(val) !== -1 || item.title.indexOf(val) !== -1 ) {
+        return item;
+      }
+    });
+    console.log(tmpItems);
+    setSearchedSurveys(tmpItems);
+  };
+
+  const surveyInputEnter = (e) => {
+    if (e.key === "Enter") {
+      // surveySerachFnc(surveyInputRef);
+      surveySerachFnc();
+    }
+  };
+  const surveyInputClick = () => {
+    // surveySerachFnc(surveyInputRef);
+    surveySerachFnc();
+  };
   return(
     <div className='mainqa'>
       <Gnb user={user} />
@@ -12,8 +47,8 @@ function MainQA({tableInfo, user}){
           <Link to={{pathname:'/publish',}}>
             <button className='btn-publish'>신규등록</button></Link>
           <div className='btn-search'>
-            <input type="text"></input>
-            <button><img src="/img/mdi-magnify.png" /></button>
+            <input type="text" onKeyPress={surveyInputEnter} ref={surveyInputRef}></input>
+            <button><img src="/img/mdi-magnify.png" onClick={surveyInputClick} /></button>
           </div>
         </div>
         <table className='mainqa-table'>
@@ -26,7 +61,7 @@ function MainQA({tableInfo, user}){
               </tr>
           </thead>
           <tbody>
-                {tableInfo.map(function(a,index){
+                {searchedSurveys.map(function(a,index){
                 return(
                         <tr key={index}>
                           <td>{a.num}</td>
