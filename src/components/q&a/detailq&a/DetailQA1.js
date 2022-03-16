@@ -42,7 +42,7 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
   const tableRemove =()=>{
     const newTable = tableInfo.filter((it)=> it.num !== params.num);
     setTableInfo(newTable)
-    alert('질문이 삭제되었습니다.')
+    window.confirm('현재 목록을 삭제하시겠습니까?')
     history.push("/mainqa")
   };
   const tableEdit = (num, newContent) => {
