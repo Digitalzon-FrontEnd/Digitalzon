@@ -1,7 +1,7 @@
 import React, { useState ,useRef } from "react";
 import {Link} from 'react-router-dom'
 import Gnb from "../../common/Gnb"
-import Pagination from '../../point/Pagination';
+import Pagination from '../../common/Pagination'
 import "./MainQA.css"
 
 function MainQA({tableInfo, user}){
@@ -61,7 +61,7 @@ function MainQA({tableInfo, user}){
               </tr>
           </thead>
           <tbody>
-                {searchedSurveys.map(function(a,index){
+                {currentPosts(searchedSurveys).map(function(a,index){
                 return(
                         <tr key={index}>
                           <td>{a.num}</td>
@@ -77,6 +77,10 @@ function MainQA({tableInfo, user}){
               })}
     </tbody>
         </table>
+        <Pagination postsPerPage={postsPerPage}
+          totalPosts={searchedSurveys.length > 0 ? searchedSurveys.length : 1}
+          paginate={setCurrentPage}
+          currentPage={currentPage}/>
     </div>
   )
 }
