@@ -4,18 +4,20 @@ import Gnb from "../../common/Gnb";
 import "./ApproveView.css";
 import moment from "moment";
 
-const ApproveView = ({ surveyApproveItems, setSurveyApproveItems }) => {
+const ApproveView = ({ posts, setPosts }) => {
   const params = useParams();
   const id = Number(params.id);
-  console.log("id", id);
-  const surveyApproveItem = surveyApproveItems.find((item) => {
-    return item.id === id;
+  const surveyApproveItem = posts.find((item) => {
+    return item.num === id;
   });
+  const surveyProfiles = surveyApproveItem.profile1.concat(
+    surveyApproveItem.profile2,
+    surveyApproveItem.profile3
+  );
 
   const [prevSelectedValue, setPrevSelectValue] = useState("");
   const [selectValue, setSelectValue] = useState("승인대기");
   const onSaveClick = () => {
-    console.log(surveyApproveItem);
     var now = moment();
     var date = now.format("YYYY-MM-DD HH:mm:ss");
     let recordText = "";
@@ -27,13 +29,13 @@ const ApproveView = ({ surveyApproveItems, setSurveyApproveItems }) => {
         selectValue === "처리중" ? `${selectValue} 으로` : `${selectValue} 로`
       }   변경하였습니다. `;
     }
-    setSurveyApproveItems(
-      surveyApproveItems.map((item) =>
-        item.id === id
+    setPosts(
+      posts.map((item) =>
+        item.num === id
           ? {
               ...item,
               record: [recordText, ...item.record],
-              status: selectValue,
+              state: selectValue,
               modifiedDate: now.format("YYYY.MM.DD"),
               modifiedBy: "관리자",
             }
@@ -41,10 +43,10 @@ const ApproveView = ({ surveyApproveItems, setSurveyApproveItems }) => {
       )
     );
 
-    surveyApproveItems.map((item) => {
+    posts.map((item) => {
       return item + item;
     });
-    surveyApproveItems.map((item) => {
+    posts.map((item) => {
       return item;
     });
   };
@@ -61,25 +63,25 @@ const ApproveView = ({ surveyApproveItems, setSurveyApproveItems }) => {
             <div className="details-left">
               <div className="details-left-inner">
                 <div className="row">
-                  <span class="key">업체명</span>
-                  <span class="value">주식회사(A)</span>
+                  <span className="key">업체명</span>
+                  <span className="value">주식회사(A)</span>
                 </div>
                 <div className="row">
-                  <span class="key">사용자명</span>
-                  <span class="value">홍길동</span>
+                  <span className="key">사용자명</span>
+                  <span className="value">홍길동</span>
                 </div>
                 <div className="row">
-                  <span class="key">아이디</span>
-                  <span class="value">aaabcde</span>
+                  <span className="key">아이디</span>
+                  <span className="value">aaabcde</span>
                 </div>
 
                 <div className="row">
-                  <span class="key">연락처</span>
-                  <span class="value">010-0000-0000</span>
+                  <span className="key">연락처</span>
+                  <span className="value">010-0000-0000</span>
                 </div>
                 <div className="row">
-                  <span class="key">이메일</span>
-                  <span class="value">010-0000-0000</span>
+                  <span className="key">이메일</span>
+                  <span className="value">010-0000-0000</span>
                 </div>
               </div>
             </div>
@@ -87,16 +89,18 @@ const ApproveView = ({ surveyApproveItems, setSurveyApproveItems }) => {
               <ul>
                 <li>· 조사명 : {surveyApproveItem.surveyName}</li>
                 <li>· 설문링크 : www.survey.com</li>
-                <li>· 필요샘플 수 : {surveyApproveItem.needSampleCount}</li>
+                <li>· 필요샘플 수 : {surveyApproveItem.needSample}</li>
                 <li>· 참여포인트 : 100 point</li>
-                <li>· 설문기간 : {surveyApproveItem.surveyRequestDate}</li>
+                <li>· 설문기간 : {surveyApproveItem.date}</li>
                 <li>· 발송패널 수 : 2500건</li>
                 <li>
                   <span className="survey-profile-container">
                     · 설문 프로파일 :
-                    {surveyApproveItem.surveyProfiles.map((profile) => {
+                    {surveyProfiles.map((profile, index) => {
                       return (
-                        <span className="survey-profile-text">{profile}</span>
+                        <span className="survey-profile-text" key={index}>
+                          {profile}
+                        </span>
                       );
                     })}
                   </span>

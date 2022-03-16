@@ -36,21 +36,21 @@
 .menu-nav > ul > li.on {
   color: #fba92f;
 }
-.menu-nav > ul > li:hover{
+.menu-nav > ul > li:hover {
   color: #fba92f;
 }
-.menu-nav > ul > li >a:hover{
+.menu-nav > ul > li > a:hover {
   color: #fba92f;
 }
 
-.menu-nav .total-manege-box{
+.menu-nav .total-manege-box {
   position: relative;
 }
-.menu-nav .total-manege-box:hover >ul{
+.menu-nav .total-manege-box:hover > ul {
   display: block;
 }
 
-.menu-nav .total-manage-list{
+.menu-nav .total-manage-list {
   position: absolute;
   display: none;
   padding-top: 14px;
@@ -59,7 +59,7 @@
   color: #545147;
 }
 
-.menu-nav .total-manage-list>li{
+.menu-nav .total-manage-list > li {
   width: 168px;
   height: 34px;
   font-size: 16px;
@@ -67,10 +67,12 @@
   font-weight: 600;
   text-align: left;
   text-indent: 9px;
-  
 }
 
-
-.menu-nav .total-manage-list>li:hover{
+.menu-nav .total-manage-list > li:hover {
   background-color: #ebebeb;
+}
+
+.menu-nav .total-manage-box:hover > .total-manage-list {
+  display: block;
 }
