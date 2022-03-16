@@ -526,12 +526,31 @@ const Root = () => {
   ]);
   /* 패널시스템 현황 데이터 */
   let [tableInfo,setTableInfo] = useState ([{
+    num :'11',
+    title : 'Q&A 게시판',
+    date : '2021.10.15',
+    user : '홍길동',
+    content : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
+  },
+    {
+    num :'10',
+    title : 'Q&A 게시판',
+    date : '2021.10.10',
+    user : '전선향',
+    content : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
+  },
+    {
+      num :'9',
+      title : 'Q&A 게시판',
+      date : '2021.10.03',
+      user : '안소향',
+      content : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
+    },{
     num :'8',
     title : 'Q&A 게시판',
     date : '2021.09.30',
     user : '전선향',
     content : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
-
   },{
     num :'7',
     title : 'Q&A 게시판',
