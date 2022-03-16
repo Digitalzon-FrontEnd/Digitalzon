@@ -15,7 +15,7 @@ function MainQA({location,tableInfo, user}){
       history.replace();
     }
   }, []);
-  const [searchedSurveys, setSearchedSurveys] = useState(tableInfo);
+  const [searchedTables, setSearchedTables] = useState(tableInfo);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 10;
 
@@ -27,28 +27,26 @@ function MainQA({location,tableInfo, user}){
     currentPosts = tmp.slice(indexOfFirst, indexOfLast); // 0 ~ 10 |  10 ~ 20
     return currentPosts;
   }
-  const surveyInputRef =useRef(0)
-  const surveySerachFnc = () => {
+  const tableInputRef =useRef(0)
+  const tableserachFnc = () => {
     let tmpItems = [...tableInfo];
-    const val = surveyInputRef.current.value;
+    const val = tableInputRef.current.value;
     tmpItems = tmpItems.filter((item) => {
       if (item.user.indexOf(val) !== -1 || item.title.indexOf(val) !== -1 ) {
         return item;
       }
     });
-    setSearchedSurveys(tmpItems);
+    setSearchedTables(tmpItems);
     setCurrentPage(1);
   };
 
-  const surveyInputEnter = (e) => {
+  const tableInputEnter = (e) => {
     if (e.key === "Enter") {
-      // surveySerachFnc(surveyInputRef);
-      surveySerachFnc();
+      tableserachFnc();
     }
   };
-  const surveyInputClick = () => {
-    // surveySerachFnc(surveyInputRef);
-    surveySerachFnc();
+  const tableInputClick = () => {
+    tableserachFnc();
   };
   return(
     <div className='mainqa'>
@@ -57,8 +55,8 @@ function MainQA({location,tableInfo, user}){
           <Link to={{pathname:'/publish',}}>
             <button className='btn-publish'>신규등록</button></Link>
           <div className='btn-search'>
-            <input type="text" onKeyPress={surveyInputEnter} ref={surveyInputRef}></input>
-            <button><img src="/img/mdi-magnify.png" onClick={surveyInputClick} /></button>
+            <input type="text" onKeyPress={tableInputEnter} ref={tableInputRef}></input>
+            <button><img src="/img/mdi-magnify.png" onClick={tableInputClick} alt="magnify" /></button>
           </div>
         </div>
         <table className='mainqa-table'>
@@ -71,7 +69,7 @@ function MainQA({location,tableInfo, user}){
               </tr>
           </thead>
           <tbody>
-                {currentPosts(searchedSurveys).map(function(a,index){
+                {currentPosts(searchedTables).map(function(a,index){
                 return(
                         <tr key={index}>
                           <td>{a.num}</td>
@@ -89,7 +87,7 @@ function MainQA({location,tableInfo, user}){
     </tbody>
         </table>
         <Pagination postsPerPage={postsPerPage}
-          totalPosts={searchedSurveys.length > 0 ? searchedSurveys.length : 1}
+          totalPosts={searchedTables.length > 0 ? searchedTables.length : 1}
           paginate={setCurrentPage}
           currentPage={currentPage}/>
     </div>
