@@ -23,11 +23,7 @@ const Gnb = ({ user }) => {
           <li className={url === "/mainqa" ? "on" : null}>
             <Link to="/mainqa">Q&amp;A</Link>
           </li>
-<<<<<<< HEAD
-          <li>
-=======
           <li className={url === "/accountchange" ? "on" : null}>
->>>>>>> 91e48b4aeffee8a06428ca0fd358469c72e67675
             <Link to="/accountchange">계정설정</Link>
           </li>
           <li className={url === "/survey" ? "on" : null}>

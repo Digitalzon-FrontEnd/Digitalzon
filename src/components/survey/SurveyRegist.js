@@ -128,7 +128,7 @@ function SurveyRegist({ modalClose, posts, setPosts }) {
           X
         </button>
       </div>
-      <form className="svRg-form-box" action="/survey" onSubmit={addNewPost}>
+      <form className="svRg-form-box" action="/survey" onSubmit={addNewPost} >
         <ul className="svRg-form-lists">
           <li className="svRg-form-list">
             <label htmlFor="">조사명</label>
