@@ -7,7 +7,6 @@ const ApproveBoard = ({ surveyApproveItems }) => {
   return (
     <div className="inner">
       <Gnb />
-
       <div className="approve-board-box">
         <div className="approve-board-select-box">
           <span className="approve-board-search-box">
