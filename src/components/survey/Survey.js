@@ -16,6 +16,7 @@ const Survey = ({
   currentPage,
   user,
 }) => {
+  console.log(user);
   const [surveyRegistModal, setSurveyRegistModal] = useState(false);
   const surveyRegistModalClose = () => {
     setSurveyRegistModal(!surveyRegistModal);
@@ -51,7 +52,6 @@ const Survey = ({
     <div className="survey-box">
       <Gnb user={user} />
       <div className="inner-800">
-        <Gnb />
         {surveyModalOpen && (
           <Modal
             modalClose={modalClose}

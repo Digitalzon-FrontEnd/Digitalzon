@@ -5,7 +5,6 @@ import "./Gnb.css";
 const Gnb = ({ user }) => {
   const sampleLocation = useLocation();
   const url = sampleLocation.pathname;
-  console.log(url);
   return (
     <nav className="menu-nav">
       {user.login ? (
