@@ -14,6 +14,7 @@ const AccountChange = () => {
         $(`#accountCallNum${length - 1}`).focus();
         }
     };
+    // 휴대폰번호 칸 관련 함수
     const pwValue = useRef();
     const pwCheckValue = useRef();
     const emailCheck = useRef();
@@ -29,6 +30,7 @@ const AccountChange = () => {
             pwCheckValue.current.value = "";
         };
     };
+    // 일치, 이메일 함수
 
     const inputRef = useRef(null);
     const inputRefTwo = useRef(null);
@@ -39,10 +41,11 @@ const AccountChange = () => {
         inputRefTwo.current.disabled = false;
         inputRefThree.current.disabled = false;
     };
+    // 전화번호 함수
 
     const [showcertification, setShowcertification] = useState(false);
     const onClickCer = () => setShowcertification(true);
-
+    // 번호 변경 시 인증번호 함수
 
     return (
     <div className="account-wrapper">
