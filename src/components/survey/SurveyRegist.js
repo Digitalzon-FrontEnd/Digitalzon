@@ -112,14 +112,9 @@ function SurveyRegist({ modalClose, posts, setPosts }) {
     const newPosts = [...posts];
     newPosts.unshift(newPost);
     setPosts(newPosts);
+    alert("설문 등록이 완료되었습니다.");
+    modalClose();
   };
-  const addNewPost = () => {
-    const newPosts = [...posts];
-    newPosts.unshift(newPost);
-    setPosts(newPosts);
-  };
- 
-
   return (
     <div className="surveyRg">
       <div className="svRg-pageTitle-box">
@@ -128,7 +123,7 @@ function SurveyRegist({ modalClose, posts, setPosts }) {
           X
         </button>
       </div>
-      <form className="svRg-form-box" action="/survey" onSubmit={addNewPost}>
+      <form className="svRg-form-box" action="/survey">
         <ul className="svRg-form-lists">
           <li className="svRg-form-list">
             <label htmlFor="">조사명</label>
@@ -355,7 +350,7 @@ function SurveyRegist({ modalClose, posts, setPosts }) {
           <li className="svRg-form-list" id="svRgSubmitBtnList">
             <button
               className="svRg-btn-submit btn-s btn-o"
-              type="submit"
+              type="button"
               onClick={setNewPost}
             >
               저장
