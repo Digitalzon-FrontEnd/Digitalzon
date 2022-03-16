@@ -10,8 +10,8 @@ const ApproveView = ({ surveyApproveItems, setPosts , user }) => {
   const surveyApproveItem = surveyApproveItems.find((item) => {
     return item.num === id;
   });
-  console.log(surveyApproveItem)
-  const surveyProfiles = surveyApproveItems.profile1//.concat(surveyApproveItems.profile2,surveyApproveItems.profile3)
+  const surveyProfiles = surveyApproveItem.profile1//.concat(surveyApproveItems.profile2,surveyApproveItems.profile3)
+  console.log(surveyProfiles)
   const [prevSelectedValue, setPrevSelectValue] = useState("");
   const [selectValue, setSelectValue] = useState(surveyApproveItem.state);
   const location = useLocation();

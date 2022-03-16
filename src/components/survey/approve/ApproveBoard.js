@@ -79,7 +79,7 @@ const ApproveBoard = ({ surveyApproveItems , user }) => {
               onChange={onSearchTextHandler}
               onKeyPress={onSearchEnter}
             />
-            <label for="search-box" onClick={onSearchHandler}>
+            <label htmlFor="search-box" onClick={onSearchHandler}>
               검색
             </label>
           </span>
