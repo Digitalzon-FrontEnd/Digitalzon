@@ -4,16 +4,14 @@ const CommentItem = ({
   onRemove,
   onEdit,
   id,
-  author,
   content,
-  emotion,
   created_date
 }) => {
+  const new_date = new Date().getTime();
   const localContentInput = useRef();
   const [localContent, setLocalContent] = useState(content);
   const [isEdit, setIsEdit] = useState(false);
   const toggleIsEdit = () => setIsEdit(!isEdit);
-
   const handleClickRemove = () => {
     if (window.confirm(`현재 댓글을 삭제하시겠습니까?`)) {
       onRemove(id);
@@ -26,13 +24,13 @@ const CommentItem = ({
   };
 
   const handleEdit = () => {
-    if (localContent.length < 5) {
+    if (localContent.length < 3) {
       localContentInput.current.focus();
       return;
     }
 
     if (window.confirm(`현재 댓글을 수정하시겠습니까?`)) {
-      onEdit(id, localContent);
+      onEdit(id, localContent, new_date);
       toggleIsEdit();
     }
   };

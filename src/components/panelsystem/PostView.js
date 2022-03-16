@@ -1,50 +1,50 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./PostView.css";
+import Gnb from "../common/Gnb";
 import moment from "moment";
 
-const PostView = ({ posts, setPosts }) => {
-  const [prevState, setPrevState] = useState("");
-  const [selectState, setSelectState] = useState("접수");
-
+const PostView = ({posts,setPosts,user,location, history}) => {
+  const {currentPage} = location.state
   const params = useParams(); //파라미터로 받기 위한 함수
   let no = params.no;
   const postItem = posts.find((item) => {
     return item.number === no;
   });
+  const [prevState, setPrevState] = useState('');
+  const [selectValue, setSelectValue] = useState(postItem.state);
+
   let date = moment().format("YYYY-MM-DD HH:mm:ss");
   /* 날짜 */
 
   let recordTxt = `· ${date} ${
     postItem.statemanager
-  } 님이 상태를 ${prevState} 에서 ${selectState} ${
-    selectState === "처리중" ? "으로" : "로"
+  } 님이 상태를 ${prevState} 에서 ${selectValue} ${
+    selectValue === "처리중" ? "으로" : "로"
   } 변경하였습니다.`;
 
   const selectChange = (e) => {
-    setPrevState(selectState);
-    setSelectState(e.target.value);
+      setPrevState(selectValue);
+      setSelectValue(e.target.value);
   };
   //select메뉴 변경시 벨류값
 
   const saveBtn = () => {
-    setPosts(
+    if( selectValue === postItem.state ){
+      alert('상태를 변경해주세요')
+    }
+    else setPosts(
       posts.map((item) => {
-        if (item.number === no) item.record.unshift(recordTxt);
+        
+        if (item.number === no) {
+          item.record.unshift(recordTxt);
+          /* -추가 부분 - */
+          item.state = selectValue;
+          /* -추가 부분 - */
+        }
         return item;
       })
     );
-    //  item.number===no ? {...item,record:[...item.record,recordTxt]} : item
-    //  )) //item 값을 스프레드로 전개하는 이유 -> posts 값이 useState를 써서 깊은 복사를 해줘야 값을 바꿀 수 있다.
-    //  ))};
-    /* posts.map((item)=>
-    {  
-      if(item.number===no)    
-         item.record.unshift(recordTxt)
-       return item;
-       
-     }
-    ) */
   };
 
   const data = {
@@ -66,6 +66,7 @@ const PostView = ({ posts, setPosts }) => {
 
   return (
     <div className="inner_box">
+      <Gnb user={user}/>
       <div className="postview-wrap">
         <div className="postview-content">
           <table className="postview-table">
@@ -84,25 +85,39 @@ const PostView = ({ posts, setPosts }) => {
                 <td>{postItem.statemanager}</td>
                 <td>{postItem.phonenumber}</td>
                 <td>{postItem.email}</td>
-                <td>패널인증시스템 신청합니다.</td>
+                <td>{postItem.panelContent}</td>
               </tr>
             </tbody>
           </table>
+          {/* 테이블 끝 */}
         </div>
         <div className="postview-btn-box">
           <p>상태</p>
-          <select name="접수" id="postview-select" onChange={selectChange}>
-            {options.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.name}
-              </option>
-            ))}
-          </select>
+          <div className="select-wrap">
+            <select
+              value={selectValue}
+              name="접수"
+              id="postview-select"
+              onChange={selectChange}
+            >
+              {options.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.name}
+                </option>
+              ))}
+            </select>
+          </div>
           <button className="postview-btn save-btn" onClick={saveBtn}>
             저장
           </button>
-          <Link to="/panel/board">
-            <button className="postview-btn back-btn">목록</button>
+          <Link
+              to={{
+                pathname:`/panel/board`,
+                state: {
+                  currentPage : currentPage
+                },
+              }}
+            ><button className="postview-btn back-btn">목록</button>
           </Link>
         </div>
         <div className="postview-loglist">

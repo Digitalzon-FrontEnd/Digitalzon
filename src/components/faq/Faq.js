@@ -2,7 +2,7 @@ import React from "react";
 import Gnb from "../common/Gnb";
 import "./Faq.css";
 
-const Faq = () => {
+const Faq = ({ user }) => {
   const slideToggle = (e) => {
     e.target.parentElement.nextSibling.classList.toggle("slide");
     e.target.classList.toggle("faq-arrow-up");
@@ -42,7 +42,7 @@ const Faq = () => {
   return (
     <div className="faq">
       <div className="inner">
-        <Gnb />
+        <Gnb user={user} />
         <div className="faq-btn-box">
           <button
             className="faq-btn-category btn-r btn-b"

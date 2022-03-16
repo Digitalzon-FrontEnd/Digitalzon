@@ -17,6 +17,7 @@ const SurveyRow = ({
   profile2,
   profile3,
   pointPerPerson,
+  currentPage,
 }) => {
   return (
     <tr className={activation ? "survey-row-on" : "survey-row-off"}>
@@ -36,7 +37,7 @@ const SurveyRow = ({
           }}
         />
       </td>
-      
+
       <td>{num}</td>
       <td>
         <Link
@@ -57,6 +58,7 @@ const SurveyRow = ({
               profile3: profile3,
               pointPerPerson: pointPerPerson,
               activation: activation,
+              currentPage: currentPage,
             },
           }}
         >

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Footer from "./common/Footer";
 import { Route } from "react-router-dom";
 import Faq from "./faq/Faq";
@@ -28,323 +28,119 @@ import SurveyModify from "./survey/SurveyModify";
 import Header from "./common/Header";
 import Main from "./main/Main";
 import surveyData from "../data/SurveyData";
-import Home from "./home/Home.js"
-import MainQA from './q&a/mainq&a/MainQA'
+import surveyApproveData from "../data/SurveyApproveData";
+import pointData from "../data/pointData";
+import panelData from "../data/panelData";
+import userData from "../data/userData";
+import qaData from "../data/qaData";
+import Home from "./home/Home.js";
+import MainQA from "./q&a/mainq&a/MainQA";
 import PublishQA from "./q&a/publishq&a/PublishQA";
 import DetailQA1 from "./q&a/detailq&a/DetailQA1";
+import Gnb from "./common/Gnb";
+
 const Root = () => {
   const [selectPointItem, setSelectPointItem] = useState({});
-  const [pointItems, setPointItems] = useState([
-    {
-      id: 1,
-      companyName: "A기업",
-      managerName: "홍길동",
-      phone: "010-000-0000",
-      email: "abcd1234@000.com",
-      pointAmount: "20,000",
-      division: "환불신청",
-      applyDate: "2021.10.28",
-      modifiedDate: "2021.10.28",
-      status: "접수",
-      modifiedBy: "해당없음",
-      record: [],
-    },
-    {
-      id: 2,
-      companyName: "B기업",
-      managerName: "고길동",
-      phone: "010-000-0000",
-      email: "abcd1234@000.com",
-      pointAmount: "20,000",
-      division: "환불신청",
-      applyDate: "2021.10.28",
-      modifiedDate: "2021.10.28",
-      status: "접수",
-      modifiedBy: "해당없음",
-      record: [],
-    },
-    {
-      id: 3,
-      companyName: "C기업",
-      managerName: "고길동",
-      phone: "010-000-0000",
-      email: "abcd1234@000.com",
-      pointAmount: "20,000",
-      division: "환불신청",
-      applyDate: "2021.10.28",
-      modifiedDate: "2021.10.28",
-      status: "접수",
-      modifiedBy: "해당없음",
-      record: [],
-    },
-    {
-      id: 4,
-      companyName: "D기업",
-      managerName: "우르사",
-      phone: "010-000-0000",
-      email: "abcd1234@000.com",
-      pointAmount: "20,000",
-      division: "환불신청",
-      applyDate: "2021.10.28",
-      modifiedDate: "2021.10.28",
-      status: "접수",
-      modifiedBy: "해당없음",
-      record: [],
-    },
-    {
-      id: 5,
-      companyName: "E기업",
-      managerName: "포돌이",
-      phone: "010-000-0000",
-      email: "abcd1234@000.com",
-      pointAmount: "20,000",
-      division: "환불신청",
-      applyDate: "2021.10.28",
-      modifiedDate: "2021.10.28",
-      status: "접수",
-      modifiedBy: "해당없음",
-      record: [],
-    },
-    {
-      id: 6,
-      companyName: "F기업",
-      managerName: "퓌파",
-      phone: "010-000-0000",
-      email: "abcd1234@000.com",
-      pointAmount: "20,000",
-      division: "환불신청",
-      applyDate: "2021.10.28",
-      modifiedDate: "2021.10.28",
-      status: "접수",
-      modifiedBy: "해당없음",
-      record: [],
-    },
-    {
-      id: 7,
-      companyName: "G기업",
-      managerName: "월드콘",
-      phone: "010-000-0000",
-      email: "abcd1234@000.com",
-      pointAmount: "20,000",
-      division: "환불신청",
-      applyDate: "2021.10.28",
-      modifiedDate: "2021.10.28",
-      status: "접수",
-      modifiedBy: "해당없음",
-      record: [],
-    },
-    {
-      id: 8,
-      companyName: "H기업",
-      managerName: "뼤뻬로",
-      phone: "010-000-0000",
-      email: "abcd1234@000.com",
-      pointAmount: "20,000",
-      division: "환불신청",
-      applyDate: "2021.10.28",
-      modifiedDate: "2021.10.28",
-      status: "접수",
-      modifiedBy: "해당없음",
-      record: [],
-    },
-    {
-      id: 9,
-      companyName: "I기업",
-      managerName: "호빵",
-      phone: "010-000-0000",
-      email: "abcd1234@000.com",
-      pointAmount: "20,000",
-      division: "환불신청",
-      applyDate: "2021.10.28",
-      modifiedDate: "2021.10.28",
-      status: "접수",
-      modifiedBy: "해당없음",
-      record: [],
-    },
-    {
-      id: 10,
-      companyName: "J기업",
-      managerName: "콘초",
-      phone: "010-000-0000",
-      email: "abcd1234@000.com",
-      pointAmount: "20,000",
-      division: "환불신청",
-      applyDate: "2021.10.28",
-      modifiedDate: "2021.10.28",
-      status: "접수",
-      modifiedBy: "해당없음",
-      record: [],
-    },
-  ]);
-  const [surveyApproveItems, setSurveyApproveItems] = useState([
-    {
-      id: 1,
-      surveyName: "갤럭시S21 사용자 만족도 조사",
-      surveyRequestDate: "2021.10.28~2021.11.28",
-      needSampleCount: "500",
-      completeSampleCount: "0",
-      status: "승인완료",
-      modifiedDate: "2021.10.28",
-      modifiedBy: "홍길동",
-      affiliation: "개인",
-      record: [],
-      surveyProfiles: ["남성", "20세~39세", "SKT", "갤럭시S21"],
-    },
-    {
-      id: 2,
-      surveyName: "갤럭시S21 사용자 만족도 조사",
-      surveyRequestDate: "2021.10.28~2021.11.28",
-      needSampleCount: "500",
-      completeSampleCount: "0",
-      status: "승인완료",
-      modifiedDate: "2021.10.28",
-      modifiedBy: "홍길동",
-      affiliation: "개인",
-      record: [],
-    },
-    {
-      id: 3,
-      surveyName: "갤럭시S21 사용자 만족도 조사",
-      surveyRequestDate: "2021.10.28~2021.11.28",
-      needSampleCount: "500",
-      completeSampleCount: "0",
-      status: "승인완료",
-      modifiedDate: "2021.10.28",
-      modifiedBy: "홍길동",
-      affiliation: "개인",
-      record: [],
-    },
-    {
-      id: 4,
-      surveyName: "갤럭시S21 사용자 만족도 조사",
-      surveyRequestDate: "2021.10.28~2021.11.28",
-      needSampleCount: "500",
-      completeSampleCount: "0",
-      status: "승인완료",
-      modifiedDate: "2021.10.28",
-      modifiedBy: "홍길동",
-      affiliation: "개인",
-      record: [],
-    },
-    {
-      id: 5,
-      surveyName: "갤럭시S21 사용자 만족도 조사",
-      surveyRequestDate: "2021.10.28~2021.11.28",
-      needSampleCount: "500",
-      completeSampleCount: "0",
-      status: "승인완료",
-      modifiedDate: "2021.10.28",
-      modifiedBy: "홍길동",
-      affiliation: "개인",
-      record: [],
-    },
-    {
-      id: 6,
-      surveyName: "갤럭시S21 사용자 만족도 조사",
-      surveyRequestDate: "2021.10.28~2021.11.28",
-      needSampleCount: "500",
-      completeSampleCount: "0",
-      status: "승인완료",
-      modifiedDate: "2021.10.28",
-      modifiedBy: "홍길동",
-      affiliation: "개인",
-      record: [],
-    },
-    {
-      id: 7,
-      surveyName: "갤럭시S21 사용자 만족도 조사",
-      surveyRequestDate: "2021.10.28~2021.11.28",
-      needSampleCount: "500",
-      completeSampleCount: "0",
-      status: "승인완료",
-      modifiedDate: "2021.10.28",
-      modifiedBy: "홍길동",
-      affiliation: "개인",
-      record: [],
-    },
-    {
-      id: 8,
-      surveyName: "갤럭시S21 사용자 만족도 조사",
-      surveyRequestDate: "2021.10.28~2021.11.28",
-      needSampleCount: "500",
-      completeSampleCount: "0",
-      status: "승인완료",
-      modifiedDate: "2021.10.28",
-      modifiedBy: "홍길동",
-      affiliation: "개인",
-      record: [],
-    },
-    {
-      id: 9,
-      surveyName: "갤럭시S21 사용자 만족도 조사",
-      surveyRequestDate: "2021.10.28~2021.11.28",
-      needSampleCount: "500",
-      completeSampleCount: "0",
-      status: "승인완료",
-      modifiedDate: "2021.10.28",
-      modifiedBy: "홍길동",
-      affiliation: "개인",
-      record: [],
-    },
-    {
-      id: 10,
-      surveyName: "갤럭시S21 사용자 만족도 조사",
-      surveyRequestDate: "2021.10.28~2021.11.28",
-      needSampleCount: "500",
-      completeSampleCount: "0",
-      status: "승인완료",
-      modifiedDate: "2021.10.28",
-      modifiedBy: "홍길동",
-      affiliation: "개인",
-      record: [],
-    },
-  ]);
+   
+     
   const [userList, setUserList] = useState([
     {
-        "id": 0,
-        "userco": "(주) A",
-        "accountid": "juri42",
-        "accountpw": 123456789,
-        "mail": "juri42@gmail.com",
-        "userid": "김주리",
-        "usercall1": "010",
-        "usercall2": "1234",
-        "usercall3": "5678",
-        "userinfo": "(주) A 김주리"
+      id: 0,
+      userco: "(주) A",
+      accountid: "juri42",
+      accountpw: 123456789,
+      mail: "juri42@gmail.com",
+      username: "김주리",
+      usercall1: "010",
+      usercall2: "1234",
+      usercall3: "5678",
     },
     {
-        "id": 1,
-        "userco": "(주) B",
-        "accountid": "perfume22",
-        "accountpw": 987654321,
-        "mail": "perfume22@naver.com",
-        "userid": "전선향",
-        "usercall1": "010",
-        "usercall2": "9876",
-        "usercall3": "5432",
-        "userinfo": "(주) B 전선향"
-    }
+      id: 1,
+      userco: "(주) B",
+      accountid: "perfume22",
+      accountpw: 987654321,
+      mail: "perfume22@naver.com",
+      username: "전선향",
+      usercall1: "010",
+      usercall2: "9876",
+      usercall3: "5432",
+    },
+    {
+      id: 2,
+      userco: "(주) C",
+      accountid: "asd2",
+      accountpw: 246246446,
+      mail: "egseg5@naver.com",
+      username: "정규대",
+      usercall1: "010",
+      usercall2: "3958",
+      usercall3: "3643",
+    },
+    {
+      id: 3,
+      userco: "(주) D",
+      accountid: "sav",
+      accountpw: 34646477,
+      mail: "eljif074@naver.com",
+      username: "김지영",
+      usercall1: "010",
+      usercall2: "4446",
+      usercall3: "2978",
+    },
+    {
+      id: 4,
+      userco: "(주) E",
+      accountid: "z412",
+      accountpw: 6768971,
+      mail: "alie97@naver.com",
+      username: "배예린",
+      usercall1: "010",
+      usercall2: "1037",
+      usercall3: "3094",
+    },
+    {
+      id: 5,
+      userco: "(주) F",
+      accountid: "dfh5",
+      accountpw: 79634634,
+      mail: "wjgid7444@naver.com",
+      username: "양준혁",
+      usercall1: "010",
+      usercall2: "4686",
+      usercall3: "2677",
+    },
   ]);
-// user-List
-
-  const handleCreate = (accountid,accountpw,mail,userid,usercall1,usercall2,usercall3) => {
+  // userList
+  const [pointItems, setPointItems] = useState(pointData);
+  const [surveyApproveItems, setSurveyApproveItems] =
+    useState(surveyApproveData);
+  
+  const handleCreate = (
+    accountid,
+    accountpw,
+    mail,
+    username,
+    usercall1,
+    usercall2,
+    usercall3
+  ) => { 
     const userArray = [...userList];
     userArray.push({
-        "id": 2,
-        "userco": "(주) C",
-        "accountid": `${accountid}`,
-        "accountpw": `${accountpw}`,
-        "mail": `${mail}`,
-        "userid": `${userid}`,
-        "usercall1": `${usercall1}`,
-        "usercall2": `${usercall2}`,
-        "usercall3": `${usercall3}`,
-        "userinfo": `(주) C ${userid}`
-    })
-    setUserList(userArray)
+      id : userList[userList.length-1].id+1,
+      userco: "(주) o",
+      accountid: `${accountid}`,
+      accountpw: `${accountpw}`,
+      mail: `${mail}`,
+      username: `${username}`,
+      usercall1: `${usercall1}`,
+      usercall2: `${usercall2}`,
+      usercall3: `${usercall3}`,
+      userinfo: `(주) o ${username}`,
+    });
+    setUserList(userArray);
   };
-// user-List에 push 해주는 함수
-
+  // userList에 push 해주는 함수
 
   const [panelPosts, setPanelPosts] = useState([
     {
@@ -354,9 +150,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2022-02-04",
       statedate: "2022-02-04",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "mmmmmmmmmmmmmmmasadhha",
     },
     {
       number: "15",
@@ -365,9 +162,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2022-02-04",
       statedate: "2022-02-04",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "bbbbbbbbbbbbbbbasadhha",
     },
     {
       number: "14",
@@ -376,9 +174,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2022-01-22",
       statedate: "2022-01-22",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "zzzzzzzzzzzzasadhha",
     },
     {
       number: "13",
@@ -387,9 +186,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2022-01-15",
       statedate: "2022-01-15",
-      state: "처리중",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "afffffffffffffsadhha",
     },
     {
       number: "12",
@@ -398,9 +198,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-12-28",
       statedate: "2021-12-28",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "asadhfafha",
     },
     {
       number: "11",
@@ -409,9 +210,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-11-28",
       statedate: "2021-11-28",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "asadh75ha",
     },
     {
       number: "10",
@@ -420,9 +222,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-10-28",
       statedate: "2021-10-28",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "asadhh11111a",
     },
     {
       number: "9",
@@ -431,9 +234,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-09-04",
       statedate: "2021-09-05",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "해당없음",
       record: [],
+      panelContent: "asadhhka",
     },
     {
       number: "8",
@@ -442,9 +246,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-08-04",
       statedate: "2021-08-05",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "asadhh1gfa",
     },
     {
       number: "7",
@@ -453,9 +258,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-07-10",
       statedate: "2021-07-11",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "asadhha",
     },
     {
       number: "6",
@@ -464,9 +270,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-07-04",
       statedate: "2021-07-05",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "해당없음",
       record: [],
+      panelContent: "asa11da",
     },
     {
       number: "5",
@@ -475,9 +282,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-06-04",
       statedate: "2021-06-05",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "asada",
     },
     {
       number: "4",
@@ -486,9 +294,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-05-10",
       statedate: "2021-05-10",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "김주리",
       record: [],
+      panelContent: "acvba",
     },
     {
       number: "3",
@@ -497,9 +306,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-05-04",
       statedate: "2021-05-05",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "김주리",
       record: [],
+      panelContent: "aaasd",
     },
     {
       number: "2",
@@ -508,9 +318,10 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-04-05",
       statedate: "2021-04-05",
-      state: "처리 중",
+      state: "접수",
       statemanager: "해당없음",
       record: [],
+      panelContent: "aa22",
     },
     {
       number: "1",
@@ -522,11 +333,36 @@ const Root = () => {
       state: "접수",
       statemanager: "홍길동",
       record: [],
+      panelContent: "aa",
     },
   ]);
+  const [ point, setPoint ] = useState(0);  //아직 초기 데이터 값을 모르기 때문에 0으로 처리했다.
+  const [ list, setList ] = useState([]);
+    /* 사용내역 로그 */
   /* 패널시스템 현황 데이터 */
   let [tableInfo,setTableInfo] = useState ([{
-    num :'8',
+    num :'11',
+    title : 'Q&A 게시판',
+    date : '2021.10.15',
+    user : '홍길동',
+    content : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
+  },
+    {
+    num :'10',
+    title : 'Q&A 게시판',
+    date : '2021.10.10',
+    user : '전선향',
+    content : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
+  },
+    {
+      num :'9',
+      title : 'Q&A 게시판',
+      date : '2021.10.03',
+      user : '안소향',
+      content : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
+    },{
+   
+      num :'8',
     title : 'Q&A 게시판',
     date : '2021.09.30',
     user : '전선향',
@@ -588,7 +424,11 @@ const Root = () => {
   //현재 페이지 위치
   const postsPerPage = 10;
   // 한 화면에 볼 수 있는 설문 개수
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState({
+    id: "",
+    login: false,
+    grade: 0,
+  });
   // 로그인 비로그인
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
@@ -599,6 +439,12 @@ const Root = () => {
     return currentPosts;
   }
   /* 현재 포스트 */
+  
+
+  
+
+
+
   const surveySerachFnc = (ref) => {
     return new Promise(function (resolve, reject) {
       const value = ref.current.value;
@@ -618,18 +464,34 @@ const Root = () => {
 
   return (
     <div>
-    <  Header />
-      <Route  exact path="/" component={Main}/>
-      <Route  exact path="/mainqa" render={(props) => (
-        <MainQA  tableInfo={tableInfo} setTableInfo={setTableInfo} {...props}/>
-  )} />
+      <Header user={user} point={point} setUser={setUser} />
+      <Route exact path="/" component={Main} />
+      <Route
+        exact
+        path="/mainqa"
+        render={(props) => (
+          <MainQA
+            tableInfo={tableInfo}
+            setTableInfo={setTableInfo}
+            {...props}
+            user={user}
+          />
+        )}
+      />
+
       <Route path="/faq" render={() => <Faq user={user} />} />
       <Route path="/guide" render={() => <Guide user={user} />} />
       <Route path="/login" render={() => <Login setUser={setUser} />} />
       <Route path="/terms" component={Terms} />
       <Route path="/findId" component={FindId} />
       <Route path="/findPw" component={FindPw} />
-      <Route exact path="/panel" component={Panel} />
+      <Route
+        exact
+        path="/panel"
+        render={() => (
+          <Panel panelPosts={panelPosts} setPanelPosts={setPanelPosts} />
+        )}
+      />
       <Route path="/infoinput" component={InfoInput} />
       <Route path="/complete" component={Complete} />
       <Route
@@ -638,57 +500,65 @@ const Root = () => {
         render={() => (
           <PointBoard
             pointItems={pointItems}
-            setPointItems={setPointItems}
             setSelectPointItem={setSelectPointItem}
             selectPointItem={selectPointItem}
+            user={user}
+            setPointItems={setPointItems}
           />
         )}
       ></Route>
       <Route
-        exact
         path="/point/view/:id"
         render={() => (
-          <PointView pointItems={pointItems} setPointItems={setPointItems} />
+          <PointView pointItems={pointItems} setPointItems={setPointItems} user={user}/>
         )}
       />
       <Route
-        exact
         path="/survey/approve/board"
         render={() => (
           <ApproveBoard
-            surveyApproveItems={surveyApproveItems}
-            setSurveyApproveItems={setSurveyApproveItems}
+            surveyApproveItems={posts}
+            setSurveyApproveItems={setPosts}
+            user={user}
           />
         )}
       ></Route>
       <Route
         exact
         path="/survey/approve/view/:id"
-        render={() => (
-          <ApproveView
-            surveyApproveItems={surveyApproveItems}
-            setSurveyApproveItems={setSurveyApproveItems}
-          />
-        )}
+        render={() => <ApproveView surveyApproveItems={posts} setPosts={setPosts} user={user}/>}
       ></Route>
 
       <Route
         exact
         path="/panel/board"
-        render={() => <PostList posts={panelPosts} />}
+        render={(props) => <PostList 
+          posts={panelPosts} 
+          setPosts={setPanelPosts}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        user={user}
+        {...props}
+        />}
       />
       <Route
         exact
         path="/panel/view/:no"
-        render={() => <PostView posts={panelPosts} setPosts={setPanelPosts} />}
+        render={(props) => <PostView 
+          posts={panelPosts} 
+          setPosts={setPanelPosts} 
+          user={user}
+          {...props}
+        />}
       />
 
-      <Route path="/managepoint" component={ManagePoint} />
+      <Route path="/managepoint" render={()=>(<ManagePoint point={point} setPoint={setPoint} list={list} setList={setList} user={user}/>)} />
       <Route
         exact={true}
         path="/survey"
-        render={() => (
+        render={(props) => (
           <Survey
+            {...props}
             totalIndexPosts={
               posts
             } /* 전체 데이터 (라디오 버튼에서 사용함으로 다른 컴포넌트에서 필요 X) */
@@ -699,39 +569,83 @@ const Root = () => {
             paginate={setCurrentPage} /* 현재 페이지 위치  */
             surveySerachFnc={surveySerachFnc}
             currentPage={currentPage}
+            user={user}
+            AllDataPosts={posts}
           />
         )}
       />
 
       <Route
-        path="/survey/SurveyDetail/:num"
-        component={(props) => <SurveyDetail setPosts={setPosts} {...props} />}
+        path="/survey/surveydetail/:num"
+        component={(props) => (
+          <SurveyDetail setPosts={setPosts} {...props} user={user} />
+        )}
       />
 
       <Route
         path="/surveymodify"
         component={(props) => (
-          <SurveyModify posts={posts} setPosts={setPosts} {...props} />
+          <SurveyModify
+            posts={posts}
+            setPosts={setPosts}
+            {...props}
+            user={user}
+          />
         )}
       />
 
       <Route path="/surveyregist" component={SurveyRegist} />
-      <Route path="/home" component={Home}/>
-      <Route path="/publish" render={(props) => (
-        <PublishQA  tableInfo={tableInfo} setTableInfo={setTableInfo} {...props} />
-  )}/>
-      <Route path={`/mainqa/detailqa/:num`} render={(props) => (
-        <DetailQA1 tableInfo={tableInfo} setTableInfo={setTableInfo} {...props}/>
-  )}
+      <Route path="/home" render={() => <Home user={user}/>} />
+      <Route
+        path="/publish"
+        render={(props) => (
+          <PublishQA
+            tableInfo={tableInfo}
+            setTableInfo={setTableInfo}
+            {...props}
+          />
+        )}
       />
-      <Route path="/accountchange" component={AccountChange} />
-      <Route path="/accountsetup" render={() => <AccountSetup handleCreate={handleCreate} setUserList={setUserList}/>} />
-      <Route path="/accountmanage" render={(props) => <AccountManage userList={userList} handleCreate={handleCreate} setUserList={setUserList} />} />
-      <Route path="/mypage" component={MyPage} />
-      <Footer />
+      <Route
+        path={`/mainqa/detailqa/:num`}
+        render={(props) => (
+          <DetailQA1
+            tableInfo={tableInfo}
+            setTableInfo={setTableInfo}
+            user={user}
+            {...props}
+          />
+        )}
+      />
+      <Route path="/accountchange" render={() => <AccountChange user={user}/>} />
+      <Route
+        path="/accountsetup"
+        render={() => (
+          <AccountSetup handleCreate={handleCreate} setUserList={setUserList} user={user}/>
+        )}
+      />
+      <Route
+        path="/accountmanage"
+        render={(props) => (
+          <AccountManage
+            userList={userList}
+            handleCreate={handleCreate}
+            setUserList={setUserList}
+            user={user}
+          />
+        )}
+      />
+
+      <Route path="/mypage" 
+      render={(props) => (
+          <MyPage
+            user={user}
+            
+          />
+        )} />
+      <Footer user={user} />
     </div>
   );
 };
 
 export default Root;
-

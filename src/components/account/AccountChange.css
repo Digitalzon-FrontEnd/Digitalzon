@@ -9,7 +9,7 @@
 .account-step-box{
     display: flex;
     justify-content: space-between;
-    margin-top: 122.5px;
+    margin-top: 110px;
 }
 .account-step{
     width: 230.1px;
@@ -26,7 +26,6 @@
     background-color: #fba92f;
 
 }
-
 .account-change-info{
     width: 434.6px;
     margin: 38.8px auto 0px;

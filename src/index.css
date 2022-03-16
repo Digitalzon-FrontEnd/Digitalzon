@@ -38,7 +38,7 @@ button {
 body {
   width: 100%;
   line-height: 1;
-  overflow-x: hidden;
+  overflow-x: auto;
 }
 
 input::-webkit-outer-spin-button,
@@ -72,7 +72,7 @@ input::-webkit-inner-spin-button {
   margin: auto;
   padding-left: 20px;
   padding-right: 20px;
-  min-height: 500px
+  min-height: 500px;
 }
 
 .warn {

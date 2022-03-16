@@ -1,26 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Approve = ({ surveyApproveItem }) => {
+const Approve = ({ post, currentPage, searchedItems }) => {
   return (
     <tr>
-      <td>{surveyApproveItem.id}</td>
+      <td>{post.num}</td>
       <td>
-        {/* <Link to={`/survey/approve/view/${surveyApproveItem.id}`}>
-          {surveyApproveItem.surveyName}
-        </Link> */}
-        <Link to={`/survey/approve/view/1`}>
-          {surveyApproveItem.surveyName}
+        <Link
+          to={{
+            pathname: `/survey/approve/view/${post.num}`,
+            state: {
+              currentPage: currentPage,
+              searchedItems: searchedItems,
+            },
+          }}
+        >
+          {post.surveyName}
         </Link>
       </td>
-      <td>{surveyApproveItem.surveyRequestDate}</td>
+      <td>{post.date}</td>
 
-      <td>{surveyApproveItem.needSampleCount}</td>
-      <td>{surveyApproveItem.completeSampleCount}</td>
-      <td>{surveyApproveItem.status}</td>
-      <td>{surveyApproveItem.modifiedDate}</td>
-      <td>{surveyApproveItem.modifiedBy}</td>
-      <td>{surveyApproveItem.affiliation}</td>
+      <td>{post.needSample}</td>
+      <td>{post.completeSample}</td>
+      <td>{post.state}</td>
+      <td>{post.modifiedDate}</td>
+      <td>{post.modifiedBy}</td>
+      <td>{post.affiliation}</td>
     </tr>
   );
 };
