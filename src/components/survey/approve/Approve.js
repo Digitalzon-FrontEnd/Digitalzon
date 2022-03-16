@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const Approve = ({ post, currentPage, searchedItems }) => {
   return (
+    <tbody>
     <tr>
       <td>{post.num}</td>
       <td>
@@ -27,6 +28,7 @@ const Approve = ({ post, currentPage, searchedItems }) => {
       <td>{post.modifiedBy}</td>
       <td>{post.affiliation}</td>
     </tr>
+    </tbody>
   );
 };
 

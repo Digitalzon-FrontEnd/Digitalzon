@@ -117,7 +117,7 @@ const PostList = ({ posts, user, location }) => {
         postsPerPage={postsPerPage}
         totalPosts={postCopy.length}
         paginate={setCurrentPage}
-        // currentPage={currentPage}
+        currentPage={currentPage}
       />
     </div>
   );

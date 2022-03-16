@@ -4,6 +4,7 @@ import "./ApproveList.css";
 const ApproveList = ({ surveyApproveItems, currentPage, searchedItems }) => {
   return (
     <table className="approve-table">
+      <thead>
       <tr>
         <th width="3%">번호</th>
         <th width="28%">조사명</th>
@@ -16,9 +17,11 @@ const ApproveList = ({ surveyApproveItems, currentPage, searchedItems }) => {
         <th width="10%">상태변경자</th>
         <th>소속</th>
       </tr>
+      </thead>
       {surveyApproveItems.map((item) => {
         return (
           <Approve
+            key={item.num}
             post={item}
             currentPage={currentPage}
             searchedItems={searchedItems}
