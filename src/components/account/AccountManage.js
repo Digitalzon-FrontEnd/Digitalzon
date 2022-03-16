@@ -45,6 +45,7 @@ const AccountManage = ({ userList, setUserList, user }) => {
         const copyList = [...userList];
         const filterList = copyList.filter((item) => item.id !== userId);
         setUserList(filterList);
+        setSearchTerm(filterList);
         currentUserId.current.value = "";
         currentPw.current.value = "";
         currentEmail.current.value = "";
@@ -235,6 +236,7 @@ const AccountManage = ({ userList, setUserList, user }) => {
                     </div>
                     <div className="account-btn-box">
                         <button
+                        type="button"
                         className="account-manage-btn"
                         id="accountDelBtn"
                         onClick={removeBtn}

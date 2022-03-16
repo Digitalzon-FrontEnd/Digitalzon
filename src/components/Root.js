@@ -153,7 +153,7 @@ const Root = () => {
       state: "접수",
       statemanager: "홍길동",
       record: [],
-      panelContent: "mmmmmmmmmmmmmmmasadhha",
+      panelContent: "패널신청 합니다.",
     },
     {
       number: "15",
@@ -165,7 +165,7 @@ const Root = () => {
       state: "접수",
       statemanager: "홍길동",
       record: [],
-      panelContent: "bbbbbbbbbbbbbbbasadhha",
+      panelContent: "신청합니다 ~ :)",
     },
     {
       number: "14",
@@ -175,9 +175,9 @@ const Root = () => {
       date: "2022-01-22",
       statedate: "2022-01-22",
       state: "접수",
-      statemanager: "홍길동",
+      statemanager: "김병철",
       record: [],
-      panelContent: "zzzzzzzzzzzzasadhha",
+      panelContent: "Sincheong hapnida",
     },
     {
       number: "13",
@@ -189,7 +189,7 @@ const Root = () => {
       state: "접수",
       statemanager: "홍길동",
       record: [],
-      panelContent: "afffffffffffffsadhha",
+      panelContent: "신청13",
     },
     {
       number: "12",
@@ -201,7 +201,7 @@ const Root = () => {
       state: "접수",
       statemanager: "홍길동",
       record: [],
-      panelContent: "asadhfafha",
+      panelContent: "신청12",
     },
     {
       number: "11",
@@ -213,7 +213,7 @@ const Root = () => {
       state: "접수",
       statemanager: "홍길동",
       record: [],
-      panelContent: "asadh75ha",
+      panelContent: "신청신청해요",
     },
     {
       number: "10",
@@ -225,7 +225,7 @@ const Root = () => {
       state: "접수",
       statemanager: "홍길동",
       record: [],
-      panelContent: "asadhh11111a",
+      panelContent: "신청! ",
     },
     {
       number: "9",
@@ -237,7 +237,7 @@ const Root = () => {
       state: "접수",
       statemanager: "해당없음",
       record: [],
-      panelContent: "asadhhka",
+      panelContent: "패널신청합니다",
     },
     {
       number: "8",
@@ -249,7 +249,7 @@ const Root = () => {
       state: "접수",
       statemanager: "홍길동",
       record: [],
-      panelContent: "asadhh1gfa",
+      panelContent: "패널신청이요",
     },
     {
       number: "7",
@@ -261,7 +261,7 @@ const Root = () => {
       state: "접수",
       statemanager: "홍길동",
       record: [],
-      panelContent: "asadhha",
+      panelContent: "신청",
     },
     {
       number: "6",
@@ -273,7 +273,7 @@ const Root = () => {
       state: "접수",
       statemanager: "해당없음",
       record: [],
-      panelContent: "asa11da",
+      panelContent: "패널 신청",
     },
     {
       number: "5",
@@ -285,7 +285,7 @@ const Root = () => {
       state: "접수",
       statemanager: "홍길동",
       record: [],
-      panelContent: "asada",
+      panelContent: "패널5",
     },
     {
       number: "4",
@@ -297,7 +297,7 @@ const Root = () => {
       state: "접수",
       statemanager: "김주리",
       record: [],
-      panelContent: "acvba",
+      panelContent: "패널 신청 합니다.",
     },
     {
       number: "3",
@@ -309,7 +309,7 @@ const Root = () => {
       state: "접수",
       statemanager: "김주리",
       record: [],
-      panelContent: "aaasd",
+      panelContent: "패널신청합니다!",
     },
     {
       number: "2",
@@ -321,7 +321,7 @@ const Root = () => {
       state: "접수",
       statemanager: "해당없음",
       record: [],
-      panelContent: "aa22",
+      panelContent: "패널 신청해요",
     },
     {
       number: "1",
@@ -333,7 +333,7 @@ const Root = () => {
       state: "접수",
       statemanager: "홍길동",
       record: [],
-      panelContent: "aa",
+      panelContent: "신청 하겠습니다",
     },
   ]);
   const [ point, setPoint ] = useState(0);  //아직 초기 데이터 값을 모르기 때문에 0으로 처리했다.
