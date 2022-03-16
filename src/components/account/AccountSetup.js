@@ -94,11 +94,11 @@ const AccountSetup = ({handleCreate, setUserList}) => {
                         <div className="account-change-info">
                             <div className="account-id">
                                 <label>아이디</label>
-                                <input type="id" value={accountId} onChange={onChangeId} className="account-input" required></input>
+                                <input type="id" value={accountId} onChange={onChangeId} className="account-input" maxLength="20" required></input>
                             </div>
                             <div className="account-password">
                                 <label>비밀번호</label>
-                                <input type="password" value={accountPw} onChange={onChangePw} className=" account-input" required></input>
+                                <input type="password" value={accountPw} onChange={onChangePw} className=" account-input" maxLength="15" required></input>
                             </div>
                             <div className="account-email">
                                 <label>E-Mail</label>
@@ -106,7 +106,7 @@ const AccountSetup = ({handleCreate, setUserList}) => {
                             </div>
                             <div className="account-username">
                                 <label>사용자명</label>
-                                <input value={username} onChange={onChangeUser}className=" account-input" required></input>
+                                <input value={username} onChange={onChangeUser}className=" account-input"  maxLength="15" required></input>
                             </div>
                             <div className="account-call">
                                 <label>휴대폰 번호</label>

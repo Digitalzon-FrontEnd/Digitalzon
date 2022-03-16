@@ -15,9 +15,23 @@ const MyPage = () => {
         $(`#accountCallNum${length - 1}`).focus();
         }
     };
+    // 전화번호칸 함수
+
     const pwValue = useRef();
     const pwCheckValue = useRef();
     const emailCheck = useRef();
+    // 비밀번호,비밀번호재입력,이메일 설정
+    const inputRef = useRef(null);
+    const inputRefTwo = useRef(null);
+    const inputRefThree = useRef(null);
+    function handleFocus() {
+        inputRef.current.disabled = false;
+        inputRef.current.focus();
+        inputRefTwo.current.disabled = false;
+        inputRefThree.current.disabled = false;
+    };
+    // 전화번호 설정
+    
     const handleSubmit = (e) => {
         const inputValue = (i) => {
             return i.current.value
@@ -30,19 +44,17 @@ const MyPage = () => {
             pwCheckValue.current.value = "";
         };
     };
-
-    const inputRef = useRef(null);
-    const inputRefTwo = useRef(null);
-    const inputRefThree = useRef(null);
-    function handleFocus() {
-        inputRef.current.disabled = false;
-        inputRef.current.focus();
-        inputRefTwo.current.disabled = false;
-        inputRefThree.current.disabled = false;
-    };
+    // submit 함수
 
     const [showcertification, setShowcertification] = useState(false);
     const onClickCer = () => setShowcertification(true);
+    // 번호인증 함수
+
+    const cerBtn = () => {
+        alert("번호인증이 완료되었습니다.")
+    }
+    // 번호인증 알람
+
     return (
         <div>
             <Gnb />
@@ -63,11 +75,11 @@ const MyPage = () => {
                             </div>
                             <div className="account-password">
                                 <label>비밀번호</label>
-                                <input type="password" className=" account-input" ref={pwValue}></input>
+                                <input type="password" className=" account-input" ref={pwValue} maxLength="15"></input>
                             </div>
                             <div className="account-password-check">
                                 <label>비밀번호 확인</label>
-                                <input type="password" className=" account-input" ref={pwCheckValue}></input>
+                                <input type="password" className=" account-input" ref={pwCheckValue} maxLength="15"></input>
                             </div>
                             <div className="account-email">
                                 <label>E-Mail</label>
@@ -75,7 +87,7 @@ const MyPage = () => {
                             </div>
                             <div className="account-username">
                                 <label>사용자명</label>
-                                <input className=" account-input"></input>
+                                <input className=" account-input"  maxLength="15"></input>
                             </div>
                             <div className="account-call">
                                 <label>휴대폰 번호</label>
@@ -114,7 +126,7 @@ const MyPage = () => {
                                     <label>인증번호입력</label>
                                     <input id="cerInput"  required></input>
                                 </div>
-                                <button id="accountCerBtn" type="button">확인</button>
+                                <button id="accountCerBtn" type="button" onClick={cerBtn} required>확인</button>
                             </div>
                             : null }
                         </div>

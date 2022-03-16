@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import "./AccountManage.css";
 import { Link } from "react-router-dom";
 import Gnb from "../common/Gnb";
+import { isEmpty } from "lodash";
 
 const AccountManage = ({ userList, setUserList }) => {
     const [userId, setUserId] = useState("");
@@ -79,6 +80,7 @@ const AccountManage = ({ userList, setUserList }) => {
         userinfo: userList[userId].userinfo,
         });
         setUserList(copyList);
+        alert("계정변경이 완료되었습니다.")
     };
     // 변경사항 저장하는 함수
 
@@ -96,24 +98,55 @@ const AccountManage = ({ userList, setUserList }) => {
     };
     // 인풋 상태값 변화 확인 함수
 
-    {/*const [searchValue, setSearchValue] = useState("");
 
-    const handleInputChange = (e) => {
-        // console.log(e.target.value);        
-        setSearchValue(e.target.value)
-    }
-    const shouldDisplayButton = searchValue.length > 0;
     
-    const handleInputClear = () => {
-        setSearchValue("")
-    }*/}
+
+    //const handleInputChange = (e) => {        
+    //    setSearchValue(e.target.value)
+    //}
+
+    //const shouldDisplayButton = searchValue.length > 0;
+    
+    //const handleInputClear = () => {
+    //    setSearchValue("")
+    //}
 
     //const filteredUser = userList.filter((filterUser)=>{
     //    return filterUser.includes(searchValue);
     //})
+    // search 함수 구현중...\
 
-    const [searchTerm, setSearchTerm] = useState("");
+    //const [searchedUser,setSearchedUser] = useState(userList);
+    
+ 
+    const [searchTerm, setSearchTerm] = useState(userList);
+    const searchPoint = useRef();
+    const searchFnc = () => {
+        const userSelect = searchPoint.current.value;
+        let userSearch = [...userList];
+        userSearch = userSearch.filter((findUser) => {
+            if(findUser.accountid.indexOf(userSelect) !== -1){
+                return findUser;
+            }
+        })
+        setSearchTerm(userSearch)
 
+        let userSearch2 = [...userList];
+        userSearch2 = userSearch2.filter((findUser) => {
+            if(findUser.username.indexOf(userSelect) !== -1){
+                return findUser;
+            }
+        })
+        setSearchTerm(userSearch2)
+
+        // let userSearch3 = [...userList];
+        // userSearch3 = userSearch3.filter((findUser) => {
+        //     if(findUser.email.indexOf(userSelect) !== -1){
+        //         return findUser;
+        //     }
+        // })
+        // setSearchTerm(userSearch3)
+    }
 
     
     return (
@@ -139,15 +172,30 @@ const AccountManage = ({ userList, setUserList }) => {
                         <div className="manage-box">
                         <div className="account-manage-list">
                             <div className="search-box">
-                            <input id="searchBox"></input>
-                            <button id="searchIcon" type="button">돋보기</button>
+                            <input id="searchBox" ref={searchPoint} ></input>
+                            <button id="searchIcon" type="button" onClick={searchFnc}>돋보기</button>
                             </div>
                             <ul className="name-list">
-                            {userList.map((userinfo) => (
-                                <li onClick={() => { click(userinfo.id); }} key={userinfo.userid}>
-                                {userinfo.userco}&nbsp;{userinfo.username}
+                            
+                            {searchTerm.map((findUser) => (
+                                <li onClick={() => { click(findUser.id); }} key={findUser.userid}>
+                                {findUser.userco}&nbsp;{findUser.username}
                                 </li>
                             ))}
+                            
+                            {/*
+                            {userList.filter((val)=>{
+                                if (searchTerm === "")
+                                {return val}
+                                else if (val.accountid.toLowerCase().includes(searchTerm.toLowerCase())||val.accountpw.toLowerCase().includes(searchTerm.toLowerCase()) || val.email.toLowerCase().includes(searchTerm.toLowerCase()) || val.username.toLowerCase().includes(searchTerm.toLowerCase()) || val.usercall1.toLowerCase().includes(searchTerm.toLowerCase()) || val.usercall2.toLowerCase().includes(searchTerm.toLowerCase()) || val.usercall3.toLowerCase().includes(searchTerm.toLowerCase()))
+                                {return val}
+                                }).map((val) => (
+                                    <li onClick={() => { click(val.id); }} key={val.userid}>
+                                    {val.userco}&nbsp;{val.username}
+                                    </li>
+                                ))
+                            }
+                            */}
                             
                             </ul>
                         </div>
@@ -158,6 +206,7 @@ const AccountManage = ({ userList, setUserList }) => {
                                 className=" account-input"
                                 ref={currentUserId}
                                 name="accountid"
+                                maxLength="20"
                                 onChange={onChange}
                                 //value,defaultValue로 넣어주면 input값 변경되지않음 ref 사용해서 변경
                             ></input>
@@ -169,6 +218,7 @@ const AccountManage = ({ userList, setUserList }) => {
                                 className=" account-input"
                                 ref={currentPw}
                                 name="accountpw"
+                                maxLength="15"
                             ></input>
                             </div>
                             <div className="account-email">
@@ -188,6 +238,7 @@ const AccountManage = ({ userList, setUserList }) => {
                                 ref={currentUsername}
                                 name="username"
                                 onChange={onChange}
+                                maxLength="15"
                             ></input>
                             </div>
                             <div className="account-call">

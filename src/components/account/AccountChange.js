@@ -54,9 +54,6 @@ const AccountChange = () => {
         alert("번호인증이 완료되었습니다.")
     }
     // 번호인증 알람
-    const saveBtn = () => {
-        alert("계정변경이 완료되었습니다.")
-    }
 
     return (
     <div>
@@ -80,11 +77,11 @@ const AccountChange = () => {
                         </div>
                         <div className="account-password">
                             <label>비밀번호</label>
-                            <input type="password" className=" account-input" ref={pwValue}></input>
+                            <input type="password" className=" account-input" ref={pwValue} maxLength="15"></input>
                         </div>
                         <div className="account-password-check">
                             <label>비밀번호 확인</label>
-                            <input type="password" className=" account-input" ref={pwCheckValue}></input>
+                            <input type="password" className=" account-input" ref={pwCheckValue} maxLength="15"></input>
                         </div>
                         <div className="account-email">
                             <label>E-Mail</label>
@@ -92,7 +89,7 @@ const AccountChange = () => {
                         </div>
                         <div className="account-username">
                             <label>사용자명</label>
-                            <input className=" account-input"></input>
+                            <input className=" account-input"  maxLength="15"></input>
                         </div>
                         <div className="account-call">
                             <label>휴대폰 번호</label>
@@ -136,7 +133,7 @@ const AccountChange = () => {
                         : null }
                     </div>
                     <div className="account-btn-box">
-                        <button className="account-btn" type="submit" onClick={saveBtn}>저장</button>
+                        <button className="account-btn" type="submit">저장</button>
                     </div>
                 </form>
             </div>
