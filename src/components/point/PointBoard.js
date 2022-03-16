@@ -36,8 +36,10 @@ const PointBoard = ({ pointItems, setSelectPointItem, user }) => {
 
   function currentPosts(posts) {
     let currentPosts = 0;
+
     currentPosts = posts.slice(indexOfFirst, indexOfLast);
     return currentPosts;
+    // 주석
   }
 
   const onChangeHandler = (e) => {
