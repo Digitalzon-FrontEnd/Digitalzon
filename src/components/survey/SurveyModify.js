@@ -4,7 +4,7 @@ import Gnb from "../common/Gnb";
 import "./SurveyModify.css";
 import moment from "moment";
 
-function SurveyModify({ posts, setPosts, location }) {
+function SurveyModify({ posts, setPosts, location, user }) {
   const date = moment().format("YYYY-MM-DD");
 
   const history = useHistory();
@@ -120,7 +120,7 @@ function SurveyModify({ posts, setPosts, location }) {
   };
   return (
     <div className="surveyModify-box">
-      <Gnb />
+      <Gnb user={user} />
       <div className="surveyModify">
         <div className="surveyModify-pageTitle-box">
           <h3 className="surveyModify-pageTitle">신규설문 등록</h3>

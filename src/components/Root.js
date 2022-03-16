@@ -32,6 +32,7 @@ import Home from "./home/Home.js";
 import MainQA from "./q&a/mainq&a/MainQA";
 import PublishQA from "./q&a/publishq&a/PublishQA";
 import DetailQA1 from "./q&a/detailq&a/DetailQA1";
+
 const Root = () => {
   const [selectPointItem, setSelectPointItem] = useState({});
   const [pointItems, setPointItems] = useState([
@@ -658,7 +659,7 @@ const Root = () => {
     },
   ]);
   /* Q&A 데이터 */
-
+  const [point, setPoint] = useState(0); //아직 초기 데이터 값을 모르기 때문에 0으로 처리했다.
   const [posts, setPosts] = useState(surveyData);
   // 설문 테스트 데이터
 
@@ -666,7 +667,11 @@ const Root = () => {
   //현재 페이지 위치
   const postsPerPage = 10;
   // 한 화면에 볼 수 있는 설문 개수
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState({
+    id: "",
+    login: false,
+    grade: 0,
+  });
   // 로그인 비로그인
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
@@ -696,7 +701,7 @@ const Root = () => {
 
   return (
     <div>
-      <Header />
+      <Header user={user} point={point} setUser={setUser} />
       <Route exact path="/" component={Main} />
       <Route
         exact
@@ -791,24 +796,32 @@ const Root = () => {
             paginate={setCurrentPage} /* 현재 페이지 위치  */
             surveySerachFnc={surveySerachFnc}
             currentPage={currentPage}
+            user={user}
           />
         )}
       />
 
       <Route
-        path="/survey/SurveyDetail/:num"
-        component={(props) => <SurveyDetail setPosts={setPosts} {...props} />}
+        path="/survey/surveydetail/:num"
+        component={(props) => (
+          <SurveyDetail setPosts={setPosts} {...props} user={user} />
+        )}
       />
 
       <Route
         path="/surveymodify"
         component={(props) => (
-          <SurveyModify posts={posts} setPosts={setPosts} {...props} />
+          <SurveyModify
+            posts={posts}
+            setPosts={setPosts}
+            {...props}
+            user={user}
+          />
         )}
       />
 
       <Route path="/surveyregist" component={SurveyRegist} />
-      <Route path="/home" component={Home} />
+      <Route path="/home" render={() => <Home />} />
       <Route
         path="/publish"
         render={(props) => (
@@ -829,7 +842,7 @@ const Root = () => {
           />
         )}
       />
-      <Route path="/accountchange" component={AccountChange} />
+      <Route path="/accountchange" render={() => <AccountChange />} />
       <Route
         path="/accountsetup"
         render={() => (
@@ -846,8 +859,9 @@ const Root = () => {
           />
         )}
       />
+
       <Route path="/mypage" component={MyPage} />
-      <Footer />
+      <Footer user={user} />
     </div>
   );
 };
