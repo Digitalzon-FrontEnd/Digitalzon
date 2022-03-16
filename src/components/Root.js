@@ -310,7 +310,6 @@ const Root = () => {
       usercall1: "010",
       usercall2: "1234",
       usercall3: "5678",
-      userinfo: "(주) A 김주리",
     },
     {
       id: 1,
@@ -322,7 +321,6 @@ const Root = () => {
       usercall1: "010",
       usercall2: "9876",
       usercall3: "5432",
-      userinfo: "(주) B 전선향",
     },
     {
       id: 2,
@@ -334,7 +332,6 @@ const Root = () => {
       usercall1: "010",
       usercall2: "3958",
       usercall3: "3643",
-      userinfo: "(주) C 정규대",
     },
     {
       id: 3,
@@ -346,7 +343,6 @@ const Root = () => {
       usercall1: "010",
       usercall2: "4446",
       usercall3: "2978",
-      userinfo: "(주) D 김지영",
     },
     {
       id: 4,
@@ -358,7 +354,6 @@ const Root = () => {
       usercall1: "010",
       usercall2: "1037",
       usercall3: "3094",
-      userinfo: "(주) E 배예린",
     },
     {
       id: 5,
@@ -370,7 +365,6 @@ const Root = () => {
       usercall1: "010",
       usercall2: "4686",
       usercall3: "2677",
-      userinfo: "(주) F 양준혁",
     },
   ]);
   // userList

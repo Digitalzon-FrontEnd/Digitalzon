@@ -103,13 +103,20 @@ const AccountManage = ({ userList, setUserList }) => {
         const userSelect = searchPoint.current.value;
         let userSearch = [...userList];
         userSearch = userSearch.filter((findUser) => {
-            if(findUser.accountid.indexOf(userSelect) !== -1 || findUser.mail.indexOf(userSelect) !== -1 || findUser.usercall1.indexOf(userSelect) !== -1 || findUser.usercall2.indexOf(userSelect) !== -1 || findUser.usercall3.indexOf(userSelect) !== -1){
+            if(findUser.accountid.indexOf(userSelect) !== -1 || findUser.mail.indexOf(userSelect) !== -1 || findUser.usercall1.indexOf(userSelect) !== -1 || findUser.usercall2.indexOf(userSelect) !== -1 || findUser.usercall3.indexOf(userSelect) !== -1 || findUser.username.indexOf(userSelect) !== -1 ){
                 return findUser;
             }
         })
         setSearchTerm(userSearch)
     }
     // search 함수
+    
+    const searchKey = (e) => {
+        if(e.key === "Enter"){
+            console.log('나도')
+            searchFnc();
+        }
+    }
     
     return (
         <div>
@@ -134,7 +141,7 @@ const AccountManage = ({ userList, setUserList }) => {
                         <div className="manage-box">
                         <div className="account-manage-list">
                             <div className="search-box">
-                            <input id="searchBox" ref={searchPoint} ></input>
+                            <input id="searchBox" type="text" ref={searchPoint} onKeyPress={searchKey} ></input>
                             <button id="searchIcon" type="button" onClick={searchFnc}>돋보기</button>
                             </div>
                             <ul className="name-list">
