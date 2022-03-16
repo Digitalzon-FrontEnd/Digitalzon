@@ -2,8 +2,8 @@ import { useRef, useState } from "react";
 import CommentEditor from "./Commenteditor";
 import CommentList from "./CommentList";
 import { Link } from "react-router-dom";
-import './DetailQA.css'
-import { useHistory } from 'react-router-dom';
+import "./DetailQA.css";
+import { useHistory } from "react-router-dom";
 import Gnb from "../../common/Gnb";
 
 const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
@@ -18,7 +18,7 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
       author,
       content,
       created_date,
-      id: dataId.current
+      id: dataId.current,
     };
     dataId.current += 1;
     setData([newItem, ...data]);
@@ -26,13 +26,15 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
 
   const onRemove = (targetId) => {
     const newCommentList = data.filter((it) => it.id !== targetId);
-    setData(newCommentList);  
+    setData(newCommentList);
   };
 
   const onEdit = (targetId, newContent, newDate) => {
     setData(
       data.map((it) =>
-        it.id === targetId ? { ...it, content: newContent , created_date: newDate} : it
+        it.id === targetId
+          ? { ...it, content: newContent, created_date: newDate }
+          : it
       )
     );
   };
@@ -48,7 +50,7 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
   const tableEdit = (num, newContent) => {
     setTableInfo(
       tableInfo.map((it) =>
-        it.num === num ? { ...it, content:newContent} : it
+        it.num === num ? { ...it, content: newContent } : it
       )
     );
   };
@@ -63,29 +65,30 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
     }
     if (window.confirm(`현재 목록을 수정하시겠습니까?`)) {
       tableEdit(params.num, localContent);
-      toggleIsEdit()
+      toggleIsEdit();
     }
   };
   return (
     <div className="detail-qa">
-      <Gnb/>
+      <Gnb />
       <div className="table">
-        <div className='head-list'>
+        <div className="head-list">
           <div id="item1">{params.num}</div>
           <div id="item2">{params.title}</div>
           <div id="item3">{params.date}</div>
           <div id="item4">{params.user}</div>
         </div>
-        <div className='text-input'>
-            {isEdit ? (
-                <textarea className="content-textarea"
-                  ref={localContentInput}
-                  value={localContent}
-                  onChange={(e) => setLocalContent(e.target.value)}
-                />
-            ) : (
-             localContent
-            )}
+        <div className="text-input">
+          {isEdit ? (
+            <textarea
+              className="content-textarea"
+              ref={localContentInput}
+              value={localContent}
+              onChange={(e) => setLocalContent(e.target.value)}
+            />
+          ) : (
+            localContent
+          )}
         </div>
         <CommentList onEdit={onEdit} onRemove={onRemove} CommentList={data} />
         <CommentEditor onCreate={onCreate} />
@@ -115,4 +118,3 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
   );
 };
 export default DetailQA1;
-

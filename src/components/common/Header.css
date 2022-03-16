@@ -17,7 +17,7 @@ header + * {
 }
 
 .header_logo {
-  height: 80px;
+  height: 45px;
   margin-left: 174px;
 }
 .info-nav {
@@ -27,6 +27,12 @@ header + * {
 .info-nav > ul {
   display: flex;
   width: 300px;
+  justify-content: space-between;
+  align-items: center;
+}
+.info-nav > .user-login {
+  display: flex;
+  width: 200px;
   justify-content: space-between;
   align-items: center;
 }
@@ -46,6 +52,20 @@ header + * {
 }
 .info-nav > ul .faq {
   width: 46px;
+  height: 29px;
+  font-size: 23px;
+  font-weight: 600;
+  text-align: center;
+  color: #545147;
+}
+.info-nav > ul .logout {
+  height: 29px;
+  font-size: 23px;
+  font-weight: 600;
+  text-align: center;
+  color: #545147;
+}
+.info-nav > ul .point {
   height: 29px;
   font-size: 23px;
   font-weight: 600;

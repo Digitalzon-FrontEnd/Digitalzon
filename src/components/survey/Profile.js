@@ -71,9 +71,19 @@ const Profile = ({ params }) => {
               },
             }}
           >
+            {" "}
+            {/* params.currentPage */}
             <button className="profile-footer-btn btn-o  btn-s">수정</button>
           </Link>
-          <Link to="/survey">
+
+          <Link
+            to={{
+              pathname: `/survey/`,
+              state: {
+                currentPage: params.currentPage,
+              },
+            }}
+          >
             <button className="profile-footer-btn btn-o  btn-s">목록</button>
           </Link>
         </div>
