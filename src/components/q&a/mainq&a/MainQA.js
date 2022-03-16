@@ -4,10 +4,10 @@ import Gnb from "../../common/Gnb"
 import Pagination from '../../point/Pagination';
 import "./MainQA.css"
 
-function MainQA({tableInfo,user}){
+function MainQA({tableInfo, user}){
   return(
     <div className='mainqa'>
-      <Gnb />
+      <Gnb user={user} />
         <div className='btn-head'>
           <Link to={{pathname:'/publish',}}>
             <button className='btn-publish'>신규등록</button></Link>
