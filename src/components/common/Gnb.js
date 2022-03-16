@@ -33,7 +33,8 @@ const Gnb = ({ user }) => {
             <Link to="/managepoint">포인트 관리</Link>
           </li>
           <li>
-            <Link to="/panel/board">통합관리</Link>
+            <Link to="/point/board">통합관리</Link>
+            {/* panel */}
           </li>
         </ul>
       ) : (

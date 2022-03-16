@@ -3,25 +3,36 @@ import "./PointBoard.css";
 import Gnb from "./../common/Gnb";
 import PointList from "./PointList";
 import Pagination from "./../common/Pagination";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom";
+
 const PointBoard = ({ pointItems, setSelectPointItem }) => {
   const onPointClick = (item) => {
     setSelectPointItem(item);
   };
 
-  const [searchedItems, setSearchedItems] = useState(pointItems);
+  const [searchedItems, setSearchedItems] = useState([]);
   const [selectState, setSelectState] = useState();
   const [selectStartDate, setSelectStartDate] = useState();
   const [selectEndDate, setSelectEndDate] = useState();
   const [searchText, setSearchText] = useState();
   const [currentPage, setCurrentPage] = useState(); //현재 페이지
   const postsPerPage = 10; //한 페이지에 글 갯수
+  const location = useLocation();
+  const history = useHistory();
+  useEffect(() => {
+    if (location.state === undefined) {
+      setSearchedItems(pointItems);
+      setCurrentPage(1);
+    } else {
+      console.log(location);
 
-  // useEffect(() => {
-  //   setCurrentPage(1);
-  // }, []);
+      setCurrentPage(location.state.currentPage);
+      setSearchedItems(location.state.searchedItems);
 
-  console.log("currentPage:", currentPage);
-
+      history.replace();
+    }
+  }, []);
   const indexOfLast = currentPage * postsPerPage; // 페이지를 글 갯수만큼 곱해서 보여준게 마지막 페이지넘버
   const indexOfFirst = indexOfLast - postsPerPage; // 마지막페이지 넘버 - 한 페이지의 글 갯수 = 첫번째 페이지 넘버
 
@@ -40,7 +51,7 @@ const PointBoard = ({ pointItems, setSelectPointItem }) => {
   };
   const onSearchHandler = (e) => {
     let tmpItems = [...pointItems];
-
+    console.log("tmpItems:", tmpItems);
     if (!isEmpty(selectStartDate)) {
       tmpItems = tmpItems.filter((item) => {
         if (item.applyDate >= selectStartDate) {
@@ -70,8 +81,8 @@ const PointBoard = ({ pointItems, setSelectPointItem }) => {
         }
       });
     }
-    console.log("tmpItems:", tmpItems);
     setSearchedItems(tmpItems);
+    setCurrentPage(1);
   };
   const onStartDateHandler = (e) => {
     setSelectStartDate(e.target.value);
@@ -151,14 +162,17 @@ const PointBoard = ({ pointItems, setSelectPointItem }) => {
         <PointList
           pointItems={currentPosts(searchedItems)}
           onPointClick={onPointClick}
+          currentPage={currentPage}
+          searchedItems={searchedItems}
         />
         {!searchedItems.length ? (
           <div className="no-result">게시물이 없습니다.</div>
-        ) : null}
+        ) : (
+          searchedItems.length
+        )}
 
         <Pagination
           postsPerPage={postsPerPage}
-          // totalPosts={searchedItems.length > 0 ? searchedItems.length : 1}
           totalPosts={searchedItems.length > 0 ? searchedItems.length : 1}
           paginate={setCurrentPage}
           currentPage={currentPage}

@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import Gnb from "../../common/Gnb";
 import "./ApproveView.css";
 import moment from "moment";
@@ -12,9 +12,8 @@ const ApproveView = ({ surveyApproveItems, setSurveyApproveItems }) => {
   });
   const [prevSelectedValue, setPrevSelectValue] = useState("");
   const [selectValue, setSelectValue] = useState(surveyApproveItem.status);
-
-  console.log("surveyApproveItem:", surveyApproveItem);
-  console.log(selectValue);
+  const location = useLocation();
+  const { currentPage, searchedItems } = location.state;
   const onSaveClick = () => {
     var now = moment();
     var date = now.format("YYYY-MM-DD HH:mm:ss");
@@ -143,8 +142,17 @@ const ApproveView = ({ surveyApproveItems, setSurveyApproveItems }) => {
                     <button className="save-btn btn-o" onClick={onSaveClick}>
                       저장
                     </button>
-                    <Link to="/survey/approve/board">
-                      <button className="list-btn btn-o" >목록</button>
+
+                    <Link
+                      to={{
+                        pathname: `/survey/approve/board`,
+                        state: {
+                          currentPage: currentPage,
+                          searchedItems: searchedItems,
+                        },
+                      }}
+                    >
+                      <button className="list-btn btn-o">목록</button>
                     </Link>
                   </div>
                 </div>

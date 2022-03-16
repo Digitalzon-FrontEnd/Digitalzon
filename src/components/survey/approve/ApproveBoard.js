@@ -1,16 +1,30 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import "./ApproveBoard.css";
 import ApproveList from "./ApproveList";
 import Gnb from "../../common/Gnb";
 import Pagination from "../../common/Pagination";
+import { useLocation, useHistory } from "react-router-dom";
 const ApproveBoard = ({ surveyApproveItems }) => {
-  const [searchedItems, setSearchedItems] = useState(surveyApproveItems);
-  const [currentPage, setCurrentPage] = useState(1); //현재 페이지
+  const [searchedItems, setSearchedItems] = useState([]);
+  const [currentPage, setCurrentPage] = useState(); //현재 페이지
   const [searchText, setSearchText] = useState();
   const postsPerPage = 10; //한 페이지에 글 갯수
 
   const indexOfLast = currentPage * postsPerPage; // 페이지를 글 갯수만큼 곱해서 보여준게 마지막 페이지넘버
   const indexOfFirst = indexOfLast - postsPerPage; // 마지막페이지 넘버 - 한 페이지의 글 갯수 = 첫번째 페이지 넘버
+  const location = useLocation();
+  const history = useHistory();
+  useEffect(() => {
+    if (location.state === undefined) {
+      setSearchedItems(surveyApproveItems);
+      setCurrentPage(1);
+    } else {
+      setCurrentPage(location.state.currentPage);
+
+      setSearchedItems(location.state.searchedItems);
+      history.replace();
+    }
+  }, []);
 
   const onSearchTextHandler = (e) => {
     setSearchText(e.target.value);
@@ -26,8 +40,8 @@ const ApproveBoard = ({ surveyApproveItems }) => {
         }
       });
     }
-    console.log(tmpItems);
     setSearchedItems(tmpItems);
+    setCurrentPage(1);
   };
   const isEmpty = function (value) {
     if (
@@ -74,7 +88,11 @@ const ApproveBoard = ({ surveyApproveItems }) => {
             검색
           </button>
         </div>
-        <ApproveList surveyApproveItems={currentPosts(searchedItems)} />
+        <ApproveList
+          surveyApproveItems={currentPosts(searchedItems)}
+          currentPage={currentPage}
+          searchedItems={searchedItems}
+        />
 
         {!searchedItems.length ? (
           <div className="no-result">게시물이 없습니다.</div>
@@ -83,7 +101,6 @@ const ApproveBoard = ({ surveyApproveItems }) => {
           postsPerPage={postsPerPage}
           totalPosts={searchedItems.length > 0 ? searchedItems.length : 1}
           paginate={setCurrentPage}
-          // setIndex={setIndex}
           currentPage={currentPage}
         />
       </div>

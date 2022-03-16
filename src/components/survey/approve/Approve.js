@@ -1,15 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Approve = ({ surveyApproveItem }) => {
+const Approve = ({ surveyApproveItem, currentPage, searchedItems }) => {
   return (
     <tr>
       <td>{surveyApproveItem.id}</td>
       <td>
-        {/* <Link to={`/survey/approve/view/${surveyApproveItem.id}`}>
-          {surveyApproveItem.surveyName}
-        </Link> */}
-        <Link to={`/survey/approve/view/${surveyApproveItem.id}`}>
+        <Link
+          to={{
+            pathname: `/survey/approve/view/${surveyApproveItem.id}`,
+            state: {
+              currentPage: currentPage,
+              searchedItems: searchedItems,
+            },
+          }}
+        >
           {surveyApproveItem.surveyName}
         </Link>
       </td>

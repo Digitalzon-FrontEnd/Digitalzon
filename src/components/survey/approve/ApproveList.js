@@ -1,7 +1,7 @@
 import React from "react";
 import Approve from "./Approve";
 import "./ApproveList.css";
-const ApproveList = ({ surveyApproveItems }) => {
+const ApproveList = ({ surveyApproveItems, currentPage, searchedItems }) => {
   return (
     <table className="approve-table">
       <tr>
@@ -17,7 +17,13 @@ const ApproveList = ({ surveyApproveItems }) => {
         <th>소속</th>
       </tr>
       {surveyApproveItems.map((item) => {
-        return <Approve surveyApproveItem={item} />;
+        return (
+          <Approve
+            surveyApproveItem={item}
+            currentPage={currentPage}
+            searchedItems={searchedItems}
+          />
+        );
       })}
     </table>
   );

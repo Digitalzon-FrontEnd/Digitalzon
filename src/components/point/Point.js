@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
-const Point = ({ onPointClick, pointItem }) => {
+const Point = ({ onPointClick, pointItem, currentPage, searchedItems }) => {
   return (
     <tr
       onClick={() => {
@@ -10,10 +10,19 @@ const Point = ({ onPointClick, pointItem }) => {
     >
       <td>{pointItem.id}</td>
       <td>
-        <Link to={`/point/view/${pointItem.id}`}>{pointItem.companyName}</Link>
+        <Link
+          to={{
+            pathname: `/point/view/${pointItem.id}`,
+            state: {
+              currentPage: currentPage,
+              searchedItems: searchedItems,
+            },
+          }}
+        >
+          {pointItem.companyName}
+        </Link>
       </td>
       <td>{pointItem.phone}</td>
-
       <td>{pointItem.email}</td>
       <td>{pointItem.pointAmount}</td>
       <td>{pointItem.division}</td>
