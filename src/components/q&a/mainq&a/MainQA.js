@@ -1,10 +1,20 @@
-import React, { useState ,useRef } from "react";
+import React, { useState ,useRef, useEffect} from "react";
 import {Link} from 'react-router-dom'
 import Gnb from "../../common/Gnb"
 import Pagination from '../../common/Pagination'
 import "./MainQA.css"
+import { useHistory } from 'react-router-dom';
 
-function MainQA({tableInfo, user}){
+function MainQA({location,tableInfo, user}){
+  const history = useHistory();
+  useEffect(() => {
+    if (location.state === undefined) {
+      setCurrentPage(1);
+    } else {
+      setCurrentPage(location.state.currentPage);
+      history.replace();
+    }
+  }, []);
   const [searchedSurveys, setSearchedSurveys] = useState(tableInfo);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 10;
@@ -28,6 +38,7 @@ function MainQA({tableInfo, user}){
     });
     console.log(tmpItems);
     setSearchedSurveys(tmpItems);
+    setCurrentPage(1);
   };
 
   const surveyInputEnter = (e) => {
@@ -67,7 +78,8 @@ function MainQA({tableInfo, user}){
                           <td>{a.num}</td>
                           <td><Link to={{
                             pathname:`/mainqa/detailqa/${a.num}`,
-                            state:{num:a.num,title:a.title,date:a.date,user:a.user,content:a.content}
+                            state:{num:a.num,title:a.title,date:a.date,user:a.user,content:a.content,
+                            currentPage:currentPage}
                             }}
                           >{a.title}</Link></td>
                           <td>{a.date}</td>

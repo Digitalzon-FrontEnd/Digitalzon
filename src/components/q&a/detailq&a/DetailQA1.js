@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import './DetailQA.css'
 import { useHistory } from 'react-router-dom';
 import Gnb from "../../common/Gnb";
-import { iteratee } from "lodash";
 
 const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
+  const {currentPage}= location.state;
   const [data, setData] = useState([]);
 
   const dataId = useRef(0);
@@ -94,13 +94,19 @@ const DetailQA1 = ({location,tableInfo,setTableInfo}) => {
           <>
             <button onClick={handleEdit}>완료</button>
             <button onClick={tableRemove} >삭제</button>
-            <Link to="/mainqa"><button>목록</button></Link>
+            <Link to={{ pathname:'/mainqa',
+                            state:{
+                            currentPage:currentPage}
+                            }}><button>목록</button></Link>
           </>
         ) : (
           <>
             <button onClick={toggleIsEdit}>수정</button>
             <button onClick={tableRemove} >삭제</button>
-            <Link to="/mainqa"><button>목록</button></Link>
+            <Link to={{ pathname:'/mainqa',
+                            state:{
+                            currentPage:currentPage}
+                            }}><button>목록</button></Link>
           </>
         )}
         </div>
