@@ -411,7 +411,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2022-02-04",
       statedate: "2022-02-04",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
       panelContent: "mmmmmmmmmmmmmmmasadhha",
@@ -423,7 +423,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2022-02-04",
       statedate: "2022-02-04",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
       panelContent: "bbbbbbbbbbbbbbbasadhha",
@@ -435,7 +435,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2022-01-22",
       statedate: "2022-01-22",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
       panelContent: "zzzzzzzzzzzzasadhha",
@@ -447,7 +447,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2022-01-15",
       statedate: "2022-01-15",
-      state: "처리중",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
       panelContent: "afffffffffffffsadhha",
@@ -459,7 +459,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-12-28",
       statedate: "2021-12-28",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
       panelContent: "asadhfafha",
@@ -471,7 +471,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-11-28",
       statedate: "2021-11-28",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
       panelContent: "asadh75ha",
@@ -483,7 +483,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-10-28",
       statedate: "2021-10-28",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
       panelContent: "asadhh11111a",
@@ -495,7 +495,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-09-04",
       statedate: "2021-09-05",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "해당없음",
       record: [],
       panelContent: "asadhhka",
@@ -507,7 +507,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-08-04",
       statedate: "2021-08-05",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
       panelContent: "asadhh1gfa",
@@ -519,7 +519,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-07-10",
       statedate: "2021-07-11",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
       panelContent: "asadhha",
@@ -531,7 +531,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-07-04",
       statedate: "2021-07-05",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "해당없음",
       record: [],
       panelContent: "asa11da",
@@ -543,7 +543,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-06-04",
       statedate: "2021-06-05",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "홍길동",
       record: [],
       panelContent: "asada",
@@ -555,7 +555,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-05-10",
       statedate: "2021-05-10",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "김주리",
       record: [],
       panelContent: "acvba",
@@ -567,7 +567,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-05-04",
       statedate: "2021-05-05",
-      state: "처리 완료",
+      state: "접수",
       statemanager: "김주리",
       record: [],
       panelContent: "aaasd",
@@ -579,7 +579,7 @@ const Root = () => {
       email: "22222@gmail.com",
       date: "2021-04-05",
       statedate: "2021-04-05",
-      state: "처리 중",
+      state: "접수",
       statemanager: "해당없음",
       record: [],
       panelContent: "aa22",
@@ -597,6 +597,9 @@ const Root = () => {
       panelContent: "aa",
     },
   ]);
+  const [ point, setPoint ] = useState(0);  //아직 초기 데이터 값을 모르기 때문에 0으로 처리했다.
+  const [ list, setList ] = useState([]);
+    /* 사용내역 로그 */
   /* 패널시스템 현황 데이터 */
   let [tableInfo,setTableInfo] = useState ([{
     num :'11',
@@ -619,11 +622,13 @@ const Root = () => {
       user : '안소향',
       content : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
     },{
-    num :'8',
+   
+      num :'8',
     title : 'Q&A 게시판',
     date : '2021.09.30',
     user : '전선향',
     content : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
+
   },{
     num :'7',
     title : 'Q&A 게시판',
@@ -695,6 +700,12 @@ const Root = () => {
     return currentPosts;
   }
   /* 현재 포스트 */
+  
+
+  
+
+
+
   const surveySerachFnc = (ref) => {
     return new Promise(function (resolve, reject) {
       const value = ref.current.value;
@@ -758,14 +769,12 @@ const Root = () => {
         )}
       ></Route>
       <Route
-        exact
         path="/point/view/:id"
         render={() => (
           <PointView pointItems={pointItems} setPointItems={setPointItems} />
         )}
       />
       <Route
-        exact
         path="/survey/approve/board"
         render={() => (
           <ApproveBoard
@@ -783,15 +792,27 @@ const Root = () => {
       <Route
         exact
         path="/panel/board"
-        render={() => <PostList posts={panelPosts} />}
+        render={(props) => <PostList 
+          posts={panelPosts} 
+          setPosts={setPanelPosts}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        user={user}
+        {...props}
+        />}
       />
       <Route
         exact
         path="/panel/view/:no"
-        render={() => <PostView posts={panelPosts} setPosts={setPanelPosts} />}
+        render={(props) => <PostView 
+          posts={panelPosts} 
+          setPosts={setPanelPosts} 
+          user={user}
+          {...props}
+        />}
       />
 
-      <Route path="/managepoint" component={ManagePoint} />
+      <Route path="/managepoint" render={()=>(<ManagePoint point={point} setPoint={setPoint} list={list} setList={setList} user={user}/>)} />
       <Route
         exact={true}
         path="/survey"
