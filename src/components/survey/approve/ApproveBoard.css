@@ -1,6 +1,5 @@
 .approve-board-box {
   margin: 0 auto;
-
   width: 810px;
   height: 700px;
 }
@@ -83,12 +82,6 @@
   cursor: pointer;
 }
 
-.approve-board-box #search-btn {
-  margin-left: 13px;
-  width: 94.7px;
-  height: 30px;
-  border-radius: 50px;
-}
 .approve-board-box .no-result {
   margin-top: 20px;
   text-align: center;
