@@ -9,7 +9,6 @@ const PointList = ({
   searchedItems,
 }) => {
   return (
-    // <Link to={`/point/view/${selectPointItem.id}`}>
     <table className="point-table">
       <tr>
         <th width="4%">번호</th>

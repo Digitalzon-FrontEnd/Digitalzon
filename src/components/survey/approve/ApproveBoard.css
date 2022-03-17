@@ -1,12 +1,20 @@
+.approve-board-box {
+  margin: 0 auto;
+
+  width: 810px;
+  height: 700px;
+}
+
 .approve-board-box table,
 .approve-board-box th,
 .approve-board-box td {
   border-bottom: 1px solid #c4c4c4;
   text-align: center;
   height: 45px;
-  font-size: 12px;
+  font-size: 11px;
   line-height: normal;
   letter-spacing: normal;
+  color: #545147;
 }
 .approve-board-box table {
   width: 100%;
@@ -14,6 +22,7 @@
   margin-right: auto;
   border-collapse: collapse;
   table-layout: fixed;
+  border-bottom: 3px solid #545147;
 }
 /* .approve-board-box td {
   width: 50;
@@ -36,11 +45,6 @@
 .approve-board-box td:nth-child(2) {
   text-decoration: underline;
 }
-.approve-board-box {
-  margin: 0 auto;
-  margin-top: 92px;
-  width: 810px; height: 700px;
-}
 
 .approve-board-select-box {
   width: 100%;
@@ -60,10 +64,11 @@
   margin-left: 36px;
 }
 .approve-board-search-box input {
-  width: 195px;
-  height: 27px;
+  width: 193px;
+  height: 20px;
   border: none;
   margin-left: 8px;
+  margin-top: 5px;
   outline: none;
 }
 .approve-board-search-box label {
@@ -74,7 +79,7 @@
   text-indent: -9999px;
   position: absolute;
   right: 2px;
-  top: -3px;
+  top: -1px;
   cursor: pointer;
 }
 

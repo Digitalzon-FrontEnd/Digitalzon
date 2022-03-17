@@ -1,11 +1,11 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import "./Gnb.css";
 const Gnb = ({ user }) => {
   const sampleLocation = useLocation();
   const url = sampleLocation.pathname;
-  
+
   return (
     <nav className="menu-nav">
       {user.login ? (
