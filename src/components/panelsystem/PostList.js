@@ -79,7 +79,10 @@ const PostList = ({ posts, user, location }) => {
               className="pannelsystem-input-btn"
               onClick={searchBtn}
             >
-              <img src="/img/mdi-magnify.png" alt="검색버튼" />
+              <img
+                src="https://raw.githubusercontent.com/Digitalzone-FrontEnd/Digitalzone/main/public/img/mdi-magnify.png"
+                alt="검색버튼"
+              />
             </button>
           </div>
         </div>

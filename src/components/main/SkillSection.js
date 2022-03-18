@@ -10,7 +10,7 @@ const SkillSection = () => {
           <div className="skill-content-des-box">
             <img
               className="skill-content-img"
-              src="/img/la-hand-point-up-solid.png"
+              src="https://raw.githubusercontent.com/Digitalzone-FrontEnd/Digitalzone/main/public/img/la-hand-point-up-solid.png"
               alt="아주 쉬운 사용법 아이콘"
             />
             <h2 className="skill-content-title">아주 쉬운 사용법</h2>
@@ -22,7 +22,7 @@ const SkillSection = () => {
           <div className="skill-content-des-box">
             <img
               className="skill-content-img"
-              src="/img/bi-clipboard-check.png"
+              src="https://raw.githubusercontent.com/Digitalzone-FrontEnd/Digitalzone/main/public/img/bi-clipboard-check.png"
               alt="설문 수 제한 없음 아이콘"
             />
             <h2 className="skill-content-title">설문 수 제한 없음</h2>
@@ -35,7 +35,7 @@ const SkillSection = () => {
           <div className="skill-content-des-box">
             <img
               className="skill-content-img"
-              src="/img/bi-person-check.png"
+              src="https://raw.githubusercontent.com/Digitalzone-FrontEnd/Digitalzone/main/public/img/bi-person-check.png"
               alt="패널선정에 대한 수고 불필요 아이콘"
             />
             <h2 className="skill-content-title">패널선정에 대한 수고 불필요</h2>
@@ -47,7 +47,7 @@ const SkillSection = () => {
           <div className="skill-content-des-box">
             <img
               className="skill-content-img"
-              src="/img/cil-mood-good.png"
+              src="https://raw.githubusercontent.com/Digitalzone-FrontEnd/Digitalzone/main/public/img/cil-mood-good.png"
               alt="편리한 이용 아이콘"
             />
             <h2 className="skill-content-title">편리한 이용</h2>
