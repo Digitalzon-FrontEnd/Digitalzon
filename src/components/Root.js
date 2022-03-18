@@ -41,8 +41,7 @@ import Gnb from "./common/Gnb";
 
 const Root = () => {
   const [selectPointItem, setSelectPointItem] = useState({});
-   
-     
+
   const [userList, setUserList] = useState([
     {
       id: 0,
@@ -478,7 +477,6 @@ const Root = () => {
           />
         )}
       />
-
       <Route path="/faq" render={() => <Faq user={user} />} />
       <Route path="/guide" render={() => <Guide user={user} />} />
       <Route path="/login" render={() => <Login setUser={setUser} />} />
@@ -574,14 +572,12 @@ const Root = () => {
           />
         )}
       />
-
       <Route
         path="/survey/surveydetail/:num"
         component={(props) => (
           <SurveyDetail setPosts={setPosts} {...props} user={user} />
         )}
       />
-
       <Route
         path="/surveymodify"
         component={(props) => (
@@ -593,7 +589,6 @@ const Root = () => {
           />
         )}
       />
-
       <Route path="/surveyregist" component={SurveyRegist} />
       <Route path="/home" render={() => <Home user={user}/>} />
       <Route
@@ -635,7 +630,6 @@ const Root = () => {
           />
         )}
       />
-
       <Route path="/mypage" 
       render={(props) => (
           <MyPage
