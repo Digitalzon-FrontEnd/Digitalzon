@@ -8,7 +8,7 @@ const OrderSection = () => {
         <h1 className="order-title">설문 발송 순서</h1>
         <img
           className="order-img"
-          src="/img/research_system_icon.png"
+          src="https://raw.githubusercontent.com/Digitalzone-FrontEnd/Digitalzone/main/public/img/research_system_icon.png"
           alt="설문 발송 순서 이미지"
         />
         <div className="order-des-box">

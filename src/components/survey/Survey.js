@@ -134,7 +134,7 @@ const Survey = ({
             />
             <button className="survey-input-btn">
               <img
-                src="/img/mdi-magnify.png"
+                src="https://raw.githubusercontent.com/Digitalzone-FrontEnd/Digitalzone/main/public/img/mdi-magnify.png"
                 alt="검색버튼"
                 onClick={surveyInputClick}
               />

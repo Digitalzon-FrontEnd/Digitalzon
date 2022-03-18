@@ -9,7 +9,7 @@ const SendSection = () => {
           <div className="send-contnet-box-left">
             <img
               className="solution-img"
-              src="/img/bx-mail-send.png"
+              src="https://raw.githubusercontent.com/Digitalzone-FrontEnd/Digitalzone/main/public/img/bx-mail-send.png"
               alt="메일전송 이미지"
             />
           </div>
