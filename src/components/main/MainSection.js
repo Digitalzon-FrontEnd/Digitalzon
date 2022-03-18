@@ -25,7 +25,7 @@ const MainSection = () => {
           <div className="main-contnet-box-right">
             <img
               className="survry-img"
-              src="/img/reserch_img 1.png"
+              src="https://raw.githubusercontent.com/Digitalzone-FrontEnd/Digitalzone/main/public/img/reserch_img 1.png"
               alt="설문조사 이미지"
             />
           </div>
