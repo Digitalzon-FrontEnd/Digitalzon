@@ -1,5 +1,7 @@
 header {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   z-index: 1;
 }
@@ -32,8 +34,8 @@ header + * {
 }
 .info-nav > .user-login {
   display: flex;
-  width: 200px;
-  justify-content: space-between;
+  width: 100%;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -64,6 +66,8 @@ header + * {
   font-weight: 600;
   text-align: center;
   color: #545147;
+  margin-left: 50px;
+  cursor: pointer;
 }
 .info-nav > ul .point {
   height: 29px;

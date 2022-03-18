@@ -1,7 +1,8 @@
 .pagination-ul {
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
+  margin-top: 20px;
   position: relative;
   align-items: center;
 }
@@ -15,11 +16,9 @@
   transform: rotate(180deg);
 }
 .pagination-list-next {
-  
   cursor: pointer;
 }
 .pagination-list-previous {
-  
   cursor: pointer;
 }
 

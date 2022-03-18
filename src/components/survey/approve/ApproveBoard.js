@@ -82,9 +82,6 @@ const ApproveBoard = ({ surveyApproveItems, user }) => {
               검색
             </label>
           </span>
-          <button id="search-btn" className="btn-o" onClick={onSearchHandler}>
-            검색
-          </button>
         </div>
         <ApproveList
           surveyApproveItems={currentPosts(searchedItems)}
