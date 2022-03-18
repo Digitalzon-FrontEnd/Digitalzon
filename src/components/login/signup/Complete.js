@@ -21,7 +21,7 @@ const Complete = () => {
         </div>
         <div className="historyBtn">
           <button>
-            <Link to="/main">
+            <Link to="/">
               <h2 id="mainBtn">메인으로</h2>
             </Link>
           </button>
