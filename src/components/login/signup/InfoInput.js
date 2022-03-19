@@ -159,6 +159,7 @@ const InfoInput = () => {
                   placeholder="영문 대소문자/숫자 혼합 10~15자리 내로 입력해주세요."
                   name="password"
                   ref={pwValue}
+                  maxLength="15"
                   required
                 ></input>
                 <button
@@ -177,6 +178,7 @@ const InfoInput = () => {
                   type={pwType.type}
                   name="passwordCheck"
                   ref={pwCheckValue}
+                  maxLength="15"
                   required
                 ></input>
                 <button
