@@ -6,6 +6,7 @@ import "./SurveyDetail.css";
 
 const SurveyDetail = ({ posts, setPosts, location, user }) => {
   const params = location.state;
+
   return (
     <div className="survey-detail-box">
       <Gnb user={user} />

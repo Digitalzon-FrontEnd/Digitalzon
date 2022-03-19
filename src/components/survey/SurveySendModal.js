@@ -2,7 +2,21 @@ import React from "react";
 import { numberComma } from "../../util/NumberComma";
 import "./SurveySendModal.css";
 
-const SurveySendModal = ({ modalClose, post }) => {
+const SurveySendModal = ({ modalClose, post, setPosts, posts }) => {
+  if (post.sendStatus) {
+    alert("전송이 완료된 설문입니다.");
+    modalClose();
+  }
+
+  const updateSendStatus = () => {
+    const updatePosts = [...posts];
+    for (let data of updatePosts) {
+      if (data.num === post.num) {
+        data.sendStatus = true;
+      }
+    }
+    setPosts(updatePosts);
+  };
   return (
     <div className="SurveySendModal-box">
       <div className="SurveySendModal-top-box">
@@ -61,6 +75,7 @@ const SurveySendModal = ({ modalClose, post }) => {
         <button
           className="SurveySendModal-btn btn-s btn-o"
           onClick={() => {
+            updateSendStatus();
             alert("전송이 완료되었습니다.");
             modalClose();
           }}

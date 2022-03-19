@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import "./SurveyRegist.css";
 
 function SurveyRegist({ modalClose, posts, setPosts }) {
-  console.log(posts);
   const fileInput = useRef();
   const fileName = useRef();
   const panelNum = useRef();
@@ -96,6 +95,9 @@ function SurveyRegist({ modalClose, posts, setPosts }) {
     registrant: "홍길동",
     affiliation: "개인",
     activation: false,
+    modifiedBy: "",
+    modifiedDate: "",
+    sendStatus: false,
   };
   const setNewPost = () => {
     const value = (ref) => {
@@ -116,15 +118,6 @@ function SurveyRegist({ modalClose, posts, setPosts }) {
     alert("설문 등록이 완료되었습니다.");
     modalClose();
   };
-<<<<<<< HEAD
-  const addNewPost = () => {
-    const newPosts = [...posts];
-    newPosts.unshift(newPost);
-    setPosts(newPosts);
-  };
-
-=======
->>>>>>> 979adf57f0fd2219848c1073a8f1baf13eadca0c
   return (
     <div className="surveyRg">
       <div className="svRg-pageTitle-box">

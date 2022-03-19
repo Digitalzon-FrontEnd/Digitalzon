@@ -17,6 +17,8 @@ const Modal = ({ modalClose, post, posts, setPosts, component }) => {
           <SurveySendModal
             post={post}
             modalClose={modalClose}
+            setPosts={setPosts}
+            posts={posts}
           />
         ) : null}
         {component === "SurveyRegist" ? (
