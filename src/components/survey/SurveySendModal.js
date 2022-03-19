@@ -33,10 +33,10 @@ const SurveySendModal = ({ modalClose, post, setPosts, posts }) => {
         <ul className="SurveySendModal-list">
           <li>조사명 : {post.surveyName}</li>
           <li>설문링크 : {post.link}</li>
-          <li>필요샘플 수 : {post.needSample}</li>
-          <li>참여포인트 : {post.pointPerPerson} point</li>
+          <li>필요샘플 수 : {numberComma(post.needSample)}</li>
+          <li>참여포인트 : {numberComma(post.pointPerPerson)} point</li>
           <li>설문기간 : {post.date}</li>
-          <li>발송패널 수 : {post.completeSample} 건</li>
+          <li>발송패널 수 : {numberComma(post.completeSample)} 건</li>
           <li className="SurveySendModal-list-li">
             <div className="SurveySendModal-list-profile-title">
               설문 프로파일 :

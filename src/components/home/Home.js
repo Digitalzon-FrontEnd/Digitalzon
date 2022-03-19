@@ -1,9 +1,26 @@
 import React, { useState } from "react";
 import "./Home.css";
 import Gnb from "../common/Gnb";
+import moment from "moment";
 
 function Home({ user, posts }) {
-  const filterPosts = posts.filter((item) => item.sendStatus === true);
+  const filterPosts = posts.filter((item) => item.sendStatus === true); // 발송이 된 데이터
+  const today = moment().format("YYYY-MM-DD");
+
+  for (let x of filterPosts) {
+    const dateData = x.date.replace(/\./gi, "-");
+    const dateArr = dateData.split("~");
+    x.sDate = dateArr[0].trim(); // 시작일
+    x.eDate = dateArr[1].trim(); // 종료일
+    if (today < x.sDate) {
+      x.surveySendState = "설문예정";
+    } else if (x.sDate <= today && today <= x.eDate) {
+      x.surveySendState = "설문중";
+    } else if (x.eDate < today) {
+      x.surveySendState = "설문마감";
+    }
+  }
+
   let [checkedType, setcheckedType] = useState([
     {
       num: "160",
@@ -120,17 +137,17 @@ function Home({ user, posts }) {
           </tr>
         </thead>
         <tbody>
-          {checkedType.map(function (data, index) {
-            return radioValue === data.state ? (
+          {filterPosts.map(function (data, index) {
+            return radioValue === data.surveySendState ? (
               <tr key={index}>
                 <td>{data.num}</td>
-                <td>{data.name}</td>
+                <td>{data.surveyName}</td>
                 <td>{data.date}</td>
-                <td>{data.reSample}</td>
-                <td>{data.coSample}</td>
-                <td>{data.state}</td>
-                <td>{data.user}</td>
-                <td>{data.team}</td>
+                <td>{data.needSample}</td>
+                <td>{data.completeSample}</td>
+                <td>{data.surveySendState}</td>
+                <td>{data.registrant}</td>
+                <td>{data.affiliation}</td>
               </tr>
             ) : null;
           })}

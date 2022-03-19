@@ -13,6 +13,7 @@ const Survey = ({
   AllDataPosts,
   location,
 }) => {
+  console.log(totalIndexPosts);
   const history = useHistory();
   const surveyInputRef = useRef();
 

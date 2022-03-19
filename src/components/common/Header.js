@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { numberComma } from "../../util/NumberComma";
 import "./Header.css";
 const Header = ({ user, point, setUser }) => {
   const history = useHistory();
@@ -43,7 +44,7 @@ const Header = ({ user, point, setUser }) => {
               </li>
             ) : (
               <li className="point">
-                <Link to="/managepoint">{point}&nbsp;point</Link>
+                <Link to="/managepoint">{numberComma(point)}&nbsp;point</Link>
               </li>
             )}
             {user.login === false ? (

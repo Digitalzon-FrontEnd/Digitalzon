@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { numberComma } from "../../util/NumberComma";
 import "./SurveyRow.css";
 const SurveyRow = ({
   num,
@@ -74,8 +75,8 @@ const SurveyRow = ({
         </Link>
       </td>
       <td>{date}</td>
-      <td>{needSample}</td>
-      <td>{completeSample}</td>
+      <td>{numberComma(needSample)}</td>
+      <td>{numberComma(completeSample)}</td>
       <td>{state}</td>
       <td>{registrant}</td>
       <td>{affiliation}</td>
