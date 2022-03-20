@@ -4,14 +4,14 @@ import Gnb from "../../common/Gnb";
 import "./ApproveView.css";
 import moment from "moment";
 
-const ApproveView = ({ surveyApproveItems, setPosts , user }) => {
+const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
   const params = useParams();
   const id = Number(params.id);
   const surveyApproveItem = surveyApproveItems.find((item) => {
     return item.num === id;
   });
-  const surveyProfiles = surveyApproveItem.profile1//.concat(surveyApproveItems.profile2,surveyApproveItems.profile3)
-  console.log(surveyProfiles)
+  const surveyProfiles = surveyApproveItem.profile1; //.concat(surveyApproveItems.profile2,surveyApproveItems.profile3)
+  console.log(surveyProfiles);
   const [prevSelectedValue, setPrevSelectValue] = useState("");
   const [selectValue, setSelectValue] = useState(surveyApproveItem.state);
   const location = useLocation();
@@ -41,6 +41,7 @@ const ApproveView = ({ surveyApproveItems, setPosts , user }) => {
               state: selectValue,
               modifiedDate: now.format("YYYY.MM.DD"),
               modifiedBy: "관리자",
+              activation: selectValue === "승인완료" ? true : false,
             }
           : item
       )
@@ -53,7 +54,7 @@ const ApproveView = ({ surveyApproveItems, setPosts , user }) => {
 
   return (
     <div className="inner">
-      <Gnb user={user}/>
+      <Gnb user={user} />
       <div className="surveyApproveDetails-box">
         <div className="details-container">
           <div className="details-wrap">
