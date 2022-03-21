@@ -116,8 +116,11 @@
 
 [![Notion](https://img.shields.io/badge/Notion-FFB6C1?style=flat-square&logo=Notion&logoColor=white)](https://robust-yarrow-7cc.notion.site/Final-Team-Project_-2a973b9929df40cb814137aa4c0c327b)
 
+<br/>
 
+감사합니다.
 
+<br/><br/>
 
 
 
