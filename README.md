@@ -18,14 +18,19 @@
 ## About Dizitalzone Survey
 
 <img width="946" alt="main" src="https://user-images.githubusercontent.com/100101577/159213997-e5cda142-9931-45f1-88bf-3049a9968c30.png">
-
+<br/>
 계정마다 접근 권한이 있는 메뉴만 노출이 됩니다.
+<br/><br/>
 
 - 비회원
 - 일반회원
 - 관리자
 - 슈퍼관리자
- 
+<br/>
+<img width="948" alt="survey" src="https://user-images.githubusercontent.com/100101577/159224934-c901dc69-3257-40f7-9b55-1f202a8bfa73.png">
+<img width="948" alt="survey1" src="https://user-images.githubusercontent.com/100101577/159224951-8d537725-3b64-4ffb-8d59-04243235f652.png">
+<img width="948" alt="survey2" src="https://user-images.githubusercontent.com/100101577/159224963-7e378087-e585-47f0-bc2f-fe158e224106.png">
+
 ### `지원 기능`
 
 > 회원가입 및 로그인
