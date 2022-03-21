@@ -14,10 +14,11 @@ const PostView = ({posts,setPosts,user,location, history}) => {
   const [prevState, setPrevState] = useState('');
   const [selectValue, setSelectValue] = useState(postItem.state);
 
-  let date = moment().format("YYYY-MM-DD HH:mm:ss");
+  let logTime = moment().format("YYYY-MM-DD HH:mm:ss");
+  let date = moment().format("YYYY-MM-DD");
   /* 날짜 */
 
-  let recordTxt = `· ${date} ${
+  let recordTxt = `· ${logTime} ${
     postItem.statemanager
   } 님이 상태를 ${prevState} 에서 ${selectValue} ${
     selectValue === "처리중" ? "으로" : "로"
@@ -38,9 +39,9 @@ const PostView = ({posts,setPosts,user,location, history}) => {
         
         if (item.number === no) {
           item.record.unshift(recordTxt);
-          /* -추가 부분 - */
           item.state = selectValue;
-          /* -추가 부분 - */
+          item.statedate = date;
+          
         }
         return item;
       })
@@ -99,6 +100,7 @@ const PostView = ({posts,setPosts,user,location, history}) => {
               name="접수"
               id="postview-select"
               onChange={selectChange}
+              disabled = {selectValue === '완료' ? 'true': '' }
             >
               {options.map((option) => (
                 <option key={option.value} value={option.value}>

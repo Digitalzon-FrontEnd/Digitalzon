@@ -4,7 +4,12 @@ import Gnb from "../common/Gnb";
 import { Link, useParams, useLocation } from "react-router-dom";
 import moment from "moment";
 
-const PointView = ({ pointItems, setPointItems, user }) => {
+const PointView = ({ 
+  pointItems, setPointItems, 
+  user ,
+  addList, 
+  point, setPoint
+}) => {
   const location = useLocation();
   const params = useParams();
   const id = Number(params.id);
@@ -16,7 +21,9 @@ const PointView = ({ pointItems, setPointItems, user }) => {
 
   const [prevSelectedValue, setPrevSelectValue] = useState("");
   const [selectValue, setSelectValue] = useState(pointItem.status);
-
+  
+  
+  
   const onSaveClick = () => {
     var now = moment();
     var date = now.format("YYYY-MM-DD HH:mm:ss");
@@ -42,12 +49,27 @@ const PointView = ({ pointItems, setPointItems, user }) => {
               record: [recordText, ...item.record],
               status: selectValue,
               modifiedDate: now.format("YYYY.MM.DD"),
-              modifiedBy: "관리자",
+              modifiedBy: "관리자"
             }
           : item
       )
     );
   };
+  const addPointList = () => {
+    if(pointItem.division === '환불신청' && selectValue === '완료'){
+      pointItem.division = '환불완료';
+      setPoint(Number(point) - Number(pointItem.pointAmount));
+      addList(
+        Number(point) - Number(pointItem.pointAmount),
+        `-${pointItem.pointAmount}`
+       
+      ); 
+      
+      console.log('성공:')
+    } else 
+    return console.log('실패')
+  }
+
 
   const onSelectHandler = (e) => {
     setPrevSelectValue(selectValue);
@@ -100,7 +122,7 @@ const PointView = ({ pointItems, setPointItems, user }) => {
                   onSelectHandler(e);
                 }}
                 value={selectValue}
-                disabled={pointItem.division === "충전" ? "true" : ""}
+                disabled={pointItem.division === "충전" || pointItem.status === "완료" ? "true" : ""}
               >
                 <option value="접수">접수</option>
 
@@ -108,9 +130,12 @@ const PointView = ({ pointItems, setPointItems, user }) => {
                 <option value="완료">완료</option>
               </select>
             </span>
-            <button className="save-btn btn-o" onClick={onSaveClick}>
+            <button className="save-btn btn-o" 
+            onClick={() => { 
+                onSaveClick()
+                addPointList() }}>
               저장
-            </button>
+            </button> 
             <Link
               to={{
                 pathname: `/point/board`,

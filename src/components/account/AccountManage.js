@@ -39,7 +39,7 @@ const AccountManage = ({ userList, setUserList, user }) => {
   // 기본 상태=>유저정보 불러오는 상태
 
   const removeBtn = (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
     const confirmId = window.confirm(
       `${currentUserId.current.value} 계정을 삭제하시겠습니까?`
     );

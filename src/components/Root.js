@@ -338,6 +338,21 @@ const Root = () => {
   const [ point, setPoint ] = useState(0);  //아직 초기 데이터 값을 모르기 때문에 0으로 처리했다.
   const [ list, setList ] = useState([]);
     /* 사용내역 로그 */
+
+  const addList = (totalPoint, point) => {
+    const pointList = [...list];
+    pointList.unshift({
+      id: 2,
+      title: "포인트변경",
+      state: point + "point",
+      point: totalPoint,
+    });
+    setList(pointList);
+  };
+  /* 사용내역 리스트 추가 함수 */
+  
+
+
   /* 패널시스템 현황 데이터 */
   let [tableInfo,setTableInfo] = useState ([{
     num :'11',
@@ -508,7 +523,15 @@ const Root = () => {
       <Route
         path="/point/view/:id"
         render={() => (
-          <PointView pointItems={pointItems} setPointItems={setPointItems} user={user}/>
+          <PointView 
+          pointItems={pointItems} 
+          setPointItems={setPointItems} 
+          user={user} 
+          addList={addList}
+          point={point} 
+          setPoint={setPoint} 
+          
+          />
         )}
       />
       <Route
@@ -550,7 +573,19 @@ const Root = () => {
         />}
       />
 
-      <Route path="/managepoint" render={()=>(<ManagePoint point={point} setPoint={setPoint} list={list} setList={setList} user={user}/>)} />
+      <Route path="/managepoint" 
+        render={()=>(
+        <ManagePoint 
+          point={point} 
+          setPoint={setPoint} 
+          list={list} 
+          setList={setList} 
+          user={user}
+          pointItems={pointItems}
+          setPointItems={setPointItems}
+          addList={addList}
+          
+          />)} />
       <Route
         exact={true}
         path="/survey"

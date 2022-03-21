@@ -3,7 +3,14 @@ import moment from "moment";
 import "./ManegePoint.css";
 import Gnb from "../common/Gnb";
 
-const ManagePoint = ({ point, setPoint, list, setList, user }) => {
+const ManagePoint = ({ 
+    point, setPoint, 
+    list, setList, 
+    user, 
+    pointItems, setPointItems, 
+    addList
+
+}) => {
   const [inputPoint, setInputPoint] = useState("");
   /* 충전포인트 input 값 */
   const [refundPoint, setRefundPoint] = useState("");
@@ -13,10 +20,11 @@ const ManagePoint = ({ point, setPoint, list, setList, user }) => {
   const [refundAccount, setRefundAccount] = useState("");
   /* 환불계좌번호 input 값 */
 
-  const inputPoint1 = useRef(); //충전 input
   const refundPoint1 = useRef(); //환불 input
+  const inputPoint1 = useRef(); //충전 input
   const accountName1 = useRef(); //계좌명 input
   const refundAccount1 = useRef(); // 환불 계좌 input
+  
 
   const [select, setSelect] = useState("");
   /* 드랍박스 메뉴 */
@@ -24,23 +32,14 @@ const ManagePoint = ({ point, setPoint, list, setList, user }) => {
   let date = moment().format("YYYY-MM-DD");
   /* 날짜 */
 
-  const addList = (totalPoint, point) => {
-    const pointList = [...list];
-    pointList.unshift({
-      id: 2,
-      title: "포인트변경",
-      state: point + "point",
-      point: totalPoint,
-    });
-    setList(pointList);
-  };
-  /* 사용내역 리스트 추가 함수 */
+  
 
   const onSubmit = (e) => {
     e.preventDefault(); //새로고침방지
     if (inputPoint1.current.value === "") {
       alert("포인트 값을 입력해주세요.");
     } else {
+        chargeRequest();
       setPoint(Number(inputPoint1.current.value) + Number(point)); //number 처리를 해야 point 가 추가된다.
       addList(
         Number(inputPoint1.current.value) + Number(point),
@@ -53,6 +52,45 @@ const ManagePoint = ({ point, setPoint, list, setList, user }) => {
   const selectChg = (e) => {
     setSelect(e.target.value);
   };
+
+  const refundRequest = () => {
+    const pDataList = [...pointItems]
+    pDataList.unshift({
+        id: pDataList.length+1,
+        companyName: "gh기업",
+        managerName: "김병철",
+        phone: "010-000-0000",
+        email: "abcd1234@000.com",
+        pointAmount: refundPoint1.current.value,
+        division: "환불신청",
+        applyDate: date,
+        modifiedDate: date,
+        status: "접수",
+        modifiedBy: "해당없음",
+        record: []
+    })
+    setPointItems(pDataList);
+  }
+  /* 포인트 환불 신청 함수 */
+  const chargeRequest = () => {
+    const pDataList = [...pointItems]
+    pDataList.unshift({
+        id: pDataList.length+1,
+        companyName: "gh기업",
+        managerName: "김병철",
+        phone: "010-000-0000",
+        email: "abcd1234@000.com",
+        pointAmount: inputPoint1.current.value,
+        division: "충전",
+        applyDate: date,
+        modifiedDate: date,
+        status: "완료",
+        modifiedBy: "해당없음",
+        record: []
+    })
+    setPointItems(pDataList);
+  }
+  /* 포인트 충전 리스트 함수 */
 
   const refund = (e) => {
     e.preventDefault(); //새로고침방지
@@ -68,14 +106,10 @@ const ManagePoint = ({ point, setPoint, list, setList, user }) => {
     } else if (accountName1.current.value === "") {
       alert("계좌명을 입력해주세요");
     } else {
-      setPoint(Number(point) - Number(refundPoint1.current.value));
-      addList(
-        Number(point) - Number(refundPoint1.current.value),
-        `-${refundPoint1.current.value}`
-      );
-      refundPoint1.current.value = "";
-      refundAccount1.current.value = "";
-      accountName1.current.value = "";
+        refundRequest()
+        
+      
+      
     }
   };
   /* 포인트 환불 함수 */
