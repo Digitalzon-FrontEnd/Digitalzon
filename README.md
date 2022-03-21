@@ -6,9 +6,11 @@
 
  ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black)
 
-## How ro Use?
+## How to Use?
 
  디지털존 설문조사 사이트 사용방법
+ 
+ <img width="946" alt="main" src="https://user-images.githubusercontent.com/100101577/159213997-e5cda142-9931-45f1-88bf-3049a9968c30.png">
 
 ### `npm start`
 
