@@ -2,9 +2,13 @@
 
 해당 프로젝트는 불특정다수의 설문조사업체 및 개인을 대상으로 원하는 설문조사를 진행할 수 있도록 지원하는 프로젝트입니다. 설문양식이 고정되어있지 않아 자유로운 설문이 가능하며, 직접 설문 진행을 할 수 있습니다. 본 프로젝트는 사용자들의 편리한 설문조사와 정확한 설문대상이 갖춰지지 않은 사용자들도 원하는 조사가 가능할 수 있도록 지원하는데 목적을 두었습니다.
 
-## Available Scripts
+## About Environment
 
-In the project directory, you can run:
+ ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black)
+
+## How ro Use?
+
+ 디지털존 설문조사 사이트 사용방법
 
 ### `npm start`
 
