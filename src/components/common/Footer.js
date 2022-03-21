@@ -13,7 +13,10 @@ const Footer = ({ user }) => {
           <div className="footer-info-box">
             <Link to={user.login ? "/home" : "/"}>
               <div className="footer-logo">
-                <img src="img/CI-Digitalzone-kor.png" alt="logo" />
+                <img
+                  src="https://raw.githubusercontent.com/Digitalzone-FrontEnd/Digitalzone/main/public/img/CI-Digitalzone-kor.png"
+                  alt="logo"
+                />
               </div>
             </Link>
             <div className="footer-info">

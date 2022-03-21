@@ -21,7 +21,7 @@ const PointSection = () => {
               <div className="point-img-box">
                 <img
                   className="point-img"
-                  src="/img/healthicons-money-bag-outline.png"
+                  src="https://raw.githubusercontent.com/Digitalzone-FrontEnd/Digitalzone/main/public/img/healthicons-money-bag-outline.png"
                   alt="포인트 충전 아이콘"
                 />
               </div>
@@ -36,7 +36,7 @@ const PointSection = () => {
               <div className="point-img-box">
                 <img
                   className="point-img"
-                  src="/img/mdi-cash-minus.png"
+                  src="https://raw.githubusercontent.com/Digitalzone-FrontEnd/Digitalzone/main/public/img//mdi-cash-minus.png"
                   alt="포인트 차감 아이콘"
                 />
               </div>
@@ -54,7 +54,7 @@ const PointSection = () => {
               <div className="point-img-box">
                 <img
                   className="point-img"
-                  src="/img/mdi-account-cash.png"
+                  src="https://raw.githubusercontent.com/Digitalzone-FrontEnd/Digitalzone/main/public/img//mdi-account-cash.png"
                   alt="포인트 충전 아이콘"
                 />
               </div>
@@ -73,7 +73,7 @@ const PointSection = () => {
               <div className="point-img-box">
                 <img
                   className="point-img"
-                  src="/img/mdi-cash-refund.png"
+                  src="https://raw.githubusercontent.com/Digitalzone-FrontEnd/Digitalzone/main/public/img/mdi-cash-refund.png"
                   alt="포인트 충전 아이콘"
                 />
               </div>

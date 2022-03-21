@@ -6,6 +6,10 @@ import { useHistory } from "react-router-dom";
 const Login = ({ setUser }) => {
   const history = useHistory();
   const logInId = useRef();
+
+  const onEnterKey = (e) => {
+    if (e.key === "Enter") loginFnc();
+  };
   const loginFnc = () => {
     setUser({
       id: logInId.current.value,
@@ -32,7 +36,12 @@ const Login = ({ setUser }) => {
             </li>
             <li>
               <label htmlFor="loginUserPw">비밀번호</label>
-              <input id="loginUserPw" type="password" required />
+              <input
+                id="loginUserPw"
+                type="password"
+                required
+                onKeyPress={onEnterKey}
+              />
             </li>
           </ul>
           <div className="login-btn-box">

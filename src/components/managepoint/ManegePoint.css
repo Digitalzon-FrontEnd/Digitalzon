@@ -50,20 +50,32 @@
     position: relative;
 }
 #bankTitle{
-    height: 28px;
-    border: 1px solid #c4c4c4;
+    
+    width: 100%;
+    height: 100%;
+    border: 0;
     font-size: 13px;
+    padding-right: 15px;
     color: #545147;
     text-align: center;
+    box-sizing: border-box;
+    background: transparent;
 
-    /* -webkit-appearance: none; /* 화살표 없애기 for chrome*/ 
-    /* -moz-appearance: none; /* 화살표 없애기 for firefox*/
-    /* appearance: none; /* 화살표 없애기 공통*/ 
+    -webkit-appearance: none; /* 화살표 없애기 for chrome*/ 
+    -moz-appearance: none; /* 화살표 없애기 for firefox*/
+    appearance: none; /* 화살표 없애기 공통*/ 
 }
 select::-ms-expand {
 display: none;  
 }
-.bank-option{width: 67px;}
+.bank-option{
+    display: inline-block;
+    width: 67.4px;
+    height: 28px;
+    border: 1px solid #ccc;
+    background: url("../../../public/img/dashicons-arrow-down-alt-2.png")
+        no-repeat 97% 50%/15px auto;
+}
 .backaccount-input{ width: 200px; height: 28px;}
 .backaccount-title-input{width: 126px; height: 28px;}
 .refund-point-input{width: 110px; height: 28px;}
@@ -108,14 +120,16 @@ display: none;
 }
 .btn-refund, .btn-charge{ 
     width: 94px; 
-    height: 30px;
+    height: 28px;
     color: #545147;
     font-size: 13px; 
     font-weight: 600;
     background-color: #fba92f;
     border: none;
+
 }
 
 .btn-charge{
     margin-top: 24px;
 }
+

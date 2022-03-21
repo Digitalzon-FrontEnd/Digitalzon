@@ -19,7 +19,7 @@ const Header = ({ user, point, setUser }) => {
           <Link to={user.login ? "/home" : "/"}>
             <img
               className="header_logo"
-              src="img/CI-Digitalzone.png"
+              src="https://raw.githubusercontent.com/Digitalzone-FrontEnd/Digitalzone/main/public/img/CI-Digitalzone.png"
               alt="디지털존 로고"
             />
           </Link>

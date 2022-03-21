@@ -1,18 +1,28 @@
+.point-board-box {
+  width: 794px;
+  margin-left: 183px;
+  margin-right: 183px;
+  height: 700px;
+}
+
 .point-board-box .table,
 .point-board-box th,
 .point-board-box td {
   border-bottom: 1px solid #c4c4c4;
   text-align: center;
   height: 45px;
-  font-size: 12px;
+  font-size: 11px;
   line-height: normal;
   letter-spacing: normal;
+  color: #545147;
 }
 .point-board-box table {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   border-collapse: collapse;
+  table-layout: fixed;
+  border-bottom: 3px solid #545147;
 }
 
 .point-board-box th {
@@ -20,23 +30,11 @@
   border-top: 3px solid #545147;
   border-bottom: 1px solid #545147;
   background-color: #ebebeb;
+  font-weight: 600px;
 }
 
 .point-board-box td:nth-child(2) {
   text-decoration: underline;
-}
-
-.point-board-box td:nth-child(2):hover {
-  /* cursor: pointer;
-  background-color: black; */
-}
-.point-board-box {
-  width: 794px;
-  margin-top: 92px;
-  margin-left: 183px;
-  margin-right: 183px;
-  /* height: 600.8px; */
-  height: 700px;
 }
 
 .point-board-box input[type="date"] {
@@ -112,9 +110,10 @@
 }
 
 .point-board-select-box {
-  width: 100%;
   display: inline-block;
-  margin-bottom: 9px;
+  width: 100%;
+  height: 40px;
+  display: inline-block;
   font-size: 12px;
 }
 
@@ -135,35 +134,36 @@
 }
 
 .point-board-select-box .point-refund-select-box {
-  margin-left: 36px;
+  margin-left: 45px;
+  font-weight: bold;
 }
 
 .point-board-search-box {
-  /* float: left; */
   display: inline-block;
-  width: 161px;
-  height: 24.8px;
+  /* width: 161px; */
+  width: 240px;
+  height: 30px;
   border: solid 2px #c4c4c4;
   border-radius: 26px;
   position: relative;
-  margin-left: 36px;
+  margin-left: 56px;
 }
 .point-board-search-box input {
-  width: 140px;
-  height: 20px;
+  width: 185px;
+  height: 26px;
   border: none;
-  margin-left: 8px;
+  margin-left: 10px;
   outline: none;
 }
 .point-board-search-box label {
   display: block;
   width: 29px;
-  height: 29px;
+  height: 28px;
   background: url(../../../public/img/mdi-magnify.png) no-repeat;
   text-indent: -9999px;
   position: absolute;
-  right: 2px;
-  top: -3px;
+  right: 6px;
+  top: -2px;
   cursor: pointer;
 }
 
@@ -179,3 +179,23 @@
   text-align: center;
   margin-bottom: 20px;
 }
+
+/* .approve-board-search-box input {
+  width: 193px;
+  height: 20px;
+  border: none;
+  margin-left: 8px;
+  margin-top: 5px;
+  outline: none;
+}
+.approve-board-search-box label {
+  display: block;
+  width: 29px;
+  height: 29px;
+  background: url(../../../../public/img/mdi-magnify.png) no-repeat;
+  text-indent: -9999px;
+  position: absolute;
+  right: 2px;
+  top: -1px;
+  cursor: pointer;
+} */

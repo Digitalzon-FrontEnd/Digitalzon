@@ -12,3 +12,8 @@
     line-height: 1.5;
     list-style-type: decimal;
 }
+
+.guide-inner{
+    width: 780px;
+    margin: 0 auto;
+}

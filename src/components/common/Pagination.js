@@ -37,7 +37,7 @@ const Pagination = ({
         <ul className="pagination-ul">
           <img
             className="pagination-list-previous"
-            src="/img/eva-arrow-ios-back-outline.png"
+            src="https://raw.githubusercontent.com/Digitalzone-FrontEnd/Digitalzone/main/public/img/eva-arrow-ios-back-outline.png"
             alt="이전 목록 보기"
             onClick={() => {
               minusCurrenntIndex(currentPage);
@@ -57,7 +57,7 @@ const Pagination = ({
           ))}
           <img
             className="pagination-list-next"
-            src="/img/eva-arrow-ios-back-outline.png"
+            src="https://raw.githubusercontent.com/Digitalzone-FrontEnd/Digitalzone/main/public/img/eva-arrow-ios-back-outline.png"
             alt="다음 목록 보기"
             onClick={() => {
               plusCurrenntIndex(currentPage);

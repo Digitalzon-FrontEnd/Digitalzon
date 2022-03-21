@@ -15,8 +15,7 @@ const AccountChange = ({user}) => {
         $(`#accountCallNum${length - 1}`).focus();
         }
     };
-    // 전화번호칸 함수
-
+    // 휴대폰번호 칸 관련 함수
     const pwValue = useRef();
     const pwCheckValue = useRef();
     const emailCheck = useRef();
@@ -45,16 +44,11 @@ const AccountChange = ({user}) => {
             pwCheckValue.current.value = "";
         };
     };
-    // submit 함수
+    // 일치, 이메일 함수
 
     const [showcertification, setShowcertification] = useState(false);
     const onClickCer = () => setShowcertification(true);
-    // 번호인증 함수
-
-    const cerBtn = () => {
-        alert("번호인증이 완료되었습니다.")
-    }
-    // 번호인증 알람
+    // 번호 변경 시 인증번호 함수
 
     return (
     <div>
@@ -129,7 +123,7 @@ const AccountChange = ({user}) => {
                                 <label>인증번호입력</label>
                                 <input id="cerInput"  required></input>
                             </div>
-                            <button id="accountCerBtn" type="button" onClick={cerBtn}>확인</button>
+                            <button id="accountCerBtn" type="button">확인</button>
                         </div>
                         : null }
                     </div>
