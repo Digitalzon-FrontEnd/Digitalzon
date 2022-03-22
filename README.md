@@ -91,7 +91,7 @@
 **1. 계정 관리**
 - 슈퍼관리자 본인 계정 변경 가능
 - 계정 생성 가능
-- 전체 사용자 계정 관리 가능
+- 그룹내 사용자 계정 관리 가능
 
 ---
 
@@ -117,11 +117,23 @@
 ### About us
 <br/>
 
-[![Notion](https://img.shields.io/badge/Notion-FFB6C1?style=flat-square&logo=Notion&logoColor=white)](https://robust-yarrow-7cc.notion.site/Final-Team-Project_-2a973b9929df40cb814137aa4c0c327b)
+[![Notion](https://img.shields.io/badge/팀프로젝트&nbsp;Notion-FFB6C1?style=flat-square&logo=Notion&logoColor=white)](https://robust-yarrow-7cc.notion.site/Final-Team-Project_-2a973b9929df40cb814137aa4c0c327b)
 
-<br/>
 
-감사합니다.
+|팀원|이메일주소|
+|---|:---|
+|june0-K|emirpts1@gmail.com|
+|jhmoon12|mjh9461@gmail.com|
+|WhiteMIron|bmchhk13@gmail.com|
+|WooBinJang|jwb4497@gmail.com|
+|Byeoleta|jeongeunbyeol8@gmail.com|
+|supportgwon|dnchldls3@gmail.com|
+
+
+조언이나 의견 모두 감사하게 받겠습니다.
+
+에러 발견시 메일로 문의주시면 감사하겠습니다.
+
 
 <br/><br/>
 
