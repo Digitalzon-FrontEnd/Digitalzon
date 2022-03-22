@@ -65,9 +65,9 @@ const PointView = ({
        
       ); 
       
-      console.log('성공:')
+      
     } else 
-    return console.log('실패')
+    return 
   }
 
 
@@ -82,6 +82,7 @@ const PointView = ({
       <div className="pointDetails-box">
         <div className="point-details">
           <div className="point-details-inner">
+            <div className="point-details-wrap">
             <div className="row">
               <span class="key">업체명</span>
               <span class="value">{pointItem.companyName}</span>
@@ -111,6 +112,7 @@ const PointView = ({
               <span class="value">
                 기업은행 | 0000-0000-0000-00 | {pointItem.managerName}
               </span>
+            </div>
             </div>
           </div>{" "}
           <span className="point-details-select-menu">

@@ -71,6 +71,7 @@ const PostView = ({posts,setPosts,user,location, history}) => {
       <div className="postview-wrap">
         <div className="postview-content">
           <table className="postview-table">
+            <div className="table-wrap">
             <thead className="postview-thead">
               <tr>
                 <td>{data.업체명}</td>
@@ -89,6 +90,8 @@ const PostView = ({posts,setPosts,user,location, history}) => {
                 <td>{postItem.panelContent}</td>
               </tr>
             </tbody>
+            </div>
+            
           </table>
           {/* 테이블 끝 */}
         </div>

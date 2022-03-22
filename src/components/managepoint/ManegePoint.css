@@ -15,6 +15,11 @@
     font-weight: 600;
     margin-right: 36px;
 }
+
+.head-refund-wrap{
+
+}
+
 .managePoint-log-box>h2{
     font-size: 17px;
     color: #545147;
@@ -95,8 +100,20 @@ display: none;
 
 .managePoint-log-box{
     margin-top: 55px;
+    border: 0.5px solid #ebebeb; 
+    border-radius: 20px;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.1);
+    width: 692px;
+    height: 266px;
+    background-color: #fff;
+    margin: 55px auto 0;
+    overflow: auto;
 }
-
+.managePoint-log-box h2{
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 21px
+}
 .managePoint-log-list{
     margin-top: 32px;
 }
@@ -108,10 +125,19 @@ display: none;
     justify-content: space-between;
     
 }
+
+.managePoint-log-list li span:nth-child(3){
+    width: 100px;
+}
+.managePoint-log-list li span:nth-child(4){
+    width: 100px;
+    text-align: left;
+}
 .managePoint-log-list li span{
     font-size: 13px;
     color: #545147;
     line-height: 30px;
+    text-align: right;
 }
 
 

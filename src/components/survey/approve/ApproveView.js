@@ -142,7 +142,11 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
                     ></input>
                   </li>
                 </ul>
-                <div className="btn-container">
+                
+              </div>
+            </div>
+          </div>
+          <div className="btn-container">
                   <div className="btn-container-wrap">
                     <button className="save-btn btn-o" onClick={onSaveClick}>
                       저장
@@ -161,10 +165,6 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
                     </Link>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-
           <div className="status-record">
             <span className="status-record-title">[기록]</span>
             <ul className="record-list">
@@ -174,6 +174,7 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
               {/* </li> */}
             </ul>
           </div>
+          
         </div>
       </div>
     </div>

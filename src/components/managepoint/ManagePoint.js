@@ -117,10 +117,11 @@ const ManagePoint = ({
   return (
     <div className="inner_box Manage-inner">
       <Gnb user={user} />
+      <div className="head-refund-wrap">
       <div className="managePoint-header">
         <h1>[보유포인트]</h1>
         <span>{point} point</span>
-      </div>
+      </div> {/* 헤드 */}
       <div className="managePoint-refund-box">
         <form className="refund-input">
           <span className="bank-option">
@@ -169,7 +170,9 @@ const ManagePoint = ({
             <p>* 보유 포인트 이하만 환불신청이 가능합니다.</p>
           </div>
         </form>
+      </div> {/* 환불 박스 */}
       </div>
+      
       <div className="managePoint-log-box">
         <h2>[사용내역]</h2>
         <ul className="managePoint-log-list">

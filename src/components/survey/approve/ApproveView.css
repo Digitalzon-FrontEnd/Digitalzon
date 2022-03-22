@@ -1,66 +1,100 @@
 .surveyApproveDetails-box {
   width: 688px;
-  height: 800px;
+  
   margin-left: 245px;
   margin-right: 245px;
   margin-top: 92px;
-  /* padding-top: 70px; */
+  margin-bottom: 100px;
 }
 
-.surveyApproveDetails-box .details-container {
-  /* width: 289px; */
-  /* width: 100%; */
-  /* height: 298px; */
-}
 .surveyApproveDetails-box .details-container .details-wrap {
   width: 100%;
-  /* height: 298px;
-   */
   height: 330px;
   display: flex;
   justify-content: space-between;
 }
 .surveyApproveDetails-box .details-left {
-  width: 289px;
-  height: 266px;
-  background-color: #ebebeb;
+  
+  border: 0.5px solid #ebebeb; 
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.1);
+  width: 324px;
+  height: 348px;
+  background-color: #fff;
   margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+.details-left-inner{
+  padding: 25px 0 0 21px; 
+  background-color: #fba92f;
+  width: 121px;
+  height: 348px;
+  border-radius: 20px 0 0 20px ;
 }
 
 .surveyApproveDetails-box .details-right {
-  width: 362px;
-  /* height: 266px;
-   */
-  height: 100%;
-}
-
-.surveyApproveDetails-box.details-left-inner {
-  margin-top: 13px;
+  padding-left: 21px;
+  border: 0.5px solid #ebebeb; 
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.1);
+  width: 324px;
+  height: 348px;
+  background-color: #fff;
 }
 
 .surveyApproveDetails-box .details-left .row {
   margin-left: 9px;
-  height: 48px;
+  height: 60px;
   width: 269px;
   font-size: 12px;
   font-weight: 600;
   color: #545147;
-  line-height: 48px;
-  border-bottom: 1px dashed #9a9a9a;
+  line-height: 60px;
 }
+
+.surveyApproveDetails-box .details-left .row::before{
+  position: absolute;
+  content: "";
+  width: 250px;
+  border-bottom: 0.5px solid #c4c4c4;
+  z-index: -1;
+  
+}
+.surveyApproveDetails-box .details-left .row:first-child:before{
+  display: none;
+}
+
 
 .surveyApproveDetails-box .key {
   display: inline-block;
-  width: 125px;
+  width: 60px;
   height: 100%;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  
+}
+.surveyApproveDetails-box .value{
+  margin-left: 73px;
 }
 
 .surveyApproveDetails-box .row:last-child {
   border: none;
 }
 
+
+.surveyApproveDetails-box .details-right>ul{
+  margin-top: 25px;
+  padding-bottom: 25px;
+  width: 277px;
+  border-bottom: 1px solid #ebebeb;
+}
+
 .surveyApproveDetails-box .details-right li {
-  margin-top: 12px;
+  margin-top: 30px;
   font-size: 12px;
   color: #545147;
 }
@@ -69,9 +103,11 @@
   margin-top: 0px;
 }
 
+/* 설문조사 현황 박스 */
+
 .surveyApproveDetails-box .details-right .payment-point {
   display: inline-block;
-  margin-top: 33px;
+  margin-top: 21px;
   font-weight: 600;
   font-size: 16px;
 
@@ -79,26 +115,25 @@
 }
 
 .surveyApproveDetails-box .details-right .select-container {
-  margin-top: 30px;
+  margin-top: 25px;
+  color: #545147;
+}
+
+.details-right .reason-title input::placeholder{
+  color: #ebebeb;
 }
 
 .surveyApproveDetails-box select {
   width: 100%;
-
   height: 100%;
-
   text-align: center;
   /* padding: 0 28px 0 10px; */
-
   padding-right: 15px;
   font-size: 12px;
-
   border: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
-
   appearance: none;
-
   box-sizing: border-box;
   background: transparent;
 }
@@ -110,11 +145,22 @@
   display: inline-block;
   width: 98px;
   height: 27px;
-
   border: 1px solid #ccc;
-
   background: url("../../../../public/img/dashicons-arrow-down-alt-2.png")
     no-repeat 97% 50%/15px auto;
+}
+
+/* 셀렉트 */
+
+.surveyApproveDetails-box .save-btn,.surveyApproveDetails-box .list-btn{
+  width: 95px;
+  height: 32px;
+  background-color: #fba92f;
+  border-radius: 20px;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  margin-top: 20px;
 }
 
 .surveyApproveDetails-box .save-btn {
@@ -138,19 +184,39 @@
   margin-top: 9px;
 }
 
-.surveyApproveDetails-box .details-right .btn-container {
-  margin-top: 15px;
-  margin-right: 10px;
+.surveyApproveDetails-box .btn-container-wrap {
+  margin-top: 25px;
   display: flex;
   justify-content: flex-end;
 }
 
-.surveyApproveDetails-box.details-container .status-record {
-  margin-top: 10px;
+/* 버튼 */
+
+.surveyApproveDetails-box .details-container .status-record {
+  display: block;
+ 
+  margin-top: 20px;
+  border: 0.5px solid #ebebeb; 
+  border-radius: 20px;
+  box-sizing: border-box;
+  box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
+  
+}
+.status-record-title{
+  display: block;
+  margin-top: 21px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  text-align: center;
+  font-weight: 700;
 }
 
 .surveyApproveDetails-box .record-list {
   overflow: auto;
+  width: 688px;
+  height: 210px;
+  
 }
 
 .surveyApproveDetails-box .survey-profile-container {
@@ -180,7 +246,8 @@
 }
 
 .surveyApproveDetails-box .record-list li {
-  font-size: 13px;
-  margin-left: 13px;
+  font-size: 15px;
+  margin-left: 22px;
   margin-top: 15px;
 }
+/* 로그 */

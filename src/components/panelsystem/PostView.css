@@ -6,18 +6,36 @@
   text-align: left;
 }
 
+.postview-content{
+  margin: 100px auto 22px;
+  border-radius: 20px;
+  border : 0.5px solid #ebebeb;
+  box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
 .postview-table {
-  margin: 200px auto 22px;
   width: 693px;
   height: 266px;
   border-collapse: collapse;
-  background-color: #ebebeb;
 }
+
+.table-wrap{
+  background-color: #fba92f;
+  width: 130px;
+  height: 266px;
+  border-radius: 20px 0 0 20px ;
+}
+
 .postview-thead,
 .postview-tbody {
   position: relative;
 }
+
+
 .postview-thead tr {
+  width: 80px;
+  text-align: center;
+  color: #fff;
   position: absolute;
   top: 15px;
   left: 21px;
@@ -25,16 +43,17 @@
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-  font-weight: 600;
+  font-weight: 700;
 }
 .postview-tbody tr {
   position: absolute;
   top: 15px;
-  left: 170px;
+  left: 180px;
   height: 235px;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+  font-weight: 700;
 }
 .postview-thead td {
   position: relative;
@@ -43,11 +62,12 @@
   border: none; height: 0;
 }
 .postview-thead td::before {
+  z-index: -1;
   position: absolute;
   content: "";
-  width: 650px;
+  width: 620px;
   height: 1px;
-  border-bottom: 1px dashed #9a9a9a;
+  border-bottom: 0.5px solid #c4c4c4;
 }
 .postview-thead td:nth-child(1)::before,
 .postview-thead td:nth-child(2)::before,
@@ -119,22 +139,36 @@
 }
 /* postview-btn-box 끝 */
 .postview-loglist {
-  margin: 11px 0 200px 10px;
+  margin: 26px 0 100px;
   font-size: 13px;
+  width: 693px;
+  height: 266px;
+  border-radius: 20px;
+  border : 1px solid #ebebeb;
+  box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
+  box-sizing: border-box;
+
 }
-.postview-loglist p {
-  margin-bottom: 13px;
-  font-weight: 600;
+.postview-loglist>p {
+  margin-top: 21px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-align: center;
+  font-size: 15px;
+
 }
-.postview-loglist ul {
-  font-size: 13px;
-  line-height: 1.5;
+.postview-log {
+  font-size: 15px;
   overflow: auto;
-  height: 200px;
+  height: 210px;
+  margin-left: 21px;
+  
+
 }
 
-.postview-loglist li {
-  font-size: 13px;
-  margin-left: 13px;
+.postview-log li {
   margin-top: 15px;
 }
+
+
