@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Footer from "./common/Footer";
 import { Route } from "react-router-dom";
 import Faq from "./faq/Faq";
@@ -40,7 +40,15 @@ import DetailQA1 from "./q&a/detailq&a/DetailQA1";
 
 const Root = () => {
   const [selectPointItem, setSelectPointItem] = useState({});
-
+  const [isUserLogin, setIsUserLogin] = useState(false);
+  useEffect(() => {
+    let accessToken = JSON.parse(sessionStorage.getItem("accessToken")) || null;
+    if (accessToken) {
+      setIsUserLogin(true);
+    } else {
+      setIsUserLogin(false);
+    }
+  }, [isUserLogin]);
   const [userList, setUserList] = useState([
     {
       id: 0,
@@ -467,7 +475,13 @@ const Root = () => {
 
   return (
     <div>
-      <Header user={user} point={point} setUser={setUser} />
+      <Header
+        user={user}
+        point={point}
+        setUser={setUser}
+        isUserLogin={isUserLogin}
+        setIsUserLogin={setIsUserLogin}
+      />
       <Route exact path="/" component={Main} />
       <Route
         exact
@@ -483,7 +497,12 @@ const Root = () => {
       />
       <Route path="/faq" render={() => <Faq user={user} />} />
       <Route path="/guide" render={() => <Guide user={user} />} />
-      <Route path="/login" render={() => <Login setUser={setUser} />} />
+      <Route
+        path="/login"
+        render={() => (
+          <Login setUser={setUser} setIsUserLogin={setIsUserLogin} />
+        )}
+      />
       <Route path="/terms" component={Terms} />
       <Route path="/findId" component={FindId} />
       <Route path="/findPw" component={FindPw} />
@@ -520,7 +539,7 @@ const Root = () => {
         )}
       />
       <Route
-        path="/survey/approve/board"
+        path="/approve/board"
         render={() => (
           <ApproveBoard
             surveyApproveItems={posts}
@@ -531,7 +550,7 @@ const Root = () => {
       ></Route>
       <Route
         exact
-        path="/survey/approve/view/:id"
+        path="/approve/view/:id"
         render={() => (
           <ApproveView
             surveyApproveItems={posts}
@@ -608,7 +627,7 @@ const Root = () => {
         )}
       />
       <Route
-        path="/surveymodify"
+        path="/survey/surveymodify"
         component={(props) => (
           <SurveyModify
             posts={posts}
@@ -621,7 +640,7 @@ const Root = () => {
       <Route path="/surveyregist" component={SurveyRegist} />
       <Route path="/home" render={() => <Home user={user} posts={posts} />} />
       <Route
-        path="/publish"
+        path="/mainqa/publish"
         render={(props) => (
           <PublishQA
             tableInfo={tableInfo}
@@ -667,7 +686,7 @@ const Root = () => {
         )}
       />
       <Route path="/mypage" render={(props) => <MyPage user={user} />} />
-      <Footer user={user} />
+      <Footer isUserLogin={isUserLogin} />
     </div>
   );
 };

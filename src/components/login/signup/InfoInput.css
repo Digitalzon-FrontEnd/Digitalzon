@@ -182,3 +182,7 @@
 .termsInner button {
   cursor: pointer;
 }
+
+.perInfo .inifinput-phonenumber {
+  width: 100px;
+}

@@ -13,10 +13,8 @@ const Survey = ({
   AllDataPosts,
   location,
 }) => {
-  console.log(totalIndexPosts);
   const history = useHistory();
   const surveyInputRef = useRef();
-
   const [searchedSurveys, setSearchedSurveys] = useState(AllDataPosts);
   const [surveyRegistModal, setSurveyRegistModal] = useState(false);
   const [surveyModalOpen, surveySetModalOpen] = useState(false);
@@ -56,7 +54,14 @@ const Survey = ({
       return true;
     }
   };
-
+  const checkSendStatusFnc = () => {
+    if (totalIndexPosts[totalIndexPosts.length - index].sendStatus) {
+      alert("발송 완료된 설문입니다.");
+      return;
+    } else {
+      surveySetModalOpen(true);
+    }
+  };
   const currentPosts = (tmp) => {
     let currentPosts = 0;
     currentPosts = tmp.slice(indexOfFirst, indexOfLast); // 0 ~ 10 |  10 ~ 20
@@ -84,7 +89,6 @@ const Survey = ({
   const surveyInputClick = () => {
     surveySerachFnc();
   };
-
   return (
     <div className="survey-box">
       <Gnb user={user} />
@@ -118,7 +122,7 @@ const Survey = ({
               className="survey-send-btn  btn-o btn-r"
               onClick={(e) => {
                 if (checkIndexFnc(index)) {
-                  surveySetModalOpen(true);
+                  checkSendStatusFnc();
                 }
               }}
             >

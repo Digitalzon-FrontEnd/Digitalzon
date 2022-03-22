@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { numberComma } from "../../util/NumberComma";
 import "./SurveySendModal.css";
 
 const SurveySendModal = ({ modalClose, post, setPosts, posts }) => {
-  if (post.sendStatus) {
-    alert("전송이 완료된 설문입니다.");
-    modalClose();
-  }
+  useEffect(() => {
+    if (post.sendStatus) {
+      alert("전송이 완료된 설문입니다.");
+      modalClose();
+    }
+  }, []);
 
   const updateSendStatus = () => {
     const updatePosts = [...posts];

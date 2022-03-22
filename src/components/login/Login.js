@@ -1,23 +1,45 @@
-import React, { useRef } from "react";
+import React, { useRef, useCallback, useEffect } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
-const Login = ({ setUser }) => {
+const Login = ({ setUser, setIsUserLogin }) => {
   const history = useHistory();
   const logInId = useRef();
+  const logInPw = useRef();
+
+  const loginUser = useCallback(() => {
+    let url = "https://digitalzone1.herokuapp.com/api/auth/signin";
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "Allow-Control-Access-Origin": "*",
+      },
+      body: JSON.stringify({
+        accountid: logInId.current.value,
+        accountpw: logInPw.current.value,
+      }),
+    })
+      .then((res) => res.json())
+      .then(({ data }) => {
+        console.log(data);
+        sessionStorage.setItem("accessToken", JSON.stringify(data.accessToken));
+        sessionStorage.setItem("userData", JSON.stringify(data.user));
+      })
+      .then(() => {
+        setIsUserLogin(true);
+        history.push("/home");
+      })
+      .catch((err) => {
+        alert("아이디 혹은 비밀번호가 없거나 일치하지 않습니다.");
+      });
+  }, []);
 
   const onEnterKey = (e) => {
-    if (e.key === "Enter") loginFnc();
+    if (e.key === "Enter") loginUser();
   };
-  const loginFnc = () => {
-    setUser({
-      id: logInId.current.value,
-      login: true,
-      grade: 2,
-    });
-    history.push("/home"); // /home 변경
-  };
+
   return (
     <div className="login-box">
       <div className="inner">
@@ -40,6 +62,7 @@ const Login = ({ setUser }) => {
                 id="loginUserPw"
                 type="password"
                 required
+                ref={logInPw}
                 onKeyPress={onEnterKey}
               />
             </li>
@@ -47,8 +70,11 @@ const Login = ({ setUser }) => {
           <div className="login-btn-box">
             <button
               className="login-btn-log-in btn-r btn-o"
-              type="button"
-              /* type="submit" */ onClick={loginFnc}
+              type="submit"
+              onClick={(e) => {
+                e.preventDefault();
+                loginUser();
+              }}
             >
               로그인
             </button>

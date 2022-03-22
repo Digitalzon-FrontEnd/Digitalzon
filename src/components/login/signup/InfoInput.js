@@ -1,9 +1,11 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import "./InfoInput.css";
 import Modal from "./Modal";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const InfoInput = () => {
+  const history = useHistory();
   const [showCorp, setShowCorp] = useState(false);
   const onClick = () => setShowCorp(true);
   const onClicked = () => setShowCorp(false);
@@ -44,6 +46,9 @@ const InfoInput = () => {
     });
   };
   const cellNum = useRef();
+  const cellNum2 = useRef();
+  const cellNum3 = useRef();
+
   const hasValue = (element) => {
     if (element.current.value !== undefined && element.current.value !== "") {
       return true;
@@ -77,7 +82,46 @@ const InfoInput = () => {
       emailCheck.current.focus();
     }
   };
-  //지금은 submit이랑 백엔드랑 할 수 없으니 일단은 action="/complete"로 하고 추후수정
+  // 지금은 submit이랑 백엔드랑 할 수 없으니 일단은 action="/complete"로 하고 추후수정
+
+  const accountid = useRef();
+  const username = useRef();
+  const mail = useRef();
+  const [userco, setUserco] = useState(null);
+  const [userconum, setUserconum] = useState(null);
+
+  const createUser = useCallback(() => {
+    let url = "https://digitalzone1.herokuapp.com/api/auth/signup";
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "Allow-Control-Access-Origin": "*",
+      },
+      body: JSON.stringify({
+        memcheck: showCorp ? "1" : "0", //  법인 1 | 개인 0
+        accountid: accountid.current.value,
+        accountpw: pwValue.current.value,
+        username: username.current.value,
+        mail: mail.current.value,
+        phoneNumber:
+          cellNum.current.value +
+          "-" +
+          cellNum2.current.value +
+          "-" +
+          cellNum3.current.value,
+        userco: userco,
+        userconum: userconum,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        history.push("/complete");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [showCorp, userco, userconum]);
 
   return (
     <div className="inner">
@@ -94,7 +138,10 @@ const InfoInput = () => {
         <form
           className="registerBox"
           action="/complete"
-          onSubmit={handleSubmit}
+          onSubmit={(e) => {
+            e.preventDefault();
+            createUser();
+          }}
         >
           <p id="registerTitle">
             기본정보 입력 <span className="essential">&#40;필수&#41;</span>
@@ -113,13 +160,13 @@ const InfoInput = () => {
               </label>
               <input
                 type="radio"
-                name="memCheck"
+                name="memRadio"
                 onClick={onClicked}
                 required
                 defaultChecked
               ></input>
               <label>개인회원</label>
-              <input type="radio" name="memCheck" onClick={onClick}></input>
+              <input type="radio" name="memRadio" onClick={onClick}></input>
               <label>법인회원</label>
             </div>
             <div>
@@ -128,11 +175,21 @@ const InfoInput = () => {
                   <div className="corporation">
                     <div className="corName">
                       <label>법인명</label>
-                      <input required></input>
+                      <input
+                        required
+                        onBlur={(e) => {
+                          setUserco(e.target.value);
+                        }}
+                      ></input>
                     </div>
                     <div className="corNum">
                       <label>사업자등록번호</label>
-                      <input required></input>
+                      <input
+                        required
+                        onBlur={(e) => {
+                          setUserconum(e.target.value);
+                        }}
+                      ></input>
                       <button type="button">
                         <p>법인 조회</p>
                       </button>
@@ -144,12 +201,17 @@ const InfoInput = () => {
             <div className="perInfo">
               <div className="idBox">
                 <label>아이디</label>
-                <input type="id" name="userId" required></input>
+                <input type="id" name="userId" required ref={accountid}></input>
                 <button type="button">중복확인</button>
               </div>
               <div className="userNameBox">
                 <label>사용자 이름</label>
-                <input type="text" name="userName" required></input>
+                <input
+                  type="text"
+                  name="userName"
+                  ref={username}
+                  required
+                ></input>
               </div>
               <div className="pwBox">
                 <label htmlFor="infoInputPw">비밀번호 입력</label>
@@ -193,11 +255,28 @@ const InfoInput = () => {
               <div className="callBox">
                 <label>휴대폰 번호</label>
                 <input
+                  className="inifinput-phonenumber"
                   type="number"
                   name="phoneNumber"
-                  placeholder="'-'없이 숫자만 입력해주세요"
                   required
                   ref={cellNum}
+                  min={0}
+                ></input>
+                <input
+                  className="inifinput-phonenumber"
+                  type="number"
+                  name="phoneNumber"
+                  required
+                  ref={cellNum2}
+                  min={0}
+                ></input>
+                <input
+                  className="inifinput-phonenumber"
+                  type="number"
+                  name="phoneNumber"
+                  required
+                  ref={cellNum3}
+                  min={0}
                 ></input>
                 <button type="button" onClick={alertSendCertNum}>
                   인증번호 발송
@@ -210,7 +289,7 @@ const InfoInput = () => {
               </div>
               <div className="emailBox">
                 <label>이메일 입력</label>
-                <input type="email" name="email" required />
+                <input type="email" name="email" required ref={mail} />
                 <button type="button" onClick={onClickEmail} ref={emailCheck}>
                   {switchOn ? <div>인증완료</div> : <div>인증</div>}
                 </button>

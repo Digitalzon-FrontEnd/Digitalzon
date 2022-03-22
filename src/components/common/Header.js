@@ -1,23 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { numberComma } from "../../util/NumberComma";
 import "./Header.css";
-const Header = ({ user, point, setUser }) => {
+
+const Header = ({ point, isUserLogin, setIsUserLogin }) => {
   const history = useHistory();
   const logoutFnc = () => {
-    setUser({
-      id: "",
-      login: false,
-      grade: 0,
-    });
+    setIsUserLogin(false);
+    sessionStorage.clear();
     history.push("/");
   };
+
   return (
     <header>
       <div className="header-box">
         <div className="logo">
-          <Link to={user.login ? "/home" : "/"}>
+          <Link to={isUserLogin ? "/home" : "/"}>
             <img
               className="header_logo"
               src="https://raw.githubusercontent.com/Digitalzone-FrontEnd/Digitalzone/main/public/img/CI-Digitalzone.png"
@@ -26,8 +25,8 @@ const Header = ({ user, point, setUser }) => {
           </Link>
         </div>
         <nav className="info-nav">
-          <ul className={user.login === false ? "" : "user-login"}>
-            {user.login === false ? (
+          <ul className={isUserLogin === false ? "" : "user-login"}>
+            {isUserLogin === false ? (
               <li>
                 <Link to="/guide">
                   <img
@@ -38,7 +37,7 @@ const Header = ({ user, point, setUser }) => {
                 </Link>
               </li>
             ) : null}
-            {user.login === false ? (
+            {isUserLogin === false ? (
               <li className="faq">
                 <Link to="/faq">FAQ</Link>
               </li>
@@ -47,7 +46,7 @@ const Header = ({ user, point, setUser }) => {
                 <Link to="/managepoint">{numberComma(point)}&nbsp;point</Link>
               </li>
             )}
-            {user.login === false ? (
+            {isUserLogin === false ? (
               <li className="login">
                 <Link to="/login">로그인</Link>
               </li>

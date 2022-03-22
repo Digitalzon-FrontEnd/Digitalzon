@@ -1,50 +1,51 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./PostView.css";
 import Gnb from "../common/Gnb";
 import moment from "moment";
 
-const PostView = ({posts,setPosts,user,location, history}) => {
-  const {currentPage} = location.state
+const PostView = ({ posts, setPosts, user, location, history }) => {
+  const [username, setUsername] = useState(null);
+
+  const { currentPage } = location.state;
   const params = useParams(); //파라미터로 받기 위한 함수
   let no = params.no;
   const postItem = posts.find((item) => {
     return item.number === no;
   });
-  const [prevState, setPrevState] = useState('');
+
+  const [prevState, setPrevState] = useState("");
   const [selectValue, setSelectValue] = useState(postItem.state);
 
   let date = moment().format("YYYY-MM-DD HH:mm:ss");
   /* 날짜 */
 
-  let recordTxt = `· ${date} ${
-    postItem.statemanager
-  } 님이 상태를 ${prevState} 에서 ${selectValue} ${
+  let recordTxt = `· ${date} ${username} 님이 상태를 ${prevState} 에서 ${selectValue} ${
     selectValue === "처리중" ? "으로" : "로"
   } 변경하였습니다.`;
 
   const selectChange = (e) => {
-      setPrevState(selectValue);
-      setSelectValue(e.target.value);
+    setPrevState(selectValue);
+    setSelectValue(e.target.value);
   };
   //select메뉴 변경시 벨류값
 
   const saveBtn = () => {
-    if( selectValue === postItem.state ){
-      alert('상태를 변경해주세요')
-    }
-    else setPosts(
-      posts.map((item) => {
-        
-        if (item.number === no) {
-          item.record.unshift(recordTxt);
-          /* -추가 부분 - */
-          item.state = selectValue;
-          /* -추가 부분 - */
-        }
-        return item;
-      })
-    );
+    if (selectValue === postItem.state) {
+      alert("상태를 변경해주세요");
+    } else
+      setPosts(
+        posts.map((item) => {
+          if (item.number === no) {
+            item.record.unshift(recordTxt);
+            item.statemanager = username;
+            /* -추가 부분 - */
+            item.state = selectValue;
+            /* -추가 부분 - */
+          }
+          return item;
+        })
+      );
   };
 
   const data = {
@@ -64,9 +65,16 @@ const PostView = ({posts,setPosts,user,location, history}) => {
     { value: "완료", name: "완료" },
   ];
 
+  useEffect(() => {
+    let userData = JSON.parse(sessionStorage.getItem("userData")) || null;
+    if (userData) {
+      setUsername(userData.username);
+    }
+  }, []);
+
   return (
     <div className="inner_box">
-      <Gnb user={user}/>
+      <Gnb user={user} />
       <div className="postview-wrap">
         <div className="postview-content">
           <table className="postview-table">
@@ -111,20 +119,21 @@ const PostView = ({posts,setPosts,user,location, history}) => {
             저장
           </button>
           <Link
-              to={{
-                pathname:`/panel/board`,
-                state: {
-                  currentPage : currentPage
-                },
-              }}
-            ><button className="postview-btn back-btn">목록</button>
+            to={{
+              pathname: `/panel/board`,
+              state: {
+                currentPage: currentPage,
+              },
+            }}
+          >
+            <button className="postview-btn back-btn">목록</button>
           </Link>
         </div>
         <div className="postview-loglist">
           <p>[기록]</p>
           <ul className="postview-log">
-            {postItem.record.map((item) => {
-              return <li>{item}</li>;
+            {postItem.record.map((item, index) => {
+              return <li key={index}>{item}</li>;
             })}
           </ul>
         </div>

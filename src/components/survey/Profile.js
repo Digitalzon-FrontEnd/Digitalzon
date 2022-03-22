@@ -65,7 +65,7 @@ const Profile = ({ params }) => {
         <div className="profile-footer-btn-box">
           <Link
             to={{
-              pathname: `/surveymodify`,
+              pathname: `/survey/surveymodify`,
               state: {
                 params: params,
               },

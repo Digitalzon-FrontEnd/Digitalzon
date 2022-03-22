@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { Link, useParams, useLocation } from "react-router-dom";
 import Gnb from "../../common/Gnb";
 import "./ApproveView.css";
@@ -11,7 +11,6 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
     return item.num === id;
   });
   const surveyProfiles = surveyApproveItem.profile1; //.concat(surveyApproveItems.profile2,surveyApproveItems.profile3)
-  console.log(surveyProfiles);
   const [prevSelectedValue, setPrevSelectValue] = useState("");
   const [selectValue, setSelectValue] = useState(surveyApproveItem.state);
   const location = useLocation();
@@ -26,9 +25,11 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
       return;
     }
     if (prevSelectedValue === "") {
-      recordText = `· ${date}  김주리님이 상태를  ${selectValue} 로 변경하였습니다. `;
+      recordText = `· ${date}  ${userData.username}님이 상태를  ${selectValue} 로 변경하였습니다. `;
     } else {
-      recordText = `· ${date}  김주리님이 상태를 ${prevSelectedValue}에서 ${
+      recordText = `· ${date}  ${
+        userData.username
+      }님이 상태를 ${prevSelectedValue}에서 ${
         selectValue === "처리중" ? `${selectValue} 으로` : `${selectValue} 로`
       }   변경하였습니다. `;
     }
@@ -52,6 +53,14 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
     setSelectValue(e.target.value);
   };
 
+  const [userData, setUserData] = useState(null);
+  useEffect(() => {
+    let userData = JSON.parse(sessionStorage.getItem("userData")) || null;
+    if (userData) {
+      setUserData(userData);
+    }
+  }, []);
+
   return (
     <div className="inner">
       <Gnb user={user} />
@@ -62,33 +71,33 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
               <div className="details-left-inner">
                 <div className="row">
                   <span className="key">업체명</span>
-                  <span className="value">주식회사(A)</span>
+                  <span className="value">{surveyApproveItem.affiliation}</span>
                 </div>
                 <div className="row">
                   <span className="key">사용자명</span>
-                  <span className="value">홍길동</span>
+                  <span className="value">{surveyApproveItem.registrant}</span>
                 </div>
                 <div className="row">
                   <span className="key">아이디</span>
-                  <span className="value">aaabcde</span>
+                  <span className="value">{surveyApproveItem.accountid}</span>
                 </div>
 
                 <div className="row">
                   <span className="key">연락처</span>
-                  <span className="value">010-0000-0000</span>
+                  <span className="value">{surveyApproveItem.phoneNumber}</span>
                 </div>
                 <div className="row">
                   <span className="key">이메일</span>
-                  <span className="value">010-0000-0000</span>
+                  <span className="value">{surveyApproveItem.mail}</span>
                 </div>
               </div>
             </div>
             <div className="details-right">
               <ul>
                 <li>· 조사명 : {surveyApproveItem.surveyName}</li>
-                <li>· 설문링크 : www.survey.com</li>
+                <li>· 설문링크 :{surveyApproveItem.link}</li>
                 <li>· 필요샘플 수 : {surveyApproveItem.needSample}</li>
-                <li>· 참여포인트 : 100 point</li>
+                <li>· 참여포인트 : {surveyApproveItem.pointPerPerson} point</li>
                 <li>· 설문기간 : {surveyApproveItem.date}</li>
                 <li>· 발송패널 수 : 2500건</li>
                 <li>
@@ -122,7 +131,7 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
                           value={selectValue}
                         >
                           <option value="승인대기" color="#0000ff">
-                            승인대기{" "}
+                            승인대기
                           </option>
                           <option value="승인완료">승인완료</option>
 
@@ -133,7 +142,6 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
                     </span>
                   </li>
                   <li>
-                    {" "}
                     <span className="reason-title">사유</span>
                     <input
                       id="reason"
@@ -150,7 +158,7 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
 
                     <Link
                       to={{
-                        pathname: `/survey/approve/board`,
+                        pathname: `/approve/board`,
                         state: {
                           currentPage: currentPage,
                           searchedItems: searchedItems,
