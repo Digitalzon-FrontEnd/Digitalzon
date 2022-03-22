@@ -35,7 +35,7 @@
 
 | 계정 | 추가권한 | 공통포함 | 노출 메뉴 |
 | ------ | -- | -- |----------- |
-| 비회원 |  | ☑️ | 회원가입, 로그인, 패널인증시스템신청,FAQ,이용안내 |
+| 비회원 |  | ☑️ | 회원가입, 로그인, 패널인증시스템신청, FAQ, 이용안내 |
 | 일반회원 | ☑️ | ☑️ | 비회원 기능 포함, 메인페이지, 계정설정, 설문등록, 설문현황조회, 포인트 관리 |
 | 법인회원 슈퍼관리자 | ☑️ | ☑️ | 일반회원 기능 포함, 계정관리 |
 | 디지털존 관리자 | ☑️ | ☑️ | 법인회원 슈퍼관리자 기능 포함, 패널인증시스템 신청현황. 포인트 현황, 설문 승인 현황 |
@@ -123,7 +123,7 @@
 <br/>
 
 [![Notion](https://img.shields.io/badge/팀프로젝트&nbsp;Notion-FFB6C1?style=flat-square&logo=Notion&logoColor=white)](https://robust-yarrow-7cc.notion.site/Final-Team-Project_-2a973b9929df40cb814137aa4c0c327b)
-&nbsp;https://robust-yarrow-7cc.notion.site/Final-Team-Project_-2a973b9929df40cb814137aa4c0c327b
+&nbsp;(◀️ 라벨 클릭시 이동)
 
 <br/>
 
