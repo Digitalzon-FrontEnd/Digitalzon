@@ -1,4 +1,9 @@
 # Dizitalzone Survey Project
+<br/>
+
+[![Netlify](https://img.shields.io/badge/Netlify-success?style=flat-square&logo=Netlify&logoColor=white)](https://digitalzone-v1.netlify.app/)
+&nbsp;https://digitalzone-v1.netlify.app/
+
 
 <br/>
 해당 프로젝트는 불특정다수의 설문조사업체 및 개인을 대상으로 원하는 설문조사를 진행할 수 있도록 지원하는 프로젝트입니다.
@@ -118,7 +123,9 @@
 <br/>
 
 [![Notion](https://img.shields.io/badge/팀프로젝트&nbsp;Notion-FFB6C1?style=flat-square&logo=Notion&logoColor=white)](https://robust-yarrow-7cc.notion.site/Final-Team-Project_-2a973b9929df40cb814137aa4c0c327b)
+&nbsp;https://robust-yarrow-7cc.notion.site/Final-Team-Project_-2a973b9929df40cb814137aa4c0c327b
 
+<br/>
 
 |팀원|이메일주소|
 |---|:---|
@@ -129,6 +136,9 @@
 |Byeoleta|jeongeunbyeol8@gmail.com|
 |supportgwon|dnchldls3@gmail.com|
 
+<br/>
+
+미숙한 부분이 많습니다.
 
 조언이나 의견 모두 감사하게 받겠습니다.
 
