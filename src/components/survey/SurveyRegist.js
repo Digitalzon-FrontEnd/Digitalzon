@@ -1,9 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./SurveyRegist.css";
 import moment from "moment";
 
 function SurveyRegist({ modalClose, posts, setPosts }) {
   const date = moment().format("YYYY-MM-DD");
+  const [userData, setUserData] = useState({});
 
   const fileInput = useRef();
   const fileName = useRef();
@@ -95,10 +96,17 @@ function SurveyRegist({ modalClose, posts, setPosts }) {
     profile3: [],
     record: [],
     state: "승인대기",
-    registrant: "홍길동",
-    affiliation: "개인",
+    registrant: userData.username,
+    affiliation: userData.userco ? userData.userco : "개인",
     activation: false,
+    modifiedBy: "",
+    modifiedDate: "",
+    sendStatus: false,
+    accountid: userData.accountid,
+    phoneNumber: userData.phoneNumber,
+    mail: userData.mail,
   };
+
   const setNewPost = () => {
     const value = (ref) => {
       return ref.current.value;
@@ -118,6 +126,14 @@ function SurveyRegist({ modalClose, posts, setPosts }) {
     alert("설문 등록이 완료되었습니다.");
     modalClose();
   };
+
+  useEffect(() => {
+    let userData = JSON.parse(sessionStorage.getItem("userData")) || null;
+    if (userData) {
+      setUserData(userData);
+    }
+  }, []);
+
   return (
     <div className="surveyRg">
       <div className="svRg-pageTitle-box">

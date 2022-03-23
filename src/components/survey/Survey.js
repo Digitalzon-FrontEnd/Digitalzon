@@ -14,24 +14,38 @@ const Survey = ({
   location,
 }) => {
   const history = useHistory();
-
+  const surveyInputRef = useRef();
   const [searchedSurveys, setSearchedSurveys] = useState(AllDataPosts);
+  const [surveyRegistModal, setSurveyRegistModal] = useState(false);
+  const [surveyModalOpen, surveySetModalOpen] = useState(false);
+  const [index, setIndex] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const postsPerPage = 10;
+  const indexOfLast = currentPage * postsPerPage;
+  const indexOfFirst = indexOfLast - postsPerPage;
 
   useEffect(() => {
     setSearchedSurveys(AllDataPosts);
   }, [AllDataPosts]);
 
-  const [surveyRegistModal, setSurveyRegistModal] = useState(false);
-  const surveyRegistModalClose = () => {
-    setSurveyRegistModal(!surveyRegistModal);
-  };
-  const [surveyModalOpen, surveySetModalOpen] = useState(false);
+  useEffect(() => {
+    if (location.state === undefined) {
+      setCurrentPage(1);
+    } else {
+      setCurrentPage(location.state.currentPage);
+      history.replace();
+    }
+  }, []);
+
   const modalClose = () => {
     surveySetModalOpen(!surveyModalOpen);
   };
 
-  const [index, setIndex] = useState(null);
-  const surveyInputRef = useRef();
+  const surveyRegistModalClose = () => {
+    setSurveyRegistModal(!surveyRegistModal);
+  };
+
   const checkIndexFnc = (index) => {
     if (index == null) {
       alert("설문을 선택 해주세요.");
@@ -40,20 +54,19 @@ const Survey = ({
       return true;
     }
   };
-
-  /*  */
-  // AllDataPosts 전체 데이터
-  const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 10;
-
-  const indexOfLast = currentPage * postsPerPage;
-  const indexOfFirst = indexOfLast - postsPerPage;
-
-  function currentPosts(tmp) {
+  const checkSendStatusFnc = () => {
+    if (totalIndexPosts[totalIndexPosts.length - index].sendStatus) {
+      alert("발송 완료된 설문입니다.");
+      return;
+    } else {
+      surveySetModalOpen(true);
+    }
+  };
+  const currentPosts = (tmp) => {
     let currentPosts = 0;
     currentPosts = tmp.slice(indexOfFirst, indexOfLast); // 0 ~ 10 |  10 ~ 20
     return currentPosts;
-  }
+  };
 
   const surveySerachFnc = () => {
     let tmpItems = [...AllDataPosts];
@@ -67,26 +80,15 @@ const Survey = ({
     setCurrentPage(1);
   };
 
-  /*  */
   const surveyInputEnter = (e) => {
     if (e.key === "Enter") {
-      // surveySerachFnc(surveyInputRef);
       surveySerachFnc();
     }
   };
+
   const surveyInputClick = () => {
-    // surveySerachFnc(surveyInputRef);
     surveySerachFnc();
   };
-  /*  */
-  useEffect(() => {
-    if (location.state === undefined) {
-      setCurrentPage(1);
-    } else {
-      setCurrentPage(location.state.currentPage);
-      history.replace();
-    }
-  }, []);
   return (
     <div className="survey-box">
       <Gnb user={user} />
@@ -95,6 +97,8 @@ const Survey = ({
           <Modal
             modalClose={modalClose}
             post={totalIndexPosts[totalIndexPosts.length - index]}
+            setPosts={setPosts}
+            posts={totalIndexPosts}
             component="SurveySendModal"
           />
         )}
@@ -118,7 +122,7 @@ const Survey = ({
               className="survey-send-btn  btn-o btn-r"
               onClick={(e) => {
                 if (checkIndexFnc(index)) {
-                  surveySetModalOpen(true);
+                  checkSendStatusFnc();
                 }
               }}
             >
@@ -177,6 +181,10 @@ const Survey = ({
                   profile3={data.profile3}
                   pointPerPerson={data.pointPerPerson}
                   currentPage={currentPage}
+                  record={data.record}
+                  modifiedBy={data.modifiedBy}
+                  modifiedDate={data.modifiedDate}
+                  sendStatus={data.sendStatus}
                 />
               );
             })}

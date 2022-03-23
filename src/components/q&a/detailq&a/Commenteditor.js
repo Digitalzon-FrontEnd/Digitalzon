@@ -5,13 +5,13 @@ const CommentEditor = ({ onCreate }) => {
 
   const [state, setState] = useState({
     author: "",
-    content: ""
+    content: "",
   });
 
   const handleChangeState = (e) => {
     setState({
       ...state,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -25,25 +25,25 @@ const CommentEditor = ({ onCreate }) => {
     alert("댓글이 저장되었습니다.");
     setState({
       author: "",
-      content: ""
+      content: "",
     });
   };
 
   return (
-      <div className="comment-input">
-        <p>댓글입력</p>
-        <div>
-          <input
-            value={state.content}
-            onChange={handleChangeState}
-            name="content"
-            type="text"
-          />
-        </div>
-        <div>
-          <button onClick={handleSubmit}>확인</button>
-        </div>
+    <div className="comment-input">
+      <p>댓글입력</p>
+      <div>
+        <input
+          value={state.content}
+          onChange={handleChangeState}
+          name="content"
+          type="text"
+        />
       </div>
+      <div>
+        <button onClick={handleSubmit}>확인</button>
+      </div>
+    </div>
   );
 };
 export default CommentEditor;

@@ -1,10 +1,11 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const CommentItem = ({ onRemove, onEdit, id, content, created_date }) => {
   const new_date = new Date().getTime();
   const localContentInput = useRef();
   const [localContent, setLocalContent] = useState(content);
   const [isEdit, setIsEdit] = useState(false);
+  const [username, setUsername] = useState(null);
   const toggleIsEdit = () => setIsEdit(!isEdit);
   const handleClickRemove = () => {
     if (window.confirm(`현재 댓글을 삭제하시겠습니까?`)) {
@@ -29,10 +30,16 @@ const CommentItem = ({ onRemove, onEdit, id, content, created_date }) => {
     }
   };
 
+  useEffect(() => {
+    let userData = JSON.parse(sessionStorage.getItem("userData")) || null;
+    if (userData) {
+      setUsername(userData.username);
+    }
+  }, []);
   return (
     <div className="comment">
       <div className="comment-list">
-        <span className="author_info">관리자</span>
+        <span className="author_info">{username}</span>
         <span className="date">
           {new Date(created_date).toLocaleDateString().slice(0, -1)}&nbsp;&nbsp;
           {new Date(created_date).toLocaleTimeString()}

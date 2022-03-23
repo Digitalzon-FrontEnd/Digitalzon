@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { numberComma } from "../../util/NumberComma";
 import "./SurveySendModal.css";
 
-const SurveySendModal = ({ modalClose, post }) => {
+const SurveySendModal = ({ modalClose, post, setPosts, posts }) => {
+  useEffect(() => {
+    if (post.sendStatus) {
+      alert("전송이 완료된 설문입니다.");
+      modalClose();
+    }
+  }, []);
+
+  const updateSendStatus = () => {
+    const updatePosts = [...posts];
+    for (let data of updatePosts) {
+      if (data.num === post.num) {
+        data.sendStatus = true;
+      }
+    }
+    setPosts(updatePosts);
+  };
   return (
     <div className="SurveySendModal-box">
       <div className="SurveySendModal-top-box">
@@ -19,10 +35,10 @@ const SurveySendModal = ({ modalClose, post }) => {
         <ul className="SurveySendModal-list">
           <li>조사명 : {post.surveyName}</li>
           <li>설문링크 : {post.link}</li>
-          <li>필요샘플 수 : {post.needSample}</li>
-          <li>참여포인트 : {post.pointPerPerson} point</li>
+          <li>필요샘플 수 : {numberComma(post.needSample)}</li>
+          <li>참여포인트 : {numberComma(post.pointPerPerson)} point</li>
           <li>설문기간 : {post.date}</li>
-          <li>발송패널 수 : {post.completeSample} 건</li>
+          <li>발송패널 수 : {numberComma(post.completeSample)} 건</li>
           <li className="SurveySendModal-list-li">
             <div className="SurveySendModal-list-profile-title">
               설문 프로파일 :
@@ -61,6 +77,7 @@ const SurveySendModal = ({ modalClose, post }) => {
         <button
           className="SurveySendModal-btn btn-s btn-o"
           onClick={() => {
+            updateSendStatus();
             alert("전송이 완료되었습니다.");
             modalClose();
           }}

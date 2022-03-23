@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CommentEditor from "./Commenteditor";
 import CommentList from "./CommentList";
 import { Link } from "react-router-dom";
@@ -9,8 +9,17 @@ import Gnb from "../../common/Gnb";
 const DetailQA1 = ({ location, tableInfo, setTableInfo, user }) => {
   const { currentPage } = location.state;
   const [data, setData] = useState([]);
-
+  const [usergrade, setUsergrade] = useState(false);
   const dataId = useRef(0);
+
+  useEffect(() => {
+    let userData = JSON.parse(sessionStorage.getItem("userData")) || null;
+    if (userData.authority === "1" || userData.authority === "0") {
+      setUsergrade(true);
+    } else {
+      setUsergrade(false);
+    }
+  }, []);
 
   const onCreate = (author, content) => {
     const created_date = new Date().getTime();
@@ -91,40 +100,40 @@ const DetailQA1 = ({ location, tableInfo, setTableInfo, user }) => {
           )}
         </div>
         <CommentList onEdit={onEdit} onRemove={onRemove} CommentList={data} />
-        <CommentEditor onCreate={onCreate} />
-      </div>
-      <div className="btn-list">
-        {isEdit ? (
-          <>
-            <button onClick={handleEdit}>완료</button>
-            <button onClick={tableRemove}>삭제</button>
-            <Link
-              to={{
-                pathname: "/mainqa",
-                state: {
-                  currentPage: currentPage,
-                },
-              }}
-            >
-              <button>목록</button>
-            </Link>
-          </>
-        ) : (
-          <>
-            <button onClick={toggleIsEdit}>수정</button>
-            <button onClick={tableRemove}>삭제</button>
-            <Link
-              to={{
-                pathname: "/mainqa",
-                state: {
-                  currentPage: currentPage,
-                },
-              }}
-            >
-              <button>목록</button>
-            </Link>
-          </>
-        )}
+        {usergrade ? <CommentEditor onCreate={onCreate} /> : null}
+        <div className="btn-list">
+          {isEdit ? (
+            <>
+              <button onClick={handleEdit}>완료</button>
+              <button onClick={tableRemove}>삭제</button>
+              <Link
+                to={{
+                  pathname: "/mainqa",
+                  state: {
+                    currentPage: currentPage,
+                  },
+                }}
+              >
+                <button>목록</button>
+              </Link>
+            </>
+          ) : (
+            <>
+              <button onClick={toggleIsEdit}>수정</button>
+              <button onClick={tableRemove}>삭제</button>
+              <Link
+                to={{
+                  pathname: "/mainqa",
+                  state: {
+                    currentPage: currentPage,
+                  },
+                }}
+              >
+                <button>목록</button>
+              </Link>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

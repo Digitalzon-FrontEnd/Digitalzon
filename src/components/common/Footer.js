@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
 
-const Footer = ({ user }) => {
+const Footer = ({ isUserLogin }) => {
   const privacyModal = () => {
     alert("개인정보처리방침");
   };
+
   return (
     <footer>
       <div className="footer-inner">
         <div className="footer-box">
           <div className="footer-info-box">
-            <Link to={user.login ? "/home" : "/"}>
+            <Link to={isUserLogin ? "/home" : "/"}>
               <div className="footer-logo">
                 <img
                   src="https://raw.githubusercontent.com/Digitalzone-FrontEnd/Digitalzone/main/public/img/CI-Digitalzone-kor.png"

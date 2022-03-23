@@ -1,4 +1,5 @@
 import React from "react";
+import { numberComma } from "../../util/NumberComma";
 import Gnb from "../common/Gnb";
 import Profile from "./Profile";
 import SurveyChart from "./SurveyChart";
@@ -6,6 +7,7 @@ import "./SurveyDetail.css";
 
 const SurveyDetail = ({ posts, setPosts, location, user }) => {
   const params = location.state;
+
   return (
     <div className="survey-detail-box">
       <Gnb user={user} />
@@ -20,21 +22,21 @@ const SurveyDetail = ({ posts, setPosts, location, user }) => {
                 <p className="survey-detail-contentbox-text-row">
                   필요설문
                   <span className="survey-detail-text-bold">
-                    {params.needSample}
+                    {numberComma(params.needSample)}
                   </span>
                   건
                 </p>
                 <p className="survey-detail-contentbox-text-row">
                   응답완료
                   <span className="survey-detail-text-bold">
-                    {params.completeSample}
+                    {numberComma(params.completeSample)}
                   </span>
                   건
                 </p>
                 <p className="survey-detail-contentbox-text-row">
                   응답미완료
                   <span className="survey-detail-text-bold">
-                    {params.needSample - params.completeSample}
+                    {numberComma(params.needSample - params.completeSample)}
                   </span>
                   건
                 </p>
@@ -52,21 +54,21 @@ const SurveyDetail = ({ posts, setPosts, location, user }) => {
                 <p className="survey-detail-contentbox-text-row">
                   매칭발송
                   <span className="survey-detail-text-bold">
-                    {params.needSample}
+                    {numberComma(params.needSample)}
                   </span>
                   건
                 </p>
                 <p className="survey-detail-contentbox-text-row">
                   매칭성공
                   <span className="survey-detail-text-bold">
-                    {params.completeSample}
+                    {numberComma(params.completeSample)}
                   </span>
                   건
                 </p>
                 <p className="survey-detail-contentbox-text-row">
                   매칭실패
                   <span className="survey-detail-text-bold">
-                    {params.needSample - params.completeSample}
+                    {numberComma(params.needSample - params.completeSample)}
                   </span>
                   건
                 </p>

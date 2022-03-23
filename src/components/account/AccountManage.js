@@ -128,7 +128,6 @@ const AccountManage = ({ userList, setUserList, user }) => {
       searchFnc();
     }
   };
-
   return (
     <div>
       <Gnb user={user} />
@@ -165,10 +164,10 @@ const AccountManage = ({ userList, setUserList, user }) => {
                   <ul className="name-list">
                     {searchTerm.map((findUser) => (
                       <li
+                        key={findUser.id}
                         onClick={() => {
                           click(findUser.id);
                         }}
-                        key={findUser.userid}
                       >
                         {findUser.userco}&nbsp;{findUser.username}
                       </li>
