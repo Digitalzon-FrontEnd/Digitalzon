@@ -105,6 +105,10 @@ const AccountManage = ({userList,setUserList,user}) => {
   };
   // 인풋 상태값 변화 확인 함수
   
+  const [userLists,setUserLists] = useState(
+    [ ]
+  );
+
   const [searchTerm, setSearchTerm] = useState(userLists);
   const searchPoint = useRef();
   const searchFnc = () => {
@@ -132,13 +136,19 @@ const AccountManage = ({userList,setUserList,user}) => {
       searchFnc();
     }
   };
+  const [token,setToken] = useState();
 
   useEffect(() => {
     let accessToken = JSON.parse(sessionStorage.getItem("accessToken")) || null;
     if (accessToken !== null) {
       findUser(accessToken);
+      setToken(accessToken);
     }
   }, []);
+
+  useEffect(()=>{
+    setSearchTerm(userLists)
+  },[userLists])
 
     const findUser = useCallback((token) => {
       let url = "https://digitalzone1.herokuapp.com/api/user";
@@ -159,11 +169,28 @@ const AccountManage = ({userList,setUserList,user}) => {
           console.log(err);
         });
     }, []);
+    // 검색
 
-    const [userLists,setUserLists] = useState(
-      [ ]
-    );
 
+    const deleteUser = useCallback((token) => {
+      let url = `https://digitalzone1.herokuapp.com/api/user/${userId}`;
+      fetch(url, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+          "Allow-Control-Access-Origin": "*",
+          "Authorization" : "Bearer "+ token
+        },
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          alert("계정 삭제가 완료되었습니다.")
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }, []);
+    console.log(userId)
   return (
     <div>
       <Gnb user={user} />
@@ -300,7 +327,7 @@ const AccountManage = ({userList,setUserList,user}) => {
                 type="button"
                 className="account-manage-btn"
                 id="accountDelBtn"
-                onClick={removeBtn}
+                onClick={()=>deleteUser(token)}
               >
                 삭제
               </button>
