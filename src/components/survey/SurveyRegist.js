@@ -107,7 +107,8 @@ function SurveyRegist({ modalClose, posts, setPosts }) {
     mail: userData.mail,
   };
 
-  const setNewPost = () => {
+  const setNewPost = (e) => {
+    e.preventDefault();
     const value = (ref) => {
       return ref.current.value;
     };
@@ -142,7 +143,7 @@ function SurveyRegist({ modalClose, posts, setPosts }) {
           X
         </button>
       </div>
-      <form className="svRg-form-box" action="/survey">
+      <form className="svRg-form-box" action="/survey" onSubmit={setNewPost}>
         <ul className="svRg-form-lists">
           <li className="svRg-form-list">
             <label htmlFor="">조사명</label>
@@ -381,8 +382,7 @@ function SurveyRegist({ modalClose, posts, setPosts }) {
           <li className="svRg-form-list" id="svRgSubmitBtnList">
             <button
               className="svRg-btn-submit btn- btn-o"
-              type="button"
-              onClick={setNewPost}
+              type="submit"
             >
               저장
             </button>

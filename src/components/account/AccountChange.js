@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import "./AccountChange.css";
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
@@ -69,6 +69,49 @@ const AccountChange = ({ user }) => {
     }
   }, []);
 
+  const createUser = useCallback((e) => {
+    e.preventDefault();
+    let url = "https://digitalzone1.herokuapp.com/api/user";
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+        "Allow-Control-Access-Origin": "*",
+        "Authorization" : "Bearer "+ token
+      },
+
+      body: JSON.stringify({
+        accountpw: pwValue.current.value,
+        checkpw: pwCheckValue.current.value,
+        username: usernameRef.current.value,
+        mail: emailCheck.current.value,
+        phoneNumber:
+          inputRef.current.value +
+          "-" +
+          inputRefTwo.current.value +
+          "-" +
+          inputRefThree.current.value,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        sessionStorage.removeItem('userData');
+        sessionStorage.setItem("userData", JSON.stringify(res.data.user));
+        alert(res.message)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  useEffect(() => {
+       let accessToken = JSON.parse(sessionStorage.getItem("accessToken")) || null;
+       if (accessToken !== null) {
+         setToken(accessToken);
+       }
+     }, []);
+  const [token,setToken] = useState();
+  // 백엔드 연결
+
   return (
     <div>
       <LoginCheck />
@@ -88,7 +131,7 @@ const AccountChange = ({ user }) => {
               <p className="account-step">계정관리</p>
             </Link>
           </div>
-          <form onSubmit={handleSubmit} action="/accountchange">
+          <form onSubmit={createUser} action="/accountchange">
             <div className="account-change-info">
               <div className="account-affiliate">
                 <label>소속</label>

@@ -1,7 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import "./AccountSetup.css";
 import { Link } from "react-router-dom";
 import Gnb from "../common/Gnb";
+import userData from "../../data/userData";
 
 
 const AccountSetup = ({handleCreate, setUserList ,user}) => {
@@ -17,51 +18,69 @@ const AccountSetup = ({handleCreate, setUserList ,user}) => {
     };
     // 전화번호 3칸 & 자동넘어감 함수
     
-    const [ accountId, setAccountId ] = useState('')
-    const [ accountPw, setAccountPw ] = useState('')
-    const [ accountEmail, setAccountEmail ] = useState('')
-    const [ username, setUsername ] = useState('')
-    const [ accountCallNum1, setAccountCallNum1 ] = useState('')
-    const [ accountCallNum2, setAccountCallNum2 ] = useState('')
-    const [ accountCallNum3, setAccountCallNum3 ] = useState('')
+    const accountId = useRef();
+    const accountPw = useRef();
+    const accountEmail = useRef();
+    const username = useRef();
+    const inputRef = useRef();
+    const inputRefTwo = useRef();
+    const inputRefThree = useRef();
     // state 
-
-    const onChangeId = (e) => {
-        setAccountId(e.target.value)
-    }
-    const onChangePw = (e) => {
-        setAccountPw(e.target.value)
-    }
-    const onChangeEmail = (e) => {
-        setAccountEmail(e.target.value)
-    }
-    const onChangeUser = (e) => {
-        setUsername(e.target.value)
-    }
-    const onChangeCallNum1 = (e) => {
-        setAccountCallNum1(e.target.value)
-    }
-    const onChangeCallNum2 = (e) => {
-        setAccountCallNum2(e.target.value)
-    }
-    const onChangeCallNum3 = (e) => {
-        setAccountCallNum3(e.target.value)
-    }
-    // onchange 함수
 
     const submitAccount = (e) => {
         e.preventDefault();
-        handleCreate(accountId,accountPw,accountEmail,username,accountCallNum1,accountCallNum2,accountCallNum3)
-        setAccountId('')
-        setAccountPw('')
-        setAccountEmail('')
-        setUsername('')
-        setAccountCallNum1('')
-        setAccountCallNum2('')
-        setAccountCallNum3('')
+        accountId.current.value = ""
+        accountPw.current.value = ""
+        accountEmail.current.value = ""
+        username.current.value = ""
+        inputRef.current.value = ""
+        inputRefTwo.current.value = ""
+        inputRefThree.current.value = ""
         alert("계정 생성이 완료되었습니다.")
     }
     // 저장버튼 함수
+
+    useEffect(() => {
+        let userData = JSON.parse(sessionStorage.getItem("userData")) || null;
+        setUserData(userData);
+    }, []);
+    const [userData, setUserData] =useState()
+    const createUser = useCallback((e) => {
+        e.preventDefault();
+        let url = "https://digitalzone1.herokuapp.com/api/auth/signup";
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json",
+                "Allow-Control-Access-Origin": "*",
+        },
+    
+        body: JSON.stringify({
+            accontId: accountId.current.value, 
+            accountpw: accountPw.current.value,
+            checkpw: accountPw.current.value,
+            username: username.current.value,
+            mail: accountEmail.current.value,
+            phoneNumber:
+                inputRef.current.value +
+                "-" +
+                    inputRefTwo.current.value +
+                "-" +
+                    inputRefThree.current.value,
+                userco: userData.userco
+            }),
+            })
+            .then((res) => res.json())
+            .then((res) => {
+                sessionStorage.removeItem('userData');
+                sessionStorage.setItem("userData", JSON.stringify(res.data.user));
+                alert(res.message)
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        }, []);
+
 
     return (
         <div>
@@ -77,19 +96,19 @@ const AccountSetup = ({handleCreate, setUserList ,user}) => {
                         <div className="account-change-info">
                             <div className="account-id">
                                 <label>아이디</label>
-                                <input type="id" value={accountId} onChange={onChangeId} className="account-input" maxLength="20" required></input>
+                                <input type="id" ref={accountId} className="account-input" maxLength="20" required></input>
                             </div>
                             <div className="account-password">
                                 <label>비밀번호</label>
-                                <input type="password" value={accountPw} onChange={onChangePw} className=" account-input" maxLength="15" required></input>
+                                <input type="password" ref={accountPw} className=" account-input" maxLength="15" required></input>
                             </div>
                             <div className="account-email">
                                 <label>E-Mail</label>
-                                <input type="email" value={accountEmail} onChange={onChangeEmail} className=" account-input" required></input>
+                                <input type="email" ref={accountEmail} className=" account-input" required></input>
                             </div>
                             <div className="account-username">
                                 <label>사용자명</label>
-                                <input value={username} onChange={onChangeUser}className=" account-input"  maxLength="15" required></input>
+                                <input ref={username} className=" account-input"  maxLength="15" required></input>
                             </div>
                             <div className="account-call">
                                 <label>휴대폰 번호</label>
@@ -101,7 +120,7 @@ const AccountSetup = ({handleCreate, setUserList ,user}) => {
                                 onKeyUp={lengthcheck}
                                 required
                                 className=" account-input"
-                                value={accountCallNum1} onChange={onChangeCallNum1}
+                                ref={inputRef}
                                 />
                                 <input
                                 id="accountCallNum2"
@@ -110,13 +129,13 @@ const AccountSetup = ({handleCreate, setUserList ,user}) => {
                                 onKeyUp={lengthcheck}
                                 required
                                 className=" account-input"
-                                value={accountCallNum2} onChange={onChangeCallNum2}
+                                ref={inputRefTwo}
                                 />
                                 <input id="accountCallNum3"
                                 type="number"
                                 maxLength="4"
                                 className=" account-input"
-                                value={accountCallNum3} onChange={onChangeCallNum3}
+                                ref={inputRefThree}
                                 />
                             </div>
                             <button id="accountIdBtn" type="button" required>중복확인</button>
