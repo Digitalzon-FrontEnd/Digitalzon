@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import "./AccountManage.css";
 import { Link } from "react-router-dom";
 import Gnb from "../common/Gnb";
@@ -128,6 +128,38 @@ const AccountManage = ({ userList, setUserList, user }) => {
       searchFnc();
     }
   };
+
+  const [token,setToken] = useState();
+  console.log(token)
+  useEffect(() => {
+    let accessToken = JSON.parse(sessionStorage.getItem("accessToken")) || null;
+    if (accessToken !== null) {
+      setToken(accessToken);
+      findUser();
+    }
+  }, []);
+
+
+
+    const findUser = useCallback(() => {
+      let url = "https://digitalzone1.herokuapp.com/api/user";
+      fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          "Allow-Control-Access-Origin": "*",
+          "Authorization" : "Bearer "+ token
+        },
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }, []);
+
   return (
     <div>
       <Gnb user={user} />

@@ -123,6 +123,28 @@ const InfoInput = () => {
       });
   }, [showCorp, userco, userconum]);
 
+  const checkUser = useCallback(() => {
+    let url = "https://digitalzone1.herokuapp.com/api/auth/signup/check/id";
+    fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json",
+            "Allow-Control-Access-Origin": "*",
+    },
+    
+    body: JSON.stringify({
+        accountid: accountid.current.value, 
+        }),
+        })
+        .then((res) => res.json())
+        .then((res) => {
+            alert(res.message)
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+    }, []);
+
   return (
     <div className="inner">
       <div className="termsInner">
@@ -202,7 +224,7 @@ const InfoInput = () => {
               <div className="idBox">
                 <label>아이디</label>
                 <input type="id" name="userId" required ref={accountid}></input>
-                <button type="button">중복확인</button>
+                <button type="button" onClick={checkUser}>중복확인</button>
               </div>
               <div className="userNameBox">
                 <label>사용자 이름</label>

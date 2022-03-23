@@ -49,7 +49,6 @@ const AccountSetup = ({handleCreate, setUserList ,user}) => {
 
 
     const createUser = useCallback((userData) => {
-        console.log(userData)
         let url = "https://digitalzone1.herokuapp.com/api/auth/signup";
         fetch(url, {
             method: "POST",
@@ -59,6 +58,7 @@ const AccountSetup = ({handleCreate, setUserList ,user}) => {
         },
         
         body: JSON.stringify({
+            memcheck : "1",
             accountid: accountId.current.value, 
             accountpw: accountPw.current.value,
             checkpw: accountPw.current.value,
@@ -70,8 +70,8 @@ const AccountSetup = ({handleCreate, setUserList ,user}) => {
                     inputRefTwo.current.value +
                 "-" +
                     inputRefThree.current.value,
-            userco: userData.userco
-            
+            userco: userData.userco,
+            userconum: userData.userconum            
             }),
             })
             .then((res) => res.json())
@@ -82,6 +82,30 @@ const AccountSetup = ({handleCreate, setUserList ,user}) => {
                 console.log(err);
             });
         }, []);
+        // 계정생성 백엔드
+
+        const checkUser = useCallback(() => {
+            let url = "https://digitalzone1.herokuapp.com/api/auth/signup/check/id";
+            fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json",
+                    "Allow-Control-Access-Origin": "*",
+            },
+            
+            body: JSON.stringify({
+                accountid: accountId.current.value, 
+                }),
+                })
+                .then((res) => res.json())
+                .then((res) => {
+                    alert(res.message)
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+            }, []);
+    
 
         //console.log(userData.userco)
     return (
@@ -143,7 +167,7 @@ const AccountSetup = ({handleCreate, setUserList ,user}) => {
                                 ref={inputRefThree}
                                 />
                             </div>
-                            <button id="accountIdBtn" type="button" required>중복확인</button>
+                            <button id="accountIdBtn" type="button" onClick={checkUser} required>중복확인</button>
                         </div>
                         <div className="account-btn-box">
                             <button className="account-btn" type="submit">저장</button>
