@@ -1,5 +1,5 @@
 .approve-board-box {
-  margin: 0 auto;
+  margin: 30px auto 0;
   width: 810px;
   height: 700px;
 }
@@ -7,13 +7,14 @@
 .approve-board-box table,
 .approve-board-box th,
 .approve-board-box td {
-  border-bottom: 1px solid #c4c4c4;
+  border-bottom: 1px solid #ebebeb;
   text-align: center;
   height: 45px;
   font-size: 11px;
   line-height: normal;
   letter-spacing: normal;
   color: #545147;
+  margin-top: 20px;
 }
 .approve-board-box table {
   width: 100%;
@@ -21,7 +22,6 @@
   margin-right: auto;
   border-collapse: collapse;
   table-layout: fixed;
-  border-bottom: 3px solid #545147;
 }
 /* .approve-board-box td {
   width: 50;
@@ -30,9 +30,6 @@
 
 .approve-board-box th {
   height: 45px;
-  border-top: 3px solid #545147;
-  border-bottom: 1px solid #545147;
-  background-color: #ebebeb;
 }
 .approve-board-box th:first-child {
   width: 60px;
@@ -41,7 +38,7 @@
   width: 60px;
 }
 
-.approve-board-box td:nth-child(2) {
+.approve-board-box td:nth-child(2):hover {
   text-decoration: underline;
 }
 

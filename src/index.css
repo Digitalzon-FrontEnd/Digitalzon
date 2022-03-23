@@ -98,7 +98,7 @@ input::-webkit-inner-spin-button {
 /* 버튼 사용 예시 : 둥근모서리 주황색버튼을 만든다면 클래스명에 btn-r btn-o 추가  */
 .btn-r {
   /* 둥근버튼 */
-  border-radius: 50px;
+  border-radius: 20px;
   padding: 5px 10px;
 }
 
@@ -132,4 +132,39 @@ input::-webkit-inner-spin-button {
   /* 흰색버튼 */
   color: #7b848e;
   border: 1px solid #7b848e;
+}
+
+table {
+  border: 1px solid #ebebeb;
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
+  overflow: hidden;
+  border-top: none;
+  border-bottom: none;
+}
+thead {
+  background-color: #fba92f;
+}
+tbody tr {
+  border-top: 1px solid #ebebeb;
+}
+input[type="date"] {
+  position: relative;
+  padding-left: 10px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  border: 1px solid #ddd;
+  height: 28px;
+  width: 124px;
+  font-size: 10px;
+}
+
+input[type="date"]::-webkit-clear-button,
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  z-index: 1;
 }

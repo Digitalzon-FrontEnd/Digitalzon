@@ -6,8 +6,8 @@ import "./DetailQA.css";
 import { useHistory } from "react-router-dom";
 import Gnb from "../../common/Gnb";
 
-const DetailQA1 = ({location,tableInfo,setTableInfo,user}) => {
-  const {currentPage}= location.state;
+const DetailQA1 = ({ location, tableInfo, setTableInfo, user }) => {
+  const { currentPage } = location.state;
   const [data, setData] = useState([]);
 
   const dataId = useRef(0);
@@ -41,11 +41,11 @@ const DetailQA1 = ({location,tableInfo,setTableInfo,user}) => {
 
   const params = location.state;
   const history = useHistory();
-  const tableRemove =()=>{
-    const newTable = tableInfo.filter((it)=> it.num !== params.num);
-    setTableInfo(newTable)
-    window.confirm('현재 목록을 삭제하시겠습니까?')
-    history.push("/mainqa")
+  const tableRemove = () => {
+    const newTable = tableInfo.filter((it) => it.num !== params.num);
+    setTableInfo(newTable);
+    window.confirm("현재 목록을 삭제하시겠습니까?");
+    history.push("/mainqa");
   };
   const tableEdit = (num, newContent) => {
     setTableInfo(
@@ -70,7 +70,7 @@ const DetailQA1 = ({location,tableInfo,setTableInfo,user}) => {
   };
   return (
     <div className="detail-qa">
-      <Gnb user={user}/>
+      <Gnb user={user} />
       <div className="table">
         <div className="head-list">
           <div id="item1">{params.num}</div>
@@ -92,27 +92,39 @@ const DetailQA1 = ({location,tableInfo,setTableInfo,user}) => {
         </div>
         <CommentList onEdit={onEdit} onRemove={onRemove} CommentList={data} />
         <CommentEditor onCreate={onCreate} />
-        <div className='btn-list'>
+      </div>
+      <div className="btn-list">
         {isEdit ? (
           <>
             <button onClick={handleEdit}>완료</button>
-            <button onClick={tableRemove} >삭제</button>
-            <Link to={{ pathname:'/mainqa',
-                            state:{
-                            currentPage:currentPage}
-                            }}><button>목록</button></Link>
+            <button onClick={tableRemove}>삭제</button>
+            <Link
+              to={{
+                pathname: "/mainqa",
+                state: {
+                  currentPage: currentPage,
+                },
+              }}
+            >
+              <button>목록</button>
+            </Link>
           </>
         ) : (
           <>
             <button onClick={toggleIsEdit}>수정</button>
-            <button onClick={tableRemove} >삭제</button>
-            <Link to={{ pathname:'/mainqa',
-                            state:{
-                            currentPage:currentPage}
-                            }}><button>목록</button></Link>
+            <button onClick={tableRemove}>삭제</button>
+            <Link
+              to={{
+                pathname: "/mainqa",
+                state: {
+                  currentPage: currentPage,
+                },
+              }}
+            >
+              <button>목록</button>
+            </Link>
           </>
         )}
-        </div>
       </div>
     </div>
   );

@@ -1,7 +1,10 @@
 import React, { useRef, useState } from "react";
 import "./SurveyRegist.css";
+import moment from "moment";
 
 function SurveyRegist({ modalClose, posts, setPosts }) {
+  const date = moment().format("YYYY-MM-DD");
+
   const fileInput = useRef();
   const fileName = useRef();
   const panelNum = useRef();
@@ -182,11 +185,23 @@ function SurveyRegist({ modalClose, posts, setPosts }) {
           </li>
           <li className="svRg-form-list">
             <label htmlFor="svRgDateFrom">요청기간</label>
-            <input id="svRgDateFrom" type="date" ref={dateFrom} required />
+            <input
+              id="svRgDateFrom"
+              min={date}
+              type="date"
+              ref={dateFrom}
+              required
+            />
             <label id="svRgWave" htmlFor="svRgDateTo">
               ~
             </label>
-            <input id="svRgDateTo" type="date" ref={dateTo} required />
+            <input
+              id="svRgDateTo"
+              min={date}
+              type="date"
+              ref={dateTo}
+              required
+            />
           </li>
           <li className="svRg-form-list">
             <div className="svRg-profile-title">설문 프로파일</div>
@@ -349,7 +364,7 @@ function SurveyRegist({ modalClose, posts, setPosts }) {
           </li>
           <li className="svRg-form-list" id="svRgSubmitBtnList">
             <button
-              className="svRg-btn-submit btn-s btn-o"
+              className="svRg-btn-submit btn- btn-o"
               type="button"
               onClick={setNewPost}
             >

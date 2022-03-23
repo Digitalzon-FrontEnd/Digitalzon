@@ -1,6 +1,7 @@
 .mainqa {
   width: 1200px;
   margin: auto;
+  min-height: 700px;
 }
 .btn-head {
   display: flex;
@@ -44,22 +45,24 @@
   margin-bottom: 25px;
   text-align: center;
   color: #545147;
-  font-size: 12px;
+  font-size: 13px;
   border-collapse: collapse;
-  border-top: 2px solid #545147;
-  border-bottom: 2px solid #545147;
 }
 .table-head {
   height: 44px;
-  background-color: #ebebeb;
   color: #545147;
 }
 .mainqa-table th {
   height: 44px;
   font-weight: 600;
 }
+
 .mainqa-table td {
   height: 44px;
   font-weight: normal;
-  border-top: 1px solid #c4c4c4;
+  border-top: 1px solid #ebebeb;
+}
+
+.mainqa-table td:nth-child(2):hover {
+  text-decoration: underline;
 }

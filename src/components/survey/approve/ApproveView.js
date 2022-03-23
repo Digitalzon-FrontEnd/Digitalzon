@@ -92,8 +92,8 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
                 <li>· 설문기간 : {surveyApproveItem.date}</li>
                 <li>· 발송패널 수 : 2500건</li>
                 <li>
+                  <span>· 설문 프로파일 </span>
                   <span className="survey-profile-container">
-                    · 설문 프로파일 :
                     {surveyProfiles.map((profile, index) => {
                       return (
                         <span className="survey-profile-text" key={index}>
@@ -142,29 +142,28 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
                     ></input>
                   </li>
                 </ul>
-                
               </div>
             </div>
           </div>
           <div className="btn-container">
-                  <div className="btn-container-wrap">
-                    <button className="save-btn btn-o" onClick={onSaveClick}>
-                      저장
-                    </button>
+            <div className="btn-container-wrap">
+              <button className="save-btn btn-o" onClick={onSaveClick}>
+                저장
+              </button>
 
-                    <Link
-                      to={{
-                        pathname: `/survey/approve/board`,
-                        state: {
-                          currentPage: currentPage,
-                          searchedItems: searchedItems,
-                        },
-                      }}
-                    >
-                      <button className="list-btn btn-o">목록</button>
-                    </Link>
-                  </div>
-                </div>
+              <Link
+                to={{
+                  pathname: `/survey/approve/board`,
+                  state: {
+                    currentPage: currentPage,
+                    searchedItems: searchedItems,
+                  },
+                }}
+              >
+                <button className="list-btn btn-o">목록</button>
+              </Link>
+            </div>
+          </div>
           <div className="status-record">
             <span className="status-record-title">[기록]</span>
             <ul className="record-list">
@@ -174,7 +173,6 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
               {/* </li> */}
             </ul>
           </div>
-          
         </div>
       </div>
     </div>

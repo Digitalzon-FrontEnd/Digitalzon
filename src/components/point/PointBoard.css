@@ -1,4 +1,5 @@
 .point-board-box {
+  margin-top: 30px;
   width: 794px;
   margin-left: 183px;
   margin-right: 183px;
@@ -8,7 +9,7 @@
 .point-board-box .table,
 .point-board-box th,
 .point-board-box td {
-  border-bottom: 1px solid #c4c4c4;
+  border-bottom: 1px solid #ebebeb;
   text-align: center;
   height: 45px;
   font-size: 11px;
@@ -17,23 +18,21 @@
   color: #545147;
 }
 .point-board-box table {
+  margin-top: 20px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   border-collapse: collapse;
   table-layout: fixed;
-  border-bottom: 3px solid #545147;
 }
 
 .point-board-box th {
   height: 45px;
-  border-top: 3px solid #545147;
-  border-bottom: 1px solid #545147;
-  background-color: #ebebeb;
   font-weight: 600px;
+  background-color: #fba92f;
 }
 
-.point-board-box td:nth-child(2) {
+.point-board-box td:nth-child(2):hover {
   text-decoration: underline;
 }
 
