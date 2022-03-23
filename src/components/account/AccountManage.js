@@ -3,7 +3,7 @@ import "./AccountManage.css";
 import { Link } from "react-router-dom";
 import Gnb from "../common/Gnb";
 
-const AccountManage = ({ userList, setUserList, user }) => {
+const AccountManage = ({userList,setUserList,user}) => {
   const [userId, setUserId] = useState("");
 
   const currentUserId = useRef();
@@ -13,6 +13,7 @@ const AccountManage = ({ userList, setUserList, user }) => {
   const currentPhone1 = useRef();
   const currentPhone2 = useRef();
   const currentPhone3 = useRef();
+  const usercos = useRef();
   // useRef 사용해서 current 잡아주기
 
   const $ = (selector) => {
@@ -61,15 +62,17 @@ const AccountManage = ({ userList, setUserList, user }) => {
   function click(id) {
     return new Promise(function (resolve, reject) {
       setUserId(Number(id));
-      for (let x of userList) {
+      for (let x of userLists) {
         if (x.id === Number(id)) {
           currentUserId.current.value = x.accountid;
           currentPw.current.value = x.accountpw;
           currentEmail.current.value = x.mail;
           currentUsername.current.value = x.username;
-          currentPhone1.current.value = x.usercall1;
-          currentPhone2.current.value = x.usercall2;
-          currentPhone3.current.value = x.usercall3;
+          const phoneNumberArr = x.phoneNumber.split("-");
+          currentPhone1.current.value = phoneNumberArr[0];
+          currentPhone2.current.value = phoneNumberArr[1];
+          currentPhone3.current.value = phoneNumberArr[2];
+          usercos.current.value = x.userco;
         }
       }
     });
@@ -101,25 +104,26 @@ const AccountManage = ({ userList, setUserList, user }) => {
     });
   };
   // 인풋 상태값 변화 확인 함수
-
-  const [searchTerm, setSearchTerm] = useState(userList);
+  
+  const [searchTerm, setSearchTerm] = useState(userLists);
   const searchPoint = useRef();
   const searchFnc = () => {
     const userSelect = searchPoint.current.value;
-    let userSearch = [...userList];
+    let userSearch = [...userLists];
+    console.log(userSearch)
     userSearch = userSearch.filter((findUser) => {
       if (
         findUser.accountid.indexOf(userSelect) !== -1 ||
         findUser.mail.indexOf(userSelect) !== -1 ||
-        findUser.usercall1.indexOf(userSelect) !== -1 ||
-        findUser.usercall2.indexOf(userSelect) !== -1 ||
-        findUser.usercall3.indexOf(userSelect) !== -1 ||
+        findUser.phoneNumber.indexOf(userSelect) !== -1 ||
         findUser.username.indexOf(userSelect) !== -1
       ) {
         return findUser;
       }
     });
+    console.log(userSearch)
     setSearchTerm(userSearch);
+    
   };
   // search 함수
 
@@ -129,19 +133,14 @@ const AccountManage = ({ userList, setUserList, user }) => {
     }
   };
 
-  const [token,setToken] = useState();
-  console.log(token)
   useEffect(() => {
     let accessToken = JSON.parse(sessionStorage.getItem("accessToken")) || null;
     if (accessToken !== null) {
-      setToken(accessToken);
-      findUser();
+      findUser(accessToken);
     }
   }, []);
 
-
-
-    const findUser = useCallback(() => {
+    const findUser = useCallback((token) => {
       let url = "https://digitalzone1.herokuapp.com/api/user";
       fetch(url, {
         method: "GET",
@@ -154,11 +153,16 @@ const AccountManage = ({ userList, setUserList, user }) => {
         .then((res) => res.json())
         .then((res) => {
           console.log(res);
+          setUserLists(res.data.users);
         })
         .catch((err) => {
           console.log(err);
         });
     }, []);
+
+    const [userLists,setUserLists] = useState(
+      [ ]
+    );
 
   return (
     <div>
@@ -210,7 +214,7 @@ const AccountManage = ({ userList, setUserList, user }) => {
                   <div>
                     <label id="coLabel">소속</label>
                     <input
-                      className=" account-input" readOnly
+                      className=" account-input" ref={usercos} readOnly
                     ></input>
                   </div>
                   <div className="account-id">
