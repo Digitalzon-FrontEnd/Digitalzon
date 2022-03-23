@@ -54,7 +54,7 @@
 }
 .name-list {
   width: 215px;
-  height: 180px;
+  height: 240px;
   overflow: auto;
 }
 .name-list li {
@@ -96,6 +96,6 @@
 #accountCallNum3 {
   width: 94px;
 }
-#coLabel{
+#coLabel {
   margin-right: 80px;
 }

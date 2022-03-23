@@ -6,6 +6,11 @@ import Gnb from "../common/Gnb";
 import LoginCheck from "../common/LoginCheck";
 
 const AccountChange = ({ user }) => {
+  const [showcertification, setShowcertification] = useState(false);
+  const [userco, setUserco] = useState(null);
+  const [accountid, setAccountid] = useState(null);
+  const usernameRef = useRef();
+  const [token, setToken] = useState();
   const $ = (selector) => {
     return document.querySelector(selector);
   };
@@ -20,8 +25,8 @@ const AccountChange = ({ user }) => {
   const pwValue = useRef();
   const pwCheckValue = useRef();
   const emailCheck = useRef();
-  // 비밀번호,비밀번호재입력,이메일 설정
 
+  // 비밀번호,비밀번호재입력,이메일 설정
   const inputRef = useRef(null);
   const inputRefTwo = useRef(null);
   const inputRefThree = useRef(null);
@@ -47,13 +52,8 @@ const AccountChange = ({ user }) => {
   };
   // 일치, 이메일 함수
 
-  const [showcertification, setShowcertification] = useState(false);
   const onClickCer = () => setShowcertification(true);
   // 번호 변경 시 인증번호 함수
-
-  const [userco, setUserco] = useState(null);
-  const [accountid, setAccountid] = useState(null);
-  const usernameRef = useRef();
 
   useEffect(() => {
     let userData = JSON.parse(sessionStorage.getItem("userData")) || null;
@@ -69,15 +69,14 @@ const AccountChange = ({ user }) => {
     }
   }, []);
 
-  const createUser = useCallback((e) => {
-    e.preventDefault();
+  const createUser = useCallback((token) => {
     let url = "https://digitalzone1.herokuapp.com/api/user";
     fetch(url, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
         "Allow-Control-Access-Origin": "*",
-        "Authorization" : "Bearer "+ token
+        Authorization: "Bearer " + token,
       },
 
       body: JSON.stringify({
@@ -95,23 +94,26 @@ const AccountChange = ({ user }) => {
     })
       .then((res) => res.json())
       .then((res) => {
-        sessionStorage.removeItem('userData');
+        console.log(res);
+        sessionStorage.removeItem("userData");
         sessionStorage.setItem("userData", JSON.stringify(res.data.user));
-        alert(res.message)
+        alert(res.message);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+  const userDataAuthority = JSON.parse(
+    sessionStorage.getItem("userData")
+  ).authority;
+  console.log(token);
   useEffect(() => {
-       let accessToken = JSON.parse(sessionStorage.getItem("accessToken")) || null;
-       if (accessToken !== null) {
-         setToken(accessToken);
-       }
-     }, []);
-  const [token,setToken] = useState();
+    let accessToken = JSON.parse(sessionStorage.getItem("accessToken")) || null;
+    if (accessToken !== null) {
+      setToken(accessToken);
+    }
+  }, []);
   // 백엔드 연결
-
   return (
     <div>
       <LoginCheck />
@@ -124,14 +126,25 @@ const AccountChange = ({ user }) => {
                 계정변경
               </p>
             </Link>
-            <Link to="/accountsetup">
-              <p className="account-step">계정생성</p>
-            </Link>
-            <Link to="/accountmanage">
-              <p className="account-step">계정관리</p>
-            </Link>
+            {userDataAuthority === "2" ? null : (
+              <Link to="/accountsetup">
+                <p className="account-step">계정생성</p>
+              </Link>
+            )}
+            {userDataAuthority === "2" ? null : (
+              <Link to="/accountmanage">
+                <p className="account-step">계정관리</p>
+              </Link>
+            )}
           </div>
-          <form onSubmit={createUser} action="/accountchange">
+
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              createUser(token);
+            }}
+            action="/accountchange"
+          >
             <div className="account-change-info">
               <div className="account-affiliate">
                 <label>소속</label>

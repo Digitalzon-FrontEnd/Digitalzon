@@ -3,7 +3,7 @@ import "./AccountManage.css";
 import { Link } from "react-router-dom";
 import Gnb from "../common/Gnb";
 
-const AccountManage = ({userList,setUserList,user}) => {
+const AccountManage = ({ userList, setUserList, user }) => {
   const [userId, setUserId] = useState("");
 
   const currentUserId = useRef();
@@ -40,7 +40,7 @@ const AccountManage = ({userList,setUserList,user}) => {
   // 기본 상태=>유저정보 불러오는 상태
 
   const removeBtn = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     const confirmId = window.confirm(
       `${currentUserId.current.value} 계정을 삭제하시겠습니까?`
     );
@@ -65,7 +65,7 @@ const AccountManage = ({userList,setUserList,user}) => {
       for (let x of userLists) {
         if (x.id === Number(id)) {
           currentUserId.current.value = x.accountid;
-          currentPw.current.value = x.accountpw;
+
           currentEmail.current.value = x.mail;
           currentUsername.current.value = x.username;
           const phoneNumberArr = x.phoneNumber.split("-");
@@ -104,17 +104,15 @@ const AccountManage = ({userList,setUserList,user}) => {
     });
   };
   // 인풋 상태값 변화 확인 함수
-  
-  const [userLists,setUserLists] = useState(
-    [ ]
-  );
+
+  const [userLists, setUserLists] = useState([]);
 
   const [searchTerm, setSearchTerm] = useState(userLists);
   const searchPoint = useRef();
   const searchFnc = () => {
     const userSelect = searchPoint.current.value;
     let userSearch = [...userLists];
-    console.log(userSearch)
+    console.log(userSearch);
     userSearch = userSearch.filter((findUser) => {
       if (
         findUser.accountid.indexOf(userSelect) !== -1 ||
@@ -125,9 +123,8 @@ const AccountManage = ({userList,setUserList,user}) => {
         return findUser;
       }
     });
-    console.log(userSearch)
+    console.log(userSearch);
     setSearchTerm(userSearch);
-    
   };
   // search 함수
 
@@ -136,7 +133,7 @@ const AccountManage = ({userList,setUserList,user}) => {
       searchFnc();
     }
   };
-  const [token,setToken] = useState();
+  const [token, setToken] = useState();
 
   useEffect(() => {
     let accessToken = JSON.parse(sessionStorage.getItem("accessToken")) || null;
@@ -146,51 +143,88 @@ const AccountManage = ({userList,setUserList,user}) => {
     }
   }, []);
 
-  useEffect(()=>{
-    setSearchTerm(userLists)
-  },[userLists])
+  useEffect(() => {
+    setSearchTerm(userLists);
+  }, [userLists]);
 
-    const findUser = useCallback((token) => {
-      let url = "https://digitalzone1.herokuapp.com/api/user";
-      fetch(url, {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json",
-          "Allow-Control-Access-Origin": "*",
-          "Authorization" : "Bearer "+ token
-        },
+  const findUser = useCallback((token) => {
+    let url = "https://digitalzone1.herokuapp.com/api/user";
+    fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+        "Allow-Control-Access-Origin": "*",
+        Authorization: "Bearer " + token,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        setUserLists(res.data.users);
       })
-        .then((res) => res.json())
-        .then((res) => {
-          console.log(res);
-          setUserLists(res.data.users);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }, []);
-    // 검색
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  // 검색
 
-
-    const deleteUser = useCallback((token) => {
-      let url = `https://digitalzone1.herokuapp.com/api/user/${userId}`;
-      fetch(url, {
-        method: "DELETE",
-        headers: {
-          "Content-type": "application/json",
-          "Allow-Control-Access-Origin": "*",
-          "Authorization" : "Bearer "+ token
-        },
+  const deleteUser = useCallback((token, userId) => {
+    let url = `https://digitalzone1.herokuapp.com/api/user/delete`;
+    fetch(url, {
+      method: "DELETE",
+      headers: {
+        Authorization: "Bearer " + token,
+        "Content-type": "application/json",
+        "Allow-Control-Access-Origin": "*",
+      },
+      body: JSON.stringify({
+        id: userId,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        setUserLists(res.data.users);
+        alert("계정 삭제가 완료되었습니다.");
       })
-        .then((res) => res.json())
-        .then((res) => {
-          alert("계정 삭제가 완료되었습니다.")
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }, []);
-    console.log(userId)
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  useEffect(() => {}, []);
+  const updateUser = useCallback((token, userId) => {
+    let url = "https://digitalzone1.herokuapp.com/api/user";
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+        "Allow-Control-Access-Origin": "*",
+        Authorization: "Bearer " + token,
+      },
+
+      body: JSON.stringify({
+        id: userId,
+        accountpw: currentPw.current.value,
+        checkpw: currentPw.current.value,
+        username: currentUsername.current.value,
+        mail: currentEmail.current.value,
+        phoneNumber:
+          currentPhone1.current.value +
+          "-" +
+          currentPhone2.current.value +
+          "-" +
+          currentPhone3.current.value,
+      }),
+    })
+      .then((res) => res.json())
+      .then(({ data }) => {
+        alert("수정이 완료되었습니다.");
+        setUserLists(data.users);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <div>
       <Gnb user={user} />
@@ -241,7 +275,9 @@ const AccountManage = ({userList,setUserList,user}) => {
                   <div>
                     <label id="coLabel">소속</label>
                     <input
-                      className=" account-input" ref={usercos} readOnly
+                      className=" account-input"
+                      ref={usercos}
+                      readOnly
                     ></input>
                   </div>
                   <div className="account-id">
@@ -327,14 +363,17 @@ const AccountManage = ({userList,setUserList,user}) => {
                 type="button"
                 className="account-manage-btn"
                 id="accountDelBtn"
-                onClick={()=>deleteUser(token)}
+                onClick={() => deleteUser(token, userId)}
               >
                 삭제
               </button>
               <button
                 type="button"
                 className="account-manage-btn"
-                onClick={changeBtn}
+                onClick={(e) => {
+                  e.preventDefault();
+                  updateUser(token, userId);
+                }}
               >
                 저장
               </button>

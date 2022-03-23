@@ -45,15 +45,7 @@ const Gnb = ({ user }) => {
                 : null
             }
           >
-            <Link
-              to={
-                userGrade === "0" || userGrade === "1"
-                  ? "/accountchange"
-                  : "/mypage"
-              }
-            >
-              계정설정
-            </Link>
+            <Link to="/accountchange">계정설정</Link>
           </li>
           <li className={url.indexOf("/survey") !== -1 ? "on" : null}>
             <Link to="/survey">설문등록/현황조회</Link>
