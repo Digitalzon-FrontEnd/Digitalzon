@@ -9,19 +9,16 @@
   /* overflow: auto; */
 }
 .pointDetails-box .point-details-inner {
-  
   padding-right: 21px;
-  border: 0.5px solid #ebebeb; 
+  border: 0.5px solid #ebebeb;
   border-radius: 20px;
   box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.1);
 }
-.point-details-wrap{
-  
+.point-details-wrap {
   background-color: #fba92f;
   width: 130px;
   height: 420px;
-  border-radius: 20px 0 0 20px ;
-  
+  border-radius: 20px 0 0 20px;
 }
 
 .pointDetails-box .point-section .title {
@@ -60,22 +57,22 @@
   position: absolute;
   content: "";
   width: 650px;
-  
-  border-bottom: 0.5px solid #c4c4c4;
+
+  /* border-bottom: 0.5px solid #c4c4c4; */
 }
-.pointDetails-box .row:first-child::before{
-  display: none;;
+.pointDetails-box .row:first-child::before {
+  display: none;
 }
 
 .pointDetails-box .key {
   display: inline-block;
   width: 90px;
-  text-align: center; 
+  text-align: center;
   color: #fff;
   font-weight: 700;
 }
 
-.pointDetails-box .value{
+.pointDetails-box .value {
   margin-left: 46px;
   font-weight: 700;
 }
@@ -139,7 +136,8 @@
 }
 /* 상태 txt */
 
-.pointDetails-box .save-btn, .pointDetails-box .list-btn{
+.pointDetails-box .save-btn,
+.pointDetails-box .list-btn {
   width: 95px;
   height: 32px;
   background-color: #fba92f;
@@ -159,8 +157,8 @@
 .pointDetails-box .status-record-container {
   margin-left: 5px;
   margin-top: 17px;
-  
-  border: 1px solid #ebebeb; 
+
+  border: 1px solid #ebebeb;
   border-radius: 20px;
   box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.1);
   padding-bottom: 20px;
@@ -179,7 +177,6 @@
   overflow: auto;
   height: 210px;
   margin-left: 21px;
-  
 }
 .pointDetails-box .record-list li {
   font-size: 15px;

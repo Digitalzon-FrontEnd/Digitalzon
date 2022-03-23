@@ -1,6 +1,6 @@
 .surveyApproveDetails-box {
   width: 688px;
-  
+
   margin-left: 245px;
   margin-right: 245px;
   margin-top: 92px;
@@ -14,8 +14,7 @@
   justify-content: space-between;
 }
 .surveyApproveDetails-box .details-left {
-  
-  border: 0.5px solid #ebebeb; 
+  border: 0.5px solid #ebebeb;
   border-radius: 20px;
   box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.1);
   width: 324px;
@@ -25,19 +24,18 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
 }
-.details-left-inner{
-  padding: 25px 0 0 21px; 
+.details-left-inner {
+  padding: 25px 0 0 21px;
   background-color: #fba92f;
   width: 121px;
   height: 348px;
-  border-radius: 20px 0 0 20px ;
+  border-radius: 20px 0 0 20px;
 }
 
 .surveyApproveDetails-box .details-right {
   padding-left: 21px;
-  border: 0.5px solid #ebebeb; 
+  border: 0.5px solid #ebebeb;
   border-radius: 20px;
   box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.1);
   width: 324px;
@@ -55,18 +53,16 @@
   line-height: 60px;
 }
 
-.surveyApproveDetails-box .details-left .row::before{
+.surveyApproveDetails-box .details-left .row::before {
   position: absolute;
   content: "";
   width: 250px;
   border-bottom: 0.5px solid #c4c4c4;
   z-index: -1;
-  
 }
-.surveyApproveDetails-box .details-left .row:first-child:before{
+.surveyApproveDetails-box .details-left .row:first-child:before {
   display: none;
 }
-
 
 .surveyApproveDetails-box .key {
   display: inline-block;
@@ -75,9 +71,8 @@
   color: #fff;
   font-weight: 700;
   text-align: center;
-  
 }
-.surveyApproveDetails-box .value{
+.surveyApproveDetails-box .value {
   margin-left: 73px;
 }
 
@@ -85,12 +80,10 @@
   border: none;
 }
 
-
-.surveyApproveDetails-box .details-right>ul{
+.surveyApproveDetails-box .details-right > ul {
   margin-top: 25px;
   padding-bottom: 25px;
   width: 277px;
-  border-bottom: 1px solid #ebebeb;
 }
 
 .surveyApproveDetails-box .details-right li {
@@ -107,7 +100,7 @@
 
 .surveyApproveDetails-box .details-right .payment-point {
   display: inline-block;
-  margin-top: 21px;
+  /* margin-top: 21px; */
   font-weight: 600;
   font-size: 16px;
 
@@ -119,7 +112,7 @@
   color: #545147;
 }
 
-.details-right .reason-title input::placeholder{
+.details-right .reason-title input::placeholder {
   color: #ebebeb;
 }
 
@@ -152,7 +145,8 @@
 
 /* 셀렉트 */
 
-.surveyApproveDetails-box .save-btn,.surveyApproveDetails-box .list-btn{
+.surveyApproveDetails-box .save-btn,
+.surveyApproveDetails-box .list-btn {
   width: 95px;
   height: 32px;
   background-color: #fba92f;
@@ -194,16 +188,15 @@
 
 .surveyApproveDetails-box .details-container .status-record {
   display: block;
- 
+
   margin-top: 20px;
-  border: 0.5px solid #ebebeb; 
+  border: 0.5px solid #ebebeb;
   border-radius: 20px;
   box-sizing: border-box;
   box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.1);
   padding-bottom: 20px;
-  
 }
-.status-record-title{
+.status-record-title {
   display: block;
   margin-top: 21px;
   margin-bottom: 20px;
@@ -216,7 +209,6 @@
   overflow: auto;
   width: 688px;
   height: 210px;
-  
 }
 
 .surveyApproveDetails-box .survey-profile-container {
@@ -251,3 +243,29 @@
   margin-top: 15px;
 }
 /* 로그 */
+
+.survey-profile-container .survey-profile-text {
+  display: block;
+  text-align: center;
+  padding: 2px 12px;
+
+  border: 0.9px solid #c4c4c4;
+  border-radius: 43.1px;
+}
+
+.survey-profile-container {
+  overflow-x: scroll;
+  white-space: nowrap;
+  margin-top: 10px;
+  padding-bottom: 5px;
+}
+
+.survey-profile-container::-webkit-scrollbar {
+  height: 4px;
+}
+.s.urvey-profile-container::-webkit-scrollbar-track {
+  background-color: white;
+}
+.survey-profile-container::-webkit-scrollbar-thumb {
+  box-shadow: inset 106px 106px 110px 116px #c4c4c4;
+}

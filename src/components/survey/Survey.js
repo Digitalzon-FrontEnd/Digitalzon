@@ -144,15 +144,15 @@ const Survey = ({
         <table className="survey-table">
           <thead className="survey-table-thead">
             <tr>
-              <th>선택</th>
-              <th>번호</th>
-              <th>조사명</th>
-              <th>요청기간</th>
-              <th>필요샘플 수</th>
-              <th>완료샘플 수</th>
-              <th>상태</th>
-              <th>등록자</th>
-              <th>소속</th>
+              <th id="surveyChoice">선택</th>
+              <th id="surveyNum">번호</th>
+              <th id="surveyName">조사명</th>
+              <th id="surveyRequestDate">요청기간</th>
+              <th id="surveyNeedSample">필요샘플 수</th>
+              <th id="surveyCompleteSample">완료샘플 수</th>
+              <th id="surveyStatus">상태</th>
+              <th id="surveyRegister">등록자</th>
+              <th id="surveyClass">소속</th>
             </tr>
           </thead>
           <tbody className="survey-table-tbody">

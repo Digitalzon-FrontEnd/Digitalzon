@@ -6,10 +6,10 @@
   text-align: left;
 }
 
-.postview-content{
+.postview-content {
   margin: 100px auto 22px;
   border-radius: 20px;
-  border : 0.5px solid #ebebeb;
+  border: 0.5px solid #ebebeb;
   box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -19,18 +19,17 @@
   border-collapse: collapse;
 }
 
-.table-wrap{
+.table-wrap {
   background-color: #fba92f;
   width: 130px;
   height: 266px;
-  border-radius: 20px 0 0 20px ;
+  border-radius: 20px 0 0 20px;
 }
 
 .postview-thead,
 .postview-tbody {
   position: relative;
 }
-
 
 .postview-thead tr {
   width: 80px;
@@ -58,17 +57,12 @@
 .postview-thead td {
   position: relative;
 }
-.postview-thead td,.postview-tbody td{
-  border: none; height: 0;
+.postview-thead td,
+.postview-tbody td {
+  border: none;
+  height: 0;
 }
-.postview-thead td::before {
-  z-index: -1;
-  position: absolute;
-  content: "";
-  width: 620px;
-  height: 1px;
-  border-bottom: 0.5px solid #c4c4c4;
-}
+
 .postview-thead td:nth-child(1)::before,
 .postview-thead td:nth-child(2)::before,
 .postview-thead td:nth-child(3)::before,
@@ -93,7 +87,6 @@
   font-weight: 600;
   font-size: 12px;
 }
-
 
 #postview-select {
   width: 100%;
@@ -144,31 +137,25 @@
   width: 693px;
   height: 266px;
   border-radius: 20px;
-  border : 1px solid #ebebeb;
+  border: 1px solid #ebebeb;
   box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.1);
   padding-bottom: 20px;
   box-sizing: border-box;
-
 }
-.postview-loglist>p {
+.postview-loglist > p {
   margin-top: 21px;
   margin-bottom: 20px;
   font-weight: 700;
   text-align: center;
   font-size: 15px;
-
 }
 .postview-log {
   font-size: 15px;
   overflow: auto;
-  height: 210px;
+  height: 190px;
   margin-left: 21px;
-  
-
 }
 
 .postview-log li {
   margin-top: 15px;
 }
-
-
