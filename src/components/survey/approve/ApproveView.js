@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useRef, useState } from "react";
 import { Link, useParams, useLocation } from "react-router-dom";
 import Gnb from "../../common/Gnb";
 import "./ApproveView.css";
@@ -43,6 +43,7 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
               modifiedDate: now.format("YYYY.MM.DD"),
               modifiedBy: "관리자",
               activation: selectValue === "승인완료" ? true : false,
+              reasons : reasonRef.current.value
             }
           : item
       )
@@ -51,6 +52,7 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
   const onSelectHandler = (e) => {
     setPrevSelectValue(selectValue);
     setSelectValue(e.target.value);
+
   };
 
   const [userData, setUserData] = useState(null);
@@ -60,6 +62,10 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
       setUserData(userData);
     }
   }, []);
+
+  const reasonRef = useRef();
+  console.log(reasonRef.current)
+
 
   return (
     <div className="inner">
@@ -141,13 +147,14 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
                       </span>
                     </span>
                   </li>
-                  <li>
+                  <li className={selectValue !== "승인거부" ? "blind" : null}>
                     <span className="reason-title">사유</span>
                     <input
                       id="reason"
                       type="text"
                       placeholder="사유를 입력해주세요"
-                    ></input>
+                      ref={reasonRef}
+                    ></input> 
                   </li>
                 </ul>
               </div>

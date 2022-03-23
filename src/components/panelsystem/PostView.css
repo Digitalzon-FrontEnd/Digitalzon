@@ -53,6 +53,7 @@
   justify-content: space-around;
   flex-direction: column;
   font-weight: 700;
+  border: none;
 }
 .postview-thead td {
   position: relative;

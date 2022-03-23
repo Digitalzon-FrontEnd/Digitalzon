@@ -175,6 +175,12 @@ const AccountManage = ({ userList, setUserList, user }) => {
                   </ul>
                 </div>
                 <div className="account-info-area" id="clickForm">
+                  <div>
+                    <label id="coLabel">소속</label>
+                    <input
+                      className=" account-input" readOnly
+                    ></input>
+                  </div>
                   <div className="account-id">
                     <label>아이디</label>
                     <input

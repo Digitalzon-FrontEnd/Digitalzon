@@ -108,7 +108,7 @@ function SurveyModify({ posts, setPosts, location, user }) {
           profile1: [...options1],
           profile2: [...options2],
           profile3: [...options3],
-          state: params.params.state,
+          state: "승인대기",
           registrant: params.params.registrant,
           affiliation: params.params.affiliation,
           activation: params.params.activation,
@@ -128,7 +128,7 @@ function SurveyModify({ posts, setPosts, location, user }) {
       <Gnb user={user} />
       <div className="surveyModify">
         <div className="surveyModify-pageTitle-box">
-          <h3 className="surveyModify-pageTitle">신규설문 등록</h3>
+          <h3 className="surveyModify-pageTitle">설문 수정</h3>
         </div>
         <form className="surveyModify-form-box" action="/">
           <ul className="surveyModify-form-lists">

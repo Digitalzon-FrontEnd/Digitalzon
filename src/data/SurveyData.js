@@ -21,6 +21,7 @@ const surveyData = [
     affiliation: "개인",
     activation: true,
     sendStatus: true,
+    reasons: ""
   },
   {
     num: 18,
@@ -44,6 +45,7 @@ const surveyData = [
     affiliation: "개인",
     activation: true,
     sendStatus: true,
+    reasons: ""
   },
   {
     num: 17,
@@ -67,6 +69,7 @@ const surveyData = [
     affiliation: "개인",
     activation: true,
     sendStatus: true,
+    reasons: ""
   },
   {
     num: 16,
@@ -90,6 +93,7 @@ const surveyData = [
     affiliation: "개인",
     activation: true,
     sendStatus: true,
+    reasons: ""
   },
   {
     num: 15,
@@ -113,6 +117,7 @@ const surveyData = [
     affiliation: "개인",
     activation: true,
     sendStatus: false,
+    reasons: ""
   },
   {
     num: 14,
@@ -136,6 +141,7 @@ const surveyData = [
     affiliation: "개인2",
     activation: true,
     sendStatus: false,
+    reasons: ""
   },
   {
     num: 13,
@@ -159,6 +165,7 @@ const surveyData = [
     affiliation: "개인3",
     activation: true,
     sendStatus: true,
+    reasons: ""
   },
 
   {
@@ -183,6 +190,7 @@ const surveyData = [
     affiliation: "개인3",
     activation: true,
     sendStatus: true,
+    reasons: ""
   },
   {
     num: 11,
@@ -206,6 +214,7 @@ const surveyData = [
     affiliation: "개인3",
     activation: true,
     sendStatus: true,
+    reasons: ""
   },
   {
     num: 10,
@@ -229,6 +238,7 @@ const surveyData = [
     affiliation: "개인3",
     activation: false,
     sendStatus: false,
+    reasons: ""
   },
   {
     num: 9,
@@ -252,6 +262,7 @@ const surveyData = [
     affiliation: "개인3",
     activation: false,
     sendStatus: false,
+    reasons: ""
   },
   {
     num: 8,
@@ -275,6 +286,7 @@ const surveyData = [
     affiliation: "개인3",
     activation: false,
     sendStatus: false,
+    reasons: ""
   },
   {
     num: 7,
@@ -298,6 +310,7 @@ const surveyData = [
     affiliation: "개인3",
     activation: false,
     sendStatus: false,
+    reasons: ""
   },
 
   {
@@ -322,6 +335,7 @@ const surveyData = [
     affiliation: "개인3",
     activation: false,
     sendStatus: false,
+    reasons: ""
   },
   {
     num: 5,
@@ -345,6 +359,7 @@ const surveyData = [
     affiliation: "개인3",
     activation: false,
     sendStatus: false,
+    reasons: ""
   },
   {
     num: 4,
@@ -368,6 +383,7 @@ const surveyData = [
     affiliation: "개인3",
     activation: false,
     sendStatus: false,
+    reasons: ""
   },
   {
     num: 3,
@@ -391,6 +407,7 @@ const surveyData = [
     affiliation: "개인3",
     activation: false,
     sendStatus: false,
+    reasons: ""
   },
   {
     num: 2,
@@ -414,6 +431,7 @@ const surveyData = [
     affiliation: "개인3",
     activation: true,
     sendStatus: true,
+    reasons: ""
   },
   {
     num: 1,
@@ -437,6 +455,7 @@ const surveyData = [
     affiliation: "개인3",
     activation: true,
     sendStatus: false,
+    reasons: ""
   },
 ];
 // 설문 테스트 데이터

@@ -177,3 +177,7 @@
   transform: translateY(-50%);
   z-index: 0;
 }
+
+#svRgSurveyTitle, #svRgSurveyUrl{
+  width: 300px;
+}

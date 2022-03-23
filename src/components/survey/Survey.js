@@ -185,6 +185,7 @@ const Survey = ({
                   modifiedBy={data.modifiedBy}
                   modifiedDate={data.modifiedDate}
                   sendStatus={data.sendStatus}
+                  reasons={data.reasons}
                 />
               );
             })}
