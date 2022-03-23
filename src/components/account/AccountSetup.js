@@ -40,13 +40,16 @@ const AccountSetup = ({handleCreate, setUserList ,user}) => {
     }
     // 저장버튼 함수
 
+    const [userData, setUserData] =useState(null)
     useEffect(() => {
         let userData = JSON.parse(sessionStorage.getItem("userData")) || null;
+        console.log(userData)
         setUserData(userData);
     }, []);
-    const [userData, setUserData] =useState()
-    const createUser = useCallback((e) => {
-        e.preventDefault();
+
+
+    const createUser = useCallback((userData) => {
+        console.log(userData)
         let url = "https://digitalzone1.herokuapp.com/api/auth/signup";
         fetch(url, {
             method: "POST",
@@ -54,9 +57,9 @@ const AccountSetup = ({handleCreate, setUserList ,user}) => {
                 "Content-type": "application/json",
                 "Allow-Control-Access-Origin": "*",
         },
-    
+        
         body: JSON.stringify({
-            accontId: accountId.current.value, 
+            accountid: accountId.current.value, 
             accountpw: accountPw.current.value,
             checkpw: accountPw.current.value,
             username: username.current.value,
@@ -67,13 +70,12 @@ const AccountSetup = ({handleCreate, setUserList ,user}) => {
                     inputRefTwo.current.value +
                 "-" +
                     inputRefThree.current.value,
-                userco: userData.userco
+            userco: userData.userco
+            
             }),
             })
             .then((res) => res.json())
             .then((res) => {
-                sessionStorage.removeItem('userData');
-                sessionStorage.setItem("userData", JSON.stringify(res.data.user));
                 alert(res.message)
             })
             .catch((err) => {
@@ -81,7 +83,7 @@ const AccountSetup = ({handleCreate, setUserList ,user}) => {
             });
         }, []);
 
-
+        //console.log(userData.userco)
     return (
         <div>
             <Gnb user={user}/>
@@ -92,7 +94,10 @@ const AccountSetup = ({handleCreate, setUserList ,user}) => {
                         <Link to="/accountsetup"><p className="account-step"  id="accountStepEnter">계정생성</p></Link>
                         <Link to="/accountmanage"><p className="account-step">계정관리</p></Link>
                     </div>
-                    <form action="/accountsetup" onSubmit={submitAccount}>
+                    <form action="/accountsetup" onSubmit={(e) => {
+                        e.preventDefault();
+                        createUser(userData);
+                    }}>
                         <div className="account-change-info">
                             <div className="account-id">
                                 <label>아이디</label>
