@@ -91,7 +91,7 @@ const PostView = ({ posts, setPosts, user, location, history }) => {
               </thead>
               <tbody className="postview-tbody">
                 <tr>
-                  <td>주식회사({postItem.name}</td>
+                  <td>주식회사{postItem.name}</td>
                   <td>{postItem.statemanager}</td>
                   <td>{postItem.phonenumber}</td>
                   <td>{postItem.email}</td>
