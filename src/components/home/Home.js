@@ -88,9 +88,7 @@ function Home({ user, posts }) {
             return radioValue === data.surveySendState ? (
               <tr key={index}>
                 <td>{data.num}</td>
-                <span className="surveyName-span">
-                  <td>{data.surveyName}</td>
-                </span>{" "}
+                <td>{data.surveyName}</td>
                 <td>{data.date}</td>
                 <td>{data.needSample}</td>
                 <td>{data.completeSample}</td>

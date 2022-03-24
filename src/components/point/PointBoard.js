@@ -54,11 +54,6 @@ const PointBoard = ({ pointItems, setSelectPointItem, user }) => {
     let tmpItems = [...pointItems];
     if (!isEmpty(selectStartDate)) {
       tmpItems = tmpItems.filter((item) => {
-        console.log(
-          item.applyDate,
-          selectStartDate,
-          item.applyDate >= selectStartDate
-        );
         if (new Date(item.applyDate) >= new Date(selectStartDate)) {
           return item;
         }

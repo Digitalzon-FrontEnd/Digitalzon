@@ -1,15 +1,17 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import moment from "moment";
 import "./ManegePoint.css";
 import Gnb from "../common/Gnb";
 
-const ManagePoint = ({ 
-    point, setPoint, 
-    list, setList, 
-    user, 
-    pointItems, setPointItems, 
-    addList
-
+const ManagePoint = ({
+  point,
+  setPoint,
+  list,
+  setList,
+  user,
+  pointItems,
+  setPointItems,
+  addList,
 }) => {
   const [inputPoint, setInputPoint] = useState("");
   /* 충전포인트 input 값 */
@@ -20,11 +22,12 @@ const ManagePoint = ({
   const [refundAccount, setRefundAccount] = useState("");
   /* 환불계좌번호 input 값 */
 
+  const [userData, setUserData] = useState();
+
   const refundPoint1 = useRef(); //환불 input
   const inputPoint1 = useRef(); //충전 input
   const accountName1 = useRef(); //계좌명 input
   const refundAccount1 = useRef(); // 환불 계좌 input
-  
 
   const [select, setSelect] = useState("");
   /* 드랍박스 메뉴 */
@@ -32,14 +35,12 @@ const ManagePoint = ({
   let date = moment().format("YYYY-MM-DD");
   /* 날짜 */
 
-  
-
   const onSubmit = (e) => {
     e.preventDefault(); //새로고침방지
     if (inputPoint1.current.value === "") {
       alert("포인트 값을 입력해주세요.");
     } else {
-        chargeRequest();
+      chargeRequest();
       setPoint(Number(inputPoint1.current.value) + Number(point)); //number 처리를 해야 point 가 추가된다.
       addList(
         Number(inputPoint1.current.value) + Number(point),
@@ -54,42 +55,45 @@ const ManagePoint = ({
   };
 
   const refundRequest = () => {
-    const pDataList = [...pointItems]
+    const pDataList = [...pointItems];
     pDataList.unshift({
-        id: pDataList.length+1,
-        companyName: "gh기업",
-        managerName: "김병철",
-        phone: "010-000-0000",
-        email: "abcd1234@000.com",
-        pointAmount: refundPoint1.current.value,
-        division: "환불신청",
-        applyDate: date,
-        modifiedDate: date,
-        status: "접수",
-        modifiedBy: "해당없음",
-        record: []
-    })
+      id: pDataList.length + 1,
+      companyName: userData.userco,
+      managerName: userData.username,
+      phone: userData.phoneNumber,
+      email: userData.mail,
+      pointAmount: refundPoint1.current.value,
+      division: "환불신청",
+      applyDate: date,
+      modifiedDate: "",
+      status: "접수",
+      modifiedBy: "해당없음",
+      record: [],
+      bankName: select,
+      bankAccountNumber: refundPoint1.current.value,
+      bankUserName: accountName1.current.value,
+    });
     setPointItems(pDataList);
-  }
+  };
   /* 포인트 환불 신청 함수 */
   const chargeRequest = () => {
-    const pDataList = [...pointItems]
+    const pDataList = [...pointItems];
     pDataList.unshift({
-        id: pDataList.length+1,
-        companyName: "gh기업",
-        managerName: "김병철",
-        phone: "010-000-0000",
-        email: "abcd1234@000.com",
-        pointAmount: inputPoint1.current.value,
-        division: "충전",
-        applyDate: date,
-        modifiedDate: date,
-        status: "완료",
-        modifiedBy: "해당없음",
-        record: []
-    })
+      id: pDataList.length + 1,
+      companyName: userData.userco,
+      managerName: userData.username,
+      phone: userData.phoneNumber,
+      email: userData.mail,
+      pointAmount: inputPoint1.current.value,
+      division: "충전",
+      applyDate: date,
+      modifiedDate: date,
+      status: "완료",
+      modifiedBy: "해당없음",
+      record: [],
+    });
     setPointItems(pDataList);
-  }
+  };
   /* 포인트 충전 리스트 함수 */
 
   const refund = (e) => {
@@ -106,73 +110,78 @@ const ManagePoint = ({
     } else if (accountName1.current.value === "") {
       alert("계좌명을 입력해주세요");
     } else {
-        refundRequest()
-        
-      
-      
+      refundRequest();
     }
   };
   /* 포인트 환불 함수 */
 
+  useEffect(() => {
+    let userData = JSON.parse(sessionStorage.getItem("userData")) || null;
+    if (userData !== null) {
+      setUserData(userData);
+    }
+  }, []);
   return (
     <div className="inner_box Manage-inner">
       <Gnb user={user} />
       <div className="head-refund-wrap">
-      <div className="managePoint-header">
-        <h1>[보유포인트]</h1>
-        <span>{point} point</span>
-      </div> {/* 헤드 */}
-      <div className="managePoint-refund-box">
-        <form className="refund-input">
-          <span className="bank-option">
-            <select name="banktitle" id="bankTitle" onChange={selectChg}>
-              <option value="none">은행</option>
-              <option value="shinhan">신한은행</option>
-              <option value="kb">국민은행</option>
-              <option value="nh">농협은행</option>
-              <option value="기업">기업은행</option>
-              <option value="하나">하나은행</option>
-              <option value="카카오">카카오</option>
-              <option value="우리">우리은행</option>
-            </select>
-          </span>
-          <span>
-            <input
-              ref={refundAccount1}
-              type="number"
-              className="backaccount-input"
-              name="backAccountInput"
-              placeholder="환불계좌 입력"
-            />
-          </span>
-          <span>
-            <input
-              ref={accountName1}
-              type="text"
-              className="backaccount-title-input"
-              name="backaccountTitleInput"
-              placeholder="계좌명 입력"
-            />
-          </span>
-          <span>
-            <input
-              ref={refundPoint1}
-              className="refund-point-input"
-              name="refundPointInput"
-              type="number"
-              placeholder="환불포인트 입력"
-            />
-          </span>
-          <button onClick={refund} className="btn-refund">
-            환불신청
-          </button>
-          <div className="text-refund">
-            <p>* 보유 포인트 이하만 환불신청이 가능합니다.</p>
-          </div>
-        </form>
-      </div> {/* 환불 박스 */}
+        <div className="managePoint-header">
+          <h1>[보유포인트]</h1>
+          <span>{point} point</span>
+        </div>{" "}
+        {/* 헤드 */}
+        <div className="managePoint-refund-box">
+          <form className="refund-input">
+            <span className="bank-option">
+              <select name="banktitle" id="bankTitle" onChange={selectChg}>
+                <option value="none">은행</option>
+                <option value="shinhan">신한은행</option>
+                <option value="kb">국민은행</option>
+                <option value="nh">농협은행</option>
+                <option value="기업">기업은행</option>
+                <option value="하나">하나은행</option>
+                <option value="카카오">카카오</option>
+                <option value="우리">우리은행</option>
+              </select>
+            </span>
+            <span>
+              <input
+                ref={refundAccount1}
+                type="number"
+                className="backaccount-input"
+                name="backAccountInput"
+                placeholder="환불계좌 입력"
+              />
+            </span>
+            <span>
+              <input
+                ref={accountName1}
+                type="text"
+                className="backaccount-title-input"
+                name="backaccountTitleInput"
+                placeholder="계좌명 입력"
+              />
+            </span>
+            <span>
+              <input
+                ref={refundPoint1}
+                className="refund-point-input"
+                name="refundPointInput"
+                type="number"
+                placeholder="환불포인트 입력"
+              />
+            </span>
+            <button onClick={refund} className="btn-refund">
+              환불신청
+            </button>
+            <div className="text-refund">
+              <p>* 보유 포인트 이하만 환불신청이 가능합니다.</p>
+            </div>
+          </form>
+        </div>{" "}
+        {/* 환불 박스 */}
       </div>
-      
+
       <div className="managePoint-log-box">
         <h2>[사용내역]</h2>
         <ul className="managePoint-log-list">

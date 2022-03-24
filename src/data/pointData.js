@@ -12,6 +12,9 @@ const pointData = [
     status: "완료",
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
   {
     id: 20,
@@ -27,6 +30,9 @@ const pointData = [
 
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
   {
     id: 19,
@@ -41,6 +47,9 @@ const pointData = [
     status: "완료",
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
   {
     id: 18,
@@ -55,6 +64,9 @@ const pointData = [
     status: "완료",
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
   {
     id: 17,
@@ -69,6 +81,9 @@ const pointData = [
     status: "완료",
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
   {
     id: 16,
@@ -84,6 +99,9 @@ const pointData = [
 
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
   {
     id: 15,
@@ -99,6 +117,9 @@ const pointData = [
 
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
   {
     id: 14,
@@ -114,6 +135,9 @@ const pointData = [
 
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
   {
     id: 13,
@@ -129,6 +153,9 @@ const pointData = [
 
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
   {
     id: 12,
@@ -144,6 +171,9 @@ const pointData = [
 
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
   {
     id: 11,
@@ -159,6 +189,9 @@ const pointData = [
 
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
   {
     id: 10,
@@ -174,6 +207,9 @@ const pointData = [
 
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
   {
     id: 9,
@@ -189,6 +225,9 @@ const pointData = [
 
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
   {
     id: 8,
@@ -204,6 +243,9 @@ const pointData = [
 
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
   {
     id: 7,
@@ -219,6 +261,9 @@ const pointData = [
 
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
   {
     id: 6,
@@ -234,6 +279,9 @@ const pointData = [
 
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
   {
     id: 5,
@@ -249,6 +297,9 @@ const pointData = [
 
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
   {
     id: 4,
@@ -264,6 +315,9 @@ const pointData = [
 
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
   {
     id: 3,
@@ -279,6 +333,9 @@ const pointData = [
 
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
   {
     id: 2,
@@ -294,6 +351,9 @@ const pointData = [
 
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
   {
     id: 1,
@@ -309,6 +369,9 @@ const pointData = [
 
     modifiedBy: "해당없음",
     record: [],
+    bankName: "국민은행",
+    bankAccountNumber: "0000-0000-0000-00",
+    bankUserName: "홍길동",
   },
 ];
 export default pointData;

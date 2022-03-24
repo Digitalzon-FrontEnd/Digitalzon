@@ -7,6 +7,7 @@ function PublishQA({ tableInfo, setTableInfo }) {
   const [publishTitle, setPublishTitle] = useState("");
   const [publishText, setPublishText] = useState("");
   const [username, setUsername] = useState(null);
+  const [userDataId, setUserDataId] = useState(null);
 
   const publishTitleInput = useRef();
   const publishTextInput = useRef();
@@ -17,6 +18,7 @@ function PublishQA({ tableInfo, setTableInfo }) {
     let userData = JSON.parse(sessionStorage.getItem("userData")) || null;
     if (userData) {
       setUsername(userData.username);
+      setUserDataId(userData.id);
     }
   }, []);
   const publishInfo = () => {
@@ -27,6 +29,7 @@ function PublishQA({ tableInfo, setTableInfo }) {
     } else {
       const newPublishTitle = [...tableInfo];
       newPublishTitle.unshift({
+        id: userDataId,
         num: tableInfo.length + 1,
         title: publishTitleInput.current.value,
         date: created_date.toLocaleDateString().slice(0, -1),

@@ -112,7 +112,6 @@ const AccountManage = ({ userList, setUserList, user }) => {
   const searchFnc = () => {
     const userSelect = searchPoint.current.value;
     let userSearch = [...userLists];
-    console.log(userSearch);
     userSearch = userSearch.filter((findUser) => {
       if (
         findUser.accountid.indexOf(userSelect) !== -1 ||
@@ -123,7 +122,6 @@ const AccountManage = ({ userList, setUserList, user }) => {
         return findUser;
       }
     });
-    console.log(userSearch);
     setSearchTerm(userSearch);
   };
   // search 함수
@@ -159,7 +157,6 @@ const AccountManage = ({ userList, setUserList, user }) => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
         setUserLists(res.data.users);
       })
       .catch((err) => {

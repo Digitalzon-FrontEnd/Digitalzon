@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Profile.css";
 const Profile = ({ params }) => {
-  console.log(params)
   return (
     <div className="profile-box">
       <div className="inner-800">
@@ -60,7 +59,10 @@ const Profile = ({ params }) => {
           <h3 className="profile-sub-title">설문 승인 여부</h3>
           <div className="profile-sub-des-box">
             <span className="profile-sub-des">21.10.01 13:38 </span>
-            <span className="profile-sub-des">{params.state}{params.state === "승인거부" ? `(${params.reasons})` : null}</span>
+            <span className="profile-sub-des">
+              {params.state}
+              {params.state === "승인거부" ? `(${params.reasons})` : null}
+            </span>
           </div>
         </div>
         <div className="profile-footer-btn-box">
@@ -72,7 +74,9 @@ const Profile = ({ params }) => {
               },
             }}
           >
-            {params.state === "승인완료" ? null : <button className="profile-footer-btn btn-o  btn-s">수정</button>}
+            {params.state === "승인완료" ? null : (
+              <button className="profile-footer-btn btn-o  btn-s">수정</button>
+            )}
           </Link>
 
           <Link

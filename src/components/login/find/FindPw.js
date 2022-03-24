@@ -48,7 +48,6 @@ const FindPw = () => {
   /*  */
 
   const authNumFnc = useCallback(() => {
-    console.log(emailRef.current.value);
     let url = "https://digitalzone1.herokuapp.com/api/help/find/authnum";
     fetch(url, {
       method: "PUT",

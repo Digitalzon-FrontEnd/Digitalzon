@@ -9,7 +9,6 @@ function SurveyModify({ posts, setPosts, location, user }) {
 
   const history = useHistory();
   const params = location.state;
-  console.log(params);
   const dateData = params.params.date.replace(/\./gi, "-");
   const dateArr = dateData.split("~");
   dateArr[0] = dateArr[0].trim();

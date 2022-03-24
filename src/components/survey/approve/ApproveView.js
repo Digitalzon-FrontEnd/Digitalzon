@@ -63,7 +63,6 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
   }, []);
 
   const reasonRef = useRef();
-  console.log(reasonRef.current);
 
   return (
     <div className="inner">
@@ -133,12 +132,14 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
                             onSelectHandler(e);
                           }}
                           value={selectValue}
+                          disabled={
+                            surveyApproveItem.state === "승인완료" ? "true" : ""
+                          }
                         >
                           <option value="승인대기" color="#0000ff">
                             승인대기
                           </option>
                           <option value="승인완료">승인완료</option>
-
                           <option value="승인거부">승인거부</option>
                           <option value="설문종료">설문종료</option>
                         </select>

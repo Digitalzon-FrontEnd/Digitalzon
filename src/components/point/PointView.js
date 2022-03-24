@@ -4,11 +4,13 @@ import Gnb from "../common/Gnb";
 import { Link, useParams, useLocation } from "react-router-dom";
 import moment from "moment";
 
-const PointView = ({ 
-  pointItems, setPointItems, 
-  user ,
-  addList, 
-  point, setPoint
+const PointView = ({
+  pointItems,
+  setPointItems,
+  user,
+  addList,
+  point,
+  setPoint,
 }) => {
   const location = useLocation();
   const params = useParams();
@@ -16,14 +18,11 @@ const PointView = ({
   const pointItem = pointItems.find((item) => {
     return item.id === id;
   });
-
   const { currentPage, searchedItems } = location.state;
 
   const [prevSelectedValue, setPrevSelectValue] = useState("");
   const [selectValue, setSelectValue] = useState(pointItem.status);
-  
-  
-  
+
   const onSaveClick = () => {
     var now = moment();
     var date = now.format("YYYY-MM-DD HH:mm:ss");
@@ -34,9 +33,11 @@ const PointView = ({
       return;
     }
     if (prevSelectedValue === "") {
-      recordText = `· ${date}  김주리님이 상태를  ${selectValue} 로 변경하였습니다. `;
+      recordText = `· ${date}  ${userData.username}님이 상태를  ${selectValue} 로 변경하였습니다. `;
     } else {
-      recordText = `· ${date}  김주리님이 상태를 ${prevSelectedValue}에서 ${
+      recordText = `· ${date}  ${
+        userData.username
+      }님이 상태를 ${prevSelectedValue}에서 ${
         selectValue === "처리중" ? `${selectValue} 으로` : `${selectValue} 로`
       }   변경하였습니다. `;
     }
@@ -49,33 +50,35 @@ const PointView = ({
               record: [recordText, ...item.record],
               status: selectValue,
               modifiedDate: now.format("YYYY.MM.DD"),
-              modifiedBy: "관리자"
+              modifiedBy: userData.username,
             }
           : item
       )
     );
   };
   const addPointList = () => {
-    if(pointItem.division === '환불신청' && selectValue === '완료'){
-      pointItem.division = '환불완료';
+    if (pointItem.division === "환불신청" && selectValue === "완료") {
+      pointItem.division = "환불완료";
       setPoint(Number(point) - Number(pointItem.pointAmount));
       addList(
         Number(point) - Number(pointItem.pointAmount),
         `-${pointItem.pointAmount}`
-       
-      ); 
-      
-      
-    } else 
-    return 
-  }
-
+      );
+    } else return;
+  };
 
   const onSelectHandler = (e) => {
     setPrevSelectValue(selectValue);
     setSelectValue(e.target.value);
   };
+  const [userData, setUserData] = useState();
 
+  useEffect(() => {
+    let userData = JSON.parse(sessionStorage.getItem("userData")) || null;
+    if (userData !== null) {
+      setUserData(userData);
+    }
+  }, []);
   return (
     <div className="inner">
       <Gnb user={user} />
@@ -83,36 +86,39 @@ const PointView = ({
         <div className="point-details">
           <div className="point-details-inner">
             <div className="point-details-wrap">
-            <div className="row">
-              <span class="key">업체명</span>
-              <span class="value">{pointItem.companyName}</span>
-            </div>
-            <div className="row">
-              <span class="key">담당자명</span>
-              <span class="value">{pointItem.managerName}</span>
-            </div>
-            <div className="row">
-              <span class="key">연락처</span>
-              <span class="value">{pointItem.phone}</span>
-            </div>{" "}
-            <div className="row">
-              <span class="key">이메일</span>
-              <span class="value">{pointItem.email}</span>
-            </div>{" "}
-            <div className="row">
-              <span class="key">구분</span>
-              <span class="value">{pointItem.division}</span>
-            </div>{" "}
-            <div className="row">
-              <span class="key">포인트</span>
-              <span class="value">{pointItem.pointAmount}</span>
-            </div>
-            <div className="row">
-              <span class="key">계좌정보</span>
-              <span class="value">
-                기업은행 | 0000-0000-0000-00 | {pointItem.managerName}
-              </span>
-            </div>
+              <div className="row">
+                <span className="key">업체명</span>
+                <span className="value">{pointItem.companyName}</span>
+              </div>
+              <div className="row">
+                <span className="key">담당자명</span>
+                <span className="value">{pointItem.managerName}</span>
+              </div>
+              <div className="row">
+                <span className="key">연락처</span>
+                <span className="value">{pointItem.phone}</span>
+              </div>{" "}
+              <div className="row">
+                <span className="key">이메일</span>
+                <span className="value">{pointItem.email}</span>
+              </div>{" "}
+              <div className="row">
+                <span className="key">구분</span>
+                <span className="value">{pointItem.division}</span>
+              </div>{" "}
+              <div className="row">
+                <span className="key">포인트</span>
+                <span className="value">{pointItem.pointAmount}</span>
+              </div>
+              <div className="row">
+                <span className="key">계좌정보</span>
+                <span className="value">
+                  {pointItem.division === "충전"
+                    ? null
+                    : `${pointItem.bankName} | ${pointItem.bankAccountNumber} |
+                  ${pointItem.bankUserName}`}
+                </span>
+              </div>
             </div>
           </div>{" "}
           <span className="point-details-select-menu">
@@ -124,20 +130,26 @@ const PointView = ({
                   onSelectHandler(e);
                 }}
                 value={selectValue}
-                disabled={pointItem.division === "충전" || pointItem.status === "완료" ? "true" : ""}
+                disabled={
+                  pointItem.division === "충전" || pointItem.status === "완료"
+                    ? true
+                    : ""
+                }
               >
                 <option value="접수">접수</option>
-
                 <option value="처리 중">처리 중</option>
                 <option value="완료">완료</option>
               </select>
             </span>
-            <button className="save-btn btn-o" 
-            onClick={() => { 
-                onSaveClick()
-                addPointList() }}>
+            <button
+              className="save-btn btn-o"
+              onClick={() => {
+                onSaveClick();
+                addPointList();
+              }}
+            >
               저장
-            </button> 
+            </button>
             <Link
               to={{
                 pathname: `/point/board`,

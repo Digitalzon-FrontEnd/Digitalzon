@@ -94,7 +94,6 @@ const AccountChange = ({ user }) => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
         sessionStorage.removeItem("userData");
         sessionStorage.setItem("userData", JSON.stringify(res.data.user));
         alert(res.message);
@@ -106,7 +105,6 @@ const AccountChange = ({ user }) => {
   const userDataAuthority = JSON.parse(
     sessionStorage.getItem("userData")
   ).authority;
-  console.log(token);
   useEffect(() => {
     let accessToken = JSON.parse(sessionStorage.getItem("accessToken")) || null;
     if (accessToken !== null) {

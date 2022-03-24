@@ -7,6 +7,8 @@ import { useHistory } from "react-router-dom";
 
 function MainQA({ location, tableInfo, user }) {
   const [username, setUsername] = useState(null);
+  const [userDataId, setUserDataId] = useState(null);
+
   const history = useHistory();
   useEffect(() => {
     if (location.state === undefined) {
@@ -49,11 +51,11 @@ function MainQA({ location, tableInfo, user }) {
   const tableInputClick = () => {
     tableserachFnc();
   };
-
   useEffect(() => {
     let userData = JSON.parse(sessionStorage.getItem("userData")) || null;
     if (userData) {
       setUsername(userData.username);
+      setUserDataId(userData.id);
     }
     if (userData.authority === "1" || userData.authority === "0") {
       setIsUserChecked(true);
@@ -61,8 +63,6 @@ function MainQA({ location, tableInfo, user }) {
       setIsUserChecked(false);
     }
   }, []);
-  console.log(isUserChecked);
-  console.log(username);
   return (
     <div className="mainqa">
       <Gnb user={user} />
@@ -100,7 +100,7 @@ function MainQA({ location, tableInfo, user }) {
               <tr key={index}>
                 <td>{a.num}</td>
                 <td>
-                  {isUserChecked || a.user === username ? (
+                  {isUserChecked || a.id === userDataId ? (
                     <Link
                       to={{
                         pathname: `/mainqa/detailqa/${a.num}`,

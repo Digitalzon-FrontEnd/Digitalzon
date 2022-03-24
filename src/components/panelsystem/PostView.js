@@ -109,7 +109,7 @@ const PostView = ({ posts, setPosts, user, location, history }) => {
               name="접수"
               id="postview-select"
               onChange={selectChange}
-              disabled={selectValue === "완료" ? "true" : ""}
+              disabled={postItem.state === "완료" ? "true" : ""}
             >
               {options.map((option) => (
                 <option key={option.value} value={option.value}>

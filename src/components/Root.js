@@ -361,6 +361,7 @@ const Root = () => {
   /* 패널시스템 현황 데이터 */
   let [tableInfo, setTableInfo] = useState([
     {
+      id: 11,
       num: "11",
       title: "Q&A 게시판",
       date: "2021.10.15",
@@ -369,6 +370,7 @@ const Root = () => {
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
     },
     {
+      id: 10,
       num: "10",
       title: "Q&A 게시판",
       date: "2021.10.10",
@@ -377,6 +379,7 @@ const Root = () => {
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
     },
     {
+      id: 9,
       num: "9",
       title: "Q&A 게시판",
       date: "2021.10.03",
@@ -385,6 +388,7 @@ const Root = () => {
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
     },
     {
+      id: 8,
       num: "8",
       title: "Q&A 게시판",
       date: "2021.09.30",
@@ -393,6 +397,7 @@ const Root = () => {
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
     },
     {
+      id: 7,
       num: "7",
       title: "Q&A 게시판",
       date: "2021.09.28",
@@ -401,6 +406,7 @@ const Root = () => {
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.  ",
     },
     {
+      id: 6,
       num: "6",
       title: "Q&A 게시판",
       date: "2021.09.17",
@@ -408,6 +414,7 @@ const Root = () => {
       content: "Many desktop publishing packages",
     },
     {
+      id: 5,
       num: "5",
       title: "Q&A 게시판",
       date: "2021.09.08",
@@ -416,6 +423,7 @@ const Root = () => {
         "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it",
     },
     {
+      id: 4,
       num: "4",
       title: "Q&A 게시판",
       date: "2021.08.28",
@@ -423,6 +431,7 @@ const Root = () => {
       content: "Many desktop publishing packages",
     },
     {
+      id: 3,
       num: "3",
       title: "Q&A 게시판",
       date: "2021.08.13",
@@ -430,6 +439,7 @@ const Root = () => {
       content: "Many desktop publishing packages",
     },
     {
+      id: 2,
       num: "2",
       title: "Q&A 게시판",
       date: "2021.07.28",
@@ -437,6 +447,7 @@ const Root = () => {
       content: "Many desktop publishing packages",
     },
     {
+      id: 1,
       num: "1",
       title: "Q&A 게시판",
       date: "2021.07.10",

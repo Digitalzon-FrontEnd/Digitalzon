@@ -23,7 +23,6 @@ const Login = ({ setUser, setIsUserLogin }) => {
     })
       .then((res) => res.json())
       .then(({ data }) => {
-        console.log(data);
         sessionStorage.setItem("accessToken", JSON.stringify(data.accessToken));
         sessionStorage.setItem("userData", JSON.stringify(data.user));
       })
