@@ -106,7 +106,7 @@ const InfoInput = () => {
       return;
     } else if (!switchOn) {
       // alert("이메일인증을 완료해주세요");
-      emailCheck.current.focus();
+      // emailCheck.current.focus();
     }
 
     let url = "https://digitalzone1.herokuapp.com/api/auth/signup";
