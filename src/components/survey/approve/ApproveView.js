@@ -43,7 +43,7 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
               modifiedDate: now.format("YYYY.MM.DD"),
               modifiedBy: "관리자",
               activation: selectValue === "승인완료" ? true : false,
-              reasons : reasonRef.current.value
+              reasons: reasonRef.current.value,
             }
           : item
       )
@@ -52,7 +52,6 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
   const onSelectHandler = (e) => {
     setPrevSelectValue(selectValue);
     setSelectValue(e.target.value);
-
   };
 
   const [userData, setUserData] = useState(null);
@@ -64,8 +63,7 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
   }, []);
 
   const reasonRef = useRef();
-  console.log(reasonRef.current)
-
+  console.log(reasonRef.current);
 
   return (
     <div className="inner">
@@ -154,7 +152,7 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
                       type="text"
                       placeholder="사유를 입력해주세요"
                       ref={reasonRef}
-                    ></input> 
+                    ></input>
                   </li>
                 </ul>
               </div>
@@ -168,7 +166,7 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
 
               <Link
                 to={{
-                  pathname: `/survey/approve/board`,
+                  pathname: `/approve/board`,
                   state: {
                     currentPage: currentPage,
                     searchedItems: searchedItems,
