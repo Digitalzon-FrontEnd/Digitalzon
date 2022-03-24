@@ -28,7 +28,6 @@ const PostList = ({ posts, user, location }) => {
   const searchBtn = () => {
     const searchBtn1 = searchPanel1.current.value;
     let searchPanel = [...posts];
-    console.log("searchBtn1:", searchBtn1);
     searchPanel = searchPanel.filter((value) => {
       console.log(value);
       if (
