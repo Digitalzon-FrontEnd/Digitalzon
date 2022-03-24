@@ -93,7 +93,7 @@ const PostView = ({ posts, setPosts, user, location, history }) => {
                 <tr>
                   <td>주식회사{postItem.name}</td>
                   <td>{postItem.statemanager}</td>
-                  <td>{postItem.phonenumber}</td>
+                  <td>{postItem.phone}</td>
                   <td>{postItem.email}</td>
                   <td>{postItem.panelContent}</td>
                 </tr>

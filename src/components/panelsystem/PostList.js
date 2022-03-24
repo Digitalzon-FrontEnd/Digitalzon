@@ -117,7 +117,7 @@ const PostList = ({ posts, user, location }) => {
                     {item.name}
                   </Link>
                 </td>
-                <td>{item.phonenumber}</td>
+                <td>{item.phone}</td>
                 <td>{item.email}</td>
                 <td>{item.date}</td>
                 <td>{item.statedate}</td>

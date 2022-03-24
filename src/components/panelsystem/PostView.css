@@ -54,6 +54,7 @@
   flex-direction: column;
   font-weight: 700;
   border: none;
+  width: 300px;
 }
 .postview-thead td {
   position: relative;
