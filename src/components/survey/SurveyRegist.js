@@ -182,7 +182,7 @@ function SurveyRegist({ modalClose, posts, setPosts }) {
             />
           </li>
           <li className="svRg-form-list">
-            <label htmlFor="svRgFileName">방송패널 등록</label>
+            <label htmlFor="svRgFileName">발송패널 등록</label>
             <input
               id="svRgFileRegister"
               type="file"
@@ -380,10 +380,7 @@ function SurveyRegist({ modalClose, posts, setPosts }) {
             </ul>
           </li>
           <li className="svRg-form-list" id="svRgSubmitBtnList">
-            <button
-              className="svRg-btn-submit btn- btn-o"
-              type="submit"
-            >
+            <button className="svRg-btn-submit btn- btn-o" type="submit">
               저장
             </button>
           </li>

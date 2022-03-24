@@ -21,12 +21,12 @@ const surveyData = [
     affiliation: "개인",
     activation: true,
     sendStatus: true,
-    reasons: ""
+    reasons: "",
   },
   {
     num: 18,
     link: "http://www.survey15.com",
-    surveyName: "삼성 비스포크 냉장고 만족도 조사",
+    surveyName: "LG 노트북 사용자 만족도 조사",
     date: "2022-03-11 ~ 2022-05-28",
     needSample: 500,
     completeSample: 10,
@@ -45,12 +45,12 @@ const surveyData = [
     affiliation: "개인",
     activation: true,
     sendStatus: true,
-    reasons: ""
+    reasons: "",
   },
   {
     num: 17,
     link: "http://www.survey15.com",
-    surveyName: "패널인증시스템 수요도 조사",
+    surveyName: "백다방 사용자 만족도 조사",
     date: "2021-10-28 ~ 2021-11-28",
     needSample: 500,
     completeSample: 10,
@@ -69,12 +69,12 @@ const surveyData = [
     affiliation: "개인",
     activation: true,
     sendStatus: true,
-    reasons: ""
+    reasons: "",
   },
   {
     num: 16,
     link: "http://www.survey15.com",
-    surveyName: "비대면 시장조사 필요성 인식 조사",
+    surveyName: "홍콩반점 사용자 만족도 조사",
     date: "2022-05-28 ~ 2022-05-28",
     needSample: 500,
     completeSample: 10,
@@ -93,12 +93,12 @@ const surveyData = [
     affiliation: "개인",
     activation: true,
     sendStatus: true,
-    reasons: ""
+    reasons: "",
   },
   {
     num: 15,
     link: "http://www.survey15.com",
-    surveyName: "전국지표조사",
+    surveyName: "엑스퍼트아카데미 사용자 만족도 조사",
     date: "2021-10-28 ~ 2021-11-28",
     needSample: 500,
     completeSample: 10,
@@ -117,12 +117,12 @@ const surveyData = [
     affiliation: "개인",
     activation: true,
     sendStatus: false,
-    reasons: ""
+    reasons: "",
   },
   {
     num: 14,
     link: "http://www.survey15.com",
-    surveyName: "갤럭시S21 사용자 만족도 조사14",
+    surveyName: "디지털존 사용자 만족도 조사",
     date: "2021-10-11 ~ 2021-11-22",
     needSample: 5200,
     completeSample: 20,
@@ -141,12 +141,12 @@ const surveyData = [
     affiliation: "개인2",
     activation: true,
     sendStatus: false,
-    reasons: ""
+    reasons: "",
   },
   {
     num: 13,
     link: "http://www.survey15.com",
-    surveyName: "갤럭시S21 사용자 만족도 조사3",
+    surveyName: "베스킨라빈스 사용자 만족도 조사",
     date: "2021-10-11 ~ 2021-11-22",
     needSample: 5200,
     completeSample: 20,
@@ -165,13 +165,13 @@ const surveyData = [
     affiliation: "개인3",
     activation: true,
     sendStatus: true,
-    reasons: ""
+    reasons: "",
   },
 
   {
     num: 12,
     link: "http://www.survey15.com",
-    surveyName: "갤럭시S21 사용자 만족도 조사3",
+    surveyName: "SKT 사용자 만족도 조사",
     date: "2022-03-11 ~ 2022-04-22",
     needSample: 5200,
     completeSample: 30,
@@ -190,12 +190,12 @@ const surveyData = [
     affiliation: "개인3",
     activation: true,
     sendStatus: true,
-    reasons: ""
+    reasons: "",
   },
   {
     num: 11,
     link: "http://www.survey15.com",
-    surveyName: "갤럭시S21 사용자 만족도 조사3",
+    surveyName: "KT 사용자 만족도 조사",
     date: "2022-10-11 ~ 2022-11-22",
     needSample: 5200,
     completeSample: 240,
@@ -214,12 +214,12 @@ const surveyData = [
     affiliation: "개인3",
     activation: true,
     sendStatus: true,
-    reasons: ""
+    reasons: "",
   },
   {
     num: 10,
     link: "http://www.survey15.com",
-    surveyName: "갤럭시S21 사용자 만족도 조사3",
+    surveyName: "갤럭시S21 사용자 만족도 조사",
     date: "2021-10-11 ~ 2021-11-22",
     needSample: 5200,
     completeSample: 290,
@@ -238,12 +238,12 @@ const surveyData = [
     affiliation: "개인3",
     activation: false,
     sendStatus: false,
-    reasons: ""
+    reasons: "",
   },
   {
     num: 9,
     link: "http://www.survey15.com",
-    surveyName: "갤럭시S21 사용자 만족도 조사3",
+    surveyName: "알뜰폰 사용자 만족도 조사",
     date: "2021-10-11 ~ 2021-11-22",
     needSample: 5200,
     completeSample: 920,
@@ -262,12 +262,12 @@ const surveyData = [
     affiliation: "개인3",
     activation: false,
     sendStatus: false,
-    reasons: ""
+    reasons: "",
   },
   {
     num: 8,
     link: "http://www.survey15.com",
-    surveyName: "갤럭시S21 사용자 만족도 조사3",
+    surveyName: "SBS 사용자 만족도 조사",
     date: "2021-10-11 ~ 2021-11-22",
     needSample: 5200,
     completeSample: 1020,
@@ -286,12 +286,12 @@ const surveyData = [
     affiliation: "개인3",
     activation: false,
     sendStatus: false,
-    reasons: ""
+    reasons: "",
   },
   {
     num: 7,
     link: "http://www.survey15.com",
-    surveyName: "갤럭시S21 사용자 만족도 조사3",
+    surveyName: "MBC 사용자 만족도 조사",
     date: "2021-10-11 ~ 2021-11-22",
     needSample: 5200,
     completeSample: 2320,
@@ -310,13 +310,13 @@ const surveyData = [
     affiliation: "개인3",
     activation: false,
     sendStatus: false,
-    reasons: ""
+    reasons: "",
   },
 
   {
     num: 6,
     link: "http://www.survey15.com",
-    surveyName: "갤럭시S21 사용자 만족도 조사3",
+    surveyName: "YTN 사용자 만족도 조사",
     date: "2021-10-11 ~ 2021-11-22",
     needSample: 5200,
     completeSample: 5200,
@@ -335,12 +335,12 @@ const surveyData = [
     affiliation: "개인3",
     activation: false,
     sendStatus: false,
-    reasons: ""
+    reasons: "",
   },
   {
     num: 5,
     link: "http://www.survey15.com",
-    surveyName: "갤럭시S21 사용자 만족도 조사3",
+    surveyName: "JTBC 사용자 만족도 조사",
     date: "2021-10-11 ~ 2021-11-22",
     needSample: 5200,
     completeSample: 1220,
@@ -359,12 +359,12 @@ const surveyData = [
     affiliation: "개인3",
     activation: false,
     sendStatus: false,
-    reasons: ""
+    reasons: "",
   },
   {
     num: 4,
     link: "http://www.survey15.com",
-    surveyName: "갤럭시S21 사용자 만족도 조사3",
+    surveyName: "네이버 사용자 만족도 조사",
     date: "2021-10-11 ~ 2021-11-22",
     needSample: 5200,
     completeSample: 2320,
@@ -383,12 +383,12 @@ const surveyData = [
     affiliation: "개인3",
     activation: false,
     sendStatus: false,
-    reasons: ""
+    reasons: "",
   },
   {
     num: 3,
     link: "http://www.survey15.com",
-    surveyName: "갤럭시S21 사용자 만족도 조사",
+    surveyName: "카카오 사용자 만족도 조사",
     date: "2021-10-11 ~ 2021-11-22",
     needSample: 5200,
     completeSample: 4120,
@@ -407,12 +407,12 @@ const surveyData = [
     affiliation: "개인3",
     activation: false,
     sendStatus: false,
-    reasons: ""
+    reasons: "",
   },
   {
     num: 2,
     link: "http://www.survey15.com",
-    surveyName: "갤럭시워치 사용자 만족도 조사",
+    surveyName: "토스 사용자 만족도 조사",
     date: "2021-10-11 ~ 2021-11-22",
     needSample: 5200,
     completeSample: 4420,
@@ -431,12 +431,13 @@ const surveyData = [
     affiliation: "개인3",
     activation: true,
     sendStatus: true,
-    reasons: ""
+    reasons: "",
   },
   {
     num: 1,
     link: "http://www.survey15.com",
-    surveyName: "갤럭시S21 사용자 만족도 조사3",
+    surveyName: "카카오페이 사용자 만족도 조사",
+
     date: "2021-10-11 ~ 2021-11-22",
     needSample: 5200,
     completeSample: 2011,
@@ -455,7 +456,7 @@ const surveyData = [
     affiliation: "개인3",
     activation: true,
     sendStatus: false,
-    reasons: ""
+    reasons: "",
   },
 ];
 // 설문 테스트 데이터

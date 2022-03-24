@@ -166,7 +166,11 @@ const Survey = ({
                   setPosts={setPosts}
                   key={data.num}
                   num={data.num}
-                  surveyName={data.surveyName}
+                  surveyName={
+                    data.surveyName.length < 15
+                      ? data.surveyName
+                      : data.surveyName.substring(0, 15) + "..."
+                  }
                   date={data.date}
                   needSample={data.needSample}
                   completeSample={data.completeSample}

@@ -60,6 +60,10 @@
   height: 44px;
 }
 
+.survey-table td:nth-child(3):hover {
+  text-decoration: underline;
+}
+
 .survey-table #surveyChoice {
   width: 40px;
 }

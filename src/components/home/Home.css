@@ -29,8 +29,8 @@
 .qa-table td {
   height: 44px;
   border-bottom: 1px solid #ebebeb;
+  line-height: 44px;
 }
-
 #num {
   width: 67px;
 }

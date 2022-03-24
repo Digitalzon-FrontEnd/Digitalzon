@@ -15,7 +15,7 @@ const surveyApproveData = [
 
   {
     id: 19,
-    surveyName: "갤럭시S21 사용자 만족도 조사",
+    surveyName: "애플 사용자 만족도 조사",
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
@@ -29,7 +29,7 @@ const surveyApproveData = [
 
   {
     id: 18,
-    surveyName: "갤럭시S21 사용자 만족도 조사",
+    surveyName: "LG 노트북 사용자 만족도 조사",
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
@@ -43,7 +43,7 @@ const surveyApproveData = [
 
   {
     id: 17,
-    surveyName: "갤럭시S21 사용자 만족도 조사",
+    surveyName: "백다방 사용자 만족도 조사",
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
@@ -57,7 +57,7 @@ const surveyApproveData = [
 
   {
     id: 16,
-    surveyName: "갤럭시S21 사용자 만족도 조사",
+    surveyName: "홍콩반점 사용자 만족도 조사",
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
@@ -71,7 +71,7 @@ const surveyApproveData = [
 
   {
     id: 15,
-    surveyName: "갤럭시S21 사용자 만족도 조사",
+    surveyName: "엑스퍼트아카데미 사용자 만족도 조사",
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
@@ -85,7 +85,7 @@ const surveyApproveData = [
 
   {
     id: 14,
-    surveyName: "갤럭시S21 사용자 만족도 조사",
+    surveyName: "디지털존 사용자 만족도 조사",
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
@@ -99,7 +99,7 @@ const surveyApproveData = [
 
   {
     id: 13,
-    surveyName: "갤럭시S21 사용자 만족도 조사",
+    surveyName: "베스킨라빈스 사용자 만족도 조사",
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
@@ -113,7 +113,7 @@ const surveyApproveData = [
 
   {
     id: 12,
-    surveyName: "갤럭시S21 사용자 만족도 조사",
+    surveyName: "SKT 사용자 만족도 조사",
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
@@ -127,7 +127,7 @@ const surveyApproveData = [
 
   {
     id: 11,
-    surveyName: "갤럭시S21 사용자 만족도 조사",
+    surveyName: "KT 사용자 만족도 조사",
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
@@ -154,7 +154,7 @@ const surveyApproveData = [
   },
   {
     id: 9,
-    surveyName: "갤럭시S21 사용자 만족도 조사",
+    surveyName: "알뜰폰 사용자 만족도 조사",
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
@@ -167,7 +167,7 @@ const surveyApproveData = [
   },
   {
     id: 8,
-    surveyName: "갤럭시S21 사용자 만족도 조사",
+    surveyName: "SBS 사용자 만족도 조사",
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
@@ -180,7 +180,7 @@ const surveyApproveData = [
   },
   {
     id: 7,
-    surveyName: "갤럭시S21 사용자 만족도 조사",
+    surveyName: "MBC 사용자 만족도 조사",
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
@@ -193,7 +193,7 @@ const surveyApproveData = [
   },
   {
     id: 6,
-    surveyName: "갤럭시S21 사용자 만족도 조사",
+    surveyName: "YTN 사용자 만족도 조사",
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
@@ -206,7 +206,7 @@ const surveyApproveData = [
   },
   {
     id: 5,
-    surveyName: "갤럭시S21 사용자 만족도 조사",
+    surveyName: "JTBC 사용자 만족도 조사",
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
@@ -219,7 +219,7 @@ const surveyApproveData = [
   },
   {
     id: 4,
-    surveyName: "갤럭시S21 사용자 만족도 조사",
+    surveyName: "네이버 사용자 만족도 조사",
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
@@ -232,7 +232,7 @@ const surveyApproveData = [
   },
   {
     id: 3,
-    surveyName: "갤럭시S21 사용자 만족도 조사",
+    surveyName: "카카오 사용자 만족도 조사",
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
@@ -245,7 +245,7 @@ const surveyApproveData = [
   },
   {
     id: 2,
-    surveyName: "갤럭시S21 사용자 만족도 조사",
+    surveyName: "토스 사용자 만족도 조사",
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
@@ -258,7 +258,7 @@ const surveyApproveData = [
   },
   {
     id: 1,
-    surveyName: "갤럭시S21 사용자 만족도 조사",
+    surveyName: "카카오페이 사용자 만족도 조사",
     surveyRequestDate: "2021.10.28~2021.11.28",
     needSampleCount: "500",
     completeSampleCount: "0",
