@@ -74,6 +74,7 @@ const ManagePoint = ({
       bankUserName: accountName1.current.value,
     });
     setPointItems(pDataList);
+    alert("환불신청이 완료되었습니다.")
   };
   /* 포인트 환불 신청 함수 */
   const chargeRequest = () => {

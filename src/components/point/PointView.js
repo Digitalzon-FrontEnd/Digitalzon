@@ -88,7 +88,7 @@ const PointView = ({
             <div className="point-details-wrap">
               <div className="row">
                 <span className="key">업체명</span>
-                <span className="value">{pointItem.companyName}</span>
+                <span className="value">{pointItem.companyName ? pointItem.companyName : "개인" }</span>
               </div>
               <div className="row">
                 <span className="key">담당자명</span>
