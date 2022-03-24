@@ -285,6 +285,7 @@ const AccountManage = ({ userList, setUserList, user }) => {
                       name="accountid"
                       maxLength="20"
                       onChange={onChange}
+                      readOnly
                       //value,defaultValue로 넣어주면 input값 변경되지않음 ref 사용해서 변경
                     ></input>
                   </div>
