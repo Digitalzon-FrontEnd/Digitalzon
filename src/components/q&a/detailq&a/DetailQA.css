@@ -24,7 +24,7 @@
   flex-grow: 1;
 }
 .table {
-  margin: 100px auto 0;
+  margin: 100px auto 60px;
   width: 794px;
   border: 1px solid #ebebeb;
   border-radius: 20px;
@@ -93,12 +93,12 @@
 }
 .btn-list {
   width: 794px;
-  margin: 26px auto 100px;
+  margin: 19px auto 18px;
   text-align: end;
   font-size: 16px;
 }
 .btn-list button {
-  width: 120px;
+  width: 92px;
   height: 36px;
   margin: 8px;
   border: none;
