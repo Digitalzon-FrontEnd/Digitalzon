@@ -46,7 +46,7 @@
 .surveyApproveDetails-box .details-left .row {
   margin-left: 9px;
   height: 60px;
-  width: 269px;
+  width: 500px;
   font-size: 12px;
   font-weight: 600;
   color: #545147;
@@ -73,7 +73,7 @@
   text-align: center;
 }
 .surveyApproveDetails-box .value {
-  margin-left: 73px;
+  margin-left: 50px;
 }
 
 .surveyApproveDetails-box .row:last-child {
