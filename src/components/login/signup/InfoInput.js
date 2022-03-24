@@ -105,7 +105,7 @@ const InfoInput = () => {
       pwCheckValue.current.value = "";
       return;
     } else if (!switchOn) {
-      alert("이메일인증을 완료해주세요");
+      // alert("이메일인증을 완료해주세요");
       emailCheck.current.focus();
     }
 
