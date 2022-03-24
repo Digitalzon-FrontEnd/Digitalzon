@@ -66,22 +66,7 @@ const InfoInput = () => {
   const pwValue = useRef();
   const pwCheckValue = useRef();
   const emailCheck = useRef();
-  const handleSubmit = (e) => {
-    const inputValue = (i) => {
-      return i.current.value;
-    };
-    if (inputValue(pwValue) !== inputValue(pwCheckValue)) {
-      e.preventDefault();
-      alert("비밀번호가 일치하지 않습니다");
-      pwValue.current.focus();
-      pwValue.current.value = "";
-      pwCheckValue.current.value = "";
-    } else if (!switchOn) {
-      e.preventDefault();
-      alert("이메일인증을 완료해주세요");
-      emailCheck.current.focus();
-    }
-  };
+
   // 지금은 submit이랑 백엔드랑 할 수 없으니 일단은 action="/complete"로 하고 추후수정
 
   const accountid = useRef();
@@ -90,7 +75,40 @@ const InfoInput = () => {
   const [userco, setUserco] = useState(null);
   const [userconum, setUserconum] = useState(null);
 
+  const inputValue = (i) => {
+    return i.current.value;
+  };
+  const $ = (selector) => {
+    return document.querySelector(selector);
+  };
+  const lengthcheck = (e) => {
+    const value = e.target.value;
+    const length = e.target.maxLength;
+    if (value.length === length) {
+      $(`#accountCallNum${length - 1}`).focus();
+    }
+  };
+  // 휴대폰번호 칸 관련 함수
+  const maxlengthCheck = (e) => {
+    const value = e.target.value;
+    const length = e.target.maxLength;
+    if (value.length > length) {
+      $(`#sendAuth`).focus();
+    }
+  };
+
   const createUser = useCallback(() => {
+    if (inputValue(pwValue) !== inputValue(pwCheckValue)) {
+      alert("비밀번호가 일치하지 않습니다");
+      pwValue.current.focus();
+      pwValue.current.value = "";
+      pwCheckValue.current.value = "";
+      return;
+    } else if (!switchOn) {
+      alert("이메일인증을 완료해주세요");
+      emailCheck.current.focus();
+    }
+
     let url = "https://digitalzone1.herokuapp.com/api/auth/signup";
     fetch(url, {
       method: "POST",
@@ -126,24 +144,24 @@ const InfoInput = () => {
   const checkUser = useCallback(() => {
     let url = "https://digitalzone1.herokuapp.com/api/auth/signup/check/id";
     fetch(url, {
-        method: "POST",
-        headers: {
-            "Content-type": "application/json",
-            "Allow-Control-Access-Origin": "*",
-    },
-    
-    body: JSON.stringify({
-        accountid: accountid.current.value, 
-        }),
-        })
-        .then((res) => res.json())
-        .then((res) => {
-            alert(res.message)
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-    }, []);
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "Allow-Control-Access-Origin": "*",
+      },
+
+      body: JSON.stringify({
+        accountid: accountid.current.value,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        alert(res.message);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div className="inner">
@@ -224,7 +242,9 @@ const InfoInput = () => {
               <div className="idBox">
                 <label>아이디</label>
                 <input type="id" name="userId" required ref={accountid}></input>
-                <button type="button" onClick={checkUser}>중복확인</button>
+                <button type="button" onClick={checkUser}>
+                  중복확인
+                </button>
               </div>
               <div className="userNameBox">
                 <label>사용자 이름</label>
@@ -277,30 +297,39 @@ const InfoInput = () => {
               <div className="callBox">
                 <label>휴대폰 번호</label>
                 <input
+                  id="accountCallNum1"
                   className="inifinput-phonenumber"
                   type="number"
                   name="phoneNumber"
                   required
                   ref={cellNum}
+                  onKeyUp={lengthcheck}
                   min={0}
+                  maxLength="3"
                 ></input>
                 <input
+                  id="accountCallNum2"
                   className="inifinput-phonenumber"
                   type="number"
                   name="phoneNumber"
                   required
                   ref={cellNum2}
+                  onKeyUp={lengthcheck}
                   min={0}
+                  maxLength="4"
                 ></input>
                 <input
+                  id="accountCallNum3"
                   className="inifinput-phonenumber"
                   type="number"
                   name="phoneNumber"
                   required
                   ref={cellNum3}
                   min={0}
+                  maxlength={4}
+                  onKeyUp={maxlengthCheck}
                 ></input>
-                <button type="button" onClick={alertSendCertNum}>
+                <button id="sendAuth" type="button" onClick={alertSendCertNum}>
                   인증번호 발송
                 </button>
               </div>
