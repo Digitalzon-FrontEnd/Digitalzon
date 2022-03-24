@@ -56,7 +56,7 @@ const panelData = [
   },
   {
     number: "11",
-    name: "L",
+    name: "(주)파이퀀트",
     phonenumber: "010-xxxx-xxxx",
     email: "22222@gmail.com",
     date: "2021-11-28",
@@ -89,7 +89,7 @@ const panelData = [
   },
   {
     number: "8",
-    name: "H",
+    name: "(주)아이아라",
     phonenumber: "010-xxxx-xxxx",
     email: "22222@gmail.com",
     date: "2021-08-04",
@@ -155,7 +155,7 @@ const panelData = [
   },
   {
     number: "2",
-    name: "(주)헌터글로벌",
+    name: "(주)한터글로벌",
     phonenumber: "010-xxxx-xxxx",
     email: "22222@gmail.com",
     date: "2021-04-05",
@@ -166,7 +166,7 @@ const panelData = [
   },
   {
     number: "1",
-    name: "(주)헌터글로벌",
+    name: "(주)한터글로벌",
     phonenumber: "010-xxxx-xxxx",
     email: "22222@gmail.com",
     date: "2021-03-04",
