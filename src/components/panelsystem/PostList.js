@@ -29,13 +29,14 @@ const PostList = ({ posts, user, location }) => {
     const searchBtn1 = searchPanel1.current.value;
     let searchPanel = [...posts];
     searchPanel = searchPanel.filter((value) => {
+      console.log(value);
       if (
         value.name.indexOf(searchBtn1) !== -1 ||
         value.number.indexOf(searchBtn1) !== -1 ||
         value.state.indexOf(searchBtn1) !== -1 ||
         value.statemanager.indexOf(searchBtn1) !== -1 ||
         value.email.indexOf(searchBtn1) !== -1 ||
-        value.phonenumber.indexOf(searchBtn1) !== -1
+        value.phone.indexOf(searchBtn1) !== -1
       ) {
         return value;
       }
@@ -117,7 +118,7 @@ const PostList = ({ posts, user, location }) => {
                     {item.name}
                   </Link>
                 </td>
-                <td>{item.phonenumber}</td>
+                <td>{item.phone}</td>
                 <td>{item.email}</td>
                 <td>{item.date}</td>
                 <td>{item.statedate}</td>

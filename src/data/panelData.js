@@ -1,7 +1,7 @@
 const panelData = [
   {
     number: "16",
-    name: "Q",
+    name: "(주)디지털존",
     phonenumber: "010-xxxx-xxxx",
     email: "22222@gmail.com",
     date: "2022-02-04",
@@ -12,7 +12,7 @@ const panelData = [
   },
   {
     number: "15",
-    name: "P",
+    name: "(주)아이아라",
     phonenumber: "010-xxxx-xxxx",
     email: "22222@gmail.com",
     date: "2022-02-04",
@@ -23,7 +23,7 @@ const panelData = [
   },
   {
     number: "14",
-    name: "O",
+    name: "(주)아이아라",
     phonenumber: "010-xxxx-xxxx",
     email: "22222@gmail.com",
     date: "2022-01-22",
@@ -34,7 +34,7 @@ const panelData = [
   },
   {
     number: "13",
-    name: "N",
+    name: "(주)엑스퍼트",
     phonenumber: "010-xxxx-xxxx",
     email: "22222@gmail.com",
     date: "2022-01-15",
@@ -45,7 +45,7 @@ const panelData = [
   },
   {
     number: "12",
-    name: "M",
+    name: "(주)엑스퍼트",
     phonenumber: "010-xxxx-xxxx",
     email: "22222@gmail.com",
     date: "2021-12-28",
@@ -56,7 +56,7 @@ const panelData = [
   },
   {
     number: "11",
-    name: "L",
+    name: "(주)파이퀀트",
     phonenumber: "010-xxxx-xxxx",
     email: "22222@gmail.com",
     date: "2021-11-28",
@@ -67,7 +67,7 @@ const panelData = [
   },
   {
     number: "10",
-    name: "K",
+    name: "(주)파이퀀트",
     phonenumber: "010-xxxx-xxxx",
     email: "22222@gmail.com",
     date: "2021-10-28",
@@ -78,7 +78,7 @@ const panelData = [
   },
   {
     number: "9",
-    name: "J",
+    name: "(주)파이퀀트",
     phonenumber: "010-xxxx-xxxx",
     email: "22222@gmail.com",
     date: "2021-09-04",
@@ -89,7 +89,7 @@ const panelData = [
   },
   {
     number: "8",
-    name: "H",
+    name: "(주)아이아라",
     phonenumber: "010-xxxx-xxxx",
     email: "22222@gmail.com",
     date: "2021-08-04",
@@ -100,7 +100,7 @@ const panelData = [
   },
   {
     number: "7",
-    name: "G",
+    name: "(주)아이아라",
     phonenumber: "010-xxxx-xxxx",
     email: "22222@gmail.com",
     date: "2021-07-10",
@@ -111,7 +111,7 @@ const panelData = [
   },
   {
     number: "6",
-    name: "F",
+    name: "(주)아이아라",
     phonenumber: "010-xxxx-xxxx",
     email: "22222@gmail.com",
     date: "2021-07-04",
@@ -122,7 +122,7 @@ const panelData = [
   },
   {
     number: "5",
-    name: "E",
+    name: "(주)대흥정보",
     phonenumber: "010-xxxx-xxxx",
     email: "22222@gmail.com",
     date: "2021-06-04",
@@ -133,7 +133,7 @@ const panelData = [
   },
   {
     number: "4",
-    name: "D",
+    name: "(주)대흥정보",
     phonenumber: "010-xxxx-xxxx",
     email: "22222@gmail.com",
     date: "2021-05-10",
@@ -144,7 +144,7 @@ const panelData = [
   },
   {
     number: "3",
-    name: "C",
+    name: "(주)디지털존",
     phonenumber: "010-xxxx-xxxx",
     email: "22222@gmail.com",
     date: "2021-05-04",
@@ -155,7 +155,7 @@ const panelData = [
   },
   {
     number: "2",
-    name: "B",
+    name: "(주)한터글로벌",
     phonenumber: "010-xxxx-xxxx",
     email: "22222@gmail.com",
     date: "2021-04-05",
@@ -166,7 +166,7 @@ const panelData = [
   },
   {
     number: "1",
-    name: "A",
+    name: "(주)한터글로벌",
     phonenumber: "010-xxxx-xxxx",
     email: "22222@gmail.com",
     date: "2021-03-04",

@@ -18,6 +18,7 @@ const PostView = ({ posts, setPosts, user, location, history }) => {
   const [selectValue, setSelectValue] = useState(postItem.state);
 
   let logTime = moment().format("YYYY-MM-DD HH:mm:ss");
+  let date = moment().format("YYYY-MM-DD");
   /* 날짜 */
 
   let recordTxt = `· ${logTime} ${username} 님이 상태를 ${prevState} 에서 ${selectValue} ${
@@ -41,7 +42,7 @@ const PostView = ({ posts, setPosts, user, location, history }) => {
             item.statemanager = username;
 
             item.state = selectValue;
-            item.statedate = logTime;
+            item.statedate = date;
           }
           return item;
         })
@@ -90,9 +91,9 @@ const PostView = ({ posts, setPosts, user, location, history }) => {
               </thead>
               <tbody className="postview-tbody">
                 <tr>
-                  <td>주식회사({postItem.name}</td>
+                  <td>주식회사{postItem.name}</td>
                   <td>{postItem.statemanager}</td>
-                  <td>{postItem.phonenumber}</td>
+                  <td>{postItem.phone}</td>
                   <td>{postItem.email}</td>
                   <td>{postItem.panelContent}</td>
                 </tr>

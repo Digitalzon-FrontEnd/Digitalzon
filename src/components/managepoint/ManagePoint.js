@@ -70,10 +70,11 @@ const ManagePoint = ({
       modifiedBy: "해당없음",
       record: [],
       bankName: select,
-      bankAccountNumber: refundPoint1.current.value,
+      bankAccountNumber: refundAccount1.current.value,
       bankUserName: accountName1.current.value,
     });
     setPointItems(pDataList);
+    alert("환불신청이 완료되었습니다.");
   };
   /* 포인트 환불 신청 함수 */
   const chargeRequest = () => {
@@ -150,7 +151,7 @@ const ManagePoint = ({
                 type="number"
                 className="backaccount-input"
                 name="backAccountInput"
-                placeholder="환불계좌 입력"
+                placeholder="환불계좌 입력(-빼고)"
               />
             </span>
             <span>

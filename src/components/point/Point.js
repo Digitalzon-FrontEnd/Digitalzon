@@ -20,7 +20,7 @@ const Point = ({ onPointClick, pointItem, currentPage, searchedItems }) => {
               },
             }}
           >
-            {pointItem.companyName}
+           {pointItem.companyName ? pointItem.companyName : "개인" } 
           </Link>
         </td>
         <td>{pointItem.phone}</td>
