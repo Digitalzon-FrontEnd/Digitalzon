@@ -102,7 +102,11 @@ const ApproveView = ({ surveyApproveItems, setPosts, user }) => {
                 <li>· 필요샘플 수 : {surveyApproveItem.needSample}</li>
                 <li>· 참여포인트 : {surveyApproveItem.pointPerPerson} point</li>
                 <li>· 설문기간 : {surveyApproveItem.date}</li>
-                <li>· 발송패널 수 : 2500건</li>
+                <li>
+                  · 발송패널 수 :
+                  {surveyApproveItem.needSample *
+                    surveyApproveItem.pointPerPerson}
+                </li>
                 <li>
                   <span>· 설문 프로파일 </span>
                   <span className="survey-profile-container">

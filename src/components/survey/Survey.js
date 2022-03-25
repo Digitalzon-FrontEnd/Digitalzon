@@ -7,11 +7,13 @@ import Gnb from "../common/Gnb";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Survey = ({
+  point,
   totalIndexPosts,
   setPosts,
   user,
   AllDataPosts,
   location,
+  setPoint,
 }) => {
   const history = useHistory();
   const surveyInputRef = useRef();
@@ -99,6 +101,8 @@ const Survey = ({
             post={totalIndexPosts[totalIndexPosts.length - index]}
             setPosts={setPosts}
             posts={totalIndexPosts}
+            point={point}
+            setPoint={setPoint}
             component="SurveySendModal"
           />
         )}

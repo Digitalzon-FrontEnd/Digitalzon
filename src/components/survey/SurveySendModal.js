@@ -2,7 +2,14 @@ import React, { useEffect } from "react";
 import { numberComma } from "../../util/NumberComma";
 import "./SurveySendModal.css";
 
-const SurveySendModal = ({ modalClose, post, setPosts, posts }) => {
+const SurveySendModal = ({
+  setPoint,
+  point,
+  modalClose,
+  post,
+  setPosts,
+  posts,
+}) => {
   useEffect(() => {
     if (post.sendStatus) {
       alert("전송이 완료된 설문입니다.");
@@ -11,6 +18,7 @@ const SurveySendModal = ({ modalClose, post, setPosts, posts }) => {
   }, []);
 
   const updateSendStatus = () => {
+    setPoint(point - post.pointPerPerson * post.needSample);
     const updatePosts = [...posts];
     for (let data of updatePosts) {
       if (data.num === post.num) {
@@ -19,6 +27,7 @@ const SurveySendModal = ({ modalClose, post, setPosts, posts }) => {
     }
     setPosts(updatePosts);
   };
+  console.log(point);
   return (
     <div className="SurveySendModal-box">
       <div className="SurveySendModal-top-box">

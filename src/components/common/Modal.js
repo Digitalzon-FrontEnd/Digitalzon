@@ -3,7 +3,15 @@ import SurveyRegist from "../survey/SurveyRegist";
 import SurveySendModal from "../survey/SurveySendModal";
 import "./Modal.css";
 
-const Modal = ({ modalClose, post, posts, setPosts, component }) => {
+const Modal = ({
+  setPoint,
+  point,
+  modalClose,
+  post,
+  posts,
+  setPosts,
+  component,
+}) => {
   const onCloseModal = (e) => {
     if (e.target === e.currentTarget) {
       modalClose();
@@ -19,6 +27,8 @@ const Modal = ({ modalClose, post, posts, setPosts, component }) => {
             modalClose={modalClose}
             setPosts={setPosts}
             posts={posts}
+            point={point}
+            setPoint={setPoint}
           />
         ) : null}
         {component === "SurveyRegist" ? (

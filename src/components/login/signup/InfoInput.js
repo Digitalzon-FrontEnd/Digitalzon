@@ -66,22 +66,11 @@ const InfoInput = () => {
   const pwValue = useRef();
   const pwCheckValue = useRef();
   const emailCheck = useRef();
-  const handleSubmit = (e) => {
-    const inputValue = (i) => {
-      return i.current.value;
-    };
-    if (inputValue(pwValue) !== inputValue(pwCheckValue)) {
-      e.preventDefault();
-      alert("비밀번호가 일치하지 않습니다");
-      pwValue.current.focus();
-      pwValue.current.value = "";
-      pwCheckValue.current.value = "";
-    } else if (!switchOn) {
-      e.preventDefault();
-      alert("이메일인증을 완료해주세요");
-      emailCheck.current.focus();
-    }
+
+  const inputValue = (i) => {
+    return i.current.value;
   };
+
   // 지금은 submit이랑 백엔드랑 할 수 없으니 일단은 action="/complete"로 하고 추후수정
 
   const accountid = useRef();
@@ -90,60 +79,71 @@ const InfoInput = () => {
   const [userco, setUserco] = useState(null);
   const [userconum, setUserconum] = useState(null);
 
-  const createUser = useCallback(() => {
-    let url = "https://digitalzone1.herokuapp.com/api/auth/signup";
+  const createUser = useCallback(
+    (e) => {
+      console.log(pwValue);
+      if (inputValue(pwValue) !== inputValue(pwCheckValue)) {
+        alert("비밀번호가 일치하지 않습니다");
+        pwValue.current.focus();
+        pwValue.current.value = "";
+        pwCheckValue.current.value = "";
+      } else if (!switchOn) {
+        alert("이메일인증을 완료해주세요");
+        emailCheck.current.focus();
+      }
+      let url = "https://digitalzone1.herokuapp.com/api/auth/signup";
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          "Allow-Control-Access-Origin": "*",
+        },
+        body: JSON.stringify({
+          memcheck: showCorp ? "1" : "0", //  법인 1 | 개인 0
+          accountid: accountid.current.value,
+          accountpw: pwValue.current.value,
+          username: username.current.value,
+          mail: mail.current.value,
+          phoneNumber:
+            cellNum.current.value +
+            "-" +
+            cellNum2.current.value +
+            "-" +
+            cellNum3.current.value,
+          userco: userco,
+          userconum: userconum,
+        }),
+      })
+        .then((res) => res.json())
+        .then((res) => {})
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    [showCorp, userco, userconum]
+  );
+
+  const checkUser = useCallback(() => {
+    let url = "https://digitalzone1.herokuapp.com/api/auth/signup/check/id";
     fetch(url, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
         "Allow-Control-Access-Origin": "*",
       },
+
       body: JSON.stringify({
-        memcheck: showCorp ? "1" : "0", //  법인 1 | 개인 0
         accountid: accountid.current.value,
-        accountpw: pwValue.current.value,
-        username: username.current.value,
-        mail: mail.current.value,
-        phoneNumber:
-          cellNum.current.value +
-          "-" +
-          cellNum2.current.value +
-          "-" +
-          cellNum3.current.value,
-        userco: userco,
-        userconum: userconum,
       }),
     })
       .then((res) => res.json())
       .then((res) => {
-        history.push("/complete");
+        alert(res.message);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [showCorp, userco, userconum]);
-
-  const checkUser = useCallback(() => {
-    let url = "https://digitalzone1.herokuapp.com/api/auth/signup/check/id";
-    fetch(url, {
-        method: "POST",
-        headers: {
-            "Content-type": "application/json",
-            "Allow-Control-Access-Origin": "*",
-    },
-    
-    body: JSON.stringify({
-        accountid: accountid.current.value, 
-        }),
-        })
-        .then((res) => res.json())
-        .then((res) => {
-            alert(res.message)
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-    }, []);
+  }, []);
 
   return (
     <div className="inner">
@@ -159,7 +159,7 @@ const InfoInput = () => {
         </div>
         <form
           className="registerBox"
-          action="/complete"
+          // action="/complete"
           onSubmit={(e) => {
             e.preventDefault();
             createUser();
@@ -173,6 +173,7 @@ const InfoInput = () => {
               <label id="checkMbs">
                 회원구분
                 <button
+                  type="button"
                   onClick={() => {
                     setopenModal(true);
                   }}
@@ -224,7 +225,9 @@ const InfoInput = () => {
               <div className="idBox">
                 <label>아이디</label>
                 <input type="id" name="userId" required ref={accountid}></input>
-                <button type="button" onClick={checkUser}>중복확인</button>
+                <button type="button" onClick={checkUser}>
+                  중복확인
+                </button>
               </div>
               <div className="userNameBox">
                 <label>사용자 이름</label>

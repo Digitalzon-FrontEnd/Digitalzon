@@ -647,6 +647,8 @@ const Root = () => {
             currentPage={currentPage}
             user={user}
             AllDataPosts={posts}
+            point={point}
+            setPoint={setPoint}
           />
         )}
       />
