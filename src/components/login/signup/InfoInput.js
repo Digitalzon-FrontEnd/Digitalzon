@@ -67,13 +67,6 @@ const InfoInput = () => {
   const pwCheckValue = useRef();
   const emailCheck = useRef();
 
-<<<<<<< HEAD
-  const inputValue = (i) => {
-    return i.current.value;
-  };
-
-=======
->>>>>>> c820009491903a4e163f8f2d6ce8752468df6eb9
   // 지금은 submit이랑 백엔드랑 할 수 없으니 일단은 action="/complete"로 하고 추후수정
 
   const accountid = useRef();
@@ -82,54 +75,6 @@ const InfoInput = () => {
   const [userco, setUserco] = useState(null);
   const [userconum, setUserconum] = useState(null);
 
-<<<<<<< HEAD
-  const createUser = useCallback(
-    (e) => {
-      console.log(pwValue);
-      if (inputValue(pwValue) !== inputValue(pwCheckValue)) {
-        alert("비밀번호가 일치하지 않습니다");
-        pwValue.current.focus();
-        pwValue.current.value = "";
-        pwCheckValue.current.value = "";
-      } else if (!switchOn) {
-        alert("이메일인증을 완료해주세요");
-        emailCheck.current.focus();
-      }
-      let url = "https://digitalzone1.herokuapp.com/api/auth/signup";
-      fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-          "Allow-Control-Access-Origin": "*",
-        },
-        body: JSON.stringify({
-          memcheck: showCorp ? "1" : "0", //  법인 1 | 개인 0
-          accountid: accountid.current.value,
-          accountpw: pwValue.current.value,
-          username: username.current.value,
-          mail: mail.current.value,
-          phoneNumber:
-            cellNum.current.value +
-            "-" +
-            cellNum2.current.value +
-            "-" +
-            cellNum3.current.value,
-          userco: userco,
-          userconum: userconum,
-        }),
-      })
-        .then((res) => res.json())
-        .then((res) => {})
-        .catch((err) => {
-          console.log(err);
-        });
-    },
-    [showCorp, userco, userconum]
-  );
-
-  const checkUser = useCallback(() => {
-    let url = "https://digitalzone1.herokuapp.com/api/auth/signup/check/id";
-=======
   const inputValue = (i) => {
     return i.current.value;
   };
@@ -165,7 +110,6 @@ const InfoInput = () => {
     }
 
     let url = "https://digitalzone1.herokuapp.com/api/auth/signup";
->>>>>>> c820009491903a4e163f8f2d6ce8752468df6eb9
     fetch(url, {
       method: "POST",
       headers: {
@@ -184,8 +128,6 @@ const InfoInput = () => {
       .catch((err) => {
         console.log(err);
       });
-<<<<<<< HEAD
-=======
   }, [showCorp, userco, userconum]);
 
   const checkUser = useCallback(() => {
@@ -208,7 +150,6 @@ const InfoInput = () => {
       .catch((err) => {
         console.log(err);
       });
->>>>>>> c820009491903a4e163f8f2d6ce8752468df6eb9
   }, []);
 
   return (
